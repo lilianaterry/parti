@@ -1,0 +1,466 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F98083392020E98C00CB91C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98083382020E98C00CB91C0 /* AppDelegate.swift */; };
+		F980833B2020E98C00CB91C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F980833A2020E98C00CB91C0 /* ViewController.swift */; };
+		F980833E2020E98C00CB91C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F980833C2020E98C00CB91C0 /* Main.storyboard */; };
+		F98083412020E98C00CB91C0 /* Parti.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F980833F2020E98C00CB91C0 /* Parti.xcdatamodeld */; };
+		F98083432020E98C00CB91C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F98083422020E98C00CB91C0 /* Assets.xcassets */; };
+		F98083462020E98C00CB91C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F98083442020E98C00CB91C0 /* LaunchScreen.storyboard */; };
+		F98083512020E98C00CB91C0 /* PartiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98083502020E98C00CB91C0 /* PartiTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F980834D2020E98C00CB91C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F980832D2020E98C00CB91C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F98083342020E98C00CB91C0;
+			remoteInfo = Parti;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F98083352020E98C00CB91C0 /* Parti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parti.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F98083382020E98C00CB91C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F980833A2020E98C00CB91C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F980833D2020E98C00CB91C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F98083402020E98C00CB91C0 /* Parti.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Parti.xcdatamodel; sourceTree = "<group>"; };
+		F98083422020E98C00CB91C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F98083452020E98C00CB91C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F98083472020E98C00CB91C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F980834C2020E98C00CB91C0 /* PartiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PartiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F98083502020E98C00CB91C0 /* PartiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartiTests.swift; sourceTree = "<group>"; };
+		F98083522020E98C00CB91C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F98083322020E98C00CB91C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F98083492020E98C00CB91C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F980832C2020E98B00CB91C0 = {
+			isa = PBXGroup;
+			children = (
+				F98083372020E98C00CB91C0 /* Parti */,
+				F980834F2020E98C00CB91C0 /* PartiTests */,
+				F98083362020E98C00CB91C0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F98083362020E98C00CB91C0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F98083352020E98C00CB91C0 /* Parti.app */,
+				F980834C2020E98C00CB91C0 /* PartiTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F98083372020E98C00CB91C0 /* Parti */ = {
+			isa = PBXGroup;
+			children = (
+				F98083382020E98C00CB91C0 /* AppDelegate.swift */,
+				F980833A2020E98C00CB91C0 /* ViewController.swift */,
+				F980833C2020E98C00CB91C0 /* Main.storyboard */,
+				F98083422020E98C00CB91C0 /* Assets.xcassets */,
+				F98083442020E98C00CB91C0 /* LaunchScreen.storyboard */,
+				F98083472020E98C00CB91C0 /* Info.plist */,
+				F980833F2020E98C00CB91C0 /* Parti.xcdatamodeld */,
+			);
+			path = Parti;
+			sourceTree = "<group>";
+		};
+		F980834F2020E98C00CB91C0 /* PartiTests */ = {
+			isa = PBXGroup;
+			children = (
+				F98083502020E98C00CB91C0 /* PartiTests.swift */,
+				F98083522020E98C00CB91C0 /* Info.plist */,
+			);
+			path = PartiTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F98083342020E98C00CB91C0 /* Parti */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F98083552020E98C00CB91C0 /* Build configuration list for PBXNativeTarget "Parti" */;
+			buildPhases = (
+				F98083312020E98C00CB91C0 /* Sources */,
+				F98083322020E98C00CB91C0 /* Frameworks */,
+				F98083332020E98C00CB91C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Parti;
+			productName = Parti;
+			productReference = F98083352020E98C00CB91C0 /* Parti.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F980834B2020E98C00CB91C0 /* PartiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F98083582020E98C00CB91C0 /* Build configuration list for PBXNativeTarget "PartiTests" */;
+			buildPhases = (
+				F98083482020E98C00CB91C0 /* Sources */,
+				F98083492020E98C00CB91C0 /* Frameworks */,
+				F980834A2020E98C00CB91C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F980834E2020E98C00CB91C0 /* PBXTargetDependency */,
+			);
+			name = PartiTests;
+			productName = PartiTests;
+			productReference = F980834C2020E98C00CB91C0 /* PartiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F980832D2020E98C00CB91C0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Arjun Gopisetty";
+				TargetAttributes = {
+					F98083342020E98C00CB91C0 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					F980834B2020E98C00CB91C0 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F98083342020E98C00CB91C0;
+					};
+				};
+			};
+			buildConfigurationList = F98083302020E98C00CB91C0 /* Build configuration list for PBXProject "Parti" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F980832C2020E98B00CB91C0;
+			productRefGroup = F98083362020E98C00CB91C0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F98083342020E98C00CB91C0 /* Parti */,
+				F980834B2020E98C00CB91C0 /* PartiTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F98083332020E98C00CB91C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F98083462020E98C00CB91C0 /* LaunchScreen.storyboard in Resources */,
+				F98083432020E98C00CB91C0 /* Assets.xcassets in Resources */,
+				F980833E2020E98C00CB91C0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F980834A2020E98C00CB91C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F98083312020E98C00CB91C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F980833B2020E98C00CB91C0 /* ViewController.swift in Sources */,
+				F98083412020E98C00CB91C0 /* Parti.xcdatamodeld in Sources */,
+				F98083392020E98C00CB91C0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F98083482020E98C00CB91C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F98083512020E98C00CB91C0 /* PartiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F980834E2020E98C00CB91C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F98083342020E98C00CB91C0 /* Parti */;
+			targetProxy = F980834D2020E98C00CB91C0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F980833C2020E98C00CB91C0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F980833D2020E98C00CB91C0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F98083442020E98C00CB91C0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F98083452020E98C00CB91C0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F98083532020E98C00CB91C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F98083542020E98C00CB91C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F98083562020E98C00CB91C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RWK7TT7K5A;
+				INFOPLIST_FILE = Parti/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ArjunGopisetty.Parti;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F98083572020E98C00CB91C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RWK7TT7K5A;
+				INFOPLIST_FILE = Parti/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ArjunGopisetty.Parti;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F98083592020E98C00CB91C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RWK7TT7K5A;
+				INFOPLIST_FILE = PartiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ArjunGopisetty.PartiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Parti.app/Parti";
+			};
+			name = Debug;
+		};
+		F980835A2020E98C00CB91C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RWK7TT7K5A;
+				INFOPLIST_FILE = PartiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ArjunGopisetty.PartiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Parti.app/Parti";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F98083302020E98C00CB91C0 /* Build configuration list for PBXProject "Parti" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F98083532020E98C00CB91C0 /* Debug */,
+				F98083542020E98C00CB91C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F98083552020E98C00CB91C0 /* Build configuration list for PBXNativeTarget "Parti" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F98083562020E98C00CB91C0 /* Debug */,
+				F98083572020E98C00CB91C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F98083582020E98C00CB91C0 /* Build configuration list for PBXNativeTarget "PartiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F98083592020E98C00CB91C0 /* Debug */,
+				F980835A2020E98C00CB91C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F980833F2020E98C00CB91C0 /* Parti.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F98083402020E98C00CB91C0 /* Parti.xcdatamodel */,
+			);
+			currentVersion = F98083402020E98C00CB91C0 /* Parti.xcdatamodel */;
+			path = Parti.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F980832D2020E98C00CB91C0 /* Project object */;
+}
