@@ -6,6 +6,7 @@ target 'Parti' do
   use_frameworks!
 
   # Pods for Parti
+  pod 'Firebase'
   pod 'Firebase/Core'  
 
   target 'PartiTests' do
