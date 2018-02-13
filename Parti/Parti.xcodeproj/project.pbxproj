@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		72010AD622A41822683A38FB /* Pods_PartiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E244EE0C128A7FFDF762FC8 /* Pods_PartiTests.framework */; };
 		A32A1471EFBDCA3FE1C1159F /* Pods_Parti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9080EFC5FCBA1E589BF070E7 /* Pods_Parti.framework */; };
-		F96F82EC2022128500071BC1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F96F82EB2022128500071BC1 /* GoogleService-Info.plist */; };
-		F96F82ED2022128500071BC1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F96F82EB2022128500071BC1 /* GoogleService-Info.plist */; };
+		F90031B82031F4F300B9FA75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F90031B72031F4F300B9FA75 /* GoogleService-Info.plist */; };
 		F98083392020E98C00CB91C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98083382020E98C00CB91C0 /* AppDelegate.swift */; };
 		F980833B2020E98C00CB91C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F980833A2020E98C00CB91C0 /* ViewController.swift */; };
 		F980833E2020E98C00CB91C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F980833C2020E98C00CB91C0 /* Main.storyboard */; };
@@ -37,7 +36,7 @@
 		63B6FC8F97C734959DDF4681 /* Pods-Parti.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parti.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Parti/Pods-Parti.debug.xcconfig"; sourceTree = "<group>"; };
 		6B78CE827A6A446D397842D4 /* Pods-PartiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PartiTests/Pods-PartiTests.release.xcconfig"; sourceTree = "<group>"; };
 		9080EFC5FCBA1E589BF070E7 /* Pods_Parti.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parti.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F96F82EB2022128500071BC1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F90031B72031F4F300B9FA75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F98083352020E98C00CB91C0 /* Parti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98083382020E98C00CB91C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F980833A2020E98C00CB91C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		F980832C2020E98B00CB91C0 = {
 			isa = PBXGroup;
 			children = (
+				F90031B72031F4F300B9FA75 /* GoogleService-Info.plist */,
 				F98083372020E98C00CB91C0 /* Parti */,
 				F980834F2020E98C00CB91C0 /* PartiTests */,
 				F98083362020E98C00CB91C0 /* Products */,
@@ -114,7 +114,6 @@
 		F98083372020E98C00CB91C0 /* Parti */ = {
 			isa = PBXGroup;
 			children = (
-				F96F82EB2022128500071BC1 /* GoogleService-Info.plist */,
 				F98083382020E98C00CB91C0 /* AppDelegate.swift */,
 				F980833A2020E98C00CB91C0 /* ViewController.swift */,
 				F980833C2020E98C00CB91C0 /* Main.storyboard */,
@@ -225,7 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F98083462020E98C00CB91C0 /* LaunchScreen.storyboard in Resources */,
-				F96F82EC2022128500071BC1 /* GoogleService-Info.plist in Resources */,
+				F90031B82031F4F300B9FA75 /* GoogleService-Info.plist in Resources */,
 				F98083432020E98C00CB91C0 /* Assets.xcassets in Resources */,
 				F980833E2020E98C00CB91C0 /* Main.storyboard in Resources */,
 			);
@@ -235,7 +234,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F96F82ED2022128500071BC1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,7 +508,7 @@
 				DEVELOPMENT_TEAM = RWK7TT7K5A;
 				INFOPLIST_FILE = Parti/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ArjunGopisetty.Parti;
+				PRODUCT_BUNDLE_IDENTIFIER = com.UTApps.Parti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -526,7 +524,7 @@
 				DEVELOPMENT_TEAM = RWK7TT7K5A;
 				INFOPLIST_FILE = Parti/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ArjunGopisetty.Parti;
+				PRODUCT_BUNDLE_IDENTIFIER = com.UTApps.Parti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
