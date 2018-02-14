@@ -7,7 +7,14 @@ target 'Parti' do
 
   # Pods for Parti
   pod 'Firebase'
-  pod 'Firebase/Core'  
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+
+  # Pods for authentication
+  pod 'GoogleSignIn'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
+  pod 'TwitterKit'	
 
   target 'PartiTests' do
     inherit! :search_paths

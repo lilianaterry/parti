@@ -17,6 +17,9 @@
 		F98083432020E98C00CB91C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F98083422020E98C00CB91C0 /* Assets.xcassets */; };
 		F98083462020E98C00CB91C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F98083442020E98C00CB91C0 /* LaunchScreen.storyboard */; };
 		F98083512020E98C00CB91C0 /* PartiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98083502020E98C00CB91C0 /* PartiTests.swift */; };
+		F9DAE4242034967A0060B851 /* UIViewController+Alerts.m in Sources */ = {isa = PBXBuildFile; fileRef = F9DAE4232034967A0060B851 /* UIViewController+Alerts.m */; };
+		F9DAE42620349FFA0060B851 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DAE42520349FFA0060B851 /* ProfileController.swift */; };
+		F9DAE4282034A3BB0060B851 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DAE4272034A3BB0060B851 /* EmailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,11 @@
 		F980834C2020E98C00CB91C0 /* PartiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PartiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98083502020E98C00CB91C0 /* PartiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartiTests.swift; sourceTree = "<group>"; };
 		F98083522020E98C00CB91C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9DAE421203494630060B851 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		F9DAE4222034967A0060B851 /* UIViewController+Alerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Alerts.h"; sourceTree = "<group>"; };
+		F9DAE4232034967A0060B851 /* UIViewController+Alerts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Alerts.m"; sourceTree = "<group>"; };
+		F9DAE42520349FFA0060B851 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		F9DAE4272034A3BB0060B851 /* EmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +122,10 @@
 		F98083372020E98C00CB91C0 /* Parti */ = {
 			isa = PBXGroup;
 			children = (
+				F9DAE4272034A3BB0060B851 /* EmailViewController.swift */,
+				F9DAE4222034967A0060B851 /* UIViewController+Alerts.h */,
+				F9DAE4232034967A0060B851 /* UIViewController+Alerts.m */,
+				F9DAE421203494630060B851 /* BridgingHeader.h */,
 				F98083382020E98C00CB91C0 /* AppDelegate.swift */,
 				F980833A2020E98C00CB91C0 /* ViewController.swift */,
 				F980833C2020E98C00CB91C0 /* Main.storyboard */,
@@ -121,6 +133,7 @@
 				F98083442020E98C00CB91C0 /* LaunchScreen.storyboard */,
 				F98083472020E98C00CB91C0 /* Info.plist */,
 				F980833F2020E98C00CB91C0 /* Parti.xcdatamodeld */,
+				F9DAE42520349FFA0060B851 /* ProfileController.swift */,
 			);
 			path = Parti;
 			sourceTree = "<group>";
@@ -312,9 +325,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Parti/Pods-Parti-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterShareExtensionUIResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -328,12 +348,26 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Parti/Pods-Parti-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,9 +382,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9DAE42620349FFA0060B851 /* ProfileController.swift in Sources */,
+				F9DAE4282034A3BB0060B851 /* EmailViewController.swift in Sources */,
 				F980833B2020E98C00CB91C0 /* ViewController.swift in Sources */,
 				F98083412020E98C00CB91C0 /* Parti.xcdatamodeld in Sources */,
 				F98083392020E98C00CB91C0 /* AppDelegate.swift in Sources */,
+				F9DAE4242034967A0060B851 /* UIViewController+Alerts.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +547,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.UTApps.Parti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = ./Parti/BridgingHeader.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -526,6 +564,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.UTApps.Parti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = ./Parti/BridgingHeader.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
