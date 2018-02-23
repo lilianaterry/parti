@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
     
@@ -14,7 +15,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -26,12 +26,32 @@ class ViewController: UIViewController {
     }
 
     // MARK: Actions
+    @IBAction func emailLogin(_ sender: Any) {
+        if (emailTextField.hasText && passwordTextField.hasText) {
+            let email = emailTextField.text!;
+            let password = passwordTextField.text!;
+        
+            passwordSignIn(email: email, password: password)
+        } else {
+            print("ERROR: email or password is blank")
+        }
+    }
+    
+    func passwordSignIn(email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if error != nil {
+                print("ERROR: Failed Auth")
+            } else {
+                print("Password Success!")
+                print(user!.uid)
+            }
+        }
+    }
+    
     @IBAction func facebookLogin(_ sender: Any) {
     }
     
     @IBAction func googleLogin(_ sender: Any) {
     }
-    
-
 }
 
