@@ -9,6 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    // MARK: Properties
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +25,13 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: Actions
+    @IBAction func facebookLogin(_ sender: Any) {
+    }
+    
+    @IBAction func googleLogin(_ sender: Any) {
+    }
+    
 
 }
 
