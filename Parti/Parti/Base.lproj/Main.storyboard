@@ -64,6 +64,7 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="Olt-ps-gKO" id="TbA-Zh-ihG"/>
+                        <outlet property="googleSignInButton" destination="cGz-wg-hjQ" id="5rO-8g-4zI"/>
                         <outlet property="passwordTextField" destination="3xO-6B-iwf" id="ARw-KM-ZuO"/>
                     </connections>
                 </viewController>
