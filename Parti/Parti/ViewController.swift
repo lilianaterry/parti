@@ -37,6 +37,17 @@ class ViewController: UIViewController {
         }
     }
     
+    func createAccount(email: String, password: String) {
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+            if error != nil {
+                print("ERROR: Failed to create account")
+            } else {
+                print("Create account succcess!")
+                print(user!.uid)
+            }
+        }
+    }
+    
     func passwordSignIn(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error != nil {
