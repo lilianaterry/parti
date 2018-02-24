@@ -14,7 +14,6 @@ target 'Parti' do
   pod 'GoogleSignIn'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
-  pod 'TwitterKit'	
 
   target 'PartiTests' do
     inherit! :search_paths

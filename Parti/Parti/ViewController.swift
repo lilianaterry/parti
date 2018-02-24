@@ -10,6 +10,8 @@ import UIKit
 
 import Firebase
 import GoogleSignIn
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class ViewController: UIViewController, GIDSignInUIDelegate {
     
@@ -68,7 +70,64 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     @IBAction func facebookLogin(_ sender: Any) {
+        let loginManager = FBSDKLoginManager()
+        loginManager.logIn(withReadPermissions: ["email"], from: self, handler: { (result, error) in
+            if let error = error {
+                print("ERROR" + error.localizedDescription)
+            } else if result!.isCancelled {
+                print("ERROR" + "FBLogin cancelled")
+            } else {
+                // [START headless_facebook_auth]
+                let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                // [END headless_facebook_auth]
+                Auth.auth().signIn(with: credential) { (user, error) in
+                    // [START_EXCLUDE silent]
+                    // [END_EXCLUDE]
+                    if let error = error {
+                        // [START_EXCLUDE]
+                        print("ERROR" + error.localizedDescription)
+                        // [END_EXCLUDE]
+                        return
+                    }
+                    // User is signed in
+                    print("Facebook login success!");
+                }
+            }
+        })
     }
+    
+//    func firebaseLogin(_ credential: AuthCredential) {
+//        if let user = Auth.auth().currentUser {
+//            // [START link_credential]
+//            user.link(with: credential) { (user, error) in
+//                // [START_EXCLUDE]
+//                if let error = error {
+//                    print("ERROR" + error.localizedDescription)
+//                    return
+//                }
+//                // [END_EXCLUDE]
+//            }
+//            // [END link_credential]
+//        } else {
+//            // [START signin_credential]
+//            Auth.auth().signIn(with: credential) { (user, error) in
+//                // [START_EXCLUDE silent]
+//                    // [END_EXCLUDE]
+//                    if let error = error {
+//                        // [START_EXCLUDE]
+//                        print(error.localizedDescription)
+//                        // [END_EXCLUDE]
+//                        return
+//                    }
+//                    // User is signed in
+//                    // [START_EXCLUDE]
+//                    // Merge prevUser and currentUser accounts and data
+//                    // ...
+//                    // [END_EXCLUDE]
+//                }
+//            }
+//        // [END signin_credential]
+//    }
     
     @IBAction func googleLogin(_ sender: Any) {
         GIDSignIn.sharedInstance().signIn()
