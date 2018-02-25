@@ -30,40 +30,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return true
     }
     
-//    @available(iOS 9.0, *)
-//    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
-//        -> Bool {
-//            let googleSignIn = GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
-//
-//            let facebookSignIn = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
-//
-//            return googleSignIn || facebookSignIn
-//    }
-//
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
         -> Bool {
-            // [END new_delegate]
-            return self.application(application,
-                                    open: url,
-                                    // [START new_options]
-                sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                annotation: [:])
+            let googleSignIn = GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+
+            let facebookSignIn = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+
+            return googleSignIn || facebookSignIn
     }
-    
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        // [END old_delegate]
-        if GIDSignIn.sharedInstance().handle(url,
-                                             sourceApplication: sourceApplication,
-                                             annotation: annotation) {
-            return true
-        }
-        return FBSDKApplicationDelegate.sharedInstance().application(application,
-                                                                     open: url,
-                                                                     // [START old_options]
-            sourceApplication: sourceApplication,
-            annotation: annotation)
-    }
+//
+//    @available(iOS 9.0, *)
+//    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
+//        -> Bool {
+//            // [END new_delegate]
+//            return self.application(application,
+//                                    open: url,
+//                                    // [START new_options]
+//                sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+//                annotation: [:])
+//    }
+//
+//    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+//        // [END old_delegate]
+//        if GIDSignIn.sharedInstance().handle(url,
+//                                             sourceApplication: sourceApplication,
+//                                             annotation: annotation) {
+//            return true
+//        }
+//        return FBSDKApplicationDelegate.sharedInstance().application(application,
+//                                                                     open: url,
+//                                                                     // [START old_options]
+//            sourceApplication: sourceApplication,
+//            annotation: annotation)
+//    }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         // ...

@@ -91,6 +91,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
                     }
                     // User is signed in
                     print("Facebook login success!");
+                    print(user!.uid)
                 }
             }
         })
