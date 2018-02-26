@@ -7,7 +7,8 @@ target 'Parti' do
 
   # Pods for Parti
   pod 'Firebase'
-  pod 'Firebase/Core'  
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
 
   target 'PartiTests' do
     inherit! :search_paths

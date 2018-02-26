@@ -1,19 +1,25 @@
 //
 //  ViewController.swift
-//  Parti
+//  FoodList
 //
-//  Created by Arjun Gopisetty on 1/30/18.
-//  Copyright © 2018 Arjun Gopisetty. All rights reserved.
+//  Created by Liliana Terry on 2/24/18.
+//  Copyright © 2018 Liliana Terry. All rights reserved.
 //
 
 import UIKit
+import FirebaseDatabase
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    // list of possible food/drink
-    let list = ["Milk", "Honey", "Bread", "Tacos", "Tomatoes"]
     
-    // returns number of rows in our table view
+    @IBOutlet weak var tableView: UITableView!
+    
+    // Firebase connection
+    var ref: DatabaseReference!
+    var databaseHandle:DatabaseHandle?
+    
+    // list of possible food/drink
+    var list = [String]()
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return list.count
@@ -21,22 +27,60 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = list[indexPath.row]
-        
+        print("table populated")
         return cell
     }
     
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        print ("Reached checkmark method ")
+        // if there is a checkmark, remove it
+        // if there is not a checkmark, add one
+        if (cell?.accessoryType == UITableViewCellAccessoryType.checkmark) {
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+        } else if (cell?.accessoryType == UITableViewCellAccessoryType.none) {
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+        } else {
+            print("FAILED TO EXECUTE CHECKMARK")
+        }
+        print ("indexPath: \(indexPath[1])")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
+        // set firebase reference
+        ref = Database.database().reference()
+        
+        // when a child gets added, I want this to update
+        // returns the UInt of the event
+        
+        databaseHandle = ref?.child("foodlist").observe(.childAdded, with: { (snapshot) in
+            // code to execute when a child is added under foodlist
+            
+            // take the value from readList and convert it to a string
+            let item = snapshot.value as? String
+            
+            // if there is actually a value returned, add it to our list
+            if let actualItem = item  {
+                self.list.append(actualItem)
+                
+                // update the list to reflect the new change
+                self.tableView.reloadData()
+            }
+        })
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 

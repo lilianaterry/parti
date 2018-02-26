@@ -10,10 +10,6 @@
 		72010AD622A41822683A38FB /* Pods_PartiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E244EE0C128A7FFDF762FC8 /* Pods_PartiTests.framework */; };
 		A32A1471EFBDCA3FE1C1159F /* Pods_Parti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9080EFC5FCBA1E589BF070E7 /* Pods_Parti.framework */; };
 		CE36EBB92033617000D04D66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE36EBB82033617000D04D66 /* GoogleService-Info.plist */; };
-		CE6E69A42033696800487C55 /* TestLocations.gpx in Resources */ = {isa = PBXBuildFile; fileRef = CE6E69A02033696700487C55 /* TestLocations.gpx */; };
-		CE6E69A52033696800487C55 /* Geotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E69A12033696700487C55 /* Geotification.swift */; };
-		CE6E69A62033696800487C55 /* GeotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E69A22033696700487C55 /* GeotificationsViewController.swift */; };
-		CE6E69A72033696800487C55 /* AddGeotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E69A32033696800487C55 /* AddGeotificationViewController.swift */; };
 		CE6E69A920336B2B00487C55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6E69A820336B2B00487C55 /* Main.storyboard */; };
 		F98083392020E98C00CB91C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98083382020E98C00CB91C0 /* AppDelegate.swift */; };
 		F980833B2020E98C00CB91C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F980833A2020E98C00CB91C0 /* ViewController.swift */; };
@@ -41,10 +37,6 @@
 		6B78CE827A6A446D397842D4 /* Pods-PartiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PartiTests/Pods-PartiTests.release.xcconfig"; sourceTree = "<group>"; };
 		9080EFC5FCBA1E589BF070E7 /* Pods_Parti.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parti.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE36EBB82033617000D04D66 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		CE6E69A02033696700487C55 /* TestLocations.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestLocations.gpx; sourceTree = "<group>"; };
-		CE6E69A12033696700487C55 /* Geotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geotification.swift; sourceTree = "<group>"; };
-		CE6E69A22033696700487C55 /* GeotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeotificationsViewController.swift; sourceTree = "<group>"; };
-		CE6E69A32033696800487C55 /* AddGeotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGeotificationViewController.swift; sourceTree = "<group>"; };
 		CE6E69A820336B2B00487C55 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F98083352020E98C00CB91C0 /* Parti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98083382020E98C00CB91C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,10 +113,6 @@
 		F98083372020E98C00CB91C0 /* Parti */ = {
 			isa = PBXGroup;
 			children = (
-				CE6E69A32033696800487C55 /* AddGeotificationViewController.swift */,
-				CE6E69A12033696700487C55 /* Geotification.swift */,
-				CE6E69A22033696700487C55 /* GeotificationsViewController.swift */,
-				CE6E69A02033696700487C55 /* TestLocations.gpx */,
 				CE36EBB82033617000D04D66 /* GoogleService-Info.plist */,
 				F98083382020E98C00CB91C0 /* AppDelegate.swift */,
 				F980833A2020E98C00CB91C0 /* ViewController.swift */,
@@ -239,7 +227,6 @@
 				CE36EBB92033617000D04D66 /* GoogleService-Info.plist in Resources */,
 				F98083432020E98C00CB91C0 /* Assets.xcassets in Resources */,
 				CE6E69A920336B2B00487C55 /* Main.storyboard in Resources */,
-				CE6E69A42033696800487C55 /* TestLocations.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,11 +329,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Parti/Pods-Parti-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,12 +350,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE6E69A72033696800487C55 /* AddGeotificationViewController.swift in Sources */,
 				F980833B2020E98C00CB91C0 /* ViewController.swift in Sources */,
-				CE6E69A62033696800487C55 /* GeotificationsViewController.swift in Sources */,
 				F98083412020E98C00CB91C0 /* Parti.xcdatamodeld in Sources */,
 				F98083392020E98C00CB91C0 /* AppDelegate.swift in Sources */,
-				CE6E69A52033696800487C55 /* Geotification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
