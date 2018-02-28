@@ -21,12 +21,15 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+<<<<<<< HEAD
+=======
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fb188336625269047</string>
 			</array>
 		</dict>
 		<dict>
+>>>>>>> auth
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
