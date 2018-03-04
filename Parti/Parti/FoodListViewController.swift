@@ -57,6 +57,8 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    /* Function that adds/removes items to users' individual foodlists
+     in the event that a checkmark is added/removed */
     func updateCheckmark(checked: Int, item: String) {
         ref.child("users/\(self.userID)/foodlist/\(item)").observeSingleEvent(of: .value, with: { (snapshot) in
             
@@ -67,20 +69,18 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
                 // update the value
                 self.ref.child("users/\(self.userID)/foodlist/\(item)").setValue(checked)
             // Exists and needs to be removed
-            } else if (value != nil && checked == 0) {
-                self.ref.child("users/\(self.userID)/foodlist/\(item)").setValue(nil)
+            } else if (checked == 0) {
+                self.ref.child("users/\(self.userID)/foodlist/\(item)").removeValue { error, _ in
+                    print("removed item")
+                }
             } else {
                 print("ERROR")
             }
-            
-           
-
         }) { (error) in
             print(error.localizedDescription)
         }
 
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -131,43 +131,25 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
-    /*  Function that listens to any updates in the main food list and
-     user foodlist */
+    /*  Function that listens to any updates in the main food list */
     func checkForTableUpdates() {
         // MAIN FOODLIST
         databaseHandle = ref?.child("foodlist").observe(.childAdded, with: { (snapshot) in
             // code to execute when a child is added under foodlist
-            print("TRIGGERED main list")
-            
+            print("TRIGGERED main foodlist change")
             // take the value from readList and convert it to a string
-            let item = snapshot.value as? String
+            let item = snapshot.key as String
+            print("key: \(item)")
             
-            // if there is actually a value returned, add it to our list
-            if let actualItem = item  {
-                self.list[actualItem] = false
+            // if there is actually a value returned and it is not already in our list, add it
+            if !(self.list.keys.contains(item)) {
+                self.list[item] = false
+                print("updated list")
+                // update the list to reflect the new change
                 self.tableView.reloadData()
             }
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-        
-        // USER FOODLIST
-        databaseHandle = ref?.child("users/\(self.userID)/foodlist").observe(.childAdded, with: { (snapshot) in
-            // code to execute when a child is added under foodlist
-            print("TRIGGERED individual user list")
             
-            // take the value from readList and convert it to a string
-            let item = snapshot.value as? String
-            
-            // if there is actually a value returned, add it to our list
-            if let actualItem = item  {
-                self.list[actualItem] = true
-                self.tableView.reloadData()
-            }
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-        
+        })
     }
 
 }
