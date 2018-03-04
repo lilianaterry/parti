@@ -24,11 +24,18 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
 
     var userID = String()
     
+    // Firebase connection
+    var ref: DatabaseReference!
+    var databaseHandle:DatabaseHandle?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         GIDSignIn.sharedInstance().uiDelegate = self
         
+        // set firebase reference
+        ref = Database.database().reference()
+
         // TODO(developer) Configure the sign-in button look/feel
         // ...
     }
@@ -62,6 +69,23 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         }
     }
     
+    // Tests to see if /users/<userId> has any data.
+    func checkIfUserExists(userID: String) {
+        ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            // if the user does not exist in the database, add them!
+            if (value == nil) {
+                print("User does not exist")
+                self.ref.child("users").child(userID).setValue(["uid": userID])
+            }
+
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    
     func passwordSignIn(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error != nil {
@@ -71,6 +95,9 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
                 print(user!.uid)
                 self.userID = user!.uid
                 print("User id set: \(self.userID)")
+                
+                // Now push this user's object to the database unless it's already there
+                self.checkIfUserExists(userID: self.userID)
                 
                 self.performSegue(withIdentifier: "foodListSegue", sender: self)
             }

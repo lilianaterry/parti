@@ -29,20 +29,20 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = list[indexPath.row]
-        print("user id: \(userID)")
         return cell
     }
     
     // Add or remove checkmarks from food items
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        print ("Reached checkmark method ")
+        print ("Reached checkmark method")
         // if there is a checkmark, remove it
         // if there is not a checkmark, add one
         if (cell?.accessoryType == UITableViewCellAccessoryType.checkmark) {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
         } else if (cell?.accessoryType == UITableViewCellAccessoryType.none) {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+            
         } else {
             print("FAILED TO EXECUTE CHECKMARK")
         }
