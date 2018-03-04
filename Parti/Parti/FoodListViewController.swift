@@ -9,7 +9,7 @@ import UIKit
 import FirebaseDatabase
 
 class FoodListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var tableView: UITableView!
     var userID = String()
     
@@ -69,10 +69,12 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
         
         // read in all food items to table view
         populateTable()
+        
+
     }
     
     /*  Function that reads in all food/drink items and checks if this user
-        has checked any off already */
+     has checked any off already */
     func populateTable() {
         databaseHandle = ref?.child("foodlist").observe(.childAdded, with: { (snapshot) in
             // code to execute when a child is added under foodlist
@@ -86,13 +88,11 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
                 self.isChecked(item: actualItem)
             }
         })
-        
-        // update the list to reflect the new change
-        self.tableView.reloadData()
+
     }
     
     /* Function that checks if single item has been checked and returns
-        true for checked, false for unchecked */
+     true for checked, false for unchecked */
     func isChecked(item: String) {
         // check if the user has any checkmarks added already
         ref.child("users/\(self.userID)/foodlist/").observe(.childAdded, with: { (snapshot) in
@@ -113,8 +113,14 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
                 print(self.list)
             }
             
+            // update the list to reflect the new change
+            print("about to reload")
+            print(self.list)
+            self.tableView.reloadData()
+            
         }) { (error) in
             print(error.localizedDescription)
         }
+
     }
 }
