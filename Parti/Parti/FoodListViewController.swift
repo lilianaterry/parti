@@ -18,7 +18,7 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
     var databaseHandle:DatabaseHandle?
     
     // list of possible food/drink
-    var list = [String]()
+    var list = [String: Bool]()
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -28,7 +28,17 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = list[indexPath.row]
+        let item = Array(list.keys)[indexPath.row]
+        let checked = list[item]
+        print("item \(item)")
+        print("checked \(checked)")
+        
+        cell.textLabel?.text = Array(list.keys)[indexPath.row]
+        
+        if (checked)! {
+            cell.accessoryType = UITableViewCellAccessoryType.checkmark
+        }
+        
         return cell
     }
     
@@ -57,9 +67,13 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
         // set firebase reference
         ref = Database.database().reference()
         
-        // when a child gets added, I want this to update
-        // returns the UInt of the event
-        
+        // read in all food items to table view
+        populateTable()
+    }
+    
+    /*  Function that reads in all food/drink items and checks if this user
+        has checked any off already */
+    func populateTable() {
         databaseHandle = ref?.child("foodlist").observe(.childAdded, with: { (snapshot) in
             // code to execute when a child is added under foodlist
             
@@ -68,13 +82,39 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
             
             // if there is actually a value returned, add it to our list
             if let actualItem = item  {
-                self.list.append(actualItem)
-                
-                // update the list to reflect the new change
-                self.tableView.reloadData()
+                // add a checkmark if need be
+                self.isChecked(item: actualItem)
             }
         })
         
-        // TODO: need to import checkmarks as well
+        // update the list to reflect the new change
+        self.tableView.reloadData()
+    }
+    
+    /* Function that checks if single item has been checked and returns
+        true for checked, false for unchecked */
+    func isChecked(item: String) {
+        // check if the user has any checkmarks added already
+        ref.child("users/\(self.userID)/foodlist/").observe(.childAdded, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? String
+            
+            // if the
+            if (value == nil) {
+                print("no items in list")
+            } else if (value == item) {
+                print("item in list matches this item")
+                print("item: \(item)")
+                print("value: \(value)")
+                self.list[item] = true
+            } else {
+                print("item in list does not match this item")
+                self.list[item] = false
+                print(self.list)
+            }
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
 }

@@ -74,10 +74,12 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
+            
             // if the user does not exist in the database, add them!
             if (value == nil) {
                 print("User does not exist")
-                self.ref.child("users").child(userID).setValue(["uid": userID])
+                // setup empty foodlist preferences
+                self.ref.child("users").child(userID).setValue(["foodlist": 0])
             }
 
         }) { (error) in
