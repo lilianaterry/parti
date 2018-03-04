@@ -11,7 +11,8 @@
 		A32A1471EFBDCA3FE1C1159F /* Pods_Parti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9080EFC5FCBA1E589BF070E7 /* Pods_Parti.framework */; };
 		CE6CD6832047092D00BC3DD3 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CD6822047092D00BC3DD3 /* FoodListViewController.swift */; };
 		CE6CD68520470C3C00BC3DD3 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CE6CD68420470C3C00BC3DD3 /* Podfile */; };
-		CEC3E27D2047511300A37817 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC3E27B2047511300A37817 /* Main.storyboard */; };
+		CEF18A3D204B71D5003071C5 /* party_page.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF18A3C204B71D5003071C5 /* party_page.png */; };
+		CEF18A42204B74F8003071C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF18A40204B74F8003071C5 /* Main.storyboard */; };
 		F90031B82031F4F300B9FA75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F90031B72031F4F300B9FA75 /* GoogleService-Info.plist */; };
 		F98083392020E98C00CB91C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98083382020E98C00CB91C0 /* AppDelegate.swift */; };
 		F980833B2020E98C00CB91C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F980833A2020E98C00CB91C0 /* ViewController.swift */; };
@@ -40,9 +41,10 @@
 		9080EFC5FCBA1E589BF070E7 /* Pods_Parti.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parti.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6CD6822047092D00BC3DD3 /* FoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
 		CE6CD68420470C3C00BC3DD3 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		CEC3E27C2047511300A37817 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../temp/parti/Parti/Parti/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CEF18A3C204B71D5003071C5 /* party_page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = party_page.png; sourceTree = SOURCE_ROOT; };
+		CEF18A41204B74F8003071C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F90031B72031F4F300B9FA75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		F957DEDA204146E400FB15A3 /* Parti.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Parti.entitlements; sourceTree = "<group>"; };
+		F957DEDA204146E400FB15A3 /* Parti.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Parti.entitlements; sourceTree = "<group>"; };
 		F98083352020E98C00CB91C0 /* Parti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98083382020E98C00CB91C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F980833A2020E98C00CB91C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,10 +122,11 @@
 		F98083372020E98C00CB91C0 /* Parti */ = {
 			isa = PBXGroup;
 			children = (
+				CEF18A40204B74F8003071C5 /* Main.storyboard */,
 				F957DEDA204146E400FB15A3 /* Parti.entitlements */,
 				F98083382020E98C00CB91C0 /* AppDelegate.swift */,
 				F980833A2020E98C00CB91C0 /* ViewController.swift */,
-				CEC3E27B2047511300A37817 /* Main.storyboard */,
+				CEF18A3C204B71D5003071C5 /* party_page.png */,
 				F98083422020E98C00CB91C0 /* Assets.xcassets */,
 				F98083442020E98C00CB91C0 /* LaunchScreen.storyboard */,
 				F98083472020E98C00CB91C0 /* Info.plist */,
@@ -237,8 +240,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6CD68520470C3C00BC3DD3 /* Podfile in Resources */,
-				CEC3E27D2047511300A37817 /* Main.storyboard in Resources */,
+				CEF18A3D204B71D5003071C5 /* party_page.png in Resources */,
 				F98083462020E98C00CB91C0 /* LaunchScreen.storyboard in Resources */,
+				CEF18A42204B74F8003071C5 /* Main.storyboard in Resources */,
 				F90031B82031F4F300B9FA75 /* GoogleService-Info.plist in Resources */,
 				F98083432020E98C00CB91C0 /* Assets.xcassets in Resources */,
 			);
@@ -403,10 +407,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CEC3E27B2047511300A37817 /* Main.storyboard */ = {
+		CEF18A40204B74F8003071C5 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CEC3E27C2047511300A37817 /* Base */,
+				CEF18A41204B74F8003071C5 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

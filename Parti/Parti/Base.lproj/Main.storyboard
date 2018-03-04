@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fZ0-vO-WO1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -54,7 +55,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <action selector="emailLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EfH-hs-lIy"/>
+                                    <action selector="emailLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TdW-nc-4NB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -65,16 +66,17 @@
                         <outlet property="emailTextField" destination="Olt-ps-gKO" id="Akd-AA-e3B"/>
                         <outlet property="googleSignInButton" destination="cGz-wg-hjQ" id="5rO-8g-4zI"/>
                         <outlet property="passwordTextField" destination="3xO-6B-iwf" id="ARw-KM-ZuO"/>
+                        <segue destination="fZ0-vO-WO1" kind="show" identifier="foodListSegue" id="lcC-Bt-gIU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="143" y="33"/>
+            <point key="canvasLocation" x="62" y="33"/>
         </scene>
-        <!--View Controller-->
+        <!--Food List View Controller-->
         <scene sceneID="jEJ-pc-hVJ">
             <objects>
-                <viewController id="fZ0-vO-WO1" sceneMemberID="viewController">
+                <viewController id="fZ0-vO-WO1" customClass="FoodListViewController" customModule="Parti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aPh-MV-BtL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,17 +84,34 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g57-lt-hlO">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="m4B-0Z-5uX">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m4B-0Z-5uX" id="Zdz-ZQ-aWa">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="g57-lt-hlO" firstAttribute="bottom" secondItem="sjR-DD-rdh" secondAttribute="bottom" id="2Ch-Qb-jt6"/>
+                            <constraint firstItem="g57-lt-hlO" firstAttribute="leading" secondItem="sjR-DD-rdh" secondAttribute="leading" id="LSt-YO-em8"/>
+                            <constraint firstItem="g57-lt-hlO" firstAttribute="top" secondItem="aPh-MV-BtL" secondAttribute="top" id="NXP-B4-S6g"/>
                             <constraint firstItem="g57-lt-hlO" firstAttribute="top" secondItem="aPh-MV-BtL" secondAttribute="top" id="Rj6-yq-LXP"/>
+                            <constraint firstItem="g57-lt-hlO" firstAttribute="trailing" secondItem="sjR-DD-rdh" secondAttribute="trailing" id="bth-uS-DRG"/>
                             <constraint firstItem="g57-lt-hlO" firstAttribute="bottom" secondItem="sjR-DD-rdh" secondAttribute="bottom" id="dH9-ix-DSR"/>
                             <constraint firstItem="g57-lt-hlO" firstAttribute="leading" secondItem="sjR-DD-rdh" secondAttribute="leading" id="lf9-Gl-iGu"/>
                             <constraint firstItem="g57-lt-hlO" firstAttribute="trailing" secondItem="sjR-DD-rdh" secondAttribute="trailing" id="u3W-7X-Ov1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sjR-DD-rdh"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="g57-lt-hlO" id="Hzl-Gg-8rm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yO3-at-WYV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

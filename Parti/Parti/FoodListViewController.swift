@@ -11,6 +11,7 @@ import FirebaseDatabase
 class FoodListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    var userID = String()
     
     // Firebase connection
     var ref: DatabaseReference!
@@ -28,10 +29,11 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = list[indexPath.row]
-        print("table populated")
+        print("user id: \(userID)")
         return cell
     }
     
+    // Add or remove checkmarks from food items
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         print ("Reached checkmark method ")
@@ -44,7 +46,6 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
         } else {
             print("FAILED TO EXECUTE CHECKMARK")
         }
-        print ("indexPath: \(indexPath[1])")
     }
     
     
@@ -73,5 +74,7 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
                 self.tableView.reloadData()
             }
         })
+        
+        // TODO: need to import checkmarks as well
     }
 }
