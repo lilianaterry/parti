@@ -20,6 +20,8 @@
 		F98083432020E98C00CB91C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F98083422020E98C00CB91C0 /* Assets.xcassets */; };
 		F98083462020E98C00CB91C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F98083442020E98C00CB91C0 /* LaunchScreen.storyboard */; };
 		F98083512020E98C00CB91C0 /* PartiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98083502020E98C00CB91C0 /* PartiTests.swift */; };
+		F9A651A6204B9CA0007792E6 /* PartyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A651A5204B9CA0007792E6 /* PartyListViewController.swift */; };
+		F9A651A8204B9E57007792E6 /* PartyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A651A7204B9E57007792E6 /* PartyTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		F980834C2020E98C00CB91C0 /* PartiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PartiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98083502020E98C00CB91C0 /* PartiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartiTests.swift; sourceTree = "<group>"; };
 		F98083522020E98C00CB91C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9A651A5204B9CA0007792E6 /* PartyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyListViewController.swift; sourceTree = "<group>"; };
+		F9A651A7204B9E57007792E6 /* PartyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,7 @@
 		F98083372020E98C00CB91C0 /* Parti */ = {
 			isa = PBXGroup;
 			children = (
+				F9A651A7204B9E57007792E6 /* PartyTableViewCell.swift */,
 				CEF18A40204B74F8003071C5 /* Main.storyboard */,
 				F957DEDA204146E400FB15A3 /* Parti.entitlements */,
 				F98083382020E98C00CB91C0 /* AppDelegate.swift */,
@@ -132,6 +137,7 @@
 				F98083472020E98C00CB91C0 /* Info.plist */,
 				F980833F2020E98C00CB91C0 /* Parti.xcdatamodeld */,
 				CE6CD6822047092D00BC3DD3 /* FoodListViewController.swift */,
+				F9A651A5204B9CA0007792E6 /* PartyListViewController.swift */,
 			);
 			path = Parti;
 			sourceTree = "<group>";
@@ -383,7 +389,9 @@
 			files = (
 				F980833B2020E98C00CB91C0 /* ViewController.swift in Sources */,
 				F98083412020E98C00CB91C0 /* Parti.xcdatamodeld in Sources */,
+				F9A651A6204B9CA0007792E6 /* PartyListViewController.swift in Sources */,
 				CE6CD6832047092D00BC3DD3 /* FoodListViewController.swift in Sources */,
+				F9A651A8204B9E57007792E6 /* PartyTableViewCell.swift in Sources */,
 				F98083392020E98C00CB91C0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
