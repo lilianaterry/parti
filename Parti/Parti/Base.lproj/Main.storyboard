@@ -68,6 +68,7 @@
                         <outlet property="googleSignInButton" destination="cGz-wg-hjQ" id="5rO-8g-4zI"/>
                         <outlet property="passwordTextField" destination="3xO-6B-iwf" id="ARw-KM-ZuO"/>
                         <segue destination="fZ0-vO-WO1" kind="show" identifier="foodListSegue" id="lcC-Bt-gIU"/>
+                        <segue destination="NTG-HE-SJM" kind="show" id="prQ-kI-EVs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -112,7 +113,6 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="g57-lt-hlO" id="Hzl-Gg-8rm"/>
-                        <segue destination="NTG-HE-SJM" kind="show" id="KoS-DY-OGe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yO3-at-WYV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -139,7 +139,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="125.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8S7-TB-ibC">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DefaultProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="8S7-TB-ibC">
                                                     <rect key="frame" x="16" y="35" width="78" height="77"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -196,7 +196,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KHZ-x8-xMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1741.5999999999999" y="698.5007496251875"/>
+            <point key="canvasLocation" x="953" y="795"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DefaultProfilePicture" width="64" height="64"/>
+    </resources>
 </document>

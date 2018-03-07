@@ -24,13 +24,31 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let uuid = UUID().uuidString
+        print(uuid)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "partyCell", for: indexPath) as! PartyTableViewCell
+        
+        //cell.imageView?.image =
+        //cell.profilePicture.image =
+        cell.partyName.text = ""
+        cell.address.text = ""
+        
+        
+        return cell
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.partyTableView.dataSource = self
+        self.partyTableView.delegate = self
 
+        populatePartyTable()
+        
+        checkForUpdates()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -39,6 +57,13 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
+    func populatePartyTable() {
+        
+    }
+    
+    func checkForUpdates() {
+        
+    }
 
     /*
     // MARK: - Navigation
