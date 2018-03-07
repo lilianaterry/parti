@@ -17,9 +17,12 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     
     // MARK: Properties
     @IBOutlet weak var emailTextField: UITextField!
+    
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBOutlet weak var googleSignInButton: GIDSignInButton!
+
+    var userID = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +57,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
             } else {
                 print("Create account succcess!")
                 print(user!.uid)
+                self.userID = user!.uid
             }
         }
     }
@@ -65,6 +69,10 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
             } else {
                 print("Password Success!")
                 print(user!.uid)
+                self.userID = user!.uid
+                print("User id set: \(self.userID)")
+                
+                self.performSegue(withIdentifier: "foodListSegue", sender: self)
             }
         }
     }
@@ -92,6 +100,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
                     // User is signed in
                     print("Facebook login success!");
                     print(user!.uid)
+                    self.userID = user!.uid
                 }
             }
         })
@@ -132,6 +141,14 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     
     @IBAction func googleLogin(_ sender: Any) {
         GIDSignIn.sharedInstance().signIn()
+    }
+    
+    // Pass login information to next page
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let secondController = segue.destination as! FoodListViewController
+        secondController.userID = userID
+        print("User id sent: \(self.userID)")
+
     }
 }
 
