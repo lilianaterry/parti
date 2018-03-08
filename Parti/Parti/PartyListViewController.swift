@@ -12,44 +12,51 @@ import FirebaseDatabase
 class PartyListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var partyTableView: UITableView!
+    var userID = String()
     
     // Firebase connection
     var ref: DatabaseReference!
-    var databaseHandle:DatabaseHandle?
+    var databaseHandle: DatabaseHandle?
+    
     // list of parties
-    var list = [String]()
+    var partyList = [PartyModel]()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        print("in list count")
+        return partyList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("in tableview populate")
         let uuid = UUID().uuidString
         print(uuid)
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "partyCell", for: indexPath) as! PartyTableViewCell
         
+        let currentParty = partyList[indexPath.row] as! PartyModel
+        
         //cell.imageView?.image =
         //cell.profilePicture.image =
-        cell.partyName.text = ""
-        cell.address.text = ""
-        
+        cell.partyName.text = currentParty.partyName
+        cell.address.text = currentParty.address
         
         return cell
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.partyTableView.dataSource = self
         self.partyTableView.delegate = self
+        
+        // set firebase reference
+        ref = Database.database().reference()
+        
+        print("In the party page")
 
         populatePartyTable()
         
-        checkForUpdates()
-        
-        // Do any additional setup after loading the view.
+        //self.partyTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,7 +65,26 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func populatePartyTable() {
-        
+        databaseHandle = ref?.child("parties").observe(.childAdded, with: { (snapshot) in
+            let partyID = snapshot.key
+            let data = snapshot.value as! [String: Any]
+            
+            var partyObject = PartyModel()
+            partyObject.attire = data["attire"] as! String
+            partyObject.dateTime = data["datetime"] as! String
+            partyObject.foodList = data["foodlist"] as! NSDictionary
+            partyObject.guests = data["guests"] as! NSDictionary
+            partyObject.host = data["host"] as! String
+            partyObject.partyName = data["partyname"] as! String
+            partyObject.address = data["address"] as! String
+            
+            self.partyList.append(partyObject)
+            
+            self.partyTableView.reloadData()
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
     
     func checkForUpdates() {
