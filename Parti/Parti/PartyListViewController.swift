@@ -21,42 +21,52 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     // list of parties
     var partyList = [PartyModel]()
     
+    /* Returns the number of cells to populate the table with */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("in list count")
         return partyList.count
     }
     
+    /* Dequeues cells from partyList and returns a filled-in table cell */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("in tableview populate")
         let uuid = UUID().uuidString
         print(uuid)
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "partyCell", for: indexPath) as! PartyTableViewCell
         
-        let currentParty = partyList[indexPath.row] as! PartyModel
+        let currentParty = partyList[indexPath.row] 
         
+        // update information contained in cell
         //cell.imageView?.image =
         //cell.profilePicture.image =
         cell.partyName.text = currentParty.partyName
         cell.address.text = currentParty.address
         
+        // update appearance of cell
+        //cell.preservesSuperviewLayoutMargins = false
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.layoutMargins = UIEdgeInsets.zero
+        
         return cell
     }
 
+    /* Runs when page is loaded, sets the delegate and datasource then calls method to query
+        Firebase and add parties to partyList */
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.partyTableView.dataSource = self
         self.partyTableView.delegate = self
         
+        // set the style of the table view cells        
+        self.partyTableView.layoutMargins = UIEdgeInsets.zero
+        self.partyTableView.separatorInset = UIEdgeInsets.zero
+        
         // set firebase reference
         ref = Database.database().reference()
         
-        print("In the party page")
-
+        // query Firebase and get a list of all parties for this user
         populatePartyTable()
         
-        //self.partyTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,6 +74,8 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
+    /* Creates an instance of the PartyModel class and fills in all relevant information
+        from Firebase query. Adds the PartyModel to partyList and reloads View */
     func populatePartyTable() {
         databaseHandle = ref?.child("parties").observe(.childAdded, with: { (snapshot) in
             let partyID = snapshot.key
@@ -86,10 +98,7 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
             print(error.localizedDescription)
         }
     }
-    
-    func checkForUpdates() {
-        
-    }
+
 
     /*
     // MARK: - Navigation

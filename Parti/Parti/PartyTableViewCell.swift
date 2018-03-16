@@ -16,7 +16,10 @@ class PartyTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        // create circular mask on image
+        self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2;
+        self.profilePicture.clipsToBounds = true;
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
