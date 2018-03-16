@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		72010AD622A41822683A38FB /* Pods_PartiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E244EE0C128A7FFDF762FC8 /* Pods_PartiTests.framework */; };
 		A32A1471EFBDCA3FE1C1159F /* Pods_Parti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9080EFC5FCBA1E589BF070E7 /* Pods_Parti.framework */; };
+		CE09DC56205C657C0097806D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09DC55205C657C0097806D /* ProfileViewController.swift */; };
+		CE09DC5C205C66410097806D /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09DC5B205C66410097806D /* ProfileModel.swift */; };
 		CE1189612051DF8400A0AD49 /* PartyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A651A5204B9CA0007792E6 /* PartyListViewController.swift */; };
 		CE1189632051E00300A0AD49 /* PartyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1189622051E00300A0AD49 /* PartyModel.swift */; };
 		CE6CD6832047092D00BC3DD3 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CD6822047092D00BC3DD3 /* FoodListViewController.swift */; };
 		CE6CD68520470C3C00BC3DD3 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CE6CD68420470C3C00BC3DD3 /* Podfile */; };
-		CEF18A3D204B71D5003071C5 /* party_page.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF18A3C204B71D5003071C5 /* party_page.png */; };
 		CEF18A42204B74F8003071C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF18A40204B74F8003071C5 /* Main.storyboard */; };
 		F90031B82031F4F300B9FA75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F90031B72031F4F300B9FA75 /* GoogleService-Info.plist */; };
 		F98083392020E98C00CB91C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98083382020E98C00CB91C0 /* AppDelegate.swift */; };
@@ -42,10 +43,11 @@
 		63B6FC8F97C734959DDF4681 /* Pods-Parti.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parti.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Parti/Pods-Parti.debug.xcconfig"; sourceTree = "<group>"; };
 		6B78CE827A6A446D397842D4 /* Pods-PartiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PartiTests/Pods-PartiTests.release.xcconfig"; sourceTree = "<group>"; };
 		9080EFC5FCBA1E589BF070E7 /* Pods_Parti.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parti.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE09DC55205C657C0097806D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		CE09DC5B205C66410097806D /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		CE1189622051E00300A0AD49 /* PartyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyModel.swift; sourceTree = "<group>"; };
 		CE6CD6822047092D00BC3DD3 /* FoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
 		CE6CD68420470C3C00BC3DD3 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		CEF18A3C204B71D5003071C5 /* party_page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = party_page.png; sourceTree = SOURCE_ROOT; };
 		CEF18A41204B74F8003071C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F90031B72031F4F300B9FA75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F957DEDA204146E400FB15A3 /* Parti.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Parti.entitlements; sourceTree = "<group>"; };
@@ -94,6 +96,33 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CE09DC57205C65E70097806D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CE09DC55205C657C0097806D /* ProfileViewController.swift */,
+				CE09DC5B205C66410097806D /* ProfileModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		CE09DC59205C66010097806D /* PartyList */ = {
+			isa = PBXGroup;
+			children = (
+				CE1189622051E00300A0AD49 /* PartyModel.swift */,
+				F9A651A5204B9CA0007792E6 /* PartyListViewController.swift */,
+				F9A651A7204B9E57007792E6 /* PartyTableViewCell.swift */,
+			);
+			path = PartyList;
+			sourceTree = "<group>";
+		};
+		CE09DC5A205C66220097806D /* FoodList */ = {
+			isa = PBXGroup;
+			children = (
+				CE6CD6822047092D00BC3DD3 /* FoodListViewController.swift */,
+			);
+			path = FoodList;
+			sourceTree = "<group>";
+		};
 		E8E2C0AF7C22110D2E8ABC42 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,19 +157,17 @@
 		F98083372020E98C00CB91C0 /* Parti */ = {
 			isa = PBXGroup;
 			children = (
-				F9A651A7204B9E57007792E6 /* PartyTableViewCell.swift */,
+				CE09DC5A205C66220097806D /* FoodList */,
+				CE09DC59205C66010097806D /* PartyList */,
+				CE09DC57205C65E70097806D /* Profile */,
 				CEF18A40204B74F8003071C5 /* Main.storyboard */,
 				F957DEDA204146E400FB15A3 /* Parti.entitlements */,
 				F98083382020E98C00CB91C0 /* AppDelegate.swift */,
 				F980833A2020E98C00CB91C0 /* ViewController.swift */,
-				CEF18A3C204B71D5003071C5 /* party_page.png */,
 				F98083422020E98C00CB91C0 /* Assets.xcassets */,
 				F98083442020E98C00CB91C0 /* LaunchScreen.storyboard */,
 				F98083472020E98C00CB91C0 /* Info.plist */,
 				F980833F2020E98C00CB91C0 /* Parti.xcdatamodeld */,
-				CE6CD6822047092D00BC3DD3 /* FoodListViewController.swift */,
-				F9A651A5204B9CA0007792E6 /* PartyListViewController.swift */,
-				CE1189622051E00300A0AD49 /* PartyModel.swift */,
 			);
 			path = Parti;
 			sourceTree = "<group>";
@@ -249,7 +276,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6CD68520470C3C00BC3DD3 /* Podfile in Resources */,
-				CEF18A3D204B71D5003071C5 /* party_page.png in Resources */,
 				F98083462020E98C00CB91C0 /* LaunchScreen.storyboard in Resources */,
 				CEF18A42204B74F8003071C5 /* Main.storyboard in Resources */,
 				F90031B82031F4F300B9FA75 /* GoogleService-Info.plist in Resources */,
@@ -390,12 +416,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE09DC5C205C66410097806D /* ProfileModel.swift in Sources */,
 				F980833B2020E98C00CB91C0 /* ViewController.swift in Sources */,
 				CE1189632051E00300A0AD49 /* PartyModel.swift in Sources */,
 				F98083412020E98C00CB91C0 /* Parti.xcdatamodeld in Sources */,
 				CE6CD6832047092D00BC3DD3 /* FoodListViewController.swift in Sources */,
 				F9A651A8204B9E57007792E6 /* PartyTableViewCell.swift in Sources */,
 				F98083392020E98C00CB91C0 /* AppDelegate.swift in Sources */,
+				CE09DC56205C657C0097806D /* ProfileViewController.swift in Sources */,
 				CE1189612051DF8400A0AD49 /* PartyListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
