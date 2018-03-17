@@ -42,7 +42,6 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.address.text = currentParty.address
         
         // update appearance of cell
-        //cell.preservesSuperviewLayoutMargins = false
         cell.separatorInset = UIEdgeInsets.zero
         cell.layoutMargins = UIEdgeInsets.zero
         

@@ -14,14 +14,18 @@ import UIKit
 class ProfileModel: NSObject {
     //var profilePicture: UIImage
     var name: String
+    var userID: String
+    var pictureURL: String
     
-    init(name: String) {
+    init(name: String, userID: String, pictureURL: String) {
         //self.profilePicture = UIImage()
         self.name = name
+        self.userID = userID
+        self.pictureURL = pictureURL
     }
     
     convenience override init() {
-        self.init(name: "")
+        self.init(name: "", userID: "", pictureURL: "")
     }
 }
 

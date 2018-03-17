@@ -17,9 +17,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     
     // MARK: Properties
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var googleSignInButton: GIDSignInButton!
 
     var userID = String()
@@ -72,7 +70,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
                 self.userID = user!.uid
                 print("User id set: \(self.userID)")
                 
-                self.performSegue(withIdentifier: "foodListSegue", sender: self)
+                self.performSegue(withIdentifier: "profileSegue", sender: self)
             }
         }
     }
@@ -145,10 +143,20 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     
     // Pass login information to next page
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let secondController = segue.destination as! FoodListViewController
-        secondController.userID = userID
-        print("User id sent: \(self.userID)")
-
+        let segueID = segue.identifier
+        print("REACHED SEGUE")
+        
+        // Profile Page
+        if (segueID == "profileSegue") {
+            if let destinationVC = segue.destination as? ProfileViewController {
+                destinationVC.profileObject.userID = userID
+            }
+        // FoodList page
+        } else if (segueID == "foodListSegue") {
+            if let destinationVC = segue.destination as? FoodListViewController {
+                destinationVC.userID = userID
+            }
+        }
     }
 }
 
