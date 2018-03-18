@@ -12,6 +12,8 @@ import Firebase
 import GoogleSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
+import StoreKit
+import MediaPlayer
 
 class ViewController: UIViewController, GIDSignInUIDelegate {
     
@@ -70,7 +72,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
                 self.userID = user!.uid
                 print("User id set: \(self.userID)")
                 
-                self.performSegue(withIdentifier: "profileSegue", sender: self)
+                self.performSegue(withIdentifier: "createPartySegue", sender: self)
             }
         }
     }
@@ -155,6 +157,11 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         } else if (segueID == "foodListSegue") {
             if let destinationVC = segue.destination as? FoodListViewController {
                 destinationVC.userID = userID
+            }
+        // Party Creation Page
+        } else if (segueID == "createPartySegue") {
+            if let destinationVC = segue.destination as? CreatePartyViewController {
+                destinationVC.partyObject.hostID = userID
             }
         }
     }

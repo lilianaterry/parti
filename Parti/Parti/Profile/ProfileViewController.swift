@@ -13,9 +13,6 @@ import FirebaseStorage
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var profilePicture: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    
     // Firebase Database connection
     var databaseRef: DatabaseReference!
     var databaseHandle: DatabaseHandle?
@@ -25,7 +22,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var storageHandle: StorageHandle?
     
     var profileObject = ProfileModel()
- 
+    
+    @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    
     /* Runs when page is loaded, sets the delegate and datasource then calls method to query
      Firebase and fetch this user's information */
     override func viewDidLoad() {
@@ -104,7 +104,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func updateFirebaseStorage() {
         print("Updating image in firebase storage")
-        let imageRef = storageRef.child("profilePictures/\(self.profileObject.userID)_profilePic")
+        let imageRef = storageRef.child("profilePictures/\(self.profileObject.userID)")
         
         if let uploadData = UIImagePNGRepresentation(self.profilePicture.image!) {
             imageRef.putData(uploadData, metadata: nil, completion: {
