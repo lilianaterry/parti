@@ -36,9 +36,7 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
         let currentParty = partyList[indexPath.row] 
         
         // update information contained in cell
-        //cell.imageView?.image =
-        //cell.profilePicture.image =
-        cell.partyName.text = currentParty.partyName
+        cell.partyName.text = currentParty.name
         cell.address.text = currentParty.address
         
         // update appearance of cell
@@ -82,12 +80,13 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
             
             var partyObject = PartyModel()
             partyObject.attire = data["attire"] as! String
-            partyObject.dateTime = data["datetime"] as! String
+            partyObject.date = data["date"] as! String
             partyObject.foodList = data["foodlist"] as! NSDictionary
-            partyObject.guests = data["guests"] as! NSDictionary
-            partyObject.host = data["host"] as! String
-            partyObject.partyName = data["partyname"] as! String
+            partyObject.guestList = data["guests"] as! NSDictionary
+            partyObject.hostID = data["host"] as! String
+            partyObject.name = data["name"] as! String
             partyObject.address = data["address"] as! String
+            partyObject.imageURL = data["imageURL"] as! String
             
             self.partyList.append(partyObject)
             
@@ -98,15 +97,5 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

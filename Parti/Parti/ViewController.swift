@@ -163,6 +163,11 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
             if let destinationVC = segue.destination as? CreatePartyViewController {
                 destinationVC.partyObject.hostID = userID
             }
+        // Guest List Page
+        } else if (segueID == "guestListSegue") {
+            if let destinationVC = segue.destination as? GuestListViewController {
+                destinationVC.partyObject.hostID = userID
+            }
         }
     }
 }

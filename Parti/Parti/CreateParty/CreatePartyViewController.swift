@@ -20,7 +20,7 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
     var storageRef: StorageReference!
     var storageHandle: StorageHandle?
     
-    var partyObject = CreatePartyModel()
+    var partyObject = PartyModel()
     
     @IBOutlet weak var partyImage: UIImageView!
     
@@ -39,9 +39,9 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
                 "attire": attireField.text!,
                 "name": partyNameField.text!,
                 "date": date,
-                "host": partyObject.hostID,
-                "guests": partyObject.guestList,
-                "food": partyObject.foodList
+                "hostID": partyObject.hostID,
+                "guestList": partyObject.guestList,
+                "foodList": partyObject.foodList
                 ] as [String : Any]
             
             // update Firebase accordingly
