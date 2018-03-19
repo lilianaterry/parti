@@ -46,19 +46,28 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         
             passwordSignIn(email: email, password: password)
         } else {
-            print("ERROR: email or password is blank")
+            print("ERROR: email or password is incorrect")
         }
     }
     
-    func createAccount(email: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            if error != nil {
-                print("ERROR: Failed to create account")
-            } else {
-                print("Create account succcess!")
-                print(user!.uid)
-                self.userID = user!.uid
+    @IBAction func createAccount(_ sender: Any) {
+        if (emailTextField.hasText && passwordTextField.hasText) {
+            let email = emailTextField.text!
+            let password = passwordTextField.text!
+            
+            Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+                if error != nil {
+                    print(error?.localizedDescription as! String)
+                } else {
+                    print("Create account succcess!")
+                    print(user!.uid)
+                    self.userID = user!.uid
+                    
+                    self.performSegue(withIdentifier: "profileSegue", sender: self)
+                }
             }
+        } else {
+            print("ERROR: email or password is blank")
         }
     }
     

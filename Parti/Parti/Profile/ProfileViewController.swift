@@ -24,7 +24,25 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var profileObject = ProfileModel()
     
     @IBOutlet weak var profilePicture: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel! {
+        didSet {
+            let recognizer = UITapGestureRecognizer()
+            recognizer.addTarget(self, action: #selector(ProfileViewController.editName))
+            nameLabel.addGestureRecognizer(recognizer)
+        }
+    }
+    
+    @objc func editName(gesture: UILongPressGestureRecognizer) {
+        switch gesture.state {
+        case UIGestureRecognizerState.began:
+            break;
+        case UIGestureRecognizerState.ended:
+            let updatedName = nameLabel.text
+            self.databaseRef.child("users/\(self.profileObject.userID)/name").setValue(updatedName)
+        // Implementation here...
+        default: break
+        }
+    }
     
     /* Runs when page is loaded, sets the delegate and datasource then calls method to query
      Firebase and fetch this user's information */
@@ -35,12 +53,23 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         // set firebase references
         databaseRef = Database.database().reference()
         storageRef = Storage.storage().reference()
-
+        
+        // add tap gesture to name label
+        nameLabel.addObserver(self, forKeyPath: "text", options: [.old, .new], context: nil)
+        
         setupProfilePicture()
         
         // query Firebase to get the current user's information
         populateProfilePage()
         
+    }
+    
+    // Update user's name in Firebase
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "text" {
+            print("old:", change?[.oldKey])
+            print("new:", change?[.newKey])
+        }
     }
     
     func setupProfilePicture () {
@@ -128,28 +157,32 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func populateProfilePage() {
         databaseHandle = databaseRef?.child("users/\(profileObject.userID)").observe(.value, with: { (snapshot) in
             print("POPULATE PROFILE PAGE")
-            let data = snapshot.value as! [String: Any]
+            if (snapshot.exists()) {
+                let data = snapshot.value as! [String: Any]
+                
+                // If the user already has a profile picture, load it up!
+                if let pictureURL = data["pictureURL"] as? String {
+                    self.profileObject.pictureURL = pictureURL
+                    let url = URL(string: pictureURL)
+                    URLSession.shared.dataTask(with: url!, completionHandler: { (image, response, error) in
+                        if (error != nil) {
+                            print(error)
+                            return
+                        }
+                        print("about to save!!! fingers crossed!")
+                        DispatchQueue.main.async { // Make sure you're on the main thread here
+                            self.profilePicture?.image = UIImage(data: image!)
+                        }
+                    }).resume()
+                }
             
-            // If the user already has a profile picture, load it up!
-            if let pictureURL = data["pictureURL"] as? String {
-                self.profileObject.pictureURL = pictureURL
-                let url = URL(string: pictureURL)
-                URLSession.shared.dataTask(with: url!, completionHandler: { (image, response, error) in
-                    if (error != nil) {
-                        print(error)
-                        return
-                    }
-                    print("about to save!!! fingers crossed!")
-                    DispatchQueue.main.async { // Make sure you're on the main thread here
-                        self.profilePicture?.image = UIImage(data: image!)
-                    }
-                }).resume()
+                self.profileObject.name = data["name"] as! String
+                
+                // update profile page
+                self.nameLabel.text = self.profileObject.name
+            } else {
+                print("No user in Firebase yet")
             }
-            self.profileObject.name = data["name"] as! String
-            
-            // update profile page
-            self.nameLabel.text = self.profileObject.name
-            
         }) { (error) in
             print(error.localizedDescription)
         }
