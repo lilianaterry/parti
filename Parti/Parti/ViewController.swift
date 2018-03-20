@@ -63,7 +63,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
                     print(user!.uid)
                     self.userID = user!.uid
                     
-                    self.performSegue(withIdentifier: "profileSegue", sender: self)
+                    self.performSegue(withIdentifier: "createToProfile", sender: self)
                 }
             }
         } else {
@@ -81,7 +81,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
                 self.userID = user!.uid
                 print("User id set: \(self.userID)")
                 
-                self.performSegue(withIdentifier: "createPartySegue", sender: self)
+                self.performSegue(withIdentifier: "loginToPartyList", sender: self)
             }
         }
     }
@@ -158,25 +158,31 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         print("REACHED SEGUE")
         
         // Profile Page
-        if (segueID == "profileSegue") {
+        if (segueID == "createToProfile") {
             if let destinationVC = segue.destination as? ProfileViewController {
                 destinationVC.profileObject.userID = userID
             }
-        // FoodList page
-        } else if (segueID == "foodListSegue") {
-            if let destinationVC = segue.destination as? FoodListViewController {
+        // Party List Page
+        } else if (segueID == "loginToPartyList") {
+            if let destinationVC = segue.destination as? PartyListViewController {
                 destinationVC.userID = userID
             }
-        // Party Creation Page
-        } else if (segueID == "createPartySegue") {
-            if let destinationVC = segue.destination as? CreatePartyViewController {
-                destinationVC.partyObject.hostID = userID
-            }
-        // Guest List Page
-        } else if (segueID == "guestListSegue") {
-            if let destinationVC = segue.destination as? GuestListViewController {
-                destinationVC.partyObject.hostID = userID
-            }
+            
+        // FoodList page
+//        } else if (segueID == "foodListSegue") {
+//            if let destinationVC = segue.destination as? FoodListViewController {
+//                destinationVC.userID = userID
+//            }
+//        // Party Creation Page
+//        } else if (segueID == "createPartySegue") {
+//            if let destinationVC = segue.destination as? CreatePartyViewController {
+//                destinationVC.partyObject.hostID = userID
+//            }
+//        // Guest List Page
+//        } else if (segueID == "guestListSegue") {
+//            if let destinationVC = segue.destination as? GuestListViewController {
+//                destinationVC.partyObject.hostID = userID
+//            }
         }
     }
 }

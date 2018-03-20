@@ -18,7 +18,7 @@ class PartyTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         // create circular mask on image
-        self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2;
+        self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.height / 2;
         self.profilePicture.clipsToBounds = true;
     }
 

@@ -188,4 +188,20 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
+    
+    @IBAction func eventsButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "profileToPartyList", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let segueID = segue.identifier
+        
+        // Party List Page
+        if (segueID == "profileToPartyList") {
+            if let destinationVC = segue.destination as? PartyListViewController {
+                destinationVC.userID = profileObject.userID
+            }
+        }
+    }
+    
 }
