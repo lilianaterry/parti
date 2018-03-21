@@ -20,8 +20,7 @@ class GuestListViewController: UIViewController, UITableViewDelegate, UITableVie
     // list of guests
     var guestList = [ProfileModel]()
     var partyObject = PartyModel()
-
-
+    
     /* Returns the number of cells to populate the table with */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return guestList.count
@@ -70,11 +69,9 @@ class GuestListViewController: UIViewController, UITableViewDelegate, UITableVie
         // set firebase reference
         ref = Database.database().reference()
         
-        partyObject.partyID = "C99F304A-2661-495E-889B-DC7E1DA8E640"
-
         // query Firebase and get a list of all parties for this user
         populateGuestTable()
-
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -120,6 +117,10 @@ class GuestListViewController: UIViewController, UITableViewDelegate, UITableVie
 
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+    }
+    
 }
 
 

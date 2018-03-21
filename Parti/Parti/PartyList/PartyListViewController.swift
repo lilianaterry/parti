@@ -28,9 +28,6 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     /* Dequeues cells from partyList and returns a filled-in table cell */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let uuid = UUID().uuidString
-        print(uuid)
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "partyCell", for: indexPath) as! PartyTableViewCell
         
         let currentParty = partyList[indexPath.row] 
@@ -38,12 +35,22 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
         // update information contained in cell
         cell.partyName.text = currentParty.name
         cell.address.text = currentParty.address
+        cell.partyObject = currentParty
         
         // update appearance of cell
 //        cell.separatorInset = UIEdgeInsets.zero
 //        cell.layoutMargins = UIEdgeInsets.zero
         
         return cell
+    }
+    
+    // method to run when table view cell is tapped
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "partyCell", for: indexPath) as! PartyTableViewCell
+        
+        // Segue to the second view controller
+        self.performSegue(withIdentifier: "partyCell", sender: cell)
     }
 
     /* Runs when page is loaded, sets the delegate and datasource then calls method to query
@@ -54,7 +61,7 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
         self.partyTableView.dataSource = self
         self.partyTableView.delegate = self
         
-        // set the style of the table view cells        
+        // set the style of the table view cells
 //        self.partyTableView.layoutMargins = UIEdgeInsets.zero
 //        self.partyTableView.separatorInset = UIEdgeInsets.zero
         
@@ -74,6 +81,13 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     /* Goes through each party a user is attending and adds the party object to the list */
     func populatePartyTable() {
         databaseHandle = ref?.child("users/\(userID)/attending").observe(.childAdded, with: { (snapshot) in
+            let partyID = snapshot.key
+            self.addParty(partyID: partyID)
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+        databaseHandle = ref?.child("users/\(userID)/hosting").observe(.childAdded, with: { (snapshot) in
             let partyID = snapshot.key
             self.addParty(partyID: partyID)
         }) { (error) in
@@ -129,10 +143,18 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
             if let destinationVC = segue.destination as? ProfileViewController {
                 destinationVC.profileObject.userID = userID
             }
-            // Party List Page
+        // Party List Page
         } else if (segueID == "addEvent") {
             if let destinationVC = segue.destination as? CreatePartyViewController {
                 destinationVC.partyObject.hostID = userID
+            }
+        } else if (segueID == "partyCell") {
+            if let destinationVC = segue.destination as? PartyPageViewController {
+                destinationVC.partyObject.hostID = userID
+                
+                if let cell = sender as? PartyTableViewCell {
+                    destinationVC.partyObject = cell.partyObject
+                }
             }
         }
     }

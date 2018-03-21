@@ -22,6 +22,10 @@ class PartyModel: NSObject {
     var partyID: String
     var imageURL: String
     
+    
+    var guests: [ProfileModel]
+    var image: UIImage
+    
     init(hostID: String, imageURL: String, partyID: String, attire: String, name: String, date: String, address: String) {
         self.imageURL = imageURL
         self.partyID = partyID
@@ -32,6 +36,8 @@ class PartyModel: NSObject {
         self.foodList = [:]
         self.guestList = [:]
         self.address = address
+        self.guests = []
+        self.image = UIImage()
     }
     
     

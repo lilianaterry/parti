@@ -14,6 +14,7 @@
 		CE1189612051DF8400A0AD49 /* PartyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A651A5204B9CA0007792E6 /* PartyListViewController.swift */; };
 		CE1189632051E00300A0AD49 /* PartyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1189622051E00300A0AD49 /* PartyModel.swift */; };
 		CE31AB9F205F17ED00171BD1 /* CreatePartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE31AB9E205F17ED00171BD1 /* CreatePartyViewController.swift */; };
+		CE3E0DB12061E0980098F435 /* PartyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E0DB02061E0980098F435 /* PartyPageViewController.swift */; };
 		CE5ED8CC205DECAF00F6174F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5ED8CB205DECAF00F6174F /* StoreKit.framework */; };
 		CE5ED8CE205DEE2100F6174F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5ED8CD205DEE2100F6174F /* MediaPlayer.framework */; };
 		CE5ED8D4205ED25D00F6174F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5ED8D3205ED25D00F6174F /* AVFoundation.framework */; };
@@ -54,6 +55,7 @@
 		CE09DC5B205C66410097806D /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		CE1189622051E00300A0AD49 /* PartyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyModel.swift; sourceTree = "<group>"; };
 		CE31AB9E205F17ED00171BD1 /* CreatePartyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePartyViewController.swift; sourceTree = "<group>"; };
+		CE3E0DB02061E0980098F435 /* PartyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyPageViewController.swift; sourceTree = "<group>"; };
 		CE5ED8CB205DECAF00F6174F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CE5ED8CD205DEE2100F6174F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		CE5ED8D3205ED25D00F6174F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -154,6 +156,7 @@
 		CEB33EEA205F354000F49918 /* PartyPage */ = {
 			isa = PBXGroup;
 			children = (
+				CE3E0DB02061E0980098F435 /* PartyPageViewController.swift */,
 				CEB33EF6205F464400F49918 /* GuestListViewController.swift */,
 				CEB33EF4205F456100F49918 /* GuestTableViewCell.swift */,
 				CE1189622051E00300A0AD49 /* PartyModel.swift */,
@@ -466,6 +469,7 @@
 				CE09DC5C205C66410097806D /* ProfileModel.swift in Sources */,
 				F980833B2020E98C00CB91C0 /* ViewController.swift in Sources */,
 				CE1189632051E00300A0AD49 /* PartyModel.swift in Sources */,
+				CE3E0DB12061E0980098F435 /* PartyPageViewController.swift in Sources */,
 				F98083412020E98C00CB91C0 /* Parti.xcdatamodeld in Sources */,
 				CE6CD6832047092D00BC3DD3 /* FoodListViewController.swift in Sources */,
 				F9A651A8204B9E57007792E6 /* PartyTableViewCell.swift in Sources */,

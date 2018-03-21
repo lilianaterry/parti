@@ -71,6 +71,8 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("userID: \(partyObject.hostID)")
+        
         // set firebase references
         databaseRef = Database.database().reference()
         storageRef = Storage.storage().reference()
@@ -157,6 +159,18 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
                 let imageURL = metadata?.downloadURL()?.absoluteString
                 self.databaseRef.child("parties/\(self.partyObject.partyID)/imageURL").setValue(imageURL)
             })
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addGuestsNewParty" {
+            let destinationVC = segue.destination as! GuestListViewController
+        }
+    }
+    
+    @IBAction func unwind(sender: UIStoryboardSegue) {
+        if let sourceVC = sender.source as? GuestListViewController {
+            partyObject.guests = sourceVC.guestList
         }
     }
     

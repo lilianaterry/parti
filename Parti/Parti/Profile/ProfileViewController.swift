@@ -188,7 +188,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    
     @IBAction func eventsButton(_ sender: Any) {
         self.performSegue(withIdentifier: "profileToPartyList", sender: self)
     }
