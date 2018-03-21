@@ -55,7 +55,7 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
                 var user = ProfileModel()
                 user.name = data["name"] as! String
                 user.pictureURL = data["pictureURL"] as! String
-                user.userID = data["userID"] as! String
+                user.userID = data["username"] as! String
                 
                 self.users.append(user)
             }
