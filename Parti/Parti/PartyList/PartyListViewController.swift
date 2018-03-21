@@ -108,7 +108,7 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
             partyObject.hostID = data["hostID"] as! String
             partyObject.name = data["name"] as! String
             partyObject.address = data["address"] as! String
-            partyObject.imageURL = data["imageURL"] as! String
+
             partyObject.partyID = partyID
             
             if let foodList = data["foodList"] {
@@ -116,6 +116,9 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             if let guestList = data["guestList"] {
                 partyObject.guestList = guestList as! NSDictionary
+            }
+            if let image = data["imageURL"] {
+                partyObject.imageURL = data["imageURL"] as! String
             }
             
             self.partyList.append(partyObject)

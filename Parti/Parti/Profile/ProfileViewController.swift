@@ -176,10 +176,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     }).resume()
                 }
             
-                self.profileObject.name = data["name"] as! String
-                
-                // update profile page
-                self.nameLabel.text = self.profileObject.name
+                if let name = data["name"] {
+                    self.profileObject.name = name as! String
+                    // update profile page
+                    self.nameLabel.text = self.profileObject.name
+                }
             } else {
                 print("No user in Firebase yet")
             }
