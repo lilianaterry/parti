@@ -51,8 +51,10 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
             updateFirebaseStorage()
             
             // update user's party information
-            let addParty = [partyObject.partyID: "1"]
+            let addParty = [partyObject.partyID: 1]
+            let friend = "friendUID"
             self.databaseRef.child("users/\(self.partyObject.hostID)/hosting").updateChildValues(addParty)
+
         } else {
             print("ERROR: address, attire, or name is blank")
         }
@@ -70,6 +72,8 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("userID: \(partyObject.hostID)")
         
         // set firebase references
         databaseRef = Database.database().reference()
@@ -157,6 +161,18 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
                 let imageURL = metadata?.downloadURL()?.absoluteString
                 self.databaseRef.child("parties/\(self.partyObject.partyID)/imageURL").setValue(imageURL)
             })
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addGuestsNewParty" {
+            let destinationVC = segue.destination as! GuestListViewController
+        }
+    }
+    
+    @IBAction func unwind(sender: UIStoryboardSegue) {
+        if let sourceVC = sender.source as? GuestListViewController {
+            partyObject.guests = sourceVC.guestList
         }
     }
     
