@@ -27,7 +27,10 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! AddFriendTableViewCell
+        var profileModel = ProfileModel()
+        profileModel.name = users[indexPath.row].name
         cell.nameLabel?.text = users[indexPath.row].name
+        cell.profileModel = profileModel
         return cell
     }
     
@@ -39,7 +42,7 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
         // set firebase reference
         databaseRef = Database.database().reference()
         // TODO: Fetch friends from Firebase
-        populateAllFriendsList()
+        //populateAllFriendsList()
         
         filteredUsers = users
     }
@@ -49,6 +52,7 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
         // Dispose of any resources that can be recreated.
     }
     
+    /*
     func populateAllFriendsList() {
         databaseHandle = databaseRef?.child("users").queryOrdered(byChild: "name").observe(.childAdded) { snapshot in
             var data = snapshot.value as! [String: Any]
@@ -60,12 +64,20 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
             self.users.append(user)
             self.tableView.reloadData()
         }
-    }
+    } */
     
     // This method updates filteredData based on the text in the Search Box
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        tableView.reloadData()
+        databaseHandle = databaseRef?.child("users").queryOrdered(byChild: "name").queryEqual(toValue: searchText).observe(.childAdded)
+            { snapshot in
+            var data = snapshot.value as! [String: Any]
+            var user = ProfileModel()
+            user.name = data["name"] as! String
+                
+            self.users.removeAll()
+            self.users.append(user)
+            self.tableView.reloadData()
+        }
     }
 
     /*

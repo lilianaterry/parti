@@ -13,6 +13,11 @@ class AddFriendTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     
+    var profileModel: ProfileModel!
+    // Firebase Database connection
+    var databaseRef: DatabaseReference!
+    var databaseHandle: DatabaseHandle?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -25,7 +30,7 @@ class AddFriendTableViewCell: UITableViewCell {
     }
     
     @IBAction func addFriend(_ sender: Any) {
-        
+        var friendUid = profileModel.userID
     }
     
     /*
