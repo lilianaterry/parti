@@ -18,15 +18,17 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
     var databaseRef: DatabaseReference!
     var databaseHandle: DatabaseHandle?
     
-    var users: [ProfileModel]!
-    var filteredUsers: [ProfileModel]!
+    var users = [ProfileModel]()
+    var filteredUsers = [ProfileModel]()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath)
+        cell.textLabel?.text = users[indexPath.row].name
+        return cell
     }
     
     override func viewDidLoad() {
@@ -48,24 +50,20 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
     }
     
     func populateAllFriendsList() {
-        databaseHandle = databaseRef?.child("users").observe(.value) { snapshot in
-            let enumerator = snapshot.children
-            while let child = enumerator.nextObject() as? DataSnapshot {
-                var data = child.value as! [String: Any]
-                var user = ProfileModel()
-                user.name = data["name"] as! String
-                user.pictureURL = data["pictureURL"] as! String
-                user.userID = data["username"] as! String
-                
-                self.users.append(user)
-            }
-            //self.tableView.reloadData()
+        databaseHandle = databaseRef?.child("users").queryOrdered(byChild: "name").observe(.childAdded) { snapshot in
+            var data = snapshot.value as! [String: Any]
+            var user = ProfileModel()
+            user.name = data["name"] as! String
+            //user.pictureURL = data["pictureURL"] as! String
+            //user.userID = data["username"] as! String
+            
+            self.users.append(user)
+            self.tableView.reloadData()
         }
     }
     
     // This method updates filteredData based on the text in the Search Box
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
         
         tableView.reloadData()
     }
