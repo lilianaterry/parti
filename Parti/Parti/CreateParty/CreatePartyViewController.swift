@@ -51,8 +51,10 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
             updateFirebaseStorage()
             
             // update user's party information
-            let addParty = [partyObject.partyID: "1"]
+            let addParty = [partyObject.partyID: 1]
+            let friend = "friendUID"
             self.databaseRef.child("users/\(self.partyObject.hostID)/hosting").updateChildValues(addParty)
+
         } else {
             print("ERROR: address, attire, or name is blank")
         }

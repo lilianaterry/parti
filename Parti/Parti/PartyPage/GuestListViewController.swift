@@ -37,7 +37,7 @@ class GuestListViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.guestName.text = currentGuest.name
         
         // now get guest's profile picture
-        let url = URL(string: currentGuest.pictureURL)
+        let url = URL(string: currentGuest.imageURL)
         URLSession.shared.dataTask(with: url!, completionHandler: { (image, response, error) in
             if (error != nil) {
                 print(error)
@@ -104,7 +104,7 @@ class GuestListViewController: UIViewController, UITableViewDelegate, UITableVie
             
             // If the user already has a profile picture, load it up!
             if let pictureURL = data["pictureURL"] as? String {
-                guest.pictureURL = pictureURL
+                guest.imageURL = pictureURL
             }
             guest.name = data["name"] as! String
             

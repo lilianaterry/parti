@@ -162,7 +162,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 
                 // If the user already has a profile picture, load it up!
                 if let pictureURL = data["pictureURL"] as? String {
-                    self.profileObject.pictureURL = pictureURL
+                    self.profileObject.imageURL = pictureURL
                     let url = URL(string: pictureURL)
                     URLSession.shared.dataTask(with: url!, completionHandler: { (image, response, error) in
                         if (error != nil) {
