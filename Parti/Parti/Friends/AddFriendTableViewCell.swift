@@ -12,6 +12,7 @@ import FirebaseDatabase
 class AddFriendTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var profilePicture: UIImageView!
     
     var profileModel: ProfileModel!
     // Firebase Database connection
