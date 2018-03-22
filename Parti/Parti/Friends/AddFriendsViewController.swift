@@ -29,6 +29,7 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! AddFriendTableViewCell
         var profileModel = ProfileModel()
         profileModel.name = users[indexPath.row].name
+        profileModel.userID = users[indexPath.row].userID
         cell.nameLabel?.text = users[indexPath.row].name
         cell.profileModel = profileModel
         return cell
@@ -73,6 +74,7 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
             var data = snapshot.value as! [String: Any]
             var user = ProfileModel()
             user.name = data["name"] as! String
+            user.userID = snapshot.key
                 
             self.users.removeAll()
             self.users.append(user)

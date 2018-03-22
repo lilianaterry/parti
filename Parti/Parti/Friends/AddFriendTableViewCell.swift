@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class AddFriendTableViewCell: UITableViewCell {
     
@@ -22,6 +23,7 @@ class AddFriendTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        databaseRef = Database.database().reference()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,7 +33,13 @@ class AddFriendTableViewCell: UITableViewCell {
     }
     
     @IBAction func addFriend(_ sender: Any) {
-        var friendUid = profileModel.userID
+        let friendUid = profileModel.userID
+        let userID = Auth.auth().currentUser!.uid
+        let friendDict = [friendUid: 1]
+        let userDict = [userID: 1]
+        
+        self.databaseRef.child("users/\(friendUid)/friends").updateChildValues(userDict)
+        self.databaseRef.child("users/\(userID)/friends").updateChildValues(friendDict)
     }
     
     /*
