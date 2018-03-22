@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-class AddFriendsViewController: UIViewController {
+class CreateFriendList: UIViewController {
 
     var profileObject = ProfileModel()
     
