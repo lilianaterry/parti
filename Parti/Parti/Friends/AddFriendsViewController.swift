@@ -26,8 +26,8 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath)
-        cell.textLabel?.text = users[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! AddFriendTableViewCell
+        cell.nameLabel?.text = users[indexPath.row].name
         return cell
     }
     
