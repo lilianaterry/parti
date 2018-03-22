@@ -25,6 +25,7 @@
 		CEF18A42204B74F8003071C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF18A40204B74F8003071C5 /* Main.storyboard */; };
 		F90031B82031F4F300B9FA75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F90031B72031F4F300B9FA75 /* GoogleService-Info.plist */; };
 		F964DCBF2062E441004F812C /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F964DCBE2062E440004F812C /* AddFriendsViewController.swift */; };
+		F964DCC1206354F5004F812C /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F964DCC0206354F5004F812C /* AddFriendTableViewCell.swift */; };
 		F98083392020E98C00CB91C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98083382020E98C00CB91C0 /* AppDelegate.swift */; };
 		F980833B2020E98C00CB91C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F980833A2020E98C00CB91C0 /* ViewController.swift */; };
 		F98083412020E98C00CB91C0 /* Parti.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F980833F2020E98C00CB91C0 /* Parti.xcdatamodeld */; };
@@ -70,6 +71,7 @@
 		F90031B72031F4F300B9FA75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F957DEDA204146E400FB15A3 /* Parti.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Parti.entitlements; sourceTree = "<group>"; };
 		F964DCBE2062E440004F812C /* AddFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsViewController.swift; sourceTree = "<group>"; };
+		F964DCC0206354F5004F812C /* AddFriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendTableViewCell.swift; sourceTree = "<group>"; };
 		F98083352020E98C00CB91C0 /* Parti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98083382020E98C00CB91C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F980833A2020E98C00CB91C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				F964DCBE2062E440004F812C /* AddFriendsViewController.swift */,
+				F964DCC0206354F5004F812C /* AddFriendTableViewCell.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				F98083392020E98C00CB91C0 /* AppDelegate.swift in Sources */,
 				CE09DC56205C657C0097806D /* ProfileViewController.swift in Sources */,
 				CE1189612051DF8400A0AD49 /* PartyListViewController.swift in Sources */,
+				F964DCC1206354F5004F812C /* AddFriendTableViewCell.swift in Sources */,
 				CE31AB9F205F17ED00171BD1 /* CreatePartyViewController.swift in Sources */,
 				CEB33EF7205F464400F49918 /* GuestListViewController.swift in Sources */,
 			);
