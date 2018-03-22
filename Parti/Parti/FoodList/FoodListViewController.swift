@@ -48,7 +48,6 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self

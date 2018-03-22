@@ -12,20 +12,27 @@ import UIKit
 
 /* Class pulls all information to populate a party cell or page */
 class ProfileModel: NSObject {
-    //var profilePicture: UIImage
     var name: String
     var userID: String
-    var pictureURL: String
+    var username: String
+    var imageURL: String
+    var image: UIImage
+    var foodList: NSDictionary
+    var friendsList: NSDictionary
     
-    init(name: String, userID: String, pictureURL: String) {
-        //self.profilePicture = UIImage()
+    init(name: String, userID: String, username: String, pictureURL: String) {
         self.name = name
         self.userID = userID
-        self.pictureURL = pictureURL
+        self.username = username
+        self.imageURL = pictureURL
+        
+        self.image = UIImage()
+        self.foodList = [:]
+        self.friendsList = [:]
     }
     
     convenience override init() {
-        self.init(name: "", userID: "", pictureURL: "")
+        self.init(name: "", userID: "", username: "", pictureURL: "")
     }
 }
 

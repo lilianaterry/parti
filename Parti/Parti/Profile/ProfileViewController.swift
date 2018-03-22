@@ -162,7 +162,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 
                 // If the user already has a profile picture, load it up!
                 if let pictureURL = data["pictureURL"] as? String {
-                    self.profileObject.pictureURL = pictureURL
+                    self.profileObject.imageURL = pictureURL
                     let url = URL(string: pictureURL)
                     URLSession.shared.dataTask(with: url!, completionHandler: { (image, response, error) in
                         if (error != nil) {
@@ -176,15 +176,31 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     }).resume()
                 }
             
-                self.profileObject.name = data["name"] as! String
-                
-                // update profile page
-                self.nameLabel.text = self.profileObject.name
+                if let name = data["name"] {
+                    self.profileObject.name = name as! String
+                    // update profile page
+                    self.nameLabel.text = self.profileObject.name
+                }
             } else {
                 print("No user in Firebase yet")
             }
         }) { (error) in
             print(error.localizedDescription)
+        }
+    }
+    
+    @IBAction func eventsButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "profileToPartyList", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let segueID = segue.identifier
+        
+        // Party List Page
+        if (segueID == "profileToPartyList") {
+            if let destinationVC = segue.destination as? PartyListViewController {
+                destinationVC.userID = profileObject.userID
+            }
         }
     }
     

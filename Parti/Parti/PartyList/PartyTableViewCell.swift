@@ -14,12 +14,15 @@ class PartyTableViewCell: UITableViewCell {
     @IBOutlet weak var partyName: UILabel!
     @IBOutlet weak var address: UILabel!
     
+    var partyObject = PartyModel()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         // create circular mask on image
-        self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2;
+        self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.height / 2;
         self.profilePicture.clipsToBounds = true;
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
