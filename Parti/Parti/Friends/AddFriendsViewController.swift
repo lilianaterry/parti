@@ -21,6 +21,8 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
     var users = [ProfileModel]()
     var filteredUsers = [ProfileModel]()
     
+    var profileObject = ProfileModel()
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }
@@ -29,9 +31,11 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! AddFriendTableViewCell
         var profileModel = ProfileModel()
         profileModel.name = users[indexPath.row].name
+        print(profileModel.name)
         profileModel.userID = users[indexPath.row].userID
         cell.nameLabel?.text = users[indexPath.row].name
         cell.profileModel = profileModel
+        cell.newUserButton.tag = indexPath.row;
         return cell
     }
     
@@ -43,7 +47,7 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
         // set firebase reference
         databaseRef = Database.database().reference()
         // TODO: Fetch friends from Firebase
-        //populateAllFriendsList()
+        populateAllFriendsList()
         
         filteredUsers = users
     }
@@ -53,24 +57,27 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
         // Dispose of any resources that can be recreated.
     }
     
-    /*
+    
     func populateAllFriendsList() {
         databaseHandle = databaseRef?.child("users").queryOrdered(byChild: "name").observe(.childAdded) { snapshot in
             var data = snapshot.value as! [String: Any]
             var user = ProfileModel()
             user.name = data["name"] as! String
+            user.userID = snapshot.key
+            print(user.userID)
             //user.pictureURL = data["pictureURL"] as! String
             //user.userID = data["username"] as! String
             
             self.users.append(user)
             self.tableView.reloadData()
         }
-    } */
+    }
     
     // This method updates filteredData based on the text in the Search Box
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         databaseHandle = databaseRef?.child("users").queryOrdered(byChild: "name").queryEqual(toValue: searchText).observe(.childAdded)
             { snapshot in
+                
             var data = snapshot.value as! [String: Any]
             var user = ProfileModel()
             user.name = data["name"] as! String
@@ -82,14 +89,10 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func newUserAddButton(_ sender: UIButton) {
+        let button = sender as UIButton;
+        
     }
-    */
-
+    
 }

@@ -14,7 +14,6 @@
 		CE1189612051DF8400A0AD49 /* PartyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A651A5204B9CA0007792E6 /* PartyListViewController.swift */; };
 		CE1189632051E00300A0AD49 /* PartyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1189622051E00300A0AD49 /* PartyModel.swift */; };
 		CE1C754720631568009A5914 /* ProfileCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C754620631568009A5914 /* ProfileCreationViewController.swift */; };
-		CE1C7549206318AE009A5914 /* CreateFriendList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C7548206318AE009A5914 /* CreateFriendList.swift */; };
 		CE1C754B2063199E009A5914 /* CreateFoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C754A2063199E009A5914 /* CreateFoodListViewController.swift */; };
 		CE31AB9F205F17ED00171BD1 /* CreatePartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE31AB9E205F17ED00171BD1 /* CreatePartyViewController.swift */; };
 		CE3E0DB12061E0980098F435 /* PartyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E0DB02061E0980098F435 /* PartyPageViewController.swift */; };
@@ -61,7 +60,6 @@
 		CE09DC5B205C66410097806D /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		CE1189622051E00300A0AD49 /* PartyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyModel.swift; sourceTree = "<group>"; };
 		CE1C754620631568009A5914 /* ProfileCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreationViewController.swift; sourceTree = "<group>"; };
-		CE1C7548206318AE009A5914 /* CreateFriendList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFriendList.swift; sourceTree = "<group>"; };
 		CE1C754A2063199E009A5914 /* CreateFoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFoodListViewController.swift; sourceTree = "<group>"; };
 		CE31AB9E205F17ED00171BD1 /* CreatePartyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePartyViewController.swift; sourceTree = "<group>"; };
 		CE3E0DB02061E0980098F435 /* PartyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyPageViewController.swift; sourceTree = "<group>"; };
@@ -170,7 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				CE1C754620631568009A5914 /* ProfileCreationViewController.swift */,
-				CE1C7548206318AE009A5914 /* CreateFriendList.swift */,
 				CE1C754A2063199E009A5914 /* CreateFoodListViewController.swift */,
 			);
 			path = NewUserFlow;
@@ -508,7 +505,6 @@
 				CE1C754B2063199E009A5914 /* CreateFoodListViewController.swift in Sources */,
 				F98083412020E98C00CB91C0 /* Parti.xcdatamodeld in Sources */,
 				CE6CD6832047092D00BC3DD3 /* FoodListViewController.swift in Sources */,
-				CE1C7549206318AE009A5914 /* CreateFriendList.swift in Sources */,
 				F9A651A8204B9E57007792E6 /* PartyTableViewCell.swift in Sources */,
 				CEB33EF5205F456100F49918 /* GuestTableViewCell.swift in Sources */,
 				CEAB8B6720644885005AD748 /* AddFriendsViewController.swift in Sources */,

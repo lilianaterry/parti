@@ -46,7 +46,7 @@ class ProfileCreationViewController: UIViewController, UIImagePickerControllerDe
             profileObject.name = (nameText.text?.lowercased())!
             profileObject.username = (usernameText.text?.lowercased())!
             profileObject.image = profilePicture.image!
-            self.performSegue(withIdentifier: "createTwo", sender: self)
+            self.performSegue(withIdentifier: "createStepTwo", sender: self)
         }
         
     }

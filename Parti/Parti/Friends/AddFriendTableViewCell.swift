@@ -14,6 +14,7 @@ class AddFriendTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var newUserButton: UIButton!
     
     var profileModel: ProfileModel!
     // Firebase Database connection
@@ -32,6 +33,8 @@ class AddFriendTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    
     @IBAction func addFriend(_ sender: Any) {
         let friendUid = profileModel.userID
         let userID = Auth.auth().currentUser!.uid
@@ -41,15 +44,5 @@ class AddFriendTableViewCell: UITableViewCell {
         self.databaseRef.child("users/\(friendUid)/friends").updateChildValues(userDict)
         self.databaseRef.child("users/\(userID)/friends").updateChildValues(friendDict)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
