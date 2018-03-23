@@ -64,7 +64,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZD-Wt-FCa">
-                                <rect key="frame" x="218" y="526" width="96" height="17"/>
+                                <rect key="frame" x="232" y="526" width="82" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="GLY-kI-BWS"/>
                                 </constraints>
@@ -102,7 +102,6 @@
                         <constraints>
                             <constraint firstItem="oMb-ud-gTG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="1aM-jR-Bfw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2z0-zw-Liv" secondAttribute="trailing" constant="63" id="6it-AD-zyl"/>
-                            <constraint firstItem="hZD-Wt-FCa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="218" id="9qL-UB-Srs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Olt-ps-gKO" secondAttribute="trailing" constant="61" id="Am0-8q-MNJ"/>
                             <constraint firstItem="Olt-ps-gKO" firstAttribute="leading" secondItem="3xO-6B-iwf" secondAttribute="leading" id="F12-Xw-Yat"/>
                             <constraint firstItem="Olt-ps-gKO" firstAttribute="top" secondItem="miA-4v-C1W" secondAttribute="bottom" constant="102" id="GCt-WM-ae2"/>
