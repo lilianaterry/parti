@@ -60,6 +60,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         super.viewDidLoad()
         
         GIDSignIn.sharedInstance().uiDelegate = self
+        //self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "gradient"))
         
         // TODO(developer) Configure the sign-in button look/feel
         // ...
