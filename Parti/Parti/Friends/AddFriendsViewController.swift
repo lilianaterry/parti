@@ -92,7 +92,8 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
     
     @IBAction func newUserAddButton(_ sender: UIButton) {
         let button = sender as UIButton;
-        
+        let friendID = users[button.tag].userID
+        profileObject.friendsList[friendID] = 1
     }
     
 }
