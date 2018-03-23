@@ -12,14 +12,17 @@ import Firebase
 import GoogleSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
+import StoreKit
+import MediaPlayer
 
 class ViewController: UIViewController, GIDSignInUIDelegate {
     
     // MARK: Properties
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var googleSignInButton: GIDSignInButton!
+
+    var userID = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,18 +46,28 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         
             passwordSignIn(email: email, password: password)
         } else {
-            print("ERROR: email or password is blank")
+            print("ERROR: email or password is incorrect")
         }
     }
     
-    func createAccount(email: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            if error != nil {
-                print("ERROR: Failed to create account")
-            } else {
-                print("Create account succcess!")
-                print(user!.uid)
+    @IBAction func createAccount(_ sender: Any) {
+        if (emailTextField.hasText && passwordTextField.hasText) {
+            let email = emailTextField.text!
+            let password = passwordTextField.text!
+            
+            Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+                if error != nil {
+                    print(error?.localizedDescription as! String)
+                } else {
+                    print("Create account succcess!")
+                    print(user!.uid)
+                    self.userID = user!.uid
+                    
+                    self.performSegue(withIdentifier: "createStepOne", sender: self)
+                }
             }
+        } else {
+            print("ERROR: email or password is blank")
         }
     }
     
@@ -65,6 +78,10 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
             } else {
                 print("Password Success!")
                 print(user!.uid)
+                self.userID = user!.uid
+                print("User id set: \(self.userID)")
+                
+                self.performSegue(withIdentifier: "addFriendsScene", sender: self)
             }
         }
     }
@@ -92,6 +109,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
                     // User is signed in
                     print("Facebook login success!");
                     print(user!.uid)
+                    self.userID = user!.uid
                 }
             }
         })
@@ -132,6 +150,40 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     
     @IBAction func googleLogin(_ sender: Any) {
         GIDSignIn.sharedInstance().signIn()
+    }
+    
+    // Pass login information to next page
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let segueID = segue.identifier
+        print("REACHED SEGUE")
+        
+        // Create Profile Step 1
+        if (segueID == "createStepOne") {
+            if let destinationVC = segue.destination as? ProfileCreationViewController {
+                destinationVC.profileObject.userID = userID
+            }
+        // Party List Page
+        } else if (segueID == "loginToPartyList") {
+            if let destinationVC = segue.destination as? PartyListViewController {
+                destinationVC.userID = userID
+            }
+            
+        // FoodList page
+//        } else if (segueID == "foodListSegue") {
+//            if let destinationVC = segue.destination as? FoodListViewController {
+//                destinationVC.userID = userID
+//            }
+//        // Party Creation Page
+//        } else if (segueID == "createPartySegue") {
+//            if let destinationVC = segue.destination as? CreatePartyViewController {
+//                destinationVC.partyObject.hostID = userID
+//            }
+//        // Guest List Page
+//        } else if (segueID == "guestListSegue") {
+//            if let destinationVC = segue.destination as? GuestListViewController {
+//                destinationVC.partyObject.hostID = userID
+//            }
+        }
     }
 }
 
