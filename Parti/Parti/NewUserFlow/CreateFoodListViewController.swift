@@ -97,19 +97,19 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
     func setupAllergyIcons() {
         nutsButton.setImage(#imageLiteral(resourceName: "nuts-orange.png"), for: .selected)
         nutsButton.setImage(#imageLiteral(resourceName: "nut-free"), for: .normal)
-        nutsButton.tag = 1
+        nutsButton.tag = 0
         glutenButton.setImage(#imageLiteral(resourceName: "gluten-yellow"), for: .selected)
         glutenButton.setImage(#imageLiteral(resourceName: "gluten-free"), for: .normal)
-        glutenButton.tag = 2
+        glutenButton.tag = 1
         vegetarianButton.setImage(#imageLiteral(resourceName: "veggie-green"), for: .selected)
         vegetarianButton.setImage(#imageLiteral(resourceName: "vegetarian"), for: .normal)
-        vegetarianButton.tag = 3
+        vegetarianButton.tag = 2
         lactoseButton.setImage(#imageLiteral(resourceName: "milk-blue"), for: .selected)
         lactoseButton.setImage(#imageLiteral(resourceName: "dairy"), for: .normal)
-        lactoseButton.tag = 4
+        lactoseButton.tag = 3
         veganButton.setImage(#imageLiteral(resourceName: "vegan-blue"), for: .selected)
         veganButton.setImage(#imageLiteral(resourceName: "vegan"), for: .normal)
-        veganButton.tag = 5
+        veganButton.tag = 4
     }
     
     /* Retrieves all foodlist items from Firebase */
@@ -136,11 +136,11 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
             if button.isSelected {
                 // set deselected
                 button.isSelected = false
-                profileObject.allergiesList[allergy] = 0
+                profileObject.allergiesList.removeValue(forKey: allergy)
             } else {
                 // set selected
                 button.isSelected = true
-                profileObject.allergiesList.removeValue(forKey: allergy)
+                profileObject.allergiesList[allergy] = 1
             }
         }
     }

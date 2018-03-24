@@ -81,7 +81,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
                 self.userID = user!.uid
                 print("User id set: \(self.userID)")
                 
-                self.performSegue(withIdentifier: "addFriendsScene", sender: self)
+                self.performSegue(withIdentifier: "profileSegue", sender: self)
             }
         }
     }
