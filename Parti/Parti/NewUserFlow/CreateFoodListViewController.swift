@@ -12,6 +12,13 @@ import FirebaseDatabase
 class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var nutsButton: UIButton!
+    @IBOutlet weak var glutenButton: UIButton!
+    @IBOutlet weak var vegetarianButton: UIButton!
+    @IBOutlet weak var lactoseButton: UIButton!
+    @IBOutlet weak var veganButton: UIButton!
+    
     var userID = String()
     
     // Firebase connection
@@ -20,6 +27,8 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
     
     // list of possible food/drink
     var foodList = [String]()
+    
+    var allergiesList = [Int: Int]()
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -67,6 +76,24 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
         ref = Database.database().reference()
         
         populateFoodList()
+        
+        allergiesList = [:]
+        
+        nutsButton.setImage(#imageLiteral(resourceName: "nuts-orange.png"), for: .selected)
+        nutsButton.setImage(#imageLiteral(resourceName: "nut-free"), for: .normal)
+        nutsButton.tag = 1
+        glutenButton.setImage(#imageLiteral(resourceName: "gluten-yellow"), for: .selected)
+        glutenButton.setImage(#imageLiteral(resourceName: "gluten-free"), for: .normal)
+        glutenButton.tag = 2
+        vegetarianButton.setImage(#imageLiteral(resourceName: "veggie-green"), for: .selected)
+        vegetarianButton.setImage(#imageLiteral(resourceName: "vegetarian"), for: .normal)
+        vegetarianButton.tag = 3
+        lactoseButton.setImage(#imageLiteral(resourceName: "milk-blue"), for: .selected)
+        lactoseButton.setImage(#imageLiteral(resourceName: "dairy"), for: .normal)
+        lactoseButton.tag = 4
+        veganButton.setImage(#imageLiteral(resourceName: "vegan-blue"), for: .selected)
+        veganButton.setImage(#imageLiteral(resourceName: "vegan"), for: .normal)
+        veganButton.tag = 5
     }
     
     /* Retrieves all foodlist items from Firebase */
@@ -84,5 +111,22 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
             self.tableView.reloadData()
         })
     }
+    
+    @IBAction func toggleImage(_ sender: Any) {
+        if let button = sender as? UIButton {
+            let tag = button.tag
+            if button.isSelected {
+                // set deselected
+                button.isSelected = false
+                allergiesList[tag] = 0
+                
+            } else {
+                // set selected
+                button.isSelected = true
+                allergiesList[tag] = 1
+            }
+        }
+    }
+    
     
 }

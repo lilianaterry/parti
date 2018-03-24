@@ -60,6 +60,7 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
     
     func populateAllFriendsList() {
         databaseHandle = databaseRef?.child("users").queryOrdered(byChild: "name").observe(.childAdded) { snapshot in
+            print(snapshot)
             var data = snapshot.value as! [String: Any]
             var user = ProfileModel()
             user.name = data["name"] as! String
