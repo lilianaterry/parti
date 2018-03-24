@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
     
@@ -88,13 +89,6 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
             self.users.append(user)
             self.tableView.reloadData()
         }
-    }
-
-    
-    @IBAction func newUserAddButton(_ sender: UIButton) {
-        let button = sender as UIButton;
-        let friendID = users[button.tag].userID
-        profileObject.friendsList[friendID] = 1
     }
     
 }

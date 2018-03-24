@@ -8,6 +8,8 @@
 //
 import UIKit
 import FirebaseDatabase
+import FirebaseStorage
+import FirebaseAuth
 
 class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -19,16 +21,19 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var lactoseButton: UIButton!
     @IBOutlet weak var veganButton: UIButton!
     
-    var userID = String()
-    
     // Firebase connection
-    var ref: DatabaseReference!
-    var databaseHandle:DatabaseHandle?
+    var databaseRef: DatabaseReference!
+    var databaseHandle: DatabaseHandle?
+    
+    // Storage connection
+    var storageRef: StorageReference!
+    var storageHandle: StorageHandle?
     
     // list of possible food/drink
     var foodList = [String]()
     
-    var allergiesList = [Int: Int]()
+    // our user's information
+    var profileObject = ProfileModel()
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -50,21 +55,27 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
         // if there is not a checkmark, add one
         if (cell?.accessoryType == UITableViewCellAccessoryType.checkmark) {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
-            removeItem()
+            removeItem(index: indexPath.row)
         } else if (cell?.accessoryType == UITableViewCellAccessoryType.none) {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
-            addItem()
+            addItem(index: indexPath.row)
         } else {
             print("FAILED TO EXECUTE CHECKMARK")
         }
     }
     
-    func addItem() {
-        
+    // add item to user's food list so it can be uploaded to firebase later
+    func addItem(index: Int) {
+        let item = foodList[index]
+        profileObject.foodList[item] = 1
+        print(profileObject.foodList)
     }
     
-    func removeItem() {
-        
+    // remove item from user's food list so it won't be uploaded to firebase
+    func removeItem(index: Int) {
+        let item = foodList[index]
+        profileObject.foodList.removeValue(forKey: item)
+        print(profileObject.foodList)
     }
     
     override func viewDidLoad() {
@@ -73,12 +84,16 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
         self.tableView.delegate = self
         
         // set firebase reference
-        ref = Database.database().reference()
+        databaseRef = Database.database().reference()
+        storageRef = Storage.storage().reference()
         
+        // setup visuals for data
         populateFoodList()
-        
-        allergiesList = [:]
-        
+        setupAllergyIcons()
+    }
+    
+    /* Adds color selection functionality to allergy icons */
+    func setupAllergyIcons() {
         nutsButton.setImage(#imageLiteral(resourceName: "nuts-orange.png"), for: .selected)
         nutsButton.setImage(#imageLiteral(resourceName: "nut-free"), for: .normal)
         nutsButton.tag = 1
@@ -98,7 +113,7 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
     
     /* Retrieves all foodlist items from Firebase */
     func populateFoodList() {
-        let foodRef = ref.child("foodlist");
+        let foodRef = databaseRef.child("foodlist");
         
         // get all foodlist items and populate table view
         foodRef.queryOrderedByKey().observeSingleEvent(of: .value, with: { (snapshot) in
@@ -112,21 +127,71 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
         })
     }
     
+    /* changes color of allergy icons to reflect selection/deselection */
     @IBAction func toggleImage(_ sender: Any) {
         if let button = sender as? UIButton {
             let tag = button.tag
             if button.isSelected {
                 // set deselected
                 button.isSelected = false
-                allergiesList[tag] = 0
-                
+                profileObject.allergiesList[tag] = 0
             } else {
                 // set selected
                 button.isSelected = true
-                allergiesList[tag] = 1
+                profileObject.allergiesList[tag] = 1
             }
         }
     }
     
+    /* upload user's information to firebase, then add friend connections */
+    @IBAction func uploadUser(_ sender: Any) {
+        let values = ["name": profileObject.name,
+                      "username": profileObject.username,
+                      "foodList": profileObject.foodList,
+                      "friendsList": profileObject.friendsList,
+                      "allergiesList": profileObject.allergiesList] as [String : Any]
+        databaseRef.child("users/\(profileObject.userID)").setValue(values)
+        
+        addUserToFriends()
+        uploadProfilePicture()
+    }
+    
+    /* Adds this user's ID to their friends' friend list so they are connected */
+    func addUserToFriends() {
+        let friends = profileObject.friendsList.keys
+        
+        // for each friend in the user's friend list, update their friendsLists
+        for friendID in friends {
+            let friendItem = [friendID: 1]
+            databaseRef.child("users/\(friendID)/friendsList").updateChildValues(friendItem)
+        }
+    }
+    
+    /* Add user's profile picture to Storage and saves URL to Database */
+    func uploadProfilePicture() {
+        let imageRef = storageRef.child("profilePictures/\(self.profileObject.userID)")
+        
+        if let uploadData = UIImagePNGRepresentation(self.profileObject.image) {
+            imageRef.putData(uploadData, metadata: nil, completion: {
+                (metadata, error) in
+                
+                if (error != nil) {
+                    print(error)
+                    return
+                }
+                
+                // update user's profile URL in Firebase Database
+                let imageURL = metadata?.downloadURL()?.absoluteString
+                self.databaseRef.child("users/\(self.profileObject.userID)/imageURL").setValue(imageURL)
+            })
+        }
+    }
+    
+    /* if user does not finish their 3 step registration, remove their auth info */
+    @IBAction func cancelRegistration(_ sender: Any) {
+        
+        let user = Auth.auth().currentUser
+        user?.delete()
+    }
     
 }

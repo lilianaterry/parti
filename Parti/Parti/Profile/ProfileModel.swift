@@ -19,6 +19,7 @@ class ProfileModel: NSObject {
     var image: UIImage
     var foodList: Dictionary<String, Any>
     var friendsList: Dictionary<String, Any>
+    var allergiesList: Dictionary<Int, Any>
     
     init(name: String, userID: String, username: String, pictureURL: String) {
         self.name = name
@@ -29,6 +30,7 @@ class ProfileModel: NSObject {
         self.image = UIImage()
         self.foodList = [:]
         self.friendsList = [:]
+        self.allergiesList = [:]
     }
     
     convenience override init() {

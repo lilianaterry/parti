@@ -8,11 +8,14 @@
 
 import UIKit
 import FirebaseDatabase
+import Firebase
 
 class PartyListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var partyTableView: UITableView!
-    var userID = String()
+    
+    // current userID
+    var userID = Auth.auth().currentUser
     
     // Firebase connection
     var ref: DatabaseReference!
@@ -141,25 +144,7 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let segueID = segue.identifier
         
-        // Profile Page
-        if (segueID == "partyListToProfile") {
-            if let destinationVC = segue.destination as? ProfileViewController {
-                destinationVC.profileObject.userID = userID
-            }
-        // Party List Page
-        } else if (segueID == "addEvent") {
-            if let destinationVC = segue.destination as? CreatePartyViewController {
-                destinationVC.partyObject.hostID = userID
-            }
-        } else if (segueID == "partyCell") {
-            if let destinationVC = segue.destination as? PartyPageViewController {
-                destinationVC.partyObject.hostID = userID
-                
-                if let cell = sender as? PartyTableViewCell {
-                    destinationVC.partyObject = cell.partyObject
-                }
-            }
-        }
+       
     }
 
 }

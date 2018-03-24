@@ -61,7 +61,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         // query Firebase to get the current user's information
         populateProfilePage()
-        
     }
     
     // Update user's name in Firebase
@@ -146,8 +145,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 
                 // update user's profile URL in Firebase Database
                 print("Updating User's URL in Database")
-                let pictureURL = metadata?.downloadURL()?.absoluteString
-                self.databaseRef.child("users/\(self.profileObject.userID)/pictureURL").setValue(pictureURL)
+                let imageURL = metadata?.downloadURL()?.absoluteString
+                self.databaseRef.child("users/\(self.profileObject.userID)/imageURL").setValue(imageURL)
             })
         }
     }
@@ -161,9 +160,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 let data = snapshot.value as! [String: Any]
                 
                 // If the user already has a profile picture, load it up!
-                if let pictureURL = data["pictureURL"] as? String {
-                    self.profileObject.imageURL = pictureURL
-                    let url = URL(string: pictureURL)
+                if let imageURL = data["imageURL"] as? String {
+                    self.profileObject.imageURL = imageURL
+                    let url = URL(string: imageURL)
                     URLSession.shared.dataTask(with: url!, completionHandler: { (image, response, error) in
                         if (error != nil) {
                             print(error)
@@ -196,12 +195,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let segueID = segue.identifier
         
-        // Party List Page
-        if (segueID == "profileToPartyList") {
-            if let destinationVC = segue.destination as? PartyListViewController {
-                destinationVC.userID = profileObject.userID
-            }
-        }
     }
     
 }

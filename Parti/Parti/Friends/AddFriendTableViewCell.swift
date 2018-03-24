@@ -33,16 +33,15 @@ class AddFriendTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    
-    
+    /* update friendship in Firebase */
     @IBAction func addFriend(_ sender: Any) {
         let friendUid = profileModel.userID
         let userID = Auth.auth().currentUser!.uid
         let friendDict = [friendUid: 1]
         let userDict = [userID: 1]
         
-        self.databaseRef.child("users/\(friendUid)/friends").updateChildValues(userDict)
-        self.databaseRef.child("users/\(userID)/friends").updateChildValues(friendDict)
+        self.databaseRef.child("users/\(friendUid)/friendsList").updateChildValues(userDict)
+        self.databaseRef.child("users/\(userID)/friendsList").updateChildValues(friendDict)
     }
 
 }

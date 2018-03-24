@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseAuth
 
 class ProfileCreationViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -60,6 +61,8 @@ class ProfileCreationViewController: UIViewController, UIImagePickerControllerDe
         storageRef = Storage.storage().reference()
     
         setupProfilePicture()
+        
+        profileObject.userID = (Auth.auth().currentUser?.uid)!
     }
     
     /* Ensures profile picture is circular and clicable */
@@ -130,4 +133,10 @@ class ProfileCreationViewController: UIViewController, UIImagePickerControllerDe
         }
     }
     
+    /* If user does not complete registration process, delete their Auth info */
+    @IBAction func cancelRegistration(_ sender: Any) {
+        
+        let user = Auth.auth().currentUser
+        user?.delete()
+    }
 }

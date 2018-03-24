@@ -165,7 +165,6 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         // Party List Page
         } else if (segueID == "loginToPartyList") {
             if let destinationVC = segue.destination as? PartyListViewController {
-                destinationVC.userID = userID
             }
             
         // FoodList page
