@@ -102,8 +102,35 @@ class CreateFriendListViewController: UIViewController, UITableViewDataSource, U
      instead of immediately updating Firebase */
     @IBAction func newUserAddButton(_ sender: UIButton) {
         let button = sender as UIButton;
-        let friendID = users[button.tag].userID
-        profileObject.friendsList[friendID] = 1
+        let indexPath = IndexPath(row: button.tag, section: 0)
+        let cell = tableView.cellForRow(at: indexPath)
+        if (cell?.backgroundColor == UIColor.clear) {
+            let friendID = users[button.tag].userID
+            profileObject.friendsList[friendID] = 1
+            cell?.backgroundColor = UIColor.lightGray
+            // THIS IS NOT WORKING :(
+            button.setTitle("-", for: .highlighted)
+        } else {
+            let friendID = users[button.tag].userID
+            profileObject.friendsList.removeValue(forKey: friendID)
+            cell?.backgroundColor = UIColor.clear
+            button.setTitle("+", for: .normal)
+        }
+    }
+    
+    @IBAction func nextButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "createStepThree", sender: self)
+    }
+    /* Move to Add Friend step of registration */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let segueID = segue.identifier
+        
+        // Add Food List Page
+        if (segueID == "createStepThree") {
+            if let destinationVC = segue.destination as? CreateFoodListViewController {
+                destinationVC.profileObject = profileObject
+            }
+        }
     }
     
 }

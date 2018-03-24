@@ -148,6 +148,7 @@
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="cancelRegistration:" destination="13J-p9-TvM" eventType="touchUpInside" id="NyA-Y4-tjH"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="DeE-3I-JtJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -202,10 +203,18 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFm-m9-SVw">
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cFm-m9-SVw">
                                                     <rect key="frame" x="353" y="26" width="46" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="+"/>
+                                                    <state key="normal">
+                                                        <attributedString key="attributedTitle">
+                                                            <fragment content="+">
+                                                                <attributes>
+                                                                    <font key="NSFont" metaFont="system" size="15"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                    </state>
                                                     <connections>
                                                         <action selector="newUserAddButton:" destination="vQR-Sf-TMo" eventType="touchUpInside" id="1EQ-Wn-p2U"/>
                                                     </connections>
@@ -237,7 +246,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
-                                    <segue destination="Cg6-9b-17v" kind="show" id="vUW-PM-CIj"/>
+                                    <action selector="nextButton:" destination="vQR-Sf-TMo" eventType="touchUpInside" id="hDw-b7-arx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIv-qK-8n6">
@@ -246,6 +255,7 @@
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="newUserCancelRegistration:" destination="vQR-Sf-TMo" eventType="touchUpInside" id="jsa-Mk-NMI"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="cCM-4n-T07"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -301,6 +311,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Let's go!"/>
                                 <connections>
+                                    <action selector="uploadUser:" destination="Cg6-9b-17v" eventType="touchUpInside" id="1Bh-rQ-haU"/>
                                     <segue destination="NTG-HE-SJM" kind="show" identifier="registrationComplete" id="5tR-rq-PoW"/>
                                 </connections>
                             </button>
@@ -392,6 +403,7 @@
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="cancelRegistration:" destination="Cg6-9b-17v" eventType="touchUpInside" id="E9d-XV-wz8"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="fX7-3z-Oel"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -877,6 +889,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="XWd-ck-sb4"/>
-        <segue reference="ra2-Ok-G8G"/>
+        <segue reference="cCM-4n-T07"/>
     </inferredMetricsTieBreakers>
 </document>

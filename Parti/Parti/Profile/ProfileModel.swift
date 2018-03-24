@@ -19,7 +19,7 @@ class ProfileModel: NSObject {
     var image: UIImage
     var foodList: Dictionary<String, Any>
     var friendsList: Dictionary<String, Any>
-    var allergiesList: Dictionary<Int, Any>
+    var allergiesList: Dictionary<String, Any>
     
     init(name: String, userID: String, username: String, pictureURL: String) {
         self.name = name

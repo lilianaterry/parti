@@ -25,6 +25,7 @@ class AddFriendTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         databaseRef = Database.database().reference()
+        self.backgroundColor = UIColor.clear
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

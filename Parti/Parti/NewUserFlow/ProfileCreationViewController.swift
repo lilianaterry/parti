@@ -122,21 +122,22 @@ class ProfileCreationViewController: UIViewController, UIImagePickerControllerDe
         // Dispose of any resources that can be recreated.
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let segueID = segue.identifier
-        
-        // Party List Page
-        if (segueID == "createStepTwo") {
-            if let destinationVC = segue.destination as? AddFriendsViewController {
-                destinationVC.profileObject = profileObject
-            }
-        }
-    }
-    
     /* If user does not complete registration process, delete their Auth info */
     @IBAction func cancelRegistration(_ sender: Any) {
         
         let user = Auth.auth().currentUser
         user?.delete()
+    }
+    
+    /* Move to Add Friend step of registration */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let segueID = segue.identifier
+        
+        // Add Friend List Page
+        if (segueID == "createStepTwo") {
+            if let destinationVC = segue.destination as? CreateFriendListViewController {
+                destinationVC.profileObject = profileObject
+            }
+        }
     }
 }

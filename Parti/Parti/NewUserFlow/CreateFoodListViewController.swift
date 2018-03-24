@@ -31,6 +31,7 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
     
     // list of possible food/drink
     var foodList = [String]()
+    let allergyList = ["Nuts", "Gluten", "Vegetarian", "Dairy", "Vegan"]
     
     // our user's information
     var profileObject = ProfileModel()
@@ -131,14 +132,15 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
     @IBAction func toggleImage(_ sender: Any) {
         if let button = sender as? UIButton {
             let tag = button.tag
+            let allergy = allergyList[tag]
             if button.isSelected {
                 // set deselected
                 button.isSelected = false
-                profileObject.allergiesList[tag] = 0
+                profileObject.allergiesList[allergy] = 0
             } else {
                 // set selected
                 button.isSelected = true
-                profileObject.allergiesList[tag] = 1
+                profileObject.allergiesList.removeValue(forKey: allergy)
             }
         }
     }
@@ -162,8 +164,8 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
         
         // for each friend in the user's friend list, update their friendsLists
         for friendID in friends {
-            let friendItem = [friendID: 1]
-            databaseRef.child("users/\(friendID)/friendsList").updateChildValues(friendItem)
+            let userItem = [profileObject.userID: 1]
+            databaseRef.child("users/\(friendID)/friendsList").updateChildValues(userItem)
         }
     }
     
@@ -189,7 +191,6 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
     
     /* if user does not finish their 3 step registration, remove their auth info */
     @IBAction func cancelRegistration(_ sender: Any) {
-        
         let user = Auth.auth().currentUser
         user?.delete()
     }
