@@ -129,7 +129,6 @@
                         <outlet property="passwordTextField" destination="3xO-6B-iwf" id="ARw-KM-ZuO"/>
                         <segue destination="13J-p9-TvM" kind="show" identifier="createStepOne" animates="NO" id="MtR-k0-kvT"/>
                         <segue destination="D9y-OJ-WNX" kind="show" identifier="profileSegue" id="h9t-S2-aGh"/>
-                        <segue destination="zHG-Zl-0m4" kind="show" identifier="loginToPartyList" id="bii-e8-Mue"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -193,7 +192,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Usl-ht-juq">
                                 <rect key="frame" x="120" y="670" width="129" height="35"/>
                                 <state key="normal" title="Next">
-                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -210,8 +209,16 @@
                                     <action selector="nextButton:" destination="13J-p9-TvM" eventType="touchUpInside" id="zvi-nv-PFJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ye1-e5-ixt">
+                                <rect key="frame" x="16" y="44" width="78" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="7Ul-j3-7oA"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.39519533509999999" green="0.9848011136" blue="0.8010476232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="O3C-Dn-hfX" firstAttribute="bottom" secondItem="Usl-ht-juq" secondAttribute="bottom" constant="73" id="0Aq-ay-miP"/>
                             <constraint firstItem="eqE-v9-rg7" firstAttribute="trailing" secondItem="d2i-fd-VfX" secondAttribute="trailing" id="9dd-Fb-dvz"/>
@@ -258,21 +265,13 @@
             </objects>
             <point key="canvasLocation" x="1418" y="459"/>
         </scene>
-        <!--profileViewController-->
+        <!--tabBarController-->
         <scene sceneID="7cL-gV-2UQ">
             <objects>
-                <viewControllerPlaceholder storyboardName="SecondMain" referencedIdentifier="profileViewController" id="D9y-OJ-WNX" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="SecondMain" referencedIdentifier="tabBarController" id="D9y-OJ-WNX" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4qo-hr-oud" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-548" y="670"/>
-        </scene>
-        <!--eventsViewController-->
-        <scene sceneID="Gtg-BE-1Vg">
-            <objects>
-                <viewControllerPlaceholder storyboardName="SecondMain" referencedIdentifier="eventsViewController" id="zHG-Zl-0m4" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6fV-ag-eBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-548" y="733"/>
         </scene>
     </scenes>
     <resources>
