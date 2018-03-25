@@ -541,7 +541,7 @@
             </objects>
             <point key="canvasLocation" x="2308" y="939.90147783251234"/>
         </scene>
-        <!--Item-->
+        <!--Food-->
         <scene sceneID="jEJ-pc-hVJ">
             <objects>
                 <viewController id="fZ0-vO-WO1" customClass="FoodListViewController" customModule="Parti" customModuleProvider="target" sceneMemberID="viewController">
@@ -586,7 +586,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sjR-DD-rdh"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="FPU-x9-xyp"/>
+                    <tabBarItem key="tabBarItem" title="Food" id="FPU-x9-xyp"/>
                     <connections>
                         <outlet property="tableView" destination="g57-lt-hlO" id="Hzl-Gg-8rm"/>
                     </connections>
@@ -763,7 +763,7 @@
             </objects>
             <point key="canvasLocation" x="-685.60000000000002" y="1228.8177339901479"/>
         </scene>
-        <!--Item-->
+        <!--Friends-->
         <scene sceneID="Eaz-Q4-zsQ">
             <objects>
                 <viewController id="1eQ-Cw-5To" sceneMemberID="viewController">
@@ -782,13 +782,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="fME-Ag-smD"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="bfA-Ph-pex"/>
+                    <tabBarItem key="tabBarItem" title="Friends" id="bfA-Ph-pex"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Sr-bQ-p46" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-672.79999999999995" y="1937.4384236453202"/>
         </scene>
-        <!--Party List View Controller-->
+        <!--Events-->
         <scene sceneID="Ecv-9x-DKf">
             <objects>
                 <viewController storyboardIdentifier="eventsViewController" id="NTG-HE-SJM" customClass="PartyListViewController" customModule="Parti" customModuleProvider="target" sceneMemberID="viewController">
@@ -879,7 +879,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ioI-Lb-Gft"/>
                     </view>
-                    <tabBarItem key="tabBarItem" id="WzW-16-iN4"/>
+                    <tabBarItem key="tabBarItem" title="Events" id="WzW-16-iN4"/>
                     <connections>
                         <outlet property="partyTableView" destination="rXm-ad-ACs" id="2Pv-bq-qbb"/>
                         <segue destination="Kwk-Us-otN" kind="show" identifier="addEvent" id="NqX-cw-Ifb"/>

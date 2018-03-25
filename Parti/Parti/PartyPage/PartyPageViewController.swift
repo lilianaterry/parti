@@ -42,6 +42,11 @@ class PartyPageViewController: UIViewController, UIImagePickerControllerDelegate
         addressLabel.text = partyObject.address
         dateLabel.text = partyObject.date
         attireLabel.text = partyObject.attire
+        
+        print("name " + partyObject.name)
+        print("address " + partyObject.address)
+        print("date " + partyObject.date)
+        print("attire " + partyObject.attire)
     }
     
     @IBAction func dismiss(_ sender: Any) {
