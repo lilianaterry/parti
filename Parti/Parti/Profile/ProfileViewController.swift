@@ -32,6 +32,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             nameLabel.addGestureRecognizer(recognizer)
         }
     }
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var drinkOfChoiceLabel: UILabel!
+    @IBOutlet weak var partyTrickLabel: UILabel!
     
     @objc func editName(gesture: UILongPressGestureRecognizer) {
         switch gesture.state {
@@ -181,6 +184,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     self.profileObject.name = name as! String
                     // update profile page
                     self.nameLabel.text = self.profileObject.name
+                }
+                if let username = data["username"] {
+                    self.profileObject.username = username as! String
+                    self.usernameLabel.text = self.profileObject.username
                 }
             } else {
                 print("No user in Firebase yet")

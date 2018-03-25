@@ -752,8 +752,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="DefaultProfilePicture" id="Woc-us-aLj"/>
                     <connections>
+                        <outlet property="drinkOfChoiceLabel" destination="7KE-ra-gFS" id="P8B-Op-4Xa"/>
                         <outlet property="nameLabel" destination="DJF-Vh-aGu" id="CJA-iJ-HXh"/>
+                        <outlet property="partyTrickLabel" destination="joa-Nj-CcC" id="paV-Mx-lc9"/>
                         <outlet property="profilePicture" destination="igY-xh-jaU" id="IzU-xi-OaZ"/>
+                        <outlet property="usernameLabel" destination="jxy-rq-Wze" id="mny-cj-UnV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VnD-U9-mQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -803,7 +806,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sUi-sl-15j" id="dtP-Cw-8S2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="114.66666666666667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="parti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="8S7-TB-ibC">
