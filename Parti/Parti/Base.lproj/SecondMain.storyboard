@@ -615,7 +615,7 @@
             </objects>
             <point key="canvasLocation" x="-2074" y="1230"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="I1M-gv-God">
             <objects>
                 <viewController storyboardIdentifier="profileViewController" id="4Wg-KH-jIa" customClass="ProfileViewController" customModule="Parti" customModuleProvider="target" sceneMemberID="viewController">
@@ -750,7 +750,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6So-Pt-n6O"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Woc-us-aLj"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="DefaultProfilePicture" id="Woc-us-aLj"/>
                     <connections>
                         <outlet property="nameLabel" destination="DJF-Vh-aGu" id="CJA-iJ-HXh"/>
                         <outlet property="profilePicture" destination="igY-xh-jaU" id="IzU-xi-OaZ"/>
@@ -785,7 +785,7 @@
             </objects>
             <point key="canvasLocation" x="-672.79999999999995" y="1937.4384236453202"/>
         </scene>
-        <!--Item-->
+        <!--Party List View Controller-->
         <scene sceneID="Ecv-9x-DKf">
             <objects>
                 <viewController storyboardIdentifier="eventsViewController" id="NTG-HE-SJM" customClass="PartyListViewController" customModule="Parti" customModuleProvider="target" sceneMemberID="viewController">
@@ -803,7 +803,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sUi-sl-15j" id="dtP-Cw-8S2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="114.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="parti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="8S7-TB-ibC">
@@ -876,7 +876,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ioI-Lb-Gft"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="WzW-16-iN4"/>
+                    <tabBarItem key="tabBarItem" id="WzW-16-iN4"/>
                     <connections>
                         <outlet property="partyTableView" destination="rXm-ad-ACs" id="2Pv-bq-qbb"/>
                         <segue destination="Kwk-Us-otN" kind="show" identifier="addEvent" id="NqX-cw-Ifb"/>
