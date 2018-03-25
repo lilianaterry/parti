@@ -342,7 +342,7 @@
         <!--Create Party View Controller-->
         <scene sceneID="KGQ-tv-r4L">
             <objects>
-                <viewController id="Kwk-Us-otN" customClass="CreatePartyViewController" customModule="Parti" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="createPartyPage" id="Kwk-Us-otN" customClass="CreatePartyViewController" customModule="Parti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Iqx-Bt-BkY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -413,11 +413,20 @@
                         <outlet property="dateTimePicker" destination="wO9-3v-67r" id="LxZ-LM-wwp"/>
                         <outlet property="partyImage" destination="HpN-t7-2b2" id="q8C-H5-APK"/>
                         <outlet property="partyNameField" destination="8oC-ER-EbW" id="gV2-e2-PKJ"/>
+                        <segue destination="6GW-Cj-S76" kind="show" id="0RK-pP-PXZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mo9-lG-9JF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="249" y="-170"/>
+        </scene>
+        <!--addGuestsPage-->
+        <scene sceneID="nkf-aI-Gk0">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddGuests" referencedIdentifier="addGuestsPage" id="6GW-Cj-S76" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="geb-4g-CYo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1118" y="-171"/>
         </scene>
         <!--Attendees-->
         <scene sceneID="pf6-WT-GCJ">
@@ -925,6 +934,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5tR-rq-PoW"/>
-        <segue reference="GUe-rZ-zmH"/>
+        <segue reference="mpK-AZ-bUO"/>
     </inferredMetricsTieBreakers>
 </document>

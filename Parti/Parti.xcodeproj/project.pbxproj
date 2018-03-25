@@ -23,6 +23,8 @@
 		CE5ED8D6205ED26D00F6174F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5ED8D5205ED26D00F6174F /* SystemConfiguration.framework */; };
 		CE6CD6832047092D00BC3DD3 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CD6822047092D00BC3DD3 /* FoodListViewController.swift */; };
 		CE6CD68520470C3C00BC3DD3 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CE6CD68420470C3C00BC3DD3 /* Podfile */; };
+		CE83FF602067EDB400542092 /* AddGuestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE83FF5F2067EDB400542092 /* AddGuestsViewController.swift */; };
+		CE83FF642068095500542092 /* AddGuests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE83FF632068095500542092 /* AddGuests.storyboard */; };
 		CEAB8B6720644885005AD748 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB8B6520644885005AD748 /* AddFriendsViewController.swift */; };
 		CEAB8B6820644885005AD748 /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB8B6620644885005AD748 /* AddFriendTableViewCell.swift */; };
 		CEB33EF5205F456100F49918 /* GuestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB33EF4205F456100F49918 /* GuestTableViewCell.swift */; };
@@ -70,6 +72,8 @@
 		CE5ED8D5205ED26D00F6174F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CE6CD6822047092D00BC3DD3 /* FoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
 		CE6CD68420470C3C00BC3DD3 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		CE83FF5F2067EDB400542092 /* AddGuestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGuestsViewController.swift; sourceTree = "<group>"; };
+		CE83FF632068095500542092 /* AddGuests.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddGuests.storyboard; sourceTree = "<group>"; };
 		CEA81F35205F034C00D48895 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyMetadata.framework; path = System/Library/Frameworks/SpotifyMetadata.framework; sourceTree = SDKROOT; };
 		CEA81F36205F034C00D48895 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyAudioPlayback.framework; path = System/Library/Frameworks/SpotifyAudioPlayback.framework; sourceTree = SDKROOT; };
 		CEA81F37205F034C00D48895 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyAuthentication.framework; path = System/Library/Frameworks/SpotifyAuthentication.framework; sourceTree = SDKROOT; };
@@ -180,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				CE31AB9E205F17ED00171BD1 /* CreatePartyViewController.swift */,
+				CE83FF5F2067EDB400542092 /* AddGuestsViewController.swift */,
 			);
 			path = CreateParty;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 				CE09DC57205C65E70097806D /* Profile */,
 				CEF18A40204B74F8003071C5 /* SecondMain.storyboard */,
 				F9B245C02066EB3D0015F277 /* Main.storyboard */,
+				CE83FF632068095500542092 /* AddGuests.storyboard */,
 				F957DEDA204146E400FB15A3 /* Parti.entitlements */,
 				F98083382020E98C00CB91C0 /* AppDelegate.swift */,
 				F980833A2020E98C00CB91C0 /* ViewController.swift */,
@@ -365,6 +371,7 @@
 				CEF18A42204B74F8003071C5 /* SecondMain.storyboard in Resources */,
 				F90031B82031F4F300B9FA75 /* GoogleService-Info.plist in Resources */,
 				F98083432020E98C00CB91C0 /* Assets.xcassets in Resources */,
+				CE83FF642068095500542092 /* AddGuests.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +513,7 @@
 				CE1189632051E00300A0AD49 /* PartyModel.swift in Sources */,
 				CE3E0DB12061E0980098F435 /* PartyPageViewController.swift in Sources */,
 				CE2ED8672065B65E00CFDEE3 /* CreateFoodListViewController.swift in Sources */,
+				CE83FF602067EDB400542092 /* AddGuestsViewController.swift in Sources */,
 				F98083412020E98C00CB91C0 /* Parti.xcdatamodeld in Sources */,
 				CEF4EB622066D0EF009387CB /* CreateFriendListViewController.swift in Sources */,
 				CE6CD6832047092D00BC3DD3 /* FoodListViewController.swift in Sources */,

@@ -17,11 +17,10 @@ class PartyModel: NSObject {
     var name: String
     var date: String
     var hostID: String
-    var guestList: NSDictionary
-    var foodList: NSDictionary
+    var guestList: Dictionary<String, Any>
+    var foodList: Dictionary<String, Any>
     var partyID: String
     var imageURL: String
-    
     
     var guests: [ProfileModel]
     var image: UIImage

@@ -26,6 +26,10 @@ class AddFriendTableViewCell: UITableViewCell {
         
         databaseRef = Database.database().reference()
         self.backgroundColor = UIColor.clear
+        
+        newUserButton.setTitle("-", for: .selected)
+        newUserButton.setTitle("+", for: .selected)
+
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

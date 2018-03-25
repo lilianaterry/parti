@@ -8,6 +8,10 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseStorage
+import FirebaseAuth
+
+// TODO, if the hostID matches the current userID, show a plus button to add guests
 
 class GuestListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 

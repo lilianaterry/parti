@@ -167,6 +167,7 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addGuestsNewParty" {
             let destinationVC = segue.destination as! GuestListViewController
+            
         }
     }
     
