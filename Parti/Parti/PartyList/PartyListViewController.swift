@@ -15,7 +15,7 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var partyTableView: UITableView!
     
     // current userID
-    var userID = Auth.auth().currentUser
+    var userID = Auth.auth().currentUser?.uid as! String
     
     // Firebase connection
     var ref: DatabaseReference!

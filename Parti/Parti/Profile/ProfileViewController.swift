@@ -10,6 +10,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseAuth
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -57,6 +58,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         // add tap gesture to name label
         nameLabel.addObserver(self, forKeyPath: "text", options: [.old, .new], context: nil)
         
+        profileObject.userID = Auth.auth().currentUser?.uid as! String
         setupProfilePicture()
         
         // query Firebase to get the current user's information
