@@ -550,11 +550,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g57-lt-hlO">
-                                <rect key="frame" x="0.0" y="37" width="375" height="692"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="692" id="v4T-rZ-Wow"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodCell" rowHeight="115" id="m4B-0Z-5uX">
                                         <rect key="frame" x="0.0" y="28" width="375" height="115"/>
@@ -567,21 +564,20 @@
                                 </prototypes>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gjs-1A-veK">
-                                <rect key="frame" x="0.0" y="-7" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="My Food" id="fNj-hV-suC">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="Disclosure Indicator" id="3zW-nb-5Qs"/>
-                                    </navigationItem>
+                                    <navigationItem title="My Food" id="fNj-hV-suC"/>
                                 </items>
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Gjs-1A-veK" firstAttribute="leading" secondItem="sjR-DD-rdh" secondAttribute="leading" id="9hd-FU-Lf4"/>
                             <constraint firstItem="g57-lt-hlO" firstAttribute="leading" secondItem="aPh-MV-BtL" secondAttribute="leading" id="Dk3-Cz-uNd"/>
+                            <constraint firstItem="g57-lt-hlO" firstAttribute="top" secondItem="Gjs-1A-veK" secondAttribute="bottom" id="E8f-Gf-hhs"/>
                             <constraint firstItem="g57-lt-hlO" firstAttribute="bottom" secondItem="sjR-DD-rdh" secondAttribute="bottom" id="F2x-gy-FVy"/>
-                            <constraint firstItem="g57-lt-hlO" firstAttribute="trailing" secondItem="Gjs-1A-veK" secondAttribute="trailing" id="Vjq-2F-TmG"/>
-                            <constraint firstItem="g57-lt-hlO" firstAttribute="top" secondItem="Gjs-1A-veK" secondAttribute="bottom" id="XVI-xS-KZT"/>
-                            <constraint firstItem="g57-lt-hlO" firstAttribute="leading" secondItem="Gjs-1A-veK" secondAttribute="leading" id="tWb-2b-G7B"/>
+                            <constraint firstItem="Gjs-1A-veK" firstAttribute="top" secondItem="sjR-DD-rdh" secondAttribute="top" id="bVu-UQ-7Tw"/>
+                            <constraint firstItem="Gjs-1A-veK" firstAttribute="trailing" secondItem="sjR-DD-rdh" secondAttribute="trailing" id="nUO-Be-Tag"/>
                             <constraint firstAttribute="trailing" secondItem="g57-lt-hlO" secondAttribute="trailing" id="y1y-IO-t6R"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sjR-DD-rdh"/>
@@ -593,7 +589,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yO3-at-WYV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-673" y="2694"/>
+            <point key="canvasLocation" x="-674.39999999999998" y="2693.3497536945815"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qO9-Rv-Shw">
@@ -636,6 +632,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Profile" id="JbZ-FF-fAy">
+                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="YWM-za-IOJ">
+                                            <connections>
+                                                <segue destination="mWi-TJ-Xeh" kind="show" id="Ovt-k8-zB7"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="dF9-5w-5JE"/>
                                     </navigationItem>
                                 </items>
@@ -771,15 +772,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Friends List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3UG-WM-LqX">
-                                <rect key="frame" x="132" y="396" width="111" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cNc-zQ-Wbe">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Friends" id="ub4-DC-Jrf"/>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N5R-vR-JUw">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="EdO-oq-fWS">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EdO-oq-fWS" id="gRI-AT-Njs">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="N5R-vR-JUw" firstAttribute="top" secondItem="cNc-zQ-Wbe" secondAttribute="bottom" id="2FE-33-sF4"/>
+                            <constraint firstItem="cNc-zQ-Wbe" firstAttribute="leading" secondItem="fME-Ag-smD" secondAttribute="leading" id="8Xp-Ro-FdU"/>
+                            <constraint firstItem="N5R-vR-JUw" firstAttribute="bottom" secondItem="fME-Ag-smD" secondAttribute="bottom" id="9UB-tT-K0a"/>
+                            <constraint firstItem="N5R-vR-JUw" firstAttribute="leading" secondItem="fME-Ag-smD" secondAttribute="leading" id="KXq-Wz-oSn"/>
+                            <constraint firstItem="N5R-vR-JUw" firstAttribute="centerX" secondItem="6Vj-T1-kef" secondAttribute="centerX" id="f1u-zB-cDh"/>
+                            <constraint firstItem="N5R-vR-JUw" firstAttribute="trailing" secondItem="fME-Ag-smD" secondAttribute="trailing" id="u3B-BC-Hxr"/>
+                            <constraint firstItem="cNc-zQ-Wbe" firstAttribute="trailing" secondItem="fME-Ag-smD" secondAttribute="trailing" id="uoO-de-j1G"/>
+                            <constraint firstItem="cNc-zQ-Wbe" firstAttribute="top" secondItem="fME-Ag-smD" secondAttribute="top" id="xM0-U9-M0A"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fME-Ag-smD"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Friends" id="bfA-Ph-pex"/>
@@ -806,7 +830,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sUi-sl-15j" id="dtP-Cw-8S2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="114.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="parti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="8S7-TB-ibC">
@@ -979,6 +1003,6 @@
         <image name="vegetarian" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GUe-rZ-zmH"/>
+        <segue reference="Ovt-k8-zB7"/>
     </inferredMetricsTieBreakers>
 </document>
