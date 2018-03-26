@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PartyHostViewController: ViewController{
+class PartyHostViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
