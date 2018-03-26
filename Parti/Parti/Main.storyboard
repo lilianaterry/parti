@@ -93,6 +93,9 @@
                                 <state key="normal" title="Forgot Password?">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="onPasswordReset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xeg-Hx-oi5"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="parti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="miA-4v-C1W">
                                 <rect key="frame" x="112" y="157" width="150" height="150"/>

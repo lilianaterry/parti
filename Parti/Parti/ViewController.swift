@@ -104,6 +104,36 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         }
     }
     
+    @IBAction func onPasswordReset(_ sender: Any) {
+        // Create the alert controller.
+        let alert = UIAlertController(title: "Password Reset", message: "Enter your email", preferredStyle: .alert)
+        
+        // Add text field
+        alert.addTextField { (textField) in
+            textField.text = ""
+        }
+        
+        // Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0]
+            self.passwordReset(email: (textField?.text)!)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    func passwordReset(email: String) {
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+            if error != nil {
+                print("ERROR: Password reset failed")
+            } else {
+                print("Password reset success!")
+            }
+        }
+
+    }
+    
     func passwordSignIn(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error != nil {
