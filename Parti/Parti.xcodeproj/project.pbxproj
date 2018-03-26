@@ -32,6 +32,7 @@
 		CEF18A42204B74F8003071C5 /* SecondMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF18A40204B74F8003071C5 /* SecondMain.storyboard */; };
 		CEF4EB622066D0EF009387CB /* CreateFriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4EB612066D0EF009387CB /* CreateFriendListViewController.swift */; };
 		F90031B82031F4F300B9FA75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F90031B72031F4F300B9FA75 /* GoogleService-Info.plist */; };
+		F9338584206941210080C59F /* PartyHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9338583206941210080C59F /* PartyHostViewController.swift */; };
 		F98083392020E98C00CB91C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98083382020E98C00CB91C0 /* AppDelegate.swift */; };
 		F980833B2020E98C00CB91C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F980833A2020E98C00CB91C0 /* ViewController.swift */; };
 		F98083412020E98C00CB91C0 /* Parti.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F980833F2020E98C00CB91C0 /* Parti.xcdatamodeld */; };
@@ -84,6 +85,7 @@
 		CEF18A41204B74F8003071C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SecondMain.storyboard; sourceTree = "<group>"; };
 		CEF4EB612066D0EF009387CB /* CreateFriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFriendListViewController.swift; sourceTree = "<group>"; };
 		F90031B72031F4F300B9FA75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F9338583206941210080C59F /* PartyHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyHostViewController.swift; sourceTree = "<group>"; };
 		F957DEDA204146E400FB15A3 /* Parti.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Parti.entitlements; sourceTree = "<group>"; };
 		F98083352020E98C00CB91C0 /* Parti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98083382020E98C00CB91C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				CEB33EF6205F464400F49918 /* GuestListViewController.swift */,
 				CEB33EF4205F456100F49918 /* GuestTableViewCell.swift */,
 				CE1189622051E00300A0AD49 /* PartyModel.swift */,
+				F9338583206941210080C59F /* PartyHostViewController.swift */,
 			);
 			path = PartyPage;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				CE1189612051DF8400A0AD49 /* PartyListViewController.swift in Sources */,
 				CE31AB9F205F17ED00171BD1 /* CreatePartyViewController.swift in Sources */,
 				CEB33EF7205F464400F49918 /* GuestListViewController.swift in Sources */,
+				F9338584206941210080C59F /* PartyHostViewController.swift in Sources */,
 				CE1C754720631568009A5914 /* ProfileCreationViewController.swift in Sources */,
 				CEAB8B6820644885005AD748 /* AddFriendTableViewCell.swift in Sources */,
 			);

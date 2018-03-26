@@ -24,6 +24,10 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     // list of parties
     var partyList = [PartyModel]()
     
+    let sections = ["Hosting", "Attending"]
+    // This is the size of our header sections
+    let SectionHeaderHeight: CGFloat = 115
+    
     /* Returns the number of cells to populate the table with */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return partyList.count
@@ -55,6 +59,7 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
         // Segue to the second view controller
         self.performSegue(withIdentifier: "partyCell", sender: cell)
     }
+
 
     /* Runs when page is loaded, sets the delegate and datasource then calls method to query
         Firebase and add parties to partyList */

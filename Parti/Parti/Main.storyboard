@@ -212,9 +212,8 @@
                                     <action selector="nextButton:" destination="13J-p9-TvM" eventType="touchUpInside" id="zvi-nv-PFJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ye1-e5-ixt">
-                                <rect key="frame" x="16" y="44" width="78" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ye1-e5-ixt">
+                                <rect key="frame" x="16" y="44" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="7Ul-j3-7oA"/>
@@ -236,6 +235,7 @@
                             <constraint firstItem="eJs-jj-FKL" firstAttribute="trailing" secondItem="GUH-wQ-NXx" secondAttribute="trailing" id="X7D-4M-f5m"/>
                             <constraint firstItem="GUH-wQ-NXx" firstAttribute="trailing" secondItem="eqE-v9-rg7" secondAttribute="trailing" id="c6C-Es-Aze"/>
                             <constraint firstItem="eJs-jj-FKL" firstAttribute="leading" secondItem="GUH-wQ-NXx" secondAttribute="leading" id="dLr-Ky-3Lc"/>
+                            <constraint firstItem="Ye1-e5-ixt" firstAttribute="leading" secondItem="O3C-Dn-hfX" secondAttribute="leading" constant="16" id="eKQ-rH-P1e"/>
                             <constraint firstItem="GUH-wQ-NXx" firstAttribute="top" secondItem="eJs-jj-FKL" secondAttribute="bottom" constant="8" symbolic="YES" id="etU-je-ceP"/>
                             <constraint firstItem="d2i-fd-VfX" firstAttribute="centerX" secondItem="Usl-ht-juq" secondAttribute="centerX" constant="2.5" id="o7a-sV-uyp"/>
                             <constraint firstItem="d2i-fd-VfX" firstAttribute="top" secondItem="eqE-v9-rg7" secondAttribute="bottom" constant="8" symbolic="YES" id="q5X-J1-qrH"/>
@@ -244,6 +244,7 @@
                             <constraint firstItem="P6a-x5-s8C" firstAttribute="centerX" secondItem="CdA-Ck-ESd" secondAttribute="centerX" id="r7I-Lr-HRx"/>
                             <constraint firstItem="eJs-jj-FKL" firstAttribute="leading" secondItem="O3C-Dn-hfX" secondAttribute="leading" constant="53" id="rHM-lS-kEV"/>
                             <constraint firstItem="Usl-ht-juq" firstAttribute="leading" secondItem="O3C-Dn-hfX" secondAttribute="leading" constant="120" id="tse-ES-ODo"/>
+                            <constraint firstItem="Ye1-e5-ixt" firstAttribute="top" secondItem="O3C-Dn-hfX" secondAttribute="top" id="vP1-Je-dsA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O3C-Dn-hfX"/>
                     </view>

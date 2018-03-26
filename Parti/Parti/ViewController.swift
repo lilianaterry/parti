@@ -113,7 +113,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
             textField.text = ""
         }
         
-        // Grab the value from the text field, and print it when the user clicks OK.
+        // Grab the value from the text field, and reset the password when the user clicks OK.
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0]
             self.passwordReset(email: (textField?.text)!)
