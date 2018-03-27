@@ -189,7 +189,17 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let segueID = segue.identifier
-        
+        if (segueID == "hostingPartySegue") {
+            let cell = sender as! HostingPartyTableViewCell
+            if let destinationVC = segue.destination as? PartyHostViewController {
+                destinationVC.partyObject = cell.partyObject
+            }
+        } else {
+            let cell = sender as! AttendingPartyTableViewCell
+            if let destinationVC = segue.destination as? PartyPageViewController {
+                destinationVC.partyObject = cell.partyObject
+            }
+        }
        
     }
 

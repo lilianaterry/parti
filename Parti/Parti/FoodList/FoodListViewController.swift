@@ -78,15 +78,14 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
         // set firebase reference
         databaseRef = Database.database().reference()
         
-        
         getUsersFoodList()
     }
     
     /* Get the current users's food preferences and use these to mark generic food list */
     func getUsersFoodList() {
         databaseRef.child("users/\(userID)/foodList").observeSingleEvent(of: .value) { (snapshot) in
-            if let foodPreferences = snapshot.value {
-                self.userFoodList = foodPreferences as! [String: Any]
+            if snapshot.exists() {
+                self.userFoodList = snapshot.value as! [String: Any]
             }
             self.populateFoodList()
         }

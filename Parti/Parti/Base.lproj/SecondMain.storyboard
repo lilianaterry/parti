@@ -779,41 +779,26 @@
                                 <rect key="frame" x="297" y="653" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="vegan"/>
-                                <connections>
-                                    <action selector="toggleImage:" destination="Cg6-9b-17v" eventType="touchUpInside" id="Hse-zp-5mC"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="251" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLN-3R-U8V">
                                 <rect key="frame" x="34" y="653" width="51" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="nut-free"/>
-                                <connections>
-                                    <action selector="toggleImage:" destination="Cg6-9b-17v" eventType="touchUpInside" id="7pA-D9-Ntn"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TgP-Sc-crS">
                                 <rect key="frame" x="170" y="653" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="vegetarian"/>
-                                <connections>
-                                    <action selector="toggleImage:" destination="Cg6-9b-17v" eventType="touchUpInside" id="8cX-cN-d5Z"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dC1-y6-djA">
                                 <rect key="frame" x="107" y="653" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="gluten-free"/>
-                                <connections>
-                                    <action selector="toggleImage:" destination="Cg6-9b-17v" eventType="touchUpInside" id="xjS-ug-9kH"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abp-v5-Sxc">
                                 <rect key="frame" x="228" y="653" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="dairy"/>
-                                <connections>
-                                    <action selector="toggleImage:" destination="Cg6-9b-17v" eventType="touchUpInside" id="KXq-v5-z1O"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZw-CU-qiV">
                                 <rect key="frame" x="38" y="711" width="42" height="21"/>
@@ -913,6 +898,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UyD-ai-ONj"/>
                     </view>
+                    <connections>
+                        <outlet property="glutenButton" destination="dC1-y6-djA" id="glh-bo-fBI"/>
+                        <outlet property="glutenLabel" destination="SoW-tC-xps" id="jEf-Kw-0jA"/>
+                        <outlet property="milkButton" destination="Abp-v5-Sxc" id="Ffr-L0-cXg"/>
+                        <outlet property="milkLabel" destination="JlG-JU-yHu" id="M1C-7Y-LB4"/>
+                        <outlet property="nutButton" destination="KLN-3R-U8V" id="jBh-bw-K4I"/>
+                        <outlet property="nutsLabel" destination="UZw-CU-qiV" id="vVF-Nu-St0"/>
+                        <outlet property="veganButton" destination="QIt-Px-9SD" id="b4J-An-shg"/>
+                        <outlet property="veganLabel" destination="TfJ-9C-JDK" id="UCI-VA-kZr"/>
+                        <outlet property="vegetarianButton" destination="TgP-Sc-crS" id="iHO-Y5-Miy"/>
+                        <outlet property="vegetarianLabel" destination="FsY-9h-QGH" id="gcG-cb-O79"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nFx-Vu-ujI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1025,7 +1022,7 @@
                                         <rect key="frame" x="0.0" y="143" width="375" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sUi-sl-15j" id="dtP-Cw-8S2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="114.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="parti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="8S7-TB-ibC">
