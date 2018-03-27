@@ -48,7 +48,12 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "partyCell", for: indexPath) as! PartyTableViewCell
         
-        let currentParty = attendingPartyList[indexPath.row] 
+        var currentParty: PartyModel = PartyModel()
+        if (indexPath.section == 0) {
+            currentParty = hostingPartyList[indexPath.row]
+        } else if (indexPath.section == 1) {
+            currentParty = attendingPartyList[indexPath.row]
+        }
         
         // update information contained in cell
         cell.partyName.text = currentParty.name
@@ -62,7 +67,7 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
-    func tableView(_ tableView: UITableView!, titleForHeaderInSection section: Int) -> String! {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section]
     }
 
