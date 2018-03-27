@@ -83,27 +83,6 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         }
     }
     
-    @IBAction func createAccount(_ sender: Any) {
-        if (emailTextField.hasText && passwordTextField.hasText) {
-            let email = emailTextField.text!
-            let password = passwordTextField.text!
-            
-            Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-                if error != nil {
-                    print(error?.localizedDescription as! String)
-                } else {
-                    print("Create account succcess!")
-                    print(user!.uid)
-                    self.userID = user!.uid
-                    
-                    self.performSegue(withIdentifier: "createStepOne", sender: self)
-                }
-            }
-        } else {
-            print("ERROR: email or password is blank")
-        }
-    }
-    
     @IBAction func onPasswordReset(_ sender: Any) {
         // Create the alert controller.
         let alert = UIAlertController(title: "Password Reset", message: "Enter your email", preferredStyle: .alert)
