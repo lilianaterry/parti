@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PartyTableViewCell: UITableViewCell {
+class AttendingPartyTableViewCell: UITableViewCell {
 
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var partyName: UILabel!

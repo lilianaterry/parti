@@ -46,25 +46,32 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     /* Dequeues cells from partyList and returns a filled-in table cell */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "partyCell", for: indexPath) as! PartyTableViewCell
-        
         var currentParty: PartyModel = PartyModel()
         if (indexPath.section == 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "hostingPartyCell", for: indexPath) as! HostingPartyTableViewCell
             currentParty = hostingPartyList[indexPath.row]
+            
+            cell.partyName.text = currentParty.name
+            cell.address.text = currentParty.address
+            cell.partyObject = currentParty
+            
+            return cell
         } else if (indexPath.section == 1) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "partyCell", for: indexPath) as! AttendingPartyTableViewCell
             currentParty = attendingPartyList[indexPath.row]
+            
+            cell.partyName.text = currentParty.name
+            cell.address.text = currentParty.address
+            cell.partyObject = currentParty
+            
+            return cell
         }
-        
-        // update information contained in cell
-        cell.partyName.text = currentParty.name
-        cell.address.text = currentParty.address
-        cell.partyObject = currentParty
         
         // update appearance of cell
 //        cell.separatorInset = UIEdgeInsets.zero
 //        cell.layoutMargins = UIEdgeInsets.zero
         
-        return cell
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -73,11 +80,15 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
 
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "partyCell", for: indexPath) as! PartyTableViewCell
-        
-        // Segue to the second view controller
-        self.performSegue(withIdentifier: "partyCell", sender: cell)
+        if (indexPath.section == 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "hostingPartyCell", for: indexPath) as! HostingPartyTableViewCell
+            // Segue to the party hosting view controller
+            self.performSegue(withIdentifier: "hostingPartySegue", sender: cell)
+        } else if (indexPath.section == 1) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "partyCell", for: indexPath) as! AttendingPartyTableViewCell
+            // Segue to the party attending view controller
+            self.performSegue(withIdentifier: "attendingPartySegue", sender: cell)
+        }
     }
 
 
@@ -168,9 +179,9 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
 
-    @IBAction func profileButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "partyListToProfile", sender: self)
-    }
+//    @IBAction func profileButton(_ sender: Any) {
+//        self.performSegue(withIdentifier: "partyListToProfile", sender: self)
+//    }
     
     @IBAction func createEventButton(_ sender: Any) {
         self.performSegue(withIdentifier: "addEvent", sender: self)
