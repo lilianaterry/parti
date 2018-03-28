@@ -24,13 +24,19 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     var profileObject = ProfileModel()
     
+    @IBOutlet weak var nutsButton: UIButton!
+    @IBOutlet weak var glutenButton: UIButton!
+    @IBOutlet weak var vegetarianButton: UIButton!
+    @IBOutlet weak var lactoseButton: UIButton!
+    @IBOutlet weak var veganButton: UIButton!
+    
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var drinkOfChoiceLabel: UILabel!
     @IBOutlet weak var partyTrickLabel: UILabel!
     
-    let allergyIcons = [UIButton]()
+    var allergyIcons = [UIButton]()
     
     /* Runs when page is loaded, sets the delegate and datasource then calls method to query
      Firebase and fetch this user's information */

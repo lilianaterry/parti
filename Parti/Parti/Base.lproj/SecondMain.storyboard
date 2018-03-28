@@ -761,10 +761,15 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="DefaultProfilePicture" id="Woc-us-aLj"/>
                     <connections>
                         <outlet property="drinkOfChoiceLabel" destination="7KE-ra-gFS" id="P8B-Op-4Xa"/>
+                        <outlet property="glutenButton" destination="5V3-Fv-OVr" id="9x0-Xr-B6R"/>
+                        <outlet property="lactoseButton" destination="YGI-wV-G9j" id="J6v-L4-yOG"/>
                         <outlet property="nameLabel" destination="DJF-Vh-aGu" id="CJA-iJ-HXh"/>
+                        <outlet property="nutsButton" destination="A7w-Id-1Mg" id="kWq-c2-xdh"/>
                         <outlet property="partyTrickLabel" destination="joa-Nj-CcC" id="paV-Mx-lc9"/>
                         <outlet property="profilePicture" destination="igY-xh-jaU" id="IzU-xi-OaZ"/>
                         <outlet property="usernameLabel" destination="jxy-rq-Wze" id="mny-cj-UnV"/>
+                        <outlet property="veganButton" destination="mO3-gs-jIo" id="RT4-U8-5GG"/>
+                        <outlet property="vegetarianButton" destination="rEI-fC-RE6" id="lIB-m2-mdM"/>
                         <segue destination="Yep-Km-sMQ" kind="show" identifier="editProfileSegue" id="dP8-QS-13q"/>
                     </connections>
                 </viewController>
