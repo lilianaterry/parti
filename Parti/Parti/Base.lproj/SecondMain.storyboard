@@ -640,7 +640,11 @@
                                                 <segue destination="mWi-TJ-Xeh" kind="show" id="Ovt-k8-zB7"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="dF9-5w-5JE"/>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="dF9-5w-5JE">
+                                            <connections>
+                                                <action selector="editButton:" destination="4Wg-KH-jIa" id="LZn-YE-uJp"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -761,11 +765,20 @@
                         <outlet property="partyTrickLabel" destination="joa-Nj-CcC" id="paV-Mx-lc9"/>
                         <outlet property="profilePicture" destination="igY-xh-jaU" id="IzU-xi-OaZ"/>
                         <outlet property="usernameLabel" destination="jxy-rq-Wze" id="mny-cj-UnV"/>
+                        <segue destination="Yep-Km-sMQ" kind="show" identifier="editProfileSegue" id="dP8-QS-13q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VnD-U9-mQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-685.60000000000002" y="1228.8177339901479"/>
+            <point key="canvasLocation" x="-684" y="1230"/>
+        </scene>
+        <!--EditProfile-->
+        <scene sceneID="UD3-ka-Vb9">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="editProfileViewController" storyboardName="EditProfile" id="Yep-Km-sMQ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NhK-OG-jcL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="242" y="1267"/>
         </scene>
         <!--Party Host View Controller-->
         <scene sceneID="otA-MG-cF4">
@@ -913,7 +926,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nFx-Vu-ujI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="249" y="1797"/>
+            <point key="canvasLocation" x="1028" y="444"/>
         </scene>
         <!--Friends-->
         <scene sceneID="Eaz-Q4-zsQ">
@@ -1198,6 +1211,6 @@
         <image name="vegetarian" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GUe-rZ-zmH"/>
+        <segue reference="Ovt-k8-zB7"/>
     </inferredMetricsTieBreakers>
 </document>

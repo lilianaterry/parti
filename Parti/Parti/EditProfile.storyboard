@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--SecondMain-->
+        <scene sceneID="U9s-v0-4VP">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="profileViewController" storyboardName="SecondMain" id="AoI-3s-sQ4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V7R-wX-ldk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-513" y="650"/>
+        </scene>
+        <!--Edit Profile View Controller-->
+        <scene sceneID="QTk-hQ-L4Q">
+            <objects>
+                <viewController storyboardIdentifier="editProfileViewController" id="oiA-9u-xok" customClass="EditProfileViewController" customModule="Parti" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ti1-rM-qT9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zbp-wL-yBg">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Edit Profile" id="qNs-Ra-ZnH">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Hgc-yw-3wF">
+                                            <connections>
+                                                <action selector="dismiss:" destination="oiA-9u-xok" id="ga8-Oi-AQ8"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="0nT-Wb-uzq">
+                                            <connections>
+                                                <action selector="saveProfileButton:" destination="oiA-9u-xok" id="f09-Rs-O8f"/>
+                                                <segue destination="AoI-3s-sQ4" kind="show" identifier="saveProfileSegue" id="YgL-fw-AHD"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xHl-Uv-um3">
+                                <rect key="frame" x="67" y="106" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXN-zU-kUx">
+                                <rect key="frame" x="110" y="289" width="45" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Drink of Choice" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOo-Zr-pKb">
+                                <rect key="frame" x="37" y="338" width="118" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Party Trick" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNN-SH-nKx">
+                                <rect key="frame" x="73" y="385" width="82" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Private" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PpE-jg-llH">
+                                <rect key="frame" x="34" y="454" width="53" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJp-Ki-DyX">
+                                <rect key="frame" x="114" y="490" width="41" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koy-3T-VyO">
+                                <rect key="frame" x="81" y="539" width="74" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select any dietary restrictions/allergies:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="77G-4U-Bhk">
+                                <rect key="frame" x="37" y="611" width="301" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Public" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIe-42-M5w">
+                                <rect key="frame" x="37" y="260" width="47" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="251" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwt-e0-8N5">
+                                <rect key="frame" x="8" y="652" width="51" height="50"/>
+                                <state key="normal" image="nut-free"/>
+                                <connections>
+                                    <action selector="toggleImage:" destination="oiA-9u-xok" eventType="touchUpInside" id="3cr-M9-hCi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5B-Um-oo4">
+                                <rect key="frame" x="166" y="652" width="50" height="50"/>
+                                <state key="normal" image="vegetarian"/>
+                                <connections>
+                                    <action selector="toggleImage:" destination="oiA-9u-xok" eventType="touchUpInside" id="6az-8b-0Fd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39U-gz-Oqn">
+                                <rect key="frame" x="86" y="652" width="50" height="50"/>
+                                <state key="normal" image="gluten-free"/>
+                                <connections>
+                                    <action selector="toggleImage:" destination="oiA-9u-xok" eventType="touchUpInside" id="VSz-SZ-CWb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ee1-KR-N6h">
+                                <rect key="frame" x="317" y="652" width="50" height="50"/>
+                                <state key="normal" image="vegan"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zm1-4l-IRi">
+                                <rect key="frame" x="240" y="652" width="50" height="50"/>
+                                <state key="normal" image="dairy"/>
+                                <connections>
+                                    <action selector="toggleImage:" destination="oiA-9u-xok" eventType="touchUpInside" id="ckz-jV-v6P"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TWf-WE-bb5">
+                                <rect key="frame" x="175" y="284" width="163" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="024-5U-GGH">
+                                <rect key="frame" x="175" y="333" width="163" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sw6-56-f5P">
+                                <rect key="frame" x="175" y="380" width="163" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hcv-Qr-5ob">
+                                <rect key="frame" x="175" y="485" width="163" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qrg-Pm-ycC">
+                                <rect key="frame" x="175" y="534" width="163" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Zm1-4l-IRi" firstAttribute="leading" secondItem="i5B-Um-oo4" secondAttribute="trailing" constant="27" id="7Cd-nt-SSb"/>
+                            <constraint firstItem="Zm1-4l-IRi" firstAttribute="centerY" secondItem="xwt-e0-8N5" secondAttribute="centerY" id="97Y-dK-79S"/>
+                            <constraint firstItem="39U-gz-Oqn" firstAttribute="centerY" secondItem="xwt-e0-8N5" secondAttribute="centerY" id="GAs-rJ-DlI"/>
+                            <constraint firstItem="Ee1-KR-N6h" firstAttribute="leading" secondItem="Zm1-4l-IRi" secondAttribute="trailing" constant="27" id="Ikc-at-olk"/>
+                            <constraint firstItem="Ee1-KR-N6h" firstAttribute="centerY" secondItem="xwt-e0-8N5" secondAttribute="centerY" id="MHw-xm-yII"/>
+                            <constraint firstItem="i5B-Um-oo4" firstAttribute="leading" secondItem="39U-gz-Oqn" secondAttribute="trailing" constant="27" id="O6V-eo-gGg"/>
+                            <constraint firstItem="i5B-Um-oo4" firstAttribute="centerY" secondItem="xwt-e0-8N5" secondAttribute="centerY" id="nbv-oq-O57"/>
+                            <constraint firstItem="39U-gz-Oqn" firstAttribute="leading" secondItem="xwt-e0-8N5" secondAttribute="trailing" constant="27" id="qPd-Es-8CA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Lrb-rB-T7g"/>
+                    </view>
+                    <connections>
+                        <outlet property="drinkField" destination="024-5U-GGH" id="3qo-0C-7Ls"/>
+                        <outlet property="emailField" destination="hcv-Qr-5ob" id="G2z-3H-lb5"/>
+                        <outlet property="glutenButton" destination="39U-gz-Oqn" id="sM4-el-EuS"/>
+                        <outlet property="lactoseButton" destination="Zm1-4l-IRi" id="MP2-Ix-uTl"/>
+                        <outlet property="nameField" destination="TWf-WE-bb5" id="Xku-x1-nc5"/>
+                        <outlet property="nutsButton" destination="xwt-e0-8N5" id="VFV-Cx-Drc"/>
+                        <outlet property="passwordField" destination="Qrg-Pm-ycC" id="9MH-Kc-Jdq"/>
+                        <outlet property="profileImage" destination="xHl-Uv-um3" id="A5c-QI-7yf"/>
+                        <outlet property="trickField" destination="Sw6-56-f5P" id="BQo-SK-xh1"/>
+                        <outlet property="veganButton" destination="Ee1-KR-N6h" id="sET-xL-eep"/>
+                        <outlet property="vegetarianButton" destination="i5B-Um-oo4" id="Bwr-Go-BkD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E5x-5b-rut" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="112.8" y="687.192118226601"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="dairy" width="50" height="50"/>
+        <image name="gluten-free" width="50" height="50"/>
+        <image name="nut-free" width="50" height="50"/>
+        <image name="vegan" width="50" height="50"/>
+        <image name="vegetarian" width="50" height="50"/>
+    </resources>
+</document>

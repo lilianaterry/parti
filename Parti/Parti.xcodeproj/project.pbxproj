@@ -14,6 +14,8 @@
 		CE1189612051DF8400A0AD49 /* PartyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A651A5204B9CA0007792E6 /* PartyListViewController.swift */; };
 		CE1189632051E00300A0AD49 /* PartyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1189622051E00300A0AD49 /* PartyModel.swift */; };
 		CE1C754720631568009A5914 /* ProfileCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C754620631568009A5914 /* ProfileCreationViewController.swift */; };
+		CE2281FC206B512A00039578 /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2281FB206B512A00039578 /* EditProfile.storyboard */; };
+		CE228200206B57A200039578 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2281FF206B57A200039578 /* EditProfileViewController.swift */; };
 		CE2ED8672065B65E00CFDEE3 /* CreateFoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2ED8662065B65E00CFDEE3 /* CreateFoodListViewController.swift */; };
 		CE31AB9F205F17ED00171BD1 /* CreatePartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE31AB9E205F17ED00171BD1 /* CreatePartyViewController.swift */; };
 		CE3E0DB12061E0980098F435 /* PartyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E0DB02061E0980098F435 /* PartyPageViewController.swift */; };
@@ -66,6 +68,8 @@
 		CE09DC5B205C66410097806D /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		CE1189622051E00300A0AD49 /* PartyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyModel.swift; sourceTree = "<group>"; };
 		CE1C754620631568009A5914 /* ProfileCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreationViewController.swift; sourceTree = "<group>"; };
+		CE2281FB206B512A00039578 /* EditProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
+		CE2281FF206B57A200039578 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		CE2ED8662065B65E00CFDEE3 /* CreateFoodListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFoodListViewController.swift; sourceTree = "<group>"; };
 		CE31AB9E205F17ED00171BD1 /* CreatePartyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePartyViewController.swift; sourceTree = "<group>"; };
 		CE3E0DB02061E0980098F435 /* PartyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyPageViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +78,7 @@
 		CE5ED8D3205ED25D00F6174F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CE5ED8D5205ED26D00F6174F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CE6CD6822047092D00BC3DD3 /* FoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
-		CE6CD68420470C3C00BC3DD3 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		CE6CD68420470C3C00BC3DD3 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CE83FF5F2067EDB400542092 /* AddGuestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGuestsViewController.swift; sourceTree = "<group>"; };
 		CE83FF632068095500542092 /* AddGuests.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddGuests.storyboard; sourceTree = "<group>"; };
 		CEA81F35205F034C00D48895 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyMetadata.framework; path = System/Library/Frameworks/SpotifyMetadata.framework; sourceTree = SDKROOT; };
@@ -153,6 +157,7 @@
 		CE09DC57205C65E70097806D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				CE2281FF206B57A200039578 /* EditProfileViewController.swift */,
 				CE09DC55205C657C0097806D /* ProfileViewController.swift */,
 				CE09DC5B205C66410097806D /* ProfileModel.swift */,
 			);
@@ -260,6 +265,7 @@
 				CEF18A40204B74F8003071C5 /* SecondMain.storyboard */,
 				F9B245C02066EB3D0015F277 /* Main.storyboard */,
 				CE83FF632068095500542092 /* AddGuests.storyboard */,
+				CE2281FB206B512A00039578 /* EditProfile.storyboard */,
 				F957DEDA204146E400FB15A3 /* Parti.entitlements */,
 				F98083382020E98C00CB91C0 /* AppDelegate.swift */,
 				F980833A2020E98C00CB91C0 /* ViewController.swift */,
@@ -378,6 +384,7 @@
 				F9B245C12066EB3D0015F277 /* Main.storyboard in Resources */,
 				F98083462020E98C00CB91C0 /* LaunchScreen.storyboard in Resources */,
 				CEF18A42204B74F8003071C5 /* SecondMain.storyboard in Resources */,
+				CE2281FC206B512A00039578 /* EditProfile.storyboard in Resources */,
 				F90031B82031F4F300B9FA75 /* GoogleService-Info.plist in Resources */,
 				F98083432020E98C00CB91C0 /* Assets.xcassets in Resources */,
 				CE83FF642068095500542092 /* AddGuests.storyboard in Resources */,
@@ -527,6 +534,7 @@
 				CEF4EB622066D0EF009387CB /* CreateFriendListViewController.swift in Sources */,
 				CE6CD6832047092D00BC3DD3 /* FoodListViewController.swift in Sources */,
 				F9A651A8204B9E57007792E6 /* AttendingPartyTableViewCell.swift in Sources */,
+				CE228200206B57A200039578 /* EditProfileViewController.swift in Sources */,
 				CEB33EF5205F456100F49918 /* GuestTableViewCell.swift in Sources */,
 				CEAB8B6720644885005AD748 /* AddFriendsViewController.swift in Sources */,
 				F98083392020E98C00CB91C0 /* AppDelegate.swift in Sources */,
@@ -693,8 +701,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Parti/Parti.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RWK7TT7K5A;
+				DEVELOPMENT_TEAM = X8867ZW39D;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -717,6 +726,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.UTApps.Parti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -729,8 +740,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Parti/Parti.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RWK7TT7K5A;
+				DEVELOPMENT_TEAM = X8867ZW39D;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -753,6 +765,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.UTApps.Parti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -25,28 +25,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var profileObject = ProfileModel()
     
     @IBOutlet weak var profilePicture: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel! {
-        didSet {
-            let recognizer = UITapGestureRecognizer()
-            recognizer.addTarget(self, action: #selector(ProfileViewController.editName))
-            nameLabel.addGestureRecognizer(recognizer)
-        }
-    }
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var drinkOfChoiceLabel: UILabel!
     @IBOutlet weak var partyTrickLabel: UILabel!
     
-    @objc func editName(gesture: UILongPressGestureRecognizer) {
-        switch gesture.state {
-        case UIGestureRecognizerState.began:
-            break;
-        case UIGestureRecognizerState.ended:
-            let updatedName = nameLabel.text
-            self.databaseRef.child("users/\(self.profileObject.userID)/name").setValue(updatedName)
-        // Implementation here...
-        default: break
-        }
-    }
+    let allergyIcons = [UIButton]()
     
     /* Runs when page is loaded, sets the delegate and datasource then calls method to query
      Firebase and fetch this user's information */
@@ -58,22 +42,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         databaseRef = Database.database().reference()
         storageRef = Storage.storage().reference()
         
-        // add tap gesture to name label
-        nameLabel.addObserver(self, forKeyPath: "text", options: [.old, .new], context: nil)
+        allergyIcons = [nutsButton, glutenButton, vegetarianButton, lactoseButton, veganButton]
         
         profileObject.userID = Auth.auth().currentUser?.uid as! String
         setupProfilePicture()
         
         // query Firebase to get the current user's information
         populateProfilePage()
-    }
-    
-    // Update user's name in Firebase
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == "text" {
-            print("old:", change?[.oldKey])
-            print("new:", change?[.newKey])
-        }
     }
     
     func setupProfilePicture () {
@@ -197,12 +172,17 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    @IBAction func eventsButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "profileToPartyList", sender: self)
+    @IBAction func editButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "editProfileSegue", sender: self)
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let segueID = segue.identifier
+        if (segueID == "editProfileSegue") {
+            if let destinationVC = segue.destination as? EditProfileViewController {
+                destinationVC.profileObject = profileObject
+            }
+        }
         
     }
     

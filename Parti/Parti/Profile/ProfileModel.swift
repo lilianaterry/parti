@@ -20,8 +20,10 @@ class ProfileModel: NSObject {
     var foodList: Dictionary<String, Any>
     var friendsList: Dictionary<String, Any>
     var allergiesList: Dictionary<String, Any>
+    var drink: String
+    var trick: String
     
-    init(name: String, userID: String, username: String, pictureURL: String) {
+    init(name: String, userID: String, username: String, pictureURL: String, drink: String, trick: String) {
         self.name = name
         self.userID = userID
         self.username = username
@@ -31,10 +33,13 @@ class ProfileModel: NSObject {
         self.foodList = [:]
         self.friendsList = [:]
         self.allergiesList = [:]
+        
+        self.drink = drink
+        self.trick = trick
     }
     
     convenience override init() {
-        self.init(name: "", userID: "", username: "", pictureURL: "")
+        self.init(name: "", userID: "", username: "", pictureURL: "", drink: "", trick: "")
     }
 }
 

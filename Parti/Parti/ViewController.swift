@@ -207,23 +207,9 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         // Party List Page
         } else if (segueID == "loginToPartyList") {
             if let destinationVC = segue.destination as? PartyListViewController {
+                
             }
-            
-        // FoodList page
-//        } else if (segueID == "foodListSegue") {
-//            if let destinationVC = segue.destination as? FoodListViewController {
-//                destinationVC.userID = userID
-//            }
-//        // Party Creation Page
-//        } else if (segueID == "createPartySegue") {
-//            if let destinationVC = segue.destination as? CreatePartyViewController {
-//                destinationVC.partyObject.hostID = userID
-//            }
-//        // Guest List Page
-//        } else if (segueID == "guestListSegue") {
-//            if let destinationVC = segue.destination as? GuestListViewController {
-//                destinationVC.partyObject.hostID = userID
-//            }
+        
         }
     }
 }
