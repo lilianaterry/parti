@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>187127372208-kgs3nram2l9d8jnlm8uo8vlje7vb7tlp.apps.googleusercontent.com</string>
+	<string>187127372208-l7knlm3n252v1r7ij36te6jndbhbiu6d.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.187127372208-kgs3nram2l9d8jnlm8uo8vlje7vb7tlp</string>
+	<string>com.googleusercontent.apps.187127372208-l7knlm3n252v1r7ij36te6jndbhbiu6d</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBJTeWT6On2FBaaaCoytNS8zw6yNQkPPoA</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,23 +17,23 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.UTApps.Parti</string>
+	<string>com.UTApps.PartiApp</string>
 	<key>PROJECT_ID</key>
 	<string>parti-5059d</string>
 	<key>STORAGE_BUCKET</key>
 	<string>parti-5059d.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:187127372208:ios:eef225254f490411</string>
+	<string>1:187127372208:ios:fe9e480769ed1480</string>
 	<key>DATABASE_URL</key>
 	<string>https://parti-5059d.firebaseio.com</string>
 </dict>

@@ -703,7 +703,7 @@
 				CODE_SIGN_ENTITLEMENTS = Parti/Parti.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X8867ZW39D;
+				DEVELOPMENT_TEAM = RWK7TT7K5A;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -724,7 +724,7 @@
 				);
 				INFOPLIST_FILE = Parti/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.UTApps.Parti;
+				PRODUCT_BUNDLE_IDENTIFIER = com.UTApps.PartiApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -742,7 +742,7 @@
 				CODE_SIGN_ENTITLEMENTS = Parti/Parti.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X8867ZW39D;
+				DEVELOPMENT_TEAM = RWK7TT7K5A;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -763,7 +763,7 @@
 				);
 				INFOPLIST_FILE = Parti/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.UTApps.Parti;
+				PRODUCT_BUNDLE_IDENTIFIER = com.UTApps.PartiApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
