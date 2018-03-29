@@ -243,13 +243,14 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func saveProfileButton(_ sender: Any) {
         updateUserInfo()
         
-        performSegue(withIdentifier: "saveProfileSegue", sender: self)
+        performSegue(withIdentifier: "saveProfile", sender: self)
     }
     
     /* sets all the values in the profile page so it doesn't have to requery firebase */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let segueID = segue.identifier
-        if (segueID == "saveProfileSegue") {
+        if (segueID == "saveProfile") {
+            print("moving back to profile")
             if let destinationVC = segue.destination as? ProfileViewController {
                 destinationVC.profilePicture.image = profileImage.image
                 destinationVC.nameLabel.text = nameField.text
