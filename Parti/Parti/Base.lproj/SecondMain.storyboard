@@ -902,7 +902,6 @@
                                 <state key="normal" title="Button" image="addPicture"/>
                                 <connections>
                                     <action selector="selectGuest:" destination="D0Z-FS-81f" eventType="touchUpInside" id="vJl-gf-1t4"/>
-                                    <segue destination="etb-UH-iUe" kind="show" identifier="guestProfileSegue" id="cax-n5-WZ1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jd2-fg-drm">
@@ -911,7 +910,6 @@
                                 <state key="normal" title="Button" image="addPicture"/>
                                 <connections>
                                     <action selector="selectGuest:" destination="D0Z-FS-81f" eventType="touchUpInside" id="7Mo-mR-IdW"/>
-                                    <segue destination="etb-UH-iUe" kind="show" identifier="guestProfileSegue" id="EiI-aI-LKH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZv-wd-9bK">
@@ -920,7 +918,6 @@
                                 <state key="normal" title="Button" image="addPicture"/>
                                 <connections>
                                     <action selector="selectGuest:" destination="D0Z-FS-81f" eventType="touchUpInside" id="VdA-nW-3lZ"/>
-                                    <segue destination="etb-UH-iUe" kind="show" identifier="guestProfileSegue" id="6Rh-Yx-PO9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HL7-QS-rDR">
@@ -929,7 +926,6 @@
                                 <state key="normal" title="Button" image="addPicture"/>
                                 <connections>
                                     <action selector="selectGuest:" destination="D0Z-FS-81f" eventType="touchUpInside" id="7tA-Yd-zWZ"/>
-                                    <segue destination="etb-UH-iUe" kind="show" identifier="guestProfileSegue" id="oOi-Ib-Msh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffL-4S-DPa">
@@ -938,7 +934,6 @@
                                 <state key="normal" title="Button" image="addPicture"/>
                                 <connections>
                                     <action selector="selectGuest:" destination="D0Z-FS-81f" eventType="touchUpInside" id="dcE-8E-8uW"/>
-                                    <segue destination="etb-UH-iUe" kind="show" identifier="guestProfileSegue" id="c7V-th-4Ah"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYI-no-9p8">
@@ -947,7 +942,6 @@
                                 <state key="normal" title="Button" image="addPicture"/>
                                 <connections>
                                     <action selector="selectGuest:" destination="D0Z-FS-81f" eventType="touchUpInside" id="2Zd-na-WLj"/>
-                                    <segue destination="etb-UH-iUe" kind="show" identifier="guestProfileSegue" id="gGh-2m-UKf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxo-zi-5Yo">
@@ -956,7 +950,6 @@
                                 <state key="normal" title="Button" image="addPicture"/>
                                 <connections>
                                     <action selector="selectGuest:" destination="D0Z-FS-81f" eventType="touchUpInside" id="uau-Fr-rpp"/>
-                                    <segue destination="etb-UH-iUe" kind="show" identifier="guestProfileSegue" id="Icy-6I-jaT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HkE-ap-QHq">
@@ -965,7 +958,6 @@
                                 <state key="normal" title="Button" image="addPicture"/>
                                 <connections>
                                     <action selector="selectGuest:" destination="D0Z-FS-81f" eventType="touchUpInside" id="hxV-TJ-ZB0"/>
-                                    <segue destination="bJF-T5-5u8" kind="show" id="Jls-2g-INP"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Guests:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Co2-ih-LTb">
@@ -1003,6 +995,8 @@
                         <outlet property="veganLabel" destination="TfJ-9C-JDK" id="UCI-VA-kZr"/>
                         <outlet property="vegetarianButton" destination="TgP-Sc-crS" id="iHO-Y5-Miy"/>
                         <outlet property="vegetarianLabel" destination="FsY-9h-QGH" id="gcG-cb-O79"/>
+                        <segue destination="bJF-T5-5u8" kind="show" identifier="guestListSegue" id="cs0-rd-on5"/>
+                        <segue destination="etb-UH-iUe" kind="show" identifier="guestProfileSegue" id="yW4-ie-5Dy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nFx-Vu-ujI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1308,7 +1302,6 @@
         <image name="vegetarian" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cax-n5-WZ1"/>
         <segue reference="mpK-AZ-bUO"/>
     </inferredMetricsTieBreakers>
 </document>

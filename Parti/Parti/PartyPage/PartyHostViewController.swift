@@ -25,17 +25,18 @@ class PartyHostViewController: ViewController {
     @IBOutlet weak var veganLabel: UILabel!
     
     // Guest Image buttons
-    @IBOutlet weak var guest1: GuestButton!
-    @IBOutlet weak var guest2: GuestButton!
-    @IBOutlet weak var guest3: GuestButton!
-    @IBOutlet weak var guest4: GuestButton!
-    @IBOutlet weak var guest5: GuestButton!
-    @IBOutlet weak var guest6: GuestButton!
-    @IBOutlet weak var guest7: GuestButton!
-    @IBOutlet weak var addMore: GuestButton!
+    @IBOutlet weak var guest1: UIButton!
+    @IBOutlet weak var guest2: UIButton!
+    @IBOutlet weak var guest3: UIButton!
+    @IBOutlet weak var guest4: UIButton!
+    @IBOutlet weak var guest5: UIButton!
+    @IBOutlet weak var guest6: UIButton!
+    @IBOutlet weak var guest7: UIButton!
+    @IBOutlet weak var addMore: UIButton!
     
-    var guestButtons = [GuestButton]()
-    
+    var guestButtons = [UIButton]()
+    var displayedGuests = [ProfileModel]()
+
     // Firebase Database connection
     var databaseRef: DatabaseReference!
     var databaseHandle: DatabaseHandle?
@@ -47,7 +48,6 @@ class PartyHostViewController: ViewController {
     var allergyCounts = [0, 0, 0, 0, 0]
     var allergyImages = [UIButton]()
     var allergyLabels = [UILabel]()
-    let guests = [ProfileModel]()
     
     var partyObject = PartyModel()
     
@@ -93,15 +93,16 @@ class PartyHostViewController: ViewController {
         veganButton.tag = 4
     }
     
+    /* makes buttons iterable and now we can tell which profile to go to */
     func setupGuestButtons() {
-        var index = 0
-        for button in guestButtons {
-            guestButtons[index] = GuestButton(userID: "")
-            guestButtons[index].isHidden = true
-            index += 1
-        }
-        
-        addMore = GuestButton(userID: partyObject.partyID)
+        guest1.tag = 0
+        guest2.tag = 1
+        guest3.tag = 2
+        guest4.tag = 3
+        guest4.tag = 4
+        guest5.tag = 5
+        guest6.tag = 6
+        guest7.tag = 7
     }
     
     /* iterates over all guests invited to the party to populate profile objects and get allergies */
@@ -123,6 +124,7 @@ class PartyHostViewController: ViewController {
         databaseRef.child("users/\(userID)").observe(.value) { (snapshot) in
             // add all user information to the profile model object
             let newUser = ProfileModel()
+            newUser.userID = userID
             if (snapshot.exists()) {
                 let data = snapshot.value as! [String: Any]
                 print("got user info")
@@ -136,22 +138,28 @@ class PartyHostViewController: ViewController {
                             print(error)
                             return
                         }
+
                         DispatchQueue.main.async { // Make sure you're on the main thread here
                             newUser.image = UIImage(data: image!)!
                             // if we still have guest buttons to populate, do so
-                            if (self.guestButtons.count > 0) {
-                                self.guestButtons[0].userID = userID
-                                self.guestButtons[0].setImage(UIImage(data: image!), for: .normal)
-                                self.guestButtons[0].isHidden = false
-                                self.guestButtons.remove(at: 0)
+                            if (self.displayedGuests.count < 6) {
+                                let fillIndex = self.displayedGuests.count
+                                self.displayedGuests.append(newUser)
+                                self.guestButtons[fillIndex].setImage(UIImage(data: image!), for: .normal)
                             }
                         }
                     }).resume()
+                } else {
+                    if (self.displayedGuests.count < 6) {
+                        let fillIndex = self.displayedGuests.count
+                        self.displayedGuests.append(newUser)
+                        self.guestButtons[fillIndex].setImage(#imageLiteral(resourceName: "parti_logo"), for: .normal)
+                    }
                 }
                 
                 if let allergies = data["allergyList"] {
-                    print(allergies)
                     let userAllergies = allergies as! [String: Any]
+                    newUser.allergiesList = userAllergies
                     
                     for allergy in userAllergies.keys {
                         let index = self.allergyList.index(of: allergy)
@@ -160,6 +168,9 @@ class PartyHostViewController: ViewController {
                         self.allergyLabels[index!].text = String(self.allergyCounts[index!])
                     }
                 }
+                
+                self.partyObject.guests.append(newUser)
+                
             } else {
                 print("No user in Firebase yet")
             }
@@ -169,13 +180,12 @@ class PartyHostViewController: ViewController {
     /* When user button is selected, go to profile or go to add guests page */
     @IBAction func selectGuest(_ sender: Any) {
         if let button = sender as? UIButton {
-            let userID = button.tag
-            if (userID == nil) {
-                // add guest
+            let userIndex = button.tag
+            if (userIndex > displayedGuests.count - 1) {
                 performSegue(withIdentifier: "guestListSegue", sender: self)
             } else {
                 // go to that user's profile
-                performSegue(withIdentifier: "guestProfileSegue", sender: self)
+                performSegue(withIdentifier: "guestProfileSegue", sender: button)
             }
         }
     }
@@ -191,7 +201,10 @@ class PartyHostViewController: ViewController {
         // Create Profile Step 1
         if (segueID == "guestProfileSegue") {
             if let destinationVC = segue.destination as? OtherUserProfile {
-                destinationVC.profileObject.userID = self.userID
+                let button = sender as! UIButton
+                let userID = displayedGuests[button.tag].userID
+                print(userID)
+                destinationVC.profileObject.userID = userID
             }
             // Party List Page
         } else if (segueID == "guestListSegue") {

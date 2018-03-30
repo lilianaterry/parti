@@ -42,7 +42,6 @@ class OtherUserProfile: UIViewController {
      Firebase and fetch this user's information */
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("IN VIEW DID LOAD")
         
         // set firebase references
         databaseRef = Database.database().reference()
@@ -60,13 +59,12 @@ class OtherUserProfile: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // set firebase references
-        databaseRef = Database.database().reference()
-        storageRef = Storage.storage().reference()
+        //databaseRef = Database.database().reference()
+        //storageRef = Storage.storage().reference()
         
-        allergyImages = [nutsButton, glutenButton, vegetarianButton, lactoseButton, veganButton]
+        //allergyImages = [nutsButton, glutenButton, vegetarianButton, lactoseButton, veganButton]
         
-        profileObject.userID = Auth.auth().currentUser?.uid as! String
-        setupProfilePicture()
+        //setupProfilePicture()
         
         // query Firebase to get the current user's information
         populateProfilePage()
@@ -95,7 +93,6 @@ class OtherUserProfile: UIViewController {
         // create circular mask on image
         self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2
         self.profilePicture.clipsToBounds = true
-        
     }
     
     

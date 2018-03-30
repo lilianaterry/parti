@@ -12,15 +12,9 @@ class GuestButton: UIButton {
     
     var userID: String
     
-    required init(userID: String) {
-        // set myValue before super.init is called
-        self.userID = userID
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
-        super.init(frame: .zero)
+        //TODO: Code for our button
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
 }
