@@ -36,6 +36,7 @@
 		CEF18A42204B74F8003071C5 /* SecondMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF18A40204B74F8003071C5 /* SecondMain.storyboard */; };
 		CEF4EB622066D0EF009387CB /* CreateFriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4EB612066D0EF009387CB /* CreateFriendListViewController.swift */; };
 		F90031B82031F4F300B9FA75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F90031B72031F4F300B9FA75 /* GoogleService-Info.plist */; };
+		F90E780F206EB474007C5302 /* ProfileView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F90E780E206EB473007C5302 /* ProfileView.storyboard */; };
 		F9338584206941210080C59F /* PartyHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9338583206941210080C59F /* PartyHostViewController.swift */; };
 		F9620A8C2069CC270099BABA /* HostingPartyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9620A8B2069CC270099BABA /* HostingPartyTableViewCell.swift */; };
 		F9620A8E206AB9770099BABA /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9620A8D206AB9770099BABA /* CreateAccountViewController.swift */; };
@@ -95,6 +96,7 @@
 		CEF18A41204B74F8003071C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SecondMain.storyboard; sourceTree = "<group>"; };
 		CEF4EB612066D0EF009387CB /* CreateFriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFriendListViewController.swift; sourceTree = "<group>"; };
 		F90031B72031F4F300B9FA75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F90E780E206EB473007C5302 /* ProfileView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileView.storyboard; sourceTree = "<group>"; };
 		F9338583206941210080C59F /* PartyHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyHostViewController.swift; sourceTree = "<group>"; };
 		F957DEDA204146E400FB15A3 /* Parti.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Parti.entitlements; sourceTree = "<group>"; };
 		F9620A8B2069CC270099BABA /* HostingPartyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingPartyTableViewCell.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				F9B245C02066EB3D0015F277 /* Main.storyboard */,
 				CE83FF632068095500542092 /* AddGuests.storyboard */,
 				CE2281FB206B512A00039578 /* EditProfile.storyboard */,
+				F90E780E206EB473007C5302 /* ProfileView.storyboard */,
 				F957DEDA204146E400FB15A3 /* Parti.entitlements */,
 				F98083382020E98C00CB91C0 /* AppDelegate.swift */,
 				F980833A2020E98C00CB91C0 /* ViewController.swift */,
@@ -391,6 +394,7 @@
 				F98083462020E98C00CB91C0 /* LaunchScreen.storyboard in Resources */,
 				CEF18A42204B74F8003071C5 /* SecondMain.storyboard in Resources */,
 				CE2281FC206B512A00039578 /* EditProfile.storyboard in Resources */,
+				F90E780F206EB474007C5302 /* ProfileView.storyboard in Resources */,
 				F90031B82031F4F300B9FA75 /* GoogleService-Info.plist in Resources */,
 				F98083432020E98C00CB91C0 /* Assets.xcassets in Resources */,
 				CE83FF642068095500542092 /* AddGuests.storyboard in Resources */,
