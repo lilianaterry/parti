@@ -37,6 +37,9 @@
 		CEF4EB622066D0EF009387CB /* CreateFriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4EB612066D0EF009387CB /* CreateFriendListViewController.swift */; };
 		F90031B82031F4F300B9FA75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F90031B72031F4F300B9FA75 /* GoogleService-Info.plist */; };
 		F90E780F206EB474007C5302 /* ProfileView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F90E780E206EB473007C5302 /* ProfileView.storyboard */; };
+		F90E7811206ECEDB007C5302 /* AddGuestsToPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90E7810206ECEDB007C5302 /* AddGuestsToPartyViewController.swift */; };
+		F90E7813206ECFB4007C5302 /* AddGuestsToParty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F90E7812206ECFB4007C5302 /* AddGuestsToParty.storyboard */; };
+		F90E7815206ED4F3007C5302 /* AddGuestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90E7814206ED4F3007C5302 /* AddGuestsTableViewCell.swift */; };
 		F9338584206941210080C59F /* PartyHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9338583206941210080C59F /* PartyHostViewController.swift */; };
 		F9620A8C2069CC270099BABA /* HostingPartyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9620A8B2069CC270099BABA /* HostingPartyTableViewCell.swift */; };
 		F9620A8E206AB9770099BABA /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9620A8D206AB9770099BABA /* CreateAccountViewController.swift */; };
@@ -97,6 +100,9 @@
 		CEF4EB612066D0EF009387CB /* CreateFriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFriendListViewController.swift; sourceTree = "<group>"; };
 		F90031B72031F4F300B9FA75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F90E780E206EB473007C5302 /* ProfileView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileView.storyboard; sourceTree = "<group>"; };
+		F90E7810206ECEDB007C5302 /* AddGuestsToPartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGuestsToPartyViewController.swift; sourceTree = "<group>"; };
+		F90E7812206ECFB4007C5302 /* AddGuestsToParty.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddGuestsToParty.storyboard; sourceTree = "<group>"; };
+		F90E7814206ED4F3007C5302 /* AddGuestsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGuestsTableViewCell.swift; sourceTree = "<group>"; };
 		F9338583206941210080C59F /* PartyHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyHostViewController.swift; sourceTree = "<group>"; };
 		F957DEDA204146E400FB15A3 /* Parti.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Parti.entitlements; sourceTree = "<group>"; };
 		F9620A8B2069CC270099BABA /* HostingPartyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingPartyTableViewCell.swift; sourceTree = "<group>"; };
@@ -156,6 +162,8 @@
 			children = (
 				CEAB8B6520644885005AD748 /* AddFriendsViewController.swift */,
 				CEAB8B6620644885005AD748 /* AddFriendTableViewCell.swift */,
+				F90E7810206ECEDB007C5302 /* AddGuestsToPartyViewController.swift */,
+				F90E7814206ED4F3007C5302 /* AddGuestsTableViewCell.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -275,6 +283,7 @@
 				CE83FF632068095500542092 /* AddGuests.storyboard */,
 				CE2281FB206B512A00039578 /* EditProfile.storyboard */,
 				F90E780E206EB473007C5302 /* ProfileView.storyboard */,
+				F90E7812206ECFB4007C5302 /* AddGuestsToParty.storyboard */,
 				F957DEDA204146E400FB15A3 /* Parti.entitlements */,
 				F98083382020E98C00CB91C0 /* AppDelegate.swift */,
 				F980833A2020E98C00CB91C0 /* ViewController.swift */,
@@ -390,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6CD68520470C3C00BC3DD3 /* Podfile in Resources */,
+				F90E7813206ECFB4007C5302 /* AddGuestsToParty.storyboard in Resources */,
 				F9B245C12066EB3D0015F277 /* Main.storyboard in Resources */,
 				F98083462020E98C00CB91C0 /* LaunchScreen.storyboard in Resources */,
 				CEF18A42204B74F8003071C5 /* SecondMain.storyboard in Resources */,
@@ -552,7 +562,9 @@
 				F9620A8E206AB9770099BABA /* CreateAccountViewController.swift in Sources */,
 				CE1189612051DF8400A0AD49 /* PartyListViewController.swift in Sources */,
 				CE31AB9F205F17ED00171BD1 /* CreatePartyViewController.swift in Sources */,
+				F90E7815206ED4F3007C5302 /* AddGuestsTableViewCell.swift in Sources */,
 				CEB33EF7205F464400F49918 /* GuestListViewController.swift in Sources */,
+				F90E7811206ECEDB007C5302 /* AddGuestsToPartyViewController.swift in Sources */,
 				CEEED9CA206DF91000A45426 /* GuestButton.swift in Sources */,
 				CEEED9C8206DF5B800A45426 /* OtherUserProfile.swift in Sources */,
 				F9338584206941210080C59F /* PartyHostViewController.swift in Sources */,

@@ -965,7 +965,7 @@
                                 <state key="normal" title="Button" image="addPicture"/>
                                 <connections>
                                     <action selector="selectGuest:" destination="D0Z-FS-81f" eventType="touchUpInside" id="hxV-TJ-ZB0"/>
-                                    <segue destination="etb-UH-iUe" kind="show" identifier="guestProfileSegue" id="6Ay-kw-HtX"/>
+                                    <segue destination="bJF-T5-5u8" kind="show" id="Jls-2g-INP"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Guests:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Co2-ih-LTb">
@@ -1009,13 +1009,21 @@
             </objects>
             <point key="canvasLocation" x="1028" y="444"/>
         </scene>
+        <!--addGuestsToPartyView-->
+        <scene sceneID="LUJ-BH-1T2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddGuestsToParty" referencedIdentifier="addGuestsToPartyView" id="bJF-T5-5u8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IxY-kU-tq6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1962" y="313"/>
+        </scene>
         <!--otherProfileController-->
         <scene sceneID="U8b-Y1-S4w">
             <objects>
                 <viewControllerPlaceholder storyboardName="ProfileView" referencedIdentifier="otherProfileController" id="etb-UH-iUe" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VA9-t3-ZDb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1950" y="443"/>
+            <point key="canvasLocation" x="1956" y="460"/>
         </scene>
         <!--Friends-->
         <scene sceneID="Eaz-Q4-zsQ">
@@ -1300,7 +1308,7 @@
         <image name="vegetarian" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oOi-Ib-Msh"/>
-        <segue reference="Ovt-k8-zB7"/>
+        <segue reference="cax-n5-WZ1"/>
+        <segue reference="mpK-AZ-bUO"/>
     </inferredMetricsTieBreakers>
 </document>
