@@ -57,6 +57,21 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         populateProfilePage()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // set firebase references
+        databaseRef = Database.database().reference()
+        storageRef = Storage.storage().reference()
+        
+        allergyIcons = [nutsButton, glutenButton, vegetarianButton, lactoseButton, veganButton]
+        
+        profileObject.userID = Auth.auth().currentUser?.uid as! String
+        setupProfilePicture()
+        
+        // query Firebase to get the current user's information
+        populateProfilePage()
+    }
+    
     func setupProfilePicture () {
         // create circular mask on image
         self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2

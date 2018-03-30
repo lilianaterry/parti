@@ -191,10 +191,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         databaseRef.child("users/\(profileObject.userID)/name").setValue(nameField.text)
         
         //update drink of choice
-        databaseRef.child("users/\(profileObject.userID)/name").setValue(drinkField.text)
+        databaseRef.child("users/\(profileObject.userID)/drinkOfChoice").setValue(drinkField.text)
         
         // update party trick
-        databaseRef.child("users/\(profileObject.userID)/name").setValue(trickField.text)
+        databaseRef.child("users/\(profileObject.userID)/partyTrick").setValue(trickField.text)
         
         // update email
         Auth.auth().currentUser?.updateEmail(to: emailField.text!, completion: { (error) in
@@ -243,7 +243,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func saveProfileButton(_ sender: Any) {
         updateUserInfo()
         
-        performSegue(withIdentifier: "saveProfile", sender: self)
+        self.dismiss(animated: true, completion: nil)
+        //performSegue(withIdentifier: "saveProfile", sender: self)
     }
     
     /* sets all the values in the profile page so it doesn't have to requery firebase */
@@ -263,10 +264,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 for update in allergyChanges {
                     // remove value from Firebase
                     if (update == -1) {
-                        destinationVC.allergyIcons[index].isSelected = false
+                        //destinationVC.allergyIcons[index].isSelected = false
                     } else if (update == 1) {
                         // add entry to firebase
-                        destinationVC.allergyIcons[index].isSelected = true
+                        //destinationVC.allergyIcons[index].isSelected = true
                     }
                     index += 1
                 }
