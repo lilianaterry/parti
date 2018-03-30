@@ -167,5 +167,9 @@ class OtherUserProfile: UIViewController {
             print(error.localizedDescription)
         }
     }
+    
+    @IBAction func dismiss(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 
 }

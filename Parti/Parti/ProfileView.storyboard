@@ -13,7 +13,7 @@
         <!--Profile-->
         <scene sceneID="TCD-kD-On4">
             <objects>
-                <viewController storyboardIdentifier="profileViewingController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Tf-bq-PmA" customClass="OtherUserProfile" customModule="Parti" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="otherProfileController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Tf-bq-PmA" customClass="OtherUserProfile" customModule="Parti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4p6-Lq-nno">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,7 +31,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Profile" id="lce-OF-qP8">
-                                        <barButtonItem key="leftBarButtonItem" image="Disclosure Indicator" id="B9C-jW-uP9"/>
+                                        <barButtonItem key="leftBarButtonItem" image="Disclosure Indicator" id="B9C-jW-uP9">
+                                            <connections>
+                                                <action selector="dismiss:" destination="4Tf-bq-PmA" id="eqz-20-wOn"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
