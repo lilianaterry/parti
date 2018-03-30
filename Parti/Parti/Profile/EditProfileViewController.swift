@@ -252,11 +252,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         if (segueID == "saveProfile") {
             print("moving back to profile")
             if let destinationVC = segue.destination as? ProfileViewController {
-                destinationVC.profilePicture.image = profileImage.image
-                destinationVC.nameLabel.text = nameField.text
-                
-                destinationVC.drinkOfChoiceLabel.text = drinkField.text
-                destinationVC.partyTrickLabel.text = trickField.text
+//                destinationVC.profilePicture.image = profileImage.image
+//                destinationVC.nameLabel.text = nameField.text
+//
+//                destinationVC.drinkOfChoiceLabel.text = drinkField.text
+//                destinationVC.partyTrickLabel.text = trickField.text
                 
                 // update allergies in original profile page
                 var index = 0

@@ -703,7 +703,7 @@
 				CODE_SIGN_ENTITLEMENTS = Parti/Parti.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C7F665E2YD;
+				DEVELOPMENT_TEAM = RWK7TT7K5A;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -742,7 +742,7 @@
 				CODE_SIGN_ENTITLEMENTS = Parti/Parti.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C7F665E2YD;
+				DEVELOPMENT_TEAM = RWK7TT7K5A;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

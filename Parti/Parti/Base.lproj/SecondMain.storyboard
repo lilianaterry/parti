@@ -1040,7 +1040,7 @@
                                         <rect key="frame" x="0.0" y="143" width="375" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sUi-sl-15j" id="dtP-Cw-8S2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="114.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="parti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="8S7-TB-ibC">
@@ -1209,7 +1209,7 @@
         <image name="dairy" width="50" height="50"/>
         <image name="gluten-free" width="50" height="50"/>
         <image name="nut-free" width="50" height="50"/>
-        <image name="parti_logo" width="200" height="200"/>
+        <image name="parti_logo" width="83" height="83"/>
         <image name="second" width="332" height="24"/>
         <image name="third" width="332" height="22"/>
         <image name="vegan" width="50" height="50"/>

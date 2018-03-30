@@ -427,6 +427,6 @@
     <resources>
         <image name="addPicture" width="145" height="145"/>
         <image name="first" width="332" height="24"/>
-        <image name="parti_logo" width="200" height="200"/>
+        <image name="parti_logo" width="83" height="83"/>
     </resources>
 </document>
