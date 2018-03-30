@@ -66,6 +66,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         allergyIcons = [nutsButton, glutenButton, vegetarianButton, lactoseButton, veganButton]
         
         setupAllergyIcons()
+        
+        
         colorIcons()
     }
     
@@ -86,6 +88,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         veganButton.setImage(#imageLiteral(resourceName: "vegan-blue"), for: .selected)
         veganButton.setImage(#imageLiteral(resourceName: "vegan"), for: .normal)
         veganButton.tag = 4
+        
+        for allergy in profileObject.allergiesList.keys {
+            let indexOfAllergy = allergyList.index(of: allergy)
+            allergyIcons[indexOfAllergy!].isSelected = true
+        }
     }
     
     /* colors icons based on what user has already chosen */
@@ -243,36 +250,35 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func saveProfileButton(_ sender: Any) {
         updateUserInfo()
         
-        self.dismiss(animated: true, completion: nil)
-        //performSegue(withIdentifier: "saveProfile", sender: self)
+        performSegue(withIdentifier: "saveProfile", sender: self)
     }
     
-    /* sets all the values in the profile page so it doesn't have to requery firebase */
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let segueID = segue.identifier
-        if (segueID == "saveProfile") {
-            print("moving back to profile")
-            if let destinationVC = segue.destination as? ProfileViewController {
+//    /* sets all the values in the profile page so it doesn't have to requery firebase */
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let segueID = segue.identifier
+//        if (segueID == "saveProfile") {
+//            print("moving back to profile")
+//            if let destinationVC = segue.destination as? ProfileViewController {
 //                destinationVC.profilePicture.image = profileImage.image
 //                destinationVC.nameLabel.text = nameField.text
 //
 //                destinationVC.drinkOfChoiceLabel.text = drinkField.text
 //                destinationVC.partyTrickLabel.text = trickField.text
-                
-                // update allergies in original profile page
-                var index = 0
-                for update in allergyChanges {
-                    // remove value from Firebase
-                    if (update == -1) {
-                        //destinationVC.allergyIcons[index].isSelected = false
-                    } else if (update == 1) {
-                        // add entry to firebase
-                        //destinationVC.allergyIcons[index].isSelected = true
-                    }
-                    index += 1
-                }
-            }
-        }
-    }
+//
+//                // update allergies in original profile page
+//                var index = 0
+//                for update in allergyChanges {
+//                    // remove value from Firebase
+//                    if (update == -1) {
+//                        destinationVC.allergyIcons[index].isSelected = false
+//                    } else if (update == 1) {
+//                        // add entry to firebase
+//                        destinationVC.allergyIcons[index].isSelected = true
+//                    }
+//                    index += 1
+//                }
+//            }
+//        }
+//    }
     
 }

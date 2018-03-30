@@ -151,7 +151,6 @@
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="0nT-Wb-uzq">
                                             <connections>
                                                 <action selector="saveProfileButton:" destination="oiA-9u-xok" id="f09-Rs-O8f"/>
-                                                <segue destination="AoI-3s-sQ4" kind="show" identifier="saveProfile" id="YgL-fw-AHD"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -223,11 +222,12 @@
                         <outlet property="trickField" destination="Sw6-56-f5P" id="BQo-SK-xh1"/>
                         <outlet property="veganButton" destination="Ee1-KR-N6h" id="sET-xL-eep"/>
                         <outlet property="vegetarianButton" destination="i5B-Um-oo4" id="Bwr-Go-BkD"/>
+                        <segue destination="AoI-3s-sQ4" kind="show" identifier="saveProfile" animates="NO" id="oeX-tR-URQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E5x-5b-rut" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="112.8" y="687.192118226601"/>
+            <point key="canvasLocation" x="284" y="683"/>
         </scene>
     </scenes>
     <resources>

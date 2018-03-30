@@ -36,8 +36,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var drinkOfChoiceLabel: UILabel!
     @IBOutlet weak var partyTrickLabel: UILabel!
     
-    var allergyIcons = [UIButton]()
-    
+    var allergyImages = [UIButton]()
+    var allergyList = ["Nuts", "Gluten", "Vegetarian", "Dairy", "Vegan"]
+
     /* Runs when page is loaded, sets the delegate and datasource then calls method to query
      Firebase and fetch this user's information */
     override func viewDidLoad() {
@@ -48,10 +49,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         databaseRef = Database.database().reference()
         storageRef = Storage.storage().reference()
         
-        allergyIcons = [nutsButton, glutenButton, vegetarianButton, lactoseButton, veganButton]
+        allergyImages = [nutsButton, glutenButton, vegetarianButton, lactoseButton, veganButton]
         
         profileObject.userID = Auth.auth().currentUser?.uid as! String
         setupProfilePicture()
+        setupAllergyIcons()
         
         // query Firebase to get the current user's information
         populateProfilePage()
@@ -63,13 +65,32 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         databaseRef = Database.database().reference()
         storageRef = Storage.storage().reference()
         
-        allergyIcons = [nutsButton, glutenButton, vegetarianButton, lactoseButton, veganButton]
+        allergyImages = [nutsButton, glutenButton, vegetarianButton, lactoseButton, veganButton]
         
         profileObject.userID = Auth.auth().currentUser?.uid as! String
         setupProfilePicture()
         
         // query Firebase to get the current user's information
         populateProfilePage()
+    }
+    
+    /* Adds color selection functionality to allergy icons */
+    func setupAllergyIcons() {
+        nutsButton.setImage(#imageLiteral(resourceName: "nuts-orange.png"), for: .selected)
+        nutsButton.setImage(#imageLiteral(resourceName: "nut-free"), for: .normal)
+        nutsButton.tag = 0
+        glutenButton.setImage(#imageLiteral(resourceName: "gluten-yellow"), for: .selected)
+        glutenButton.setImage(#imageLiteral(resourceName: "gluten-free"), for: .normal)
+        glutenButton.tag = 1
+        vegetarianButton.setImage(#imageLiteral(resourceName: "veggie-green"), for: .selected)
+        vegetarianButton.setImage(#imageLiteral(resourceName: "vegetarian"), for: .normal)
+        vegetarianButton.tag = 2
+        lactoseButton.setImage(#imageLiteral(resourceName: "milk-blue"), for: .selected)
+        lactoseButton.setImage(#imageLiteral(resourceName: "dairy"), for: .normal)
+        lactoseButton.tag = 3
+        veganButton.setImage(#imageLiteral(resourceName: "vegan-blue"), for: .selected)
+        veganButton.setImage(#imageLiteral(resourceName: "vegan"), for: .normal)
+        veganButton.tag = 4
     }
     
     func setupProfilePicture () {
@@ -129,8 +150,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         // Dispose of any resources that can be recreated.
     }
     
-    // *********** QUERY FIREBASE ***********
     
+    /* Uploads a change in a user's profile picture and uploads to firebase */
     func updateFirebaseStorage() {
         print("Updating image in firebase storage")
         let imageRef = storageRef.child("profilePictures/\(self.profileObject.userID)")
@@ -172,6 +193,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                         print("about to save!!! fingers crossed!")
                         DispatchQueue.main.async { // Make sure you're on the main thread here
                             self.profilePicture?.image = UIImage(data: image!)
+                            self.profileObject.image = UIImage(data: image!)!
                         }
                     }).resume()
                 }
@@ -179,12 +201,33 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 if let name = data["name"] {
                     self.profileObject.name = name as! String
                     // update profile page
-                    self.nameLabel.text = self.profileObject.name
+                    self.nameLabel.text = name as! String
                 }
                 if let username = data["username"] {
                     self.profileObject.username = username as! String
-                    self.usernameLabel.text = self.profileObject.username
+                    self.usernameLabel.text = username as! String
                 }
+                if let drink = data["drinkOfChoice"] {
+                    self.profileObject.drink = drink as! String
+                    self.drinkOfChoiceLabel.text = drink as! String
+                }
+                if let trick = data["partyTrick"] {
+                    self.profileObject.trick = trick as! String
+                    self.partyTrickLabel.text = trick as! String
+                }
+                
+                if let allergies = data["allergyList"] {
+                    print(allergies)
+                    let userAllergies = allergies as! [String: Any]
+                    
+                    for allergy in userAllergies.keys {
+                        let indexOfAllergy = self.allergyList.index(of: allergy)
+                        print("Allergy: \(allergy) Index: \(indexOfAllergy)")
+                        self.allergyImages[indexOfAllergy!].isSelected = true
+                        self.profileObject.allergiesList[allergy] = 1
+                    }
+                }
+                
             } else {
                 print("No user in Firebase yet")
             }
