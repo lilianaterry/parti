@@ -29,8 +29,10 @@ class PartyHostViewController: ViewController {
     var databaseRef: DatabaseReference!
     var databaseHandle: DatabaseHandle?
     
-    var allergyList = ["Nuts": 0, "Gluten": 0, "Vegetarian": 0, "Dairy": 0, "Vegan": 0]
-    var allergyImages = [UIButton: UILabel]()
+    var allergyList = ["Nuts", "Gluten", "Vegetarian", "Dairy", "Vegan"]
+    var allergyCounts = [0, 0, 0, 0, 0]
+    var allergyImages = [UIButton]()
+    var allergyLabels = [UILabel]()
     let guests = [ProfileModel]()
     
     var partyObject = PartyModel()
@@ -39,8 +41,11 @@ class PartyHostViewController: ViewController {
         super.viewDidLoad()
         
         databaseRef = Database.database().reference()
-        allergyImages = [nutButton: nutsLabel, glutenButton: glutenLabel, vegetarianButton: vegetarianLabel, milkButton: milkLabel, veganButton: veganLabel]
+        allergyImages = [nutButton, glutenButton, vegetarianButton, milkButton, veganButton]
+        allergyLabels = [nutsLabel, glutenLabel, vegetarianLabel, milkLabel, veganLabel]
 
+        setupAllergyIcons()
+        
         // Do any additional setup after loading the view.
         getGuests()
     }
@@ -114,13 +119,10 @@ class PartyHostViewController: ViewController {
                     let userAllergies = allergies as! [String: Any]
                     
                     for allergy in userAllergies.keys {
-                        let newCount = self.allergyList[allergy]! + 1
-                        self.allergyList[allergy] = newCount
-                        let indexOfAllergy = Array(self.allergyList.keys).index(of: allergy)
-                        let allergyButton = Array(self.allergyImages.keys)[indexOfAllergy!]
-                        Array(self.allergyImages.keys)[indexOfAllergy!].isSelected = true
-                        allergyButton.isSelected = true
-                        self.allergyImages[allergyButton]?.text! = String(newCount)
+                        let index = self.allergyList.index(of: allergy)
+                        self.allergyImages[index!].isSelected = true
+                        self.allergyCounts[index!] += 1
+                        self.allergyLabels[index!].text = String(self.allergyCounts[index!])
                     }
                 }
             } else {

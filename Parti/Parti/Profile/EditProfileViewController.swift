@@ -57,6 +57,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 
         // setup this page with the old profile information
         profileImage.image = profileObject.image
+        // create circular mask on image
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
+        self.profileImage.clipsToBounds = true
+        
         nameField.text = profileObject.name
         drinkField.text = profileObject.drink
         trickField.text = profileObject.trick
@@ -66,7 +70,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         allergyIcons = [nutsButton, glutenButton, vegetarianButton, lactoseButton, veganButton]
         
         setupAllergyIcons()
-        
         
         colorIcons()
     }
@@ -252,33 +255,5 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         performSegue(withIdentifier: "saveProfile", sender: self)
     }
-    
-//    /* sets all the values in the profile page so it doesn't have to requery firebase */
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let segueID = segue.identifier
-//        if (segueID == "saveProfile") {
-//            print("moving back to profile")
-//            if let destinationVC = segue.destination as? ProfileViewController {
-//                destinationVC.profilePicture.image = profileImage.image
-//                destinationVC.nameLabel.text = nameField.text
-//
-//                destinationVC.drinkOfChoiceLabel.text = drinkField.text
-//                destinationVC.partyTrickLabel.text = trickField.text
-//
-//                // update allergies in original profile page
-//                var index = 0
-//                for update in allergyChanges {
-//                    // remove value from Firebase
-//                    if (update == -1) {
-//                        destinationVC.allergyIcons[index].isSelected = false
-//                    } else if (update == 1) {
-//                        // add entry to firebase
-//                        destinationVC.allergyIcons[index].isSelected = true
-//                    }
-//                    index += 1
-//                }
-//            }
-//        }
-//    }
     
 }
