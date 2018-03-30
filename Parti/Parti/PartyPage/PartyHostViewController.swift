@@ -8,7 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
-
+import FirebaseStorage
 
 class PartyHostViewController: ViewController {
     
@@ -24,10 +24,24 @@ class PartyHostViewController: ViewController {
     @IBOutlet weak var milkLabel: UILabel!
     @IBOutlet weak var veganLabel: UILabel!
     
+    // Guest Image buttons
+    @IBOutlet weak var guest1: GuestButton!
+    @IBOutlet weak var guest2: GuestButton!
+    @IBOutlet weak var guest3: GuestButton!
+    @IBOutlet weak var guest4: GuestButton!
+    @IBOutlet weak var guest5: GuestButton!
+    @IBOutlet weak var guest6: GuestButton!
+    @IBOutlet weak var guest7: GuestButton!
+    @IBOutlet weak var addMore: GuestButton!
+    
+    var guestButtons = [GuestButton]()
     
     // Firebase Database connection
     var databaseRef: DatabaseReference!
     var databaseHandle: DatabaseHandle?
+    
+    var storageRef: StorageReference!
+    var storageHandle: StorageHandle?
     
     var allergyList = ["Nuts", "Gluten", "Vegetarian", "Dairy", "Vegan"]
     var allergyCounts = [0, 0, 0, 0, 0]
@@ -41,10 +55,15 @@ class PartyHostViewController: ViewController {
         super.viewDidLoad()
         
         databaseRef = Database.database().reference()
+        storageRef = Storage.storage().reference()
+        
         allergyImages = [nutButton, glutenButton, vegetarianButton, milkButton, veganButton]
         allergyLabels = [nutsLabel, glutenLabel, vegetarianLabel, milkLabel, veganLabel]
+        
+        guestButtons = [guest1, guest2, guest3, guest4, guest5, guest6]
 
         setupAllergyIcons()
+        setupGuestButtons()
         
         // Do any additional setup after loading the view.
         getGuests()
@@ -72,6 +91,17 @@ class PartyHostViewController: ViewController {
         veganButton.setImage(#imageLiteral(resourceName: "vegan-blue"), for: .selected)
         veganButton.setImage(#imageLiteral(resourceName: "vegan"), for: .normal)
         veganButton.tag = 4
+    }
+    
+    func setupGuestButtons() {
+        var index = 0
+        for button in guestButtons {
+            guestButtons[index] = GuestButton(userID: "")
+            guestButtons[index].isHidden = true
+            index += 1
+        }
+        
+        addMore = GuestButton(userID: partyObject.partyID)
     }
     
     /* iterates over all guests invited to the party to populate profile objects and get allergies */
@@ -106,14 +136,19 @@ class PartyHostViewController: ViewController {
                             print(error)
                             return
                         }
-                        print("about to save!!! fingers crossed!")
                         DispatchQueue.main.async { // Make sure you're on the main thread here
                             newUser.image = UIImage(data: image!)!
+                            // if we still have guest buttons to populate, do so
+                            if (self.guestButtons.count > 0) {
+                                self.guestButtons[0].userID = userID
+                                self.guestButtons[0].setImage(UIImage(data: image!), for: .normal)
+                                self.guestButtons[0].isHidden = false
+                                self.guestButtons.remove(at: 0)
+                            }
                         }
                     }).resume()
                 }
                 
-                print("about to get allergies")
                 if let allergies = data["allergyList"] {
                     print(allergies)
                     let userAllergies = allergies as! [String: Any]
@@ -131,19 +166,40 @@ class PartyHostViewController: ViewController {
         }
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    /* When user button is selected, go to profile or go to add guests page */
+    @IBAction func selectGuest(_ sender: Any) {
+        if let button = sender as? UIButton {
+            let userID = button.tag
+            if (userID == nil) {
+                // add guest
+                performSegue(withIdentifier: "guestListSegue", sender: self)
+            } else {
+                // go to that user's profile
+                performSegue(withIdentifier: "guestProfileSegue", sender: self)
+            }
+        }
     }
-    */
+    
     @IBAction func dismiss(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    // Pass user information to profile page or pass party id to guest list
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let segueID = segue.identifier
+        
+        // Create Profile Step 1
+        if (segueID == "guestProfileSegue") {
+            if let destinationVC = segue.destination as? OtherUserProfile {
+                destinationVC.profileObject.userID = self.userID
+            }
+            // Party List Page
+        } else if (segueID == "guestListSegue") {
+            if let destinationVC = segue.destination as? GuestListViewController {
+                 destinationVC.partyObject.partyID = self.partyObject.partyID
+            }
+            
+        }
     }
 
 }
