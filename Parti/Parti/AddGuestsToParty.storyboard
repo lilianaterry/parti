@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--SecondMain-->
+        <!--partyPage-->
         <scene sceneID="dOz-5r-Wc6">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="partyPage" storyboardName="SecondMain" id="0pu-Cg-0fZ" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="partyPage" storyboardName="SecondMain" referencedIdentifier="partyPage" id="0pu-Cg-0fZ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EcD-cp-dYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-481" y="-4"/>
