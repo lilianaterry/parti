@@ -47,7 +47,6 @@ class GuestListViewController: UIViewController, UITableViewDelegate, UITableVie
                 print(error)
                 return
             }
-            print("about to save!!! fingers crossed!")
             DispatchQueue.main.async { // Make sure you're on the main thread here
                 cell.guestImage?.image = UIImage(data: image!)
             }
@@ -56,8 +55,19 @@ class GuestListViewController: UIViewController, UITableViewDelegate, UITableVie
         // update appearance of cell
         cell.separatorInset = UIEdgeInsets.zero
         cell.layoutMargins = UIEdgeInsets.zero
+        cell.userID = currentGuest.userID
 
         return cell
+    }
+    
+    // method to run when table view cell is tapped to go to guest's profile
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "guestCell", for: indexPath) as! GuestTableViewCell
+        
+        // Segue to the guest's profile page
+        self.performSegue(withIdentifier: "guestProfileSegue3", sender: cell)
+
     }
     
 
@@ -107,10 +117,11 @@ class GuestListViewController: UIViewController, UITableViewDelegate, UITableVie
             var guest = ProfileModel()
             
             // If the user already has a profile picture, load it up!
-            if let pictureURL = data["pictureURL"] as? String {
+            if let pictureURL = data["imageURL"] as? String {
                 guest.imageURL = pictureURL
             }
             guest.name = data["name"] as! String
+            guest.userID = userID
             
             self.guestList.append(guest)
             self.guestTableView.reloadData()
@@ -120,9 +131,22 @@ class GuestListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
 
     }
+    
+    @IBAction func dismiss(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
+    }
 
+    // If you click on a guest cell, go to their profile
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        let segueID = segue.identifier
+        // Create Profile Step 1
+        if (segueID == "guestProfileSegue3") {
+            let cell = sender as! GuestTableViewCell
+            if let destinationVC = segue.destination as? OtherUserProfile {
+                destinationVC.profileObject.userID = cell.userID
+            }
+            // Party List Page
+        }
     }
     
 }

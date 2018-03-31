@@ -13,6 +13,8 @@ class GuestTableViewCell: UITableViewCell {
     @IBOutlet weak var guestImage: UIImageView!
     @IBOutlet weak var guestName: UILabel!
     
+    var userID: String = ""
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

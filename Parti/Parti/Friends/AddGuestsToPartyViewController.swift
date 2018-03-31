@@ -67,8 +67,8 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
             user.name = data["name"] as! String
             user.userID = snapshot.key
             print(user.userID)
-            //user.pictureURL = data["pictureURL"] as! String
-            //user.userID = data["username"] as! String
+            user.imageURL = data["imageURL"] as! String
+            user.userID = data["username"] as! String
             
             self.users.append(user)
             self.guestTableView.reloadData()
