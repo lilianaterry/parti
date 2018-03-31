@@ -27,8 +27,8 @@ class AddGuestsTableViewCell: UITableViewCell {
         databaseRef = Database.database().reference()
         self.backgroundColor = UIColor.clear
         
-        newUserButton.setTitle("-", for: .selected)
-        newUserButton.setTitle("+", for: .selected)
+        newUserButton.setTitle("-", for: .highlighted)
+        newUserButton.setTitle("+", for: .highlighted)
         
     }
     

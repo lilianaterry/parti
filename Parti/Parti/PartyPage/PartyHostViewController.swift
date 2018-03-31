@@ -32,7 +32,9 @@ class PartyHostViewController: ViewController {
     @IBOutlet weak var guest5: UIButton!
     @IBOutlet weak var guest6: UIButton!
     @IBOutlet weak var guest7: UIButton!
-    @IBOutlet weak var addMore: UIButton!
+    @IBAction func addGuests(_ sender: Any) {
+        performSegue(withIdentifier: "guestListSegue", sender: self)
+    }
     
     var guestButtons = [UIButton]()
     var displayedGuests = [ProfileModel]()
@@ -208,7 +210,7 @@ class PartyHostViewController: ViewController {
             }
             // Party List Page
         } else if (segueID == "guestListSegue") {
-            if let destinationVC = segue.destination as? GuestListViewController {
+            if let destinationVC = segue.destination as? AddGuestsToPartyViewController {
                  destinationVC.partyObject.partyID = self.partyObject.partyID
             }
             

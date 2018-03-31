@@ -26,7 +26,6 @@
 		CE6CD6832047092D00BC3DD3 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CD6822047092D00BC3DD3 /* FoodListViewController.swift */; };
 		CE6CD68520470C3C00BC3DD3 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CE6CD68420470C3C00BC3DD3 /* Podfile */; };
 		CE83FF602067EDB400542092 /* AddGuestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE83FF5F2067EDB400542092 /* AddGuestsViewController.swift */; };
-		CE83FF642068095500542092 /* AddGuests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE83FF632068095500542092 /* AddGuests.storyboard */; };
 		CEAB8B6720644885005AD748 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB8B6520644885005AD748 /* AddFriendsViewController.swift */; };
 		CEAB8B6820644885005AD748 /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB8B6620644885005AD748 /* AddFriendTableViewCell.swift */; };
 		CEB33EF5205F456100F49918 /* GuestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB33EF4205F456100F49918 /* GuestTableViewCell.swift */; };
@@ -85,7 +84,6 @@
 		CE6CD6822047092D00BC3DD3 /* FoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
 		CE6CD68420470C3C00BC3DD3 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CE83FF5F2067EDB400542092 /* AddGuestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGuestsViewController.swift; sourceTree = "<group>"; };
-		CE83FF632068095500542092 /* AddGuests.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddGuests.storyboard; sourceTree = "<group>"; };
 		CEA81F35205F034C00D48895 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyMetadata.framework; path = System/Library/Frameworks/SpotifyMetadata.framework; sourceTree = SDKROOT; };
 		CEA81F36205F034C00D48895 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyAudioPlayback.framework; path = System/Library/Frameworks/SpotifyAudioPlayback.framework; sourceTree = SDKROOT; };
 		CEA81F37205F034C00D48895 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyAuthentication.framework; path = System/Library/Frameworks/SpotifyAuthentication.framework; sourceTree = SDKROOT; };
@@ -277,7 +275,6 @@
 				CE09DC57205C65E70097806D /* Profile */,
 				CEF18A40204B74F8003071C5 /* SecondMain.storyboard */,
 				F9B245C02066EB3D0015F277 /* Main.storyboard */,
-				CE83FF632068095500542092 /* AddGuests.storyboard */,
 				CE2281FB206B512A00039578 /* EditProfile.storyboard */,
 				F90E780E206EB473007C5302 /* ProfileView.storyboard */,
 				F90E7812206ECFB4007C5302 /* AddGuestsToParty.storyboard */,
@@ -404,7 +401,6 @@
 				F90E780F206EB474007C5302 /* ProfileView.storyboard in Resources */,
 				F90031B82031F4F300B9FA75 /* GoogleService-Info.plist in Resources */,
 				F98083432020E98C00CB91C0 /* Assets.xcassets in Resources */,
-				CE83FF642068095500542092 /* AddGuests.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,11 +10,19 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--SecondMain-->
+        <scene sceneID="dOz-5r-Wc6">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="partyPage" storyboardName="SecondMain" id="0pu-Cg-0fZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EcD-cp-dYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-481" y="-4"/>
+        </scene>
         <!--Add Guests To Party View Controller-->
         <scene sceneID="Mv2-dt-drP">
             <objects>
                 <viewController storyboardIdentifier="addGuestsToPartyView" id="OFU-kW-a0S" customClass="AddGuestsToPartyViewController" customModule="Parti" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Cm9-7J-Qd1">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="addGuestsToParty" id="Cm9-7J-Qd1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -54,6 +62,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="addFriend:" destination="C8b-zd-jev" eventType="touchUpInside" id="XXv-9y-pTa"/>
+                                                        <action selector="newUserAddButton:" destination="OFU-kW-a0S" eventType="touchUpInside" id="FIq-YT-xxq"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -72,7 +81,7 @@
                                     <navigationItem title="Add Friends to the Party!" id="sAA-Gy-9GN">
                                         <barButtonItem key="leftBarButtonItem" image="Disclosure Indicator" id="Lpy-R9-Lpz">
                                             <connections>
-                                                <action selector="dismiss:" destination="OFU-kW-a0S" id="e6n-CK-zRb"/>
+                                                <action selector="backButton:" destination="OFU-kW-a0S" id="JuS-TK-1Mz"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -101,6 +110,7 @@
                     <connections>
                         <outlet property="guestTableView" destination="rn6-Zk-1FD" id="k3z-VA-bqB"/>
                         <outlet property="searchBar" destination="yR1-oD-Gnq" id="8kI-2Z-hbY"/>
+                        <segue destination="0pu-Cg-0fZ" kind="show" identifier="backToParty" animates="NO" id="3IL-eM-tOz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kUX-ND-FYj" userLabel="First Responder" sceneMemberID="firstResponder"/>

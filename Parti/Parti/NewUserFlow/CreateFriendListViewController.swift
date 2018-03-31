@@ -66,9 +66,6 @@ class CreateFriendListViewController: UIViewController, UITableViewDataSource, U
             var user = ProfileModel()
             user.name = data["name"] as! String
             user.userID = snapshot.key
-            print(user.userID)
-            //user.pictureURL = data["pictureURL"] as! String
-            //user.userID = data["username"] as! String
             
             self.users.append(user)
             self.tableView.reloadData()
@@ -108,8 +105,7 @@ class CreateFriendListViewController: UIViewController, UITableViewDataSource, U
             let friendID = users[button.tag].userID
             profileObject.friendsList[friendID] = 1
             cell?.backgroundColor = UIColor.lightGray
-            // THIS IS NOT WORKING :(
-            button.setTitle("-", for: .highlighted)
+            button.setTitle("-", for: .selected)
         } else {
             let friendID = users[button.tag].userID
             profileObject.friendsList.removeValue(forKey: friendID)

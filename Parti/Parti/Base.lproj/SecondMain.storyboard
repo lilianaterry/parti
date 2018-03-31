@@ -795,7 +795,7 @@
         <!--Party Host View Controller-->
         <scene sceneID="otA-MG-cF4">
             <objects>
-                <viewController id="D0Z-FS-81f" customClass="PartyHostViewController" customModule="Parti" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="partyPage" id="D0Z-FS-81f" customClass="PartyHostViewController" customModule="Parti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nui-6c-Bii">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -964,7 +964,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="addPicture"/>
                                 <connections>
-                                    <action selector="selectGuest:" destination="D0Z-FS-81f" eventType="touchUpInside" id="hxV-TJ-ZB0"/>
+                                    <action selector="addGuests:" destination="D0Z-FS-81f" eventType="touchUpInside" id="v4A-Up-RA1"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Guests:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Co2-ih-LTb">
@@ -984,7 +984,6 @@
                         <viewLayoutGuide key="safeArea" id="UyD-ai-ONj"/>
                     </view>
                     <connections>
-                        <outlet property="addMore" destination="HkE-ap-QHq" id="N3y-KK-dKW"/>
                         <outlet property="glutenButton" destination="dC1-y6-djA" id="glh-bo-fBI"/>
                         <outlet property="glutenLabel" destination="SoW-tC-xps" id="jEf-Kw-0jA"/>
                         <outlet property="guest1" destination="0d1-Im-59U" id="Ba4-fA-CEF"/>
@@ -1133,7 +1132,7 @@
                                         <rect key="frame" x="0.0" y="143" width="375" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sUi-sl-15j" id="dtP-Cw-8S2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="114.66666666666667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="parti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="8S7-TB-ibC">
@@ -1390,7 +1389,7 @@
         <image name="vegetarian" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9JR-VC-mjg"/>
-        <segue reference="Ovt-k8-zB7"/>
+        <segue reference="yW4-ie-5Dy"/>
+        <segue reference="mpK-AZ-bUO"/>
     </inferredMetricsTieBreakers>
 </document>

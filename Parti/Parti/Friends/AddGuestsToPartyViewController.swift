@@ -8,12 +8,15 @@
 
 import UIKit
 import FirebaseDatabase
-import FirebaseAuth
 
 class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var guestTableView: UITableView!
+    
+    @IBAction func backButton(_ sender: Any) {
+        performSegue(withIdentifier: "backToParty", sender: self)
+    }
     
     // Firebase Database connection
     var databaseRef: DatabaseReference!
@@ -22,7 +25,7 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
     var users = [ProfileModel]()
     var filteredUsers = [ProfileModel]()
     
-    var profileObject = ProfileModel()
+    var partyObject = PartyModel()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
@@ -32,8 +35,8 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! AddGuestsTableViewCell
         var profileModel = ProfileModel()
         profileModel.name = users[indexPath.row].name
-        print(profileModel.name)
         profileModel.userID = users[indexPath.row].userID
+        
         cell.nameLabel?.text = users[indexPath.row].name
         cell.profileModel = profileModel
         cell.newUserButton.tag = indexPath.row;
@@ -67,9 +70,9 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
             user.name = data["name"] as! String
             user.userID = snapshot.key
             print(user.userID)
-            user.imageURL = data["imageURL"] as! String
-            user.userID = data["username"] as! String
-            
+            if let imageURL = data["imageURL"] {
+                user.imageURL = imageURL as! String
+            }
             self.users.append(user)
             self.guestTableView.reloadData()
         }
@@ -91,7 +94,54 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
         }
     }
     
-    @IBAction func dismiss(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    /* Adds this friend to the guest list ooooh so exclusive */
+    @IBAction func newUserAddButton(_ sender: UIButton) {
+        let button = sender as UIButton;
+        let indexPath = IndexPath(row: button.tag, section: 0)
+        let cell = guestTableView.cellForRow(at: indexPath)
+        if (cell?.backgroundColor == UIColor.clear) {
+            let guestID = users[button.tag].userID
+            cell?.backgroundColor = UIColor.lightGray
+            button.setTitle("-", for: .selected)
+            addToParty(userID: guestID)
+        } else {
+            let guestID = users[button.tag].userID
+            cell?.backgroundColor = UIColor.clear
+            button.setTitle("+", for: .normal)
+            removeFromParty(userID: guestID)
+        }
     }
+    
+    // update firebase, add user to guest list of this party
+    func addToParty(userID: String) {
+        let newGuest = [userID: 1]
+        let newParty = [partyObject.partyID: 1]
+        
+        // add user to party
+        databaseRef.child("parties/\(partyObject.partyID)/guests").updateChildValues(newGuest)
+        
+        // add party to user
+        databaseRef.child("users/\(userID)/attending").updateChildValues(newParty)
+    }
+    
+    // update firebase, remove user from guest list of this party
+    func removeFromParty(userID: String) {
+        // remove user from party
+        databaseRef.child("parties/\(partyObject.partyID)/guests/\(userID)").removeValue()
+
+        // remove party from user
+        databaseRef.child("users/\(userID)/attending/\(partyObject.partyID)").removeValue()
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let segueID = segue.identifier
+
+        if (segueID == "backToParty") {
+            if let destinationVC = segue.destination as? PartyHostViewController {
+                destinationVC.partyObject.partyID = partyObject.partyID
+            }
+        }
+    }
+ 
 }
