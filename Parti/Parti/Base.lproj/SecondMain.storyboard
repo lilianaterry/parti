@@ -592,7 +592,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sjR-DD-rdh"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Food" id="FPU-x9-xyp"/>
+                    <tabBarItem key="tabBarItem" title="Food" image="ic_local_dining" id="FPU-x9-xyp"/>
                     <connections>
                         <outlet property="tableView" destination="g57-lt-hlO" id="Hzl-Gg-8rm"/>
                     </connections>
@@ -1067,7 +1067,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fME-Ag-smD"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Friends" id="bfA-Ph-pex"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="ic_face" id="bfA-Ph-pex"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Sr-bQ-p46" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1196,7 +1196,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ioI-Lb-Gft"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Events" id="WzW-16-iN4"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="headline" id="WzW-16-iN4"/>
                     <connections>
                         <outlet property="partyTableView" destination="rXm-ad-ACs" id="2Pv-bq-qbb"/>
                         <segue destination="Kwk-Us-otN" kind="show" identifier="addEvent" animates="NO" id="NqX-cw-Ifb"/>
@@ -1428,6 +1428,9 @@
         <image name="dairy" width="50" height="50"/>
         <image name="empty_guest" width="143" height="143"/>
         <image name="gluten-free" width="50" height="50"/>
+        <image name="headline" width="24" height="24"/>
+        <image name="ic_face" width="24" height="24"/>
+        <image name="ic_local_dining" width="24" height="24"/>
         <image name="nut-free" width="50" height="50"/>
         <image name="parti_logo" width="83" height="83"/>
         <image name="second" width="332" height="24"/>
