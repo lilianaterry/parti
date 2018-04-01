@@ -459,10 +459,10 @@
             </objects>
             <point key="canvasLocation" x="248.80000000000001" y="-170.68965517241381"/>
         </scene>
-        <!--addGuestsPage-->
+        <!--addGuestsToPartyView-->
         <scene sceneID="nkf-aI-Gk0">
             <objects>
-                <viewControllerPlaceholder storyboardName="AddGuests" referencedIdentifier="addGuestsPage" id="6GW-Cj-S76" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="AddGuestsToParty" referencedIdentifier="addGuestsToPartyView" id="6GW-Cj-S76" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="geb-4g-CYo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1118" y="-171"/>
@@ -1265,7 +1265,7 @@
                                         <rect key="frame" x="0.0" y="143" width="375" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sUi-sl-15j" id="dtP-Cw-8S2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="114.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="parti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="8S7-TB-ibC">
