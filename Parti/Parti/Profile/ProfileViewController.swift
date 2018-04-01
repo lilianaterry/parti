@@ -192,8 +192,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                         }
                         print("about to save!!! fingers crossed!")
                         DispatchQueue.main.async { // Make sure you're on the main thread here
-                            self.profilePicture?.image = UIImage(data: image!)
-                            self.profileObject.image = UIImage(data: image!)!
+                            if let image = UIImage(data: image!) {
+                                self.profilePicture?.image = image
+                                self.profileObject.image = image
+                            }
                         }
                     }).resume()
                 }

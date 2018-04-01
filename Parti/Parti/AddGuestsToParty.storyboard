@@ -110,7 +110,6 @@
                     <connections>
                         <outlet property="guestTableView" destination="rn6-Zk-1FD" id="k3z-VA-bqB"/>
                         <outlet property="searchBar" destination="yR1-oD-Gnq" id="8kI-2Z-hbY"/>
-                        <segue destination="0pu-Cg-0fZ" kind="show" identifier="backToParty" animates="NO" id="3IL-eM-tOz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kUX-ND-FYj" userLabel="First Responder" sceneMemberID="firstResponder"/>

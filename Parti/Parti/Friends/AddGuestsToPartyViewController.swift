@@ -15,7 +15,7 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
     @IBOutlet weak var guestTableView: UITableView!
     
     @IBAction func backButton(_ sender: Any) {
-        performSegue(withIdentifier: "backToParty", sender: self)
+        self.dismiss(animated: false, completion: nil)
     }
     
     // Firebase Database connection
@@ -64,12 +64,10 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
     
     func populateAllFriendsList() {
         databaseHandle = databaseRef?.child("users").queryOrdered(byChild: "name").observe(.childAdded) { snapshot in
-            print(snapshot)
             var data = snapshot.value as! [String: Any]
             var user = ProfileModel()
             user.name = data["name"] as! String
             user.userID = snapshot.key
-            print(user.userID)
             if let imageURL = data["imageURL"] {
                 user.imageURL = imageURL as! String
             }

@@ -53,7 +53,6 @@ class AddGuestsViewController: UIViewController, UITableViewDataSource, UISearch
         populateAllFriendsList()
         
         filteredUsers = users
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -114,7 +113,6 @@ class AddGuestsViewController: UIViewController, UITableViewDataSource, UISearch
             button.setTitle("+", for: .normal)
         }
     }
-    
     
     
 }

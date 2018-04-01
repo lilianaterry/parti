@@ -101,8 +101,6 @@ class PartyPageViewController: UIViewController, UIImagePickerControllerDelegate
             newUser.userID = userID
             if (snapshot.exists()) {
                 let data = snapshot.value as! [String: Any]
-                print("got user info")
-                print(data)
                 
                 // If the user already has a profile picture, load it up!
                 if let imageURL = data["imageURL"] as? String {

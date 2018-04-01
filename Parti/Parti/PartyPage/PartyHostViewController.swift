@@ -12,6 +12,12 @@ import FirebaseStorage
 
 class PartyHostViewController: ViewController {
     
+    @IBOutlet weak var partyImage: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var attireLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    
     @IBOutlet weak var nutButton: UIButton!
     @IBOutlet weak var glutenButton: UIButton!
     @IBOutlet weak var vegetarianButton: UIButton!
@@ -34,6 +40,9 @@ class PartyHostViewController: ViewController {
     @IBOutlet weak var guest7: UIButton!
     @IBAction func addGuests(_ sender: Any) {
         performSegue(withIdentifier: "guestListSegue", sender: self)
+    }
+    @IBAction func editPartyButton(_ sender: Any) {
+        performSegue(withIdentifier: "editPartySegue", sender: self)
     }
     
     var guestButtons = [UIButton]()
@@ -69,6 +78,20 @@ class PartyHostViewController: ViewController {
         
         // Do any additional setup after loading the view.
         getGuests()
+        
+        partyImage.image = partyObject.image
+        nameLabel.text = partyObject.name
+        addressLabel.text = partyObject.address
+        attireLabel.text = partyObject.attire
+        dateLabel.text = partyObject.date
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        partyImage.image = partyObject.image
+        nameLabel.text = partyObject.name
+        addressLabel.text = partyObject.address
+        attireLabel.text = partyObject.attire
+        dateLabel.text = partyObject.date
     }
 
     override func didReceiveMemoryWarning() {
@@ -213,7 +236,10 @@ class PartyHostViewController: ViewController {
             if let destinationVC = segue.destination as? AddGuestsToPartyViewController {
                  destinationVC.partyObject.partyID = self.partyObject.partyID
             }
-            
+        } else if (segueID == "editPartySegue") {
+            if let destinationVC = segue.destination as? EditPartyViewController {
+                destinationVC.partyObject = self.partyObject
+            }
         }
     }
 
