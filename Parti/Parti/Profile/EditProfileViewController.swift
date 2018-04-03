@@ -43,7 +43,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     let allergyList = ["Nuts", "Gluten", "Vegetarian", "Dairy", "Vegan"]
     var allergyIcons = [UIButton]()
     var allergyChanges = [0,0,0,0,0]
-
     
     /* Runs when page is loaded, sets the delegate and datasource then calls method to query
      Firebase and fetch this user's information */
@@ -130,15 +129,18 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     // *********** LET USER SELECT PROFILE IMAGE ***********
     
     /* Allows user to choose from their own images and set the UIImageView */
-    @objc func handleSelectProfileImageView() {
+    @IBAction func editPicture(_ sender: Any) {
         let picker = UIImagePickerController()
         picker.delegate = self
         
         // allows user to crop image to square screen
         picker.allowsEditing = true
         
-        present(picker, animated: true, completion: nil)
+        present(picker, animated: false, completion: nil)
     }
+//    @objc func handleSelectProfileImageView() {
+//
+//    }
     
     /* Triggers image picking screen when imageView is selected */
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -159,12 +161,12 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         }
         
         // Get rid of image picking screen
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
     
     /* If user clicks on Cancel instead of selecting an image */
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -175,10 +177,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     // *********** QUERY FIREBASE ***********
     
     func updateFirebaseStorage() {
-        print("Updating image in firebase storage")
         let imageRef = storageRef.child("profilePictures/\(self.profileObject.userID)")
-        
-        if let uploadData = UIImagePNGRepresentation(profileImage.image!) {
+            
+        if let uploadData = UIImageJPEGRepresentation(profileImage.image!, 0.1) {
             imageRef.putData(uploadData, metadata: nil, completion: {
                 (metadata, error) in
                 
@@ -194,6 +195,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             })
         }
     }
+    
     
     /* If the user clicked save, update their information in Firebase */
     func updateUserInfo() {
@@ -252,8 +254,23 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     /* when user clicks save, THEN update all of their information to firebase */
     @IBAction func saveProfileButton(_ sender: Any) {
         updateUserInfo()
+        print("about to segue")
+        self.performSegue(withIdentifier: "saveProfile", sender: self)
+    }
+    
+    
+    // Go back to profile page
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let segueID = segue.identifier
         
-        performSegue(withIdentifier: "saveProfile", sender: self)
+        // Add Friend List Page
+        if (segueID == "saveProfile") {
+            print("arrived here")
+            if let destinationVC = segue.destination as? ProfileViewController {
+                print("saved picture")
+                destinationVC.profilePicture.image = profileImage.image
+            }
+        }
     }
     
 }

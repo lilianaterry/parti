@@ -17,6 +17,9 @@ class CreateAccountViewController: ViewController {
     
     @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var passwordErrorLabel: UILabel!
+    @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,24 +45,10 @@ class CreateAccountViewController: ViewController {
                 if error != nil {
                     self.passwordErrorLabel.text =  error!.localizedDescription
                 } else {
-                    print("Create account succcess!")
-                    print(user!.uid)
-                    self.userID = user!.uid
-                    
                     self.performSegue(withIdentifier: "createStepOne", sender: self)
                 }
             }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

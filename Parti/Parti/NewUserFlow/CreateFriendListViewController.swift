@@ -93,6 +93,7 @@ class CreateFriendListViewController: UIViewController, UITableViewDataSource, U
         // TODO change this to reauthenticate user if necessary
         let user = Auth.auth().currentUser
         user?.delete()
+        performSegue(withIdentifier: "cancel", sender: self)
     }
     
     /* If new user is in the create account flow, the next button saves their added friends

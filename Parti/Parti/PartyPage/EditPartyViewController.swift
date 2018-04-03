@@ -114,7 +114,7 @@ class EditPartyViewController: UIViewController, UIImagePickerControllerDelegate
     func updateFirebaseStorage() {
         let imageRef = storageRef.child("partyPictures/\(self.partyObject.partyID)")
         
-        if let uploadData = UIImagePNGRepresentation(partyImage.image!) {
+        if let uploadData = UIImageJPEGRepresentation(partyImage.image!, 0.1) {
             imageRef.putData(uploadData, metadata: nil, completion: {
                 (metadata, error) in
                 

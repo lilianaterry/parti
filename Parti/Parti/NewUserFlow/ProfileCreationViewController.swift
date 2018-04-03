@@ -44,13 +44,46 @@ class ProfileCreationViewController: UIViewController, UIImagePickerControllerDe
         }
         
         if (nameText.hasText && usernameText.hasText) {
-            profileObject.name = (nameText.text?.lowercased())!
-            profileObject.username = (usernameText.text?.lowercased())!
+            profileObject.name = nameText.text!
+            profileObject.username = usernameText.text!.lowercased()
             profileObject.image = profilePicture.image!
-            self.performSegue(withIdentifier: "createStepTwo", sender: self)
+            checkUsername(username: (usernameText.text?.lowercased())!)
         }
+    }
+    
+    // check if this username has already been taken
+    func checkUsername(username: String) {
+        databaseRef.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            if (snapshot.exists()) {
+                var valid = true
+                
+                let data = snapshot.value as! [String: Any]
+                
+                // iterate over all users and their usernames
+                for user in data.keys {
+                    let userInfo = data["\(user)"] as! [String: Any]
+                    let currentUsername = userInfo["username"] as! String
+                    
+                    // if this username matches the new one, make them choose another
+                    if (currentUsername == username.lowercased()) {
+                        valid = false
+                        break
+                    }
+                }
+                
+                if (valid) {
+                    self.performSegue(withIdentifier: "createStepTwo", sender: self)
+                } else {
+                    self.usernameError.text = "This username is already in use."
+                }
+            } else {
+                self.performSegue(withIdentifier: "createStepTwo", sender: self)
+            }
+        })
         
     }
+    
+    
     /* Runs when page is loaded, sets the delegate and datasource then calls method to query
      Firebase and fetch this user's information */
     override func viewDidLoad() {
@@ -124,9 +157,10 @@ class ProfileCreationViewController: UIViewController, UIImagePickerControllerDe
 
     /* If user does not complete registration process, delete their Auth info */
     @IBAction func cancelRegistration(_ sender: Any) {
-        
         let user = Auth.auth().currentUser
         user?.delete()
+        print("did Click")
+        self.performSegue(withIdentifier: "cancel", sender: self)
     }
     
     /* Move to Add Friend step of registration */

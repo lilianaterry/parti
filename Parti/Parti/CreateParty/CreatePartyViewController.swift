@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseAuth
 
 class CreatePartyViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -52,8 +53,9 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
             
             // update user's party information
             let addParty = [partyObject.partyID: 1]
-            let friend = "friendUID"
             self.databaseRef.child("users/\(self.partyObject.hostID)/hosting").updateChildValues(addParty)
+            
+            self.dismiss(animated: false, completion: nil)
 
         } else {
             print("ERROR: address, attire, or name is blank")
@@ -73,14 +75,13 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("userID: \(partyObject.hostID)")
-        
         // set firebase references
         databaseRef = Database.database().reference()
         storageRef = Storage.storage().reference()
         
         // get a new ID for this party
         partyObject.partyID = UUID().uuidString
+        partyObject.hostID = (Auth.auth().currentUser?.uid)!
         
         setupPartyImage()
     }
@@ -107,7 +108,7 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
         // allows user to crop image to square screen
         picker.allowsEditing = true
         
-        present(picker, animated: true, completion: nil)
+        present(picker, animated: false, completion: nil)
     }
     
     /* Triggers image picking screen when imageView is selected */
@@ -128,7 +129,7 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
         }
         
         // Get rid of image picking screen
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
     
     /* If user clicks on Cancel instead of selecting an image */
@@ -147,7 +148,7 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
         print("Updating image in firebase storage")
         let imageRef = storageRef.child("partyPictures/\(self.partyObject.partyID)")
         
-        if let uploadData = UIImagePNGRepresentation(self.partyImage.image!) {
+        if let uploadData = UIImageJPEGRepresentation(partyImage.image!, 0.1) {
             imageRef.putData(uploadData, metadata: nil, completion: {
                 (metadata, error) in
                 
@@ -157,7 +158,6 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
                 }
                 
                 // update user's profile URL in Firebase Database
-                print("Updating User's URL in Database")
                 let imageURL = metadata?.downloadURL()?.absoluteString
                 self.databaseRef.child("parties/\(self.partyObject.partyID)/imageURL").setValue(imageURL)
             })

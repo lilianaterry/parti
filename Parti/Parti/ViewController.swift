@@ -54,16 +54,12 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var googleSignInButton: GIDSignInButton!
-
-    var userID = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         GIDSignIn.sharedInstance().uiDelegate = self
-        
-        // TODO(developer) Configure the sign-in button look/feel
-        // ...
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -118,11 +114,6 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
             if error != nil {
                 print("ERROR: Failed Auth")
             } else {
-                print("Password Success!")
-                print(user!.uid)
-                self.userID = user!.uid
-                print("User id set: \(self.userID)")
-                
                 self.performSegue(withIdentifier: "profileSegue", sender: self)
             }
         }
@@ -148,69 +139,47 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
                         // [END_EXCLUDE]
                         return
                     }
-                    // User is signed in
-                    print("Facebook login success!");
-                    print(user!.uid)
-                    self.userID = user!.uid
                 }
             }
         })
     }
     
-//    func firebaseLogin(_ credential: AuthCredential) {
-//        if let user = Auth.auth().currentUser {
-//            // [START link_credential]
-//            user.link(with: credential) { (user, error) in
-//                // [START_EXCLUDE]
-//                if let error = error {
-//                    print("ERROR" + error.localizedDescription)
-//                    return
-//                }
-//                // [END_EXCLUDE]
-//            }
-//            // [END link_credential]
-//        } else {
-//            // [START signin_credential]
-//            Auth.auth().signIn(with: credential) { (user, error) in
-//                // [START_EXCLUDE silent]
-//                    // [END_EXCLUDE]
-//                    if let error = error {
-//                        // [START_EXCLUDE]
-//                        print(error.localizedDescription)
-//                        // [END_EXCLUDE]
-//                        return
-//                    }
-//                    // User is signed in
-//                    // [START_EXCLUDE]
-//                    // Merge prevUser and currentUser accounts and data
-//                    // ...
-//                    // [END_EXCLUDE]
-//                }
-//            }
-//        // [END signin_credential]
-//    }
+    func firebaseLogin(_ credential: AuthCredential) {
+        if let user = Auth.auth().currentUser {
+            // [START link_credential]
+            user.link(with: credential) { (user, error) in
+                // [START_EXCLUDE]
+                if let error = error {
+                    print("ERROR" + error.localizedDescription)
+                    return
+                }
+                // [END_EXCLUDE]
+            }
+            // [END link_credential]
+        } else {
+            // [START signin_credential]
+            Auth.auth().signIn(with: credential) { (user, error) in
+                // [START_EXCLUDE silent]
+                    // [END_EXCLUDE]
+                    if let error = error {
+                        // [START_EXCLUDE]
+                        print(error.localizedDescription)
+                        // [END_EXCLUDE]
+                        return
+                    }
+                    // User is signed in
+                    // [START_EXCLUDE]
+                    // Merge prevUser and currentUser accounts and data
+                    // ...
+                    // [END_EXCLUDE]
+                }
+            }
+        // [END signin_credential]
+    }
     
     @IBAction func googleLogin(_ sender: Any) {
         GIDSignIn.sharedInstance().signIn()
     }
-    
-    // Pass login information to next page
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let segueID = segue.identifier
-        print("REACHED SEGUE")
-        
-        // Create Profile Step 1
-        if (segueID == "createStepOne") {
-            if let destinationVC = segue.destination as? ProfileCreationViewController {
-                destinationVC.profileObject.userID = userID
-            }
-        // Party List Page
-        } else if (segueID == "loginToPartyList") {
-            if let destinationVC = segue.destination as? PartyListViewController {
-                
-            }
-        
-        }
-    }
+
 }
 

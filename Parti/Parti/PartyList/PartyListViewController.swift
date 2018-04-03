@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import Firebase
+import FirebaseStorage
 
 class PartyListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -20,6 +21,10 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     // Firebase connection
     var ref: DatabaseReference!
     var databaseHandle: DatabaseHandle?
+    
+    // Firebase Storage connection
+    var storageRef: StorageReference!
+    var storageHandle: StorageHandle?
     
     // list of parties being attended
     var attendingPartyList = [PartyModel]()
@@ -49,16 +54,55 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
         var currentParty: PartyModel = PartyModel()
         if (indexPath.section == 0) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "hostingPartyCell", for: indexPath) as! HostingPartyTableViewCell
+            
             currentParty = hostingPartyList[indexPath.row]
             
             cell.partyName.text = currentParty.name
             cell.address.text = currentParty.address
             cell.partyObject = currentParty
             
+            // If the user already has a profile picture, load it up!
+            if (currentParty.imageURL != nil) {
+                let url = URL(string: currentParty.imageURL)
+                URLSession.shared.dataTask(with: url!, completionHandler: { (image, response, error) in
+                    if (error != nil) {
+                        print(error)
+                        return
+                    }
+                    DispatchQueue.main.async { // Make sure you're on the main thread here
+                        if let image = UIImage(data: image!) {
+                            cell.profilePicture.image = image
+                        }
+                    }
+                }).resume()
+                // otherwise use this temporary image
+            } else {
+                cell.profilePicture.image = #imageLiteral(resourceName: "parti_logo")
+            }
+            
             return cell
         } else if (indexPath.section == 1) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "partyCell", for: indexPath) as! AttendingPartyTableViewCell
-            currentParty = attendingPartyList[indexPath.row]
+            currentParty = attendingPartyList[indexPath.row] as PartyModel
+            
+            // If the user already has a profile picture, load it up!
+            if (currentParty.imageURL != nil) {
+                let url = URL(string: currentParty.imageURL)
+                URLSession.shared.dataTask(with: url!, completionHandler: { (image, response, error) in
+                    if (error != nil) {
+                        print(error)
+                        return
+                    }
+                    DispatchQueue.main.async { // Make sure you're on the main thread here
+                        if let image = UIImage(data: image!) {
+                            cell.profilePicture.image = image
+                        }
+                    }
+                }).resume()
+                // otherwise use this temporary image
+            } else {
+                cell.profilePicture.image = #imageLiteral(resourceName: "parti_logo")
+            }
             
             cell.partyName.text = currentParty.name
             cell.address.text = currentParty.address
@@ -66,10 +110,6 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
             
             return cell
         }
-        
-        // update appearance of cell
-//        cell.separatorInset = UIEdgeInsets.zero
-//        cell.layoutMargins = UIEdgeInsets.zero
         
         return UITableViewCell()
     }
@@ -100,12 +140,9 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
         self.partyTableView.dataSource = self
         self.partyTableView.delegate = self
         
-        // set the style of the table view cells
-//        self.partyTableView.layoutMargins = UIEdgeInsets.zero
-//        self.partyTableView.separatorInset = UIEdgeInsets.zero
-        
         // set firebase reference
         ref = Database.database().reference()
+        storageRef = Storage.storage().reference()
         
         // query Firebase and get a list of all parties being attended for this user
         populateAttendingPartyList()
@@ -133,7 +170,6 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     func populateAttendingPartyList() {
         databaseHandle = ref?.child("users/\(userID)/attending").observe(.childAdded, with: { (snapshot) in
             let partyID = snapshot.key
-            print("Hosting: " + partyID)
             self.addParty(partyID: partyID, section: 1)
         }) { (error) in
             print(error.localizedDescription)
@@ -178,10 +214,6 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
             print(error.localizedDescription)
         }
     }
-
-//    @IBAction func profileButton(_ sender: Any) {
-//        self.performSegue(withIdentifier: "partyListToProfile", sender: self)
-//    }
     
     @IBAction func createEventButton(_ sender: Any) {
         self.performSegue(withIdentifier: "addEvent", sender: self)
@@ -194,13 +226,12 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
             if let destinationVC = segue.destination as? PartyHostViewController {
                 destinationVC.partyObject = cell.partyObject
             }
-        } else {
+        } else if (segueID == "attendingPartySegue") {
             let cell = sender as! AttendingPartyTableViewCell
             if let destinationVC = segue.destination as? PartyPageViewController {
                 destinationVC.partyObject = cell.partyObject
             }
         }
-       
     }
 
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class AttendingPartyTableViewCell: UITableViewCell {
 
@@ -23,6 +24,30 @@ class AttendingPartyTableViewCell: UITableViewCell {
         self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.height / 2;
         self.profilePicture.clipsToBounds = true;
         
+        getPicture()
+    }
+    
+    func getPicture() {
+        if (profilePicture.image == nil) {
+            // If the user already has a profile picture, load it up!
+            if (partyObject.imageURL != nil) {
+                let url = URL(string: partyObject.imageURL)
+                URLSession.shared.dataTask(with: url!, completionHandler: { (image, response, error) in
+                    if (error != nil) {
+                        print(error)
+                        return
+                    }
+                    DispatchQueue.main.async { // Make sure you're on the main thread here
+                        if let image = UIImage(data: image!) {
+                            self.profilePicture.image = image
+                        }
+                    }
+                }).resume()
+                // otherwise use this temporary image
+            } else {
+                self.profilePicture?.image = #imageLiteral(resourceName: "parti_logo")
+            }
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

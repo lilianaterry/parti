@@ -173,7 +173,7 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
     func uploadProfilePicture() {
         let imageRef = storageRef.child("profilePictures/\(self.profileObject.userID)")
         
-        if let uploadData = UIImagePNGRepresentation(self.profileObject.image) {
+        if let uploadData = UIImageJPEGRepresentation(profileObject.image, 0.1) {
             imageRef.putData(uploadData, metadata: nil, completion: {
                 (metadata, error) in
                 

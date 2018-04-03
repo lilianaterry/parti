@@ -20,6 +20,14 @@
             </objects>
             <point key="canvasLocation" x="-1112" y="-321"/>
         </scene>
+        <!--Main-->
+        <scene sceneID="B6d-Dn-rKY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="lUO-o5-X2m" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i75-BN-7Fs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2538" y="-1021"/>
+        </scene>
         <!--Create Friend List View Controller-->
         <scene sceneID="kd5-tZ-eKM">
             <objects>
@@ -120,7 +128,7 @@
                                 <rect key="frame" x="21" y="44" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
-                                    <segue destination="mWi-TJ-Xeh" kind="show" id="mpK-AZ-bUO"/>
+                                    <action selector="newUserCancelRegistration:" destination="vQR-Sf-TMo" eventType="touchUpInside" id="EwR-55-jif"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -150,6 +158,7 @@
                         <outlet property="searchBar" destination="Hz4-Uh-pkO" id="bvt-DN-CSz"/>
                         <outlet property="tableView" destination="1Zm-iy-5mp" id="zNN-40-rKS"/>
                         <segue destination="Cg6-9b-17v" kind="show" identifier="createStepThree" animates="NO" id="ra2-Ok-G8G"/>
+                        <segue destination="lUO-o5-X2m" kind="show" identifier="cancel" animates="NO" id="Mzh-eP-cqM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZG-ph-Bck" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -269,14 +278,14 @@
                                 <state key="normal" title="Let's go!"/>
                                 <connections>
                                     <action selector="uploadUser:" destination="Cg6-9b-17v" eventType="touchUpInside" id="1Bh-rQ-haU"/>
-                                    <segue destination="4DP-33-3bD" kind="show" identifier="registrationComplete" id="EYp-b3-uRZ"/>
+                                    <segue destination="4DP-33-3bD" kind="show" identifier="registrationComplete" animates="NO" id="EYp-b3-uRZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gU-iO-Yn0">
                                 <rect key="frame" x="22" y="44" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
-                                    <segue destination="mWi-TJ-Xeh" kind="show" id="GUe-rZ-zmH"/>
+                                    <segue destination="mWi-TJ-Xeh" kind="show" animates="NO" id="GUe-rZ-zmH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -543,7 +552,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="guestTableView" destination="aJ3-Fw-59J" id="Qho-H4-gLq"/>
-                        <segue destination="etb-UH-iUe" kind="show" identifier="guestProfileSegue" id="9JR-VC-mjg"/>
+                        <segue destination="etb-UH-iUe" kind="show" identifier="guestProfileSegue" animates="NO" id="9JR-VC-mjg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7vf-ho-Pg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -661,7 +670,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="igY-xh-jaU">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="igY-xh-jaU">
                                 <rect key="frame" x="88" y="127" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="lDK-rp-wFG"/>
@@ -1598,7 +1607,7 @@
                         <outlet property="nameLabel" destination="fwf-HS-uK3" id="Jfx-IB-ztR"/>
                         <outlet property="partyImage" destination="XlF-f7-tyf" id="4Qr-n6-MWb"/>
                         <segue destination="fI7-Jc-tfo" kind="show" identifier="guestListSegue" animates="NO" id="ZMK-gI-7PD"/>
-                        <segue destination="etb-UH-iUe" kind="show" identifier="guestProfileSegue" id="oW6-Pw-K4u"/>
+                        <segue destination="etb-UH-iUe" kind="show" identifier="guestProfileSegue" animates="NO" id="oW6-Pw-K4u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVP-BC-1bn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1625,7 +1634,7 @@
         <image name="vegetarian" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yW4-ie-5Dy"/>
-        <segue reference="GUe-rZ-zmH"/>
+        <segue reference="9JR-VC-mjg"/>
+        <segue reference="Ovt-k8-zB7"/>
     </inferredMetricsTieBreakers>
 </document>
