@@ -12,22 +12,54 @@ import Firebase
 import GoogleSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
+import StoreKit
+import MediaPlayer
+
+@IBDesignable extension UIButton {
+    
+    @IBInspectable var borderWidth: CGFloat {
+        set {
+            layer.borderWidth = newValue
+        }
+        get {
+            return layer.borderWidth
+        }
+    }
+    
+    @IBInspectable var cornerRadius: CGFloat {
+        set {
+            layer.cornerRadius = newValue
+        }
+        get {
+            return layer.cornerRadius
+        }
+    }
+    
+    @IBInspectable var borderColor: UIColor? {
+        set {
+            guard let uiColor = newValue else { return }
+            layer.borderColor = uiColor.cgColor
+        }
+        get {
+            guard let color = layer.borderColor else { return nil }
+            return UIColor(cgColor: color)
+        }
+    }
+}
+
 
 class ViewController: UIViewController, GIDSignInUIDelegate {
     
     // MARK: Properties
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var googleSignInButton: GIDSignInButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         GIDSignIn.sharedInstance().uiDelegate = self
-        
-        // TODO(developer) Configure the sign-in button look/feel
-        // ...
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,19 +75,38 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         
             passwordSignIn(email: email, password: password)
         } else {
-            print("ERROR: email or password is blank")
+            print("ERROR: email or password is incorrect")
         }
     }
     
-    func createAccount(email: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+    @IBAction func onPasswordReset(_ sender: Any) {
+        // Create the alert controller.
+        let alert = UIAlertController(title: "Password Reset", message: "Enter your email", preferredStyle: .alert)
+        
+        // Add text field
+        alert.addTextField { (textField) in
+            textField.text = ""
+        }
+        
+        // Grab the value from the text field, and reset the password when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0]
+            self.passwordReset(email: (textField?.text)!)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    func passwordReset(email: String) {
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
             if error != nil {
-                print("ERROR: Failed to create account")
+                print("ERROR: Password reset failed")
             } else {
-                print("Create account succcess!")
-                print(user!.uid)
+                print("Password reset success!")
             }
         }
+
     }
     
     func passwordSignIn(email: String, password: String) {
@@ -63,8 +114,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
             if error != nil {
                 print("ERROR: Failed Auth")
             } else {
-                print("Password Success!")
-                print(user!.uid)
+                self.performSegue(withIdentifier: "profileSegue", sender: self)
             }
         }
     }
@@ -89,49 +139,47 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
                         // [END_EXCLUDE]
                         return
                     }
-                    // User is signed in
-                    print("Facebook login success!");
-                    print(user!.uid)
                 }
             }
         })
     }
     
-//    func firebaseLogin(_ credential: AuthCredential) {
-//        if let user = Auth.auth().currentUser {
-//            // [START link_credential]
-//            user.link(with: credential) { (user, error) in
-//                // [START_EXCLUDE]
-//                if let error = error {
-//                    print("ERROR" + error.localizedDescription)
-//                    return
-//                }
-//                // [END_EXCLUDE]
-//            }
-//            // [END link_credential]
-//        } else {
-//            // [START signin_credential]
-//            Auth.auth().signIn(with: credential) { (user, error) in
-//                // [START_EXCLUDE silent]
-//                    // [END_EXCLUDE]
-//                    if let error = error {
-//                        // [START_EXCLUDE]
-//                        print(error.localizedDescription)
-//                        // [END_EXCLUDE]
-//                        return
-//                    }
-//                    // User is signed in
-//                    // [START_EXCLUDE]
-//                    // Merge prevUser and currentUser accounts and data
-//                    // ...
-//                    // [END_EXCLUDE]
-//                }
-//            }
-//        // [END signin_credential]
-//    }
+    func firebaseLogin(_ credential: AuthCredential) {
+        if let user = Auth.auth().currentUser {
+            // [START link_credential]
+            user.link(with: credential) { (user, error) in
+                // [START_EXCLUDE]
+                if let error = error {
+                    print("ERROR" + error.localizedDescription)
+                    return
+                }
+                // [END_EXCLUDE]
+            }
+            // [END link_credential]
+        } else {
+            // [START signin_credential]
+            Auth.auth().signIn(with: credential) { (user, error) in
+                // [START_EXCLUDE silent]
+                    // [END_EXCLUDE]
+                    if let error = error {
+                        // [START_EXCLUDE]
+                        print(error.localizedDescription)
+                        // [END_EXCLUDE]
+                        return
+                    }
+                    // User is signed in
+                    // [START_EXCLUDE]
+                    // Merge prevUser and currentUser accounts and data
+                    // ...
+                    // [END_EXCLUDE]
+                }
+            }
+        // [END signin_credential]
+    }
     
     @IBAction func googleLogin(_ sender: Any) {
         GIDSignIn.sharedInstance().signIn()
     }
+
 }
 
