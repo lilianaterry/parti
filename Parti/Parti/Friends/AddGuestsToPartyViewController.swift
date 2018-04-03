@@ -65,14 +65,21 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
     func populateAllFriendsList() {
         databaseHandle = databaseRef?.child("users").queryOrdered(byChild: "name").observe(.childAdded) { snapshot in
             var data = snapshot.value as! [String: Any]
-            var user = ProfileModel()
-            user.name = data["name"] as! String
-            user.userID = snapshot.key
-            if let imageURL = data["imageURL"] {
-                user.imageURL = imageURL as! String
+            print("snapshot:")
+            print(snapshot.key)
+            print("hostID")
+            print(self.partyObject.hostID)
+            // show all people that aren't the host
+            if (snapshot.key != self.partyObject.hostID) {
+                var user = ProfileModel()
+                user.name = data["name"] as! String
+                user.userID = snapshot.key
+                if let imageURL = data["imageURL"] {
+                    user.imageURL = imageURL as! String
+                }
+                self.users.append(user)
+                self.guestTableView.reloadData()
             }
-            self.users.append(user)
-            self.guestTableView.reloadData()
         }
     }
     
@@ -82,13 +89,18 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
         { snapshot in
             
             var data = snapshot.value as! [String: Any]
-            var user = ProfileModel()
-            user.name = data["name"] as! String
-            user.userID = snapshot.key
-            
-            self.users.removeAll()
-            self.users.append(user)
-            self.guestTableView.reloadData()
+            // show all people that aren't the host
+            print("host:")
+            print(self.partyObject.hostID)
+            if (snapshot.key != self.partyObject.hostID) {
+                var user = ProfileModel()
+                user.name = data["name"] as! String
+                user.userID = snapshot.key
+                
+                self.users.removeAll()
+                self.users.append(user)
+                self.guestTableView.reloadData()
+            }
         }
     }
     

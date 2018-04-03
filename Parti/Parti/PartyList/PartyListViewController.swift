@@ -52,6 +52,7 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     /* Dequeues cells from partyList and returns a filled-in table cell */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var currentParty: PartyModel = PartyModel()
+
         if (indexPath.section == 0) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "hostingPartyCell", for: indexPath) as! HostingPartyTableViewCell
             
@@ -60,53 +61,17 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.partyName.text = currentParty.name
             cell.address.text = currentParty.address
             cell.partyObject = currentParty
-            
-            // If the user already has a profile picture, load it up!
-            if (currentParty.imageURL != nil) {
-                let url = URL(string: currentParty.imageURL)
-                URLSession.shared.dataTask(with: url!, completionHandler: { (image, response, error) in
-                    if (error != nil) {
-                        print(error)
-                        return
-                    }
-                    DispatchQueue.main.async { // Make sure you're on the main thread here
-                        if let image = UIImage(data: image!) {
-                            cell.profilePicture.image = image
-                        }
-                    }
-                }).resume()
-                // otherwise use this temporary image
-            } else {
-                cell.profilePicture.image = #imageLiteral(resourceName: "parti_logo")
-            }
+            cell.partyPicture.image = currentParty.image
             
             return cell
         } else if (indexPath.section == 1) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "partyCell", for: indexPath) as! AttendingPartyTableViewCell
             currentParty = attendingPartyList[indexPath.row] as PartyModel
             
-            // If the user already has a profile picture, load it up!
-            if (currentParty.imageURL != nil) {
-                let url = URL(string: currentParty.imageURL)
-                URLSession.shared.dataTask(with: url!, completionHandler: { (image, response, error) in
-                    if (error != nil) {
-                        print(error)
-                        return
-                    }
-                    DispatchQueue.main.async { // Make sure you're on the main thread here
-                        if let image = UIImage(data: image!) {
-                            cell.profilePicture.image = image
-                        }
-                    }
-                }).resume()
-                // otherwise use this temporary image
-            } else {
-                cell.profilePicture.image = #imageLiteral(resourceName: "parti_logo")
-            }
-            
             cell.partyName.text = currentParty.name
             cell.address.text = currentParty.address
             cell.partyObject = currentParty
+            cell.partyPicture.image = currentParty.image
             
             return cell
         }
@@ -148,7 +113,6 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
         populateAttendingPartyList()
         // query Firebase and get a list of all parties being hosted for this user
         populateHostingPartyList()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -158,9 +122,11 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     /* Goes through each party a user is hosting and adds the party object to the list */
     func populateHostingPartyList() {
-        databaseHandle = ref?.child("users/\(userID)/hosting").observe(.childAdded, with: { (snapshot) in
+        ref?.child("users/\(userID)/hosting").observe(.childAdded, with: { (snapshot) in
+
             let partyID = snapshot.key
             self.addParty(partyID: partyID, section: 0)
+            
         }) { (error) in
             print(error.localizedDescription)
         }
@@ -168,9 +134,14 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     /* Goes through each party a user is attending and adds the party object to the list */
     func populateAttendingPartyList() {
-        databaseHandle = ref?.child("users/\(userID)/attending").observe(.childAdded, with: { (snapshot) in
-            let partyID = snapshot.key
-            self.addParty(partyID: partyID, section: 1)
+        ref?.child("users/\(userID)/attending").observe(.childAdded, with: { (snapshot) in
+            if (snapshot.exists()) {
+                for child in snapshot.children {
+                    let snap = child as! DataSnapshot
+                    let partyID = snap.key
+                    self.addParty(partyID: partyID, section: 0)
+                }
+            }
         }) { (error) in
             print(error.localizedDescription)
         }
@@ -179,7 +150,8 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     /* Creates an instance of the PartyModel class and fills in all relevant information
         from Firebase query. Adds the PartyModel to partyList and reloads View */
     func addParty(partyID: String, section: Int) {
-        databaseHandle = ref?.child("parties/\(partyID)").observe(.value, with: { (snapshot) in
+        ref?.child("parties/\(partyID)").observeSingleEvent(of: .value, with: { (snapshot) in
+
             let data = snapshot.value as! [String: Any]
             
             let partyObject = PartyModel()
@@ -199,16 +171,44 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
                 partyObject.guestList = guestList as! [String: Any]
             }
             if let image = data["imageURL"] {
-                partyObject.imageURL = data["imageURL"] as! String
+                partyObject.imageURL = image as! String
+                print(image)
             }
             
-            if (section == 0) {
-                self.hostingPartyList.append(partyObject)
-            } else if (section == 1) {
-                self.attendingPartyList.append(partyObject)
+            // If the user already has a profile picture, load it up!
+            if (partyObject.imageURL != "") {
+                let url = URL(string: partyObject.imageURL)
+                URLSession.shared.dataTask(with: url!, completionHandler: { (image, response, error) in
+                    if (error != nil) {
+                        print(error)
+                        return
+                    }
+                    DispatchQueue.main.async { // Make sure you're on the main thread here
+                        if let image = UIImage(data: image!) {
+                            partyObject.image = image
+                            
+                            if (section == 0) {
+                                self.hostingPartyList.append(partyObject)
+                            } else if (section == 1) {
+                                self.attendingPartyList.append(partyObject)
+                            }
+                            
+                            self.partyTableView.reloadData()
+                        }
+                    }
+                }).resume()
+                // otherwise use this temporary image
+            } else {
+                partyObject.image = #imageLiteral(resourceName: "parti_logo")
+                
+                if (section == 0) {
+                    self.hostingPartyList.append(partyObject)
+                } else if (section == 1) {
+                    self.attendingPartyList.append(partyObject)
+                }
+                
+                self.partyTableView.reloadData()
             }
-            
-            self.partyTableView.reloadData()
             
         }) { (error) in
             print(error.localizedDescription)

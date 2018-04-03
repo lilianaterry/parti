@@ -48,14 +48,12 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
             // update Firebase accordingly
             self.databaseRef.child("parties/\(self.partyObject.partyID)").setValue(values)
             
-            // update Image and store URL in party page 
-            updateFirebaseStorage()
-            
             // update user's party information
             let addParty = [partyObject.partyID: 1]
             self.databaseRef.child("users/\(self.partyObject.hostID)/hosting").updateChildValues(addParty)
             
-            self.dismiss(animated: false, completion: nil)
+            // update Image and store URL in party page 
+            updateFirebaseStorage()
 
         } else {
             print("ERROR: address, attire, or name is blank")
@@ -160,6 +158,7 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
                 // update user's profile URL in Firebase Database
                 let imageURL = metadata?.downloadURL()?.absoluteString
                 self.databaseRef.child("parties/\(self.partyObject.partyID)/imageURL").setValue(imageURL)
+                self.dismiss(animated: false, completion: nil)
             })
         }
     }
@@ -169,6 +168,9 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
             let destinationVC = segue.destination as! GuestListViewController
             
         }
+    }
+    @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
     }
     
     @IBAction func unwind(sender: UIStoryboardSegue) {

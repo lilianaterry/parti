@@ -36,6 +36,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var drinkOfChoiceLabel: UILabel!
     @IBOutlet weak var partyTrickLabel: UILabel!
     
+    
     var allergyImages = [UIButton]()
     var allergyList = ["Nuts", "Gluten", "Vegetarian", "Dairy", "Vegan"]
 
@@ -43,6 +44,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
      Firebase and fetch this user's information */
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         // set firebase references
         databaseRef = Database.database().reference()
@@ -59,19 +61,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         // query Firebase to get the current user's information
         populateProfilePage()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // set firebase references
-        databaseRef = Database.database().reference()
-        storageRef = Storage.storage().reference()
         
-        setupProfilePicture()
-        
-        // query Firebase to get the current user's information
-        populateProfilePage()
-    }
-    
     /* Adds color selection functionality to allergy icons */
     func setupAllergyIcons() {
         nutsButton.setImage(#imageLiteral(resourceName: "nuts-orange.png"), for: .selected)
@@ -97,7 +87,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.profilePicture.clipsToBounds = true
         
         if (profilePicture.image == nil) {
-            print("picture is nil")
             databaseHandle = databaseRef?.child("users/\(profileObject.userID)/imageURL").observe(.value, with: { (snapshot) in
                 if (snapshot.exists()) {
                     
@@ -162,6 +151,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     for allergy in userAllergies.keys {
                         let indexOfAllergy = self.allergyList.index(of: allergy)
                         self.profileObject.allergiesList[allergy] = 1
+                        self.allergyImages[indexOfAllergy!].isUserInteractionEnabled = false
                         self.allergyImages[indexOfAllergy!].isSelected = true
                     }
                 }

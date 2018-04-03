@@ -234,7 +234,7 @@ class PartyHostViewController: ViewController {
             // Party List Page
         } else if (segueID == "guestListSegue") {
             if let destinationVC = segue.destination as? AddGuestsToPartyViewController {
-                 destinationVC.partyObject.partyID = self.partyObject.partyID
+                 destinationVC.partyObject = self.partyObject
             }
         } else if (segueID == "editPartySegue") {
             if let destinationVC = segue.destination as? EditPartyViewController {

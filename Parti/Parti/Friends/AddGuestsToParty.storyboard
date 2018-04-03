@@ -63,6 +63,7 @@
                                                     <connections>
                                                         <action selector="addFriend:" destination="C8b-zd-jev" eventType="touchUpInside" id="XXv-9y-pTa"/>
                                                         <action selector="newUserAddButton:" destination="OFU-kW-a0S" eventType="touchUpInside" id="FIq-YT-xxq"/>
+                                                        <action selector="upvote:" destination="C8b-zd-jev" eventType="touchUpInside" id="VDt-mT-XwF"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

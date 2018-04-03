@@ -40,6 +40,7 @@ class PartyModel: NSObject {
     }
     
     
+    
     convenience override init() {
         self.init(hostID: "", imageURL: "", partyID: "", attire: "", name: "", date: "", address: "")
     }

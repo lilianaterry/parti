@@ -10,7 +10,7 @@ import UIKit
 
 class HostingPartyTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var partyPicture: UIImageView!
     @IBOutlet weak var partyName: UILabel!
     @IBOutlet weak var address: UILabel!
     
@@ -20,8 +20,8 @@ class HostingPartyTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         // create circular mask on image
-        self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.height / 2;
-        self.profilePicture.clipsToBounds = true;
+        self.partyPicture.layer.cornerRadius = self.partyPicture.frame.size.height / 2;
+        self.partyPicture.clipsToBounds = true;
                 
     }
     

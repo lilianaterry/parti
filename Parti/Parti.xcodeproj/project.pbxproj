@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		134E18BCC4345EC6D5ECF872 /* Pods_Parti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17006526DDCD540F0A98D3E /* Pods_Parti.framework */; };
 		2948CE67629B566D0E3C8436 /* Pods_PartiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18A92B71520E134920D88FE /* Pods_PartiTests.framework */; };
+		CE05EA44207443FE00886673 /* AddFriends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE05EA43207443FE00886673 /* AddFriends.storyboard */; };
 		CE09DC56205C657C0097806D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09DC55205C657C0097806D /* ProfileViewController.swift */; };
 		CE09DC5C205C66410097806D /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09DC5B205C66410097806D /* ProfileModel.swift */; };
 		CE1189612051DF8400A0AD49 /* PartyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A651A5204B9CA0007792E6 /* PartyListViewController.swift */; };
@@ -70,6 +71,7 @@
 		A18A92B71520E134920D88FE /* Pods_PartiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C17006526DDCD540F0A98D3E /* Pods_Parti.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parti.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAEF1B50AEF89076AD2F8F1F /* Pods-Parti.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parti.release.xcconfig"; path = "Pods/Target Support Files/Pods-Parti/Pods-Parti.release.xcconfig"; sourceTree = "<group>"; };
+		CE05EA43207443FE00886673 /* AddFriends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddFriends.storyboard; sourceTree = "<group>"; };
 		CE09DC55205C657C0097806D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CE09DC5B205C66410097806D /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		CE1189622051E00300A0AD49 /* PartyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyModel.swift; sourceTree = "<group>"; };
@@ -161,8 +163,10 @@
 			isa = PBXGroup;
 			children = (
 				CEAB8B6520644885005AD748 /* AddFriendsViewController.swift */,
+				CE05EA43207443FE00886673 /* AddFriends.storyboard */,
 				CEAB8B6620644885005AD748 /* AddFriendTableViewCell.swift */,
 				F90E7810206ECEDB007C5302 /* AddGuestsToPartyViewController.swift */,
+				F90E7812206ECFB4007C5302 /* AddGuestsToParty.storyboard */,
 				F90E7814206ED4F3007C5302 /* AddGuestsTableViewCell.swift */,
 			);
 			path = Friends;
@@ -172,7 +176,9 @@
 			isa = PBXGroup;
 			children = (
 				CE2281FF206B57A200039578 /* EditProfileViewController.swift */,
+				CE2281FB206B512A00039578 /* EditProfile.storyboard */,
 				CE09DC55205C657C0097806D /* ProfileViewController.swift */,
+				F90E780E206EB473007C5302 /* ProfileView.storyboard */,
 				CE09DC5B205C66410097806D /* ProfileModel.swift */,
 				CEEED9C7206DF5B800A45426 /* OtherUserProfile.swift */,
 			);
@@ -221,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				CEC9303620713EAB005C13E5 /* EditPartyViewController.swift */,
+				CEC9303220713938005C13E5 /* EditPartyPage.storyboard */,
 				CE3E0DB02061E0980098F435 /* PartyPageViewController.swift */,
 				CEB33EF6205F464400F49918 /* GuestListViewController.swift */,
 				CEB33EF4205F456100F49918 /* GuestTableViewCell.swift */,
@@ -280,10 +287,6 @@
 				CE09DC57205C65E70097806D /* Profile */,
 				CEF18A40204B74F8003071C5 /* SecondMain.storyboard */,
 				F9B245C02066EB3D0015F277 /* Main.storyboard */,
-				CE2281FB206B512A00039578 /* EditProfile.storyboard */,
-				F90E780E206EB473007C5302 /* ProfileView.storyboard */,
-				F90E7812206ECFB4007C5302 /* AddGuestsToParty.storyboard */,
-				CEC9303220713938005C13E5 /* EditPartyPage.storyboard */,
 				F957DEDA204146E400FB15A3 /* Parti.entitlements */,
 				F98083382020E98C00CB91C0 /* AppDelegate.swift */,
 				F980833A2020E98C00CB91C0 /* ViewController.swift */,
@@ -406,6 +409,7 @@
 				CEF18A42204B74F8003071C5 /* SecondMain.storyboard in Resources */,
 				CE2281FC206B512A00039578 /* EditProfile.storyboard in Resources */,
 				F90E780F206EB474007C5302 /* ProfileView.storyboard in Resources */,
+				CE05EA44207443FE00886673 /* AddFriends.storyboard in Resources */,
 				F90031B82031F4F300B9FA75 /* GoogleService-Info.plist in Resources */,
 				F98083432020E98C00CB91C0 /* Assets.xcassets in Resources */,
 			);

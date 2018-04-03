@@ -48,4 +48,8 @@ class AddGuestsTableViewCell: UITableViewCell {
         self.databaseRef.child("users/\(friendUid)/friendsList").updateChildValues(userDict)
         self.databaseRef.child("users/\(userID)/friendsList").updateChildValues(friendDict)
     }
+    
+    @IBAction func upvote(_ sender: Any) {
+        
+    }
 }

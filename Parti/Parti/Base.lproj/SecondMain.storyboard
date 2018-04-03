@@ -36,6 +36,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background_gradient" translatesAutoresizingMaskIntoConstraints="NO" id="Hrz-46-z0H">
+                                <rect key="frame" x="0.0" y="339" width="375" height="473"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="second" translatesAutoresizingMaskIntoConstraints="NO" id="Ya1-Fs-Qv2">
                                 <rect key="frame" x="21" y="44" width="332" height="81"/>
                             </imageView>
@@ -132,7 +136,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.35915416480000001" green="0.99286979440000001" blue="0.79679876569999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ZIv-qK-8n6" firstAttribute="top" secondItem="uGR-vp-wMB" secondAttribute="top" id="0gv-ms-a2L"/>
                             <constraint firstItem="1Zm-iy-5mp" firstAttribute="trailing" secondItem="uGR-vp-wMB" secondAttribute="trailing" id="7QZ-Jm-JK8"/>
@@ -163,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZG-ph-Bck" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1705" y="-824"/>
+            <point key="canvasLocation" x="-1706.4000000000001" y="-824.6305418719212"/>
         </scene>
         <!--Create Food List View Controller-->
         <scene sceneID="8NZ-2G-RCR">
@@ -173,6 +177,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background_gradient" translatesAutoresizingMaskIntoConstraints="NO" id="jLP-Lq-rCB">
+                                <rect key="frame" x="-1" y="339" width="376" height="473"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="third" translatesAutoresizingMaskIntoConstraints="NO" id="Qhe-Pu-KWF">
                                 <rect key="frame" x="21.666666666666657" y="44" width="332" height="105"/>
                                 <constraints>
@@ -289,7 +297,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.35915416480000001" green="0.99286979440000001" blue="0.79679876569999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="o8S-t4-7PG" firstAttribute="leading" secondItem="5Wh-wx-C5h" secondAttribute="trailing" constant="17" id="157-Gq-5IQ"/>
                             <constraint firstItem="5Wh-wx-C5h" firstAttribute="firstBaseline" secondItem="diE-yK-WGd" secondAttribute="firstBaseline" id="2Qs-JZ-o3w"/>
@@ -350,7 +358,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XtZ-Af-9aP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-596" y="-825"/>
+            <point key="canvasLocation" x="-596" y="-825.3694581280788"/>
         </scene>
         <!--Create Party View Controller-->
         <scene sceneID="KGQ-tv-r4L">
@@ -360,8 +368,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lwr-Ps-yBm">
-                                <rect key="frame" x="151" y="281" width="74" height="23"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lwr-Ps-yBm">
+                                <rect key="frame" x="157.66666666666666" y="281" width="61" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="j9B-uW-ddV"/>
                                 </constraints>
@@ -369,8 +377,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Attire" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gxr-3X-Ryx">
-                                <rect key="frame" x="160" y="331" width="56" height="22"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Attire" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gxr-3X-Ryx">
+                                <rect key="frame" x="166.66666666666666" y="331" width="43" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="AQD-QL-nkN"/>
                                 </constraints>
@@ -378,8 +386,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="PartyName" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8oC-ER-EbW">
-                                <rect key="frame" x="141" y="380" width="93" height="22"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="PartyName" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8oC-ER-EbW">
+                                <rect key="frame" x="147.66666666666666" y="380" width="80" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="JD5-ey-Paa"/>
                                 </constraints>
@@ -400,7 +408,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Create Event" id="JbT-F7-A7X">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="9Xv-XZ-1gl"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="9Xv-XZ-1gl">
+                                            <connections>
+                                                <action selector="cancel:" destination="Kwk-Us-otN" id="zM2-nZ-tw4"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="NQM-y6-dyV">
                                             <connections>
                                                 <action selector="createPartyButton:" destination="Kwk-Us-otN" id="7MO-gk-4Zz"/>
@@ -876,7 +888,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dym-EB-fAa">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dym-EB-fAa">
                                 <rect key="frame" x="0.0" y="88" width="375" height="128"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17A-vt-kIh">
@@ -1178,7 +1190,13 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cNc-zQ-Wbe">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Friends" id="ub4-DC-Jrf"/>
+                                    <navigationItem title="Friends" id="ub4-DC-Jrf">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EPp-zp-OgN">
+                                            <connections>
+                                                <segue destination="wJy-nt-2cR" kind="show" id="QVS-wG-lTs"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N5R-vR-JUw">
@@ -1215,6 +1233,14 @@
             </objects>
             <point key="canvasLocation" x="-677" y="2141"/>
         </scene>
+        <!--AddFriends-->
+        <scene sceneID="atF-qG-k0h">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddFriends" id="wJy-nt-2cR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zNb-qi-mkc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="143" y="2095"/>
+        </scene>
         <!--Events-->
         <scene sceneID="Ecv-9x-DKf">
             <objects>
@@ -1243,7 +1269,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="parti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="3a0-eJ-M2z">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3a0-eJ-M2z">
                                                     <rect key="frame" x="15" y="27" width="89" height="87"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -1266,7 +1292,7 @@
                                         <connections>
                                             <outlet property="address" destination="LU4-oq-dOx" id="0HV-z0-uoj"/>
                                             <outlet property="partyName" destination="7xu-vx-9Bn" id="WoY-K4-YIM"/>
-                                            <outlet property="profilePicture" destination="3a0-eJ-M2z" id="yLz-WU-u7G"/>
+                                            <outlet property="partyPicture" destination="3a0-eJ-M2z" id="ex0-GZ-ywv"/>
                                             <segue destination="D0Z-FS-81f" kind="show" identifier="hostingPartySegue" animates="NO" id="5hZ-0g-Zc7"/>
                                         </connections>
                                     </tableViewCell>
@@ -1274,10 +1300,10 @@
                                         <rect key="frame" x="0.0" y="143" width="375" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sUi-sl-15j" id="dtP-Cw-8S2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="114.66666666666667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="parti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="8S7-TB-ibC">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8S7-TB-ibC">
                                                     <rect key="frame" x="11" y="25" width="89" height="87"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -1307,7 +1333,7 @@
                                         <connections>
                                             <outlet property="address" destination="0mQ-gA-qhc" id="w7I-3I-gJ6"/>
                                             <outlet property="partyName" destination="NZO-Cx-GDP" id="5Gt-7E-ctY"/>
-                                            <outlet property="profilePicture" destination="8S7-TB-ibC" id="mf1-Ib-JPh"/>
+                                            <outlet property="partyPicture" destination="8S7-TB-ibC" id="Juo-fb-y98"/>
                                             <segue destination="HdR-Sn-2rM" kind="show" identifier="attendingPartySegue" animates="NO" id="Rxf-mA-pzt"/>
                                         </connections>
                                     </tableViewCell>
@@ -1619,6 +1645,7 @@
         <image name="DefaultProfilePicture" width="64" height="64"/>
         <image name="Disclosure Indicator" width="8" height="13"/>
         <image name="addPicture" width="145" height="145"/>
+        <image name="background_gradient" width="375" height="667"/>
         <image name="dairy" width="50" height="50"/>
         <image name="empty_guest" width="143" height="143"/>
         <image name="gluten-free" width="50" height="50"/>
@@ -1635,6 +1662,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9JR-VC-mjg"/>
-        <segue reference="Ovt-k8-zB7"/>
+        <segue reference="GUe-rZ-zmH"/>
     </inferredMetricsTieBreakers>
 </document>

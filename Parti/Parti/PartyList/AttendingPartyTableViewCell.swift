@@ -11,7 +11,7 @@ import FirebaseStorage
 
 class AttendingPartyTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var partyPicture: UIImageView!
     @IBOutlet weak var partyName: UILabel!
     @IBOutlet weak var address: UILabel!
     
@@ -21,33 +21,8 @@ class AttendingPartyTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         // create circular mask on image
-        self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.height / 2;
-        self.profilePicture.clipsToBounds = true;
-        
-        getPicture()
-    }
-    
-    func getPicture() {
-        if (profilePicture.image == nil) {
-            // If the user already has a profile picture, load it up!
-            if (partyObject.imageURL != nil) {
-                let url = URL(string: partyObject.imageURL)
-                URLSession.shared.dataTask(with: url!, completionHandler: { (image, response, error) in
-                    if (error != nil) {
-                        print(error)
-                        return
-                    }
-                    DispatchQueue.main.async { // Make sure you're on the main thread here
-                        if let image = UIImage(data: image!) {
-                            self.profilePicture.image = image
-                        }
-                    }
-                }).resume()
-                // otherwise use this temporary image
-            } else {
-                self.profilePicture?.image = #imageLiteral(resourceName: "parti_logo")
-            }
-        }
+        self.partyPicture.layer.cornerRadius = self.partyPicture.frame.size.height / 2;
+        self.partyPicture.clipsToBounds = true;
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

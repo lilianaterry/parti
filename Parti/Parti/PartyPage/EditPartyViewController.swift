@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseAuth
 
 class EditPartyViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -54,7 +55,7 @@ class EditPartyViewController: UIViewController, UIImagePickerControllerDelegate
         // setup this page with the old profile information
         partyImage.image = partyObject.image
         // create circular mask on image
-        self.partyImage.layer.cornerRadius = self.partyImage.frame.size.width / 2
+        self.partyImage.layer.cornerRadius = self.partyImage.frame.size.height / 2
         self.partyImage.clipsToBounds = true
         
         nameField.text = partyObject.name
@@ -183,7 +184,8 @@ class EditPartyViewController: UIViewController, UIImagePickerControllerDelegate
         // add guests to the page
         if (segueID == "updateGuestList") {
             if let destinationVC = segue.destination as? AddGuestsToPartyViewController {
-                destinationVC.partyObject.partyID = partyObject.partyID
+                partyObject.hostID = (Auth.auth().currentUser?.uid)!
+                destinationVC.partyObject = partyObject
             }
         // save entire page 
         } else if (segueID == "savePartySegue") {
