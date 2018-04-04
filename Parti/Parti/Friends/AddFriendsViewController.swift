@@ -38,7 +38,7 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
         profileModel.userID = users[indexPath.row].userID
         cell.nameLabel?.text = users[indexPath.row].name
         cell.profileModel = profileModel
-        cell.newUserButton.tag = indexPath.row;
+
         return cell
     }
     
@@ -60,7 +60,7 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
         // Dispose of any resources that can be recreated.
     }
     
-    
+    // get all the users 
     func populateAllFriendsList() {
         databaseHandle = databaseRef?.child("users").queryOrdered(byChild: "name").observe(.childAdded) { snapshot in
             print(snapshot)

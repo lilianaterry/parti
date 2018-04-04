@@ -9,8 +9,9 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import FirebaseStorage
 
-class CreateFriendListViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
+class CreateFriendListViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate, UITableViewDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -18,6 +19,10 @@ class CreateFriendListViewController: UIViewController, UITableViewDataSource, U
     // Firebase Database connection
     var databaseRef: DatabaseReference!
     var databaseHandle: DatabaseHandle?
+    
+    // Firebase Storage connection
+    var storageRef: StorageReference!
+    var storageHandle: StorageHandle?
     
     var users = [ProfileModel]()
     var filteredUsers = [ProfileModel]()
@@ -28,15 +33,34 @@ class CreateFriendListViewController: UIViewController, UITableViewDataSource, U
         return users.count
     }
     
+    // Add or remove checkmarks from friends
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! AddFriendTableViewCell
+
+        let user = cell.profileModel
+        // if there is a checkmark, remove it
+        // if there is not a checkmark, add one
+        if (cell.accessoryType == UITableViewCellAccessoryType.checkmark) {
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+            let friendID = user?.userID
+            profileObject.friendsList.removeValue(forKey: friendID!)
+        } else if (cell.accessoryType == UITableViewCellAccessoryType.none) {
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+            let friendID = user?.userID
+            profileObject.friendsList[friendID!] = 1
+        } else {
+            print("FAILED TO EXECUTE CHECKMARK")
+        }
+    }
+    
+    // fill in all of the cells with name and picture
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! AddFriendTableViewCell
-        var profileModel = ProfileModel()
-        profileModel.name = users[indexPath.row].name
-        print(profileModel.name)
-        profileModel.userID = users[indexPath.row].userID
+        var profileModel = users[indexPath.row]
+        cell.profilePicture.image = profileModel.image
         cell.nameLabel?.text = users[indexPath.row].name
         cell.profileModel = profileModel
-        cell.newUserButton.tag = indexPath.row;
         return cell
     }
     
@@ -44,9 +68,11 @@ class CreateFriendListViewController: UIViewController, UITableViewDataSource, U
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tableView.dataSource = self
+        tableView.delegate = self
         searchBar.delegate = self
         // set firebase reference
         databaseRef = Database.database().reference()
+        storageRef = Storage.storage().reference()
         // TODO: Fetch friends from Firebase
         populateAllFriendsList()
         
@@ -58,18 +84,52 @@ class CreateFriendListViewController: UIViewController, UITableViewDataSource, U
         // Dispose of any resources that can be recreated.
     }
     
-    
+    // get all users
     func populateAllFriendsList() {
         databaseHandle = databaseRef?.child("users").queryOrdered(byChild: "name").observe(.childAdded) { snapshot in
-            print(snapshot)
             var data = snapshot.value as! [String: Any]
+            print(snapshot.key)
             var user = ProfileModel()
             user.name = data["name"] as! String
             user.userID = snapshot.key
             
-            self.users.append(user)
-            self.tableView.reloadData()
+            self.getPicture(userID: user.userID, user: user)
         }
+    }
+    
+    // get the user's profile picture
+    func getPicture(userID: String, user: ProfileModel) {
+        // get the profile picture for this user
+        databaseHandle = databaseRef?.child("users/\(userID)/imageURL").observe(.value, with: { (snapshot) in
+            if (snapshot.exists()) {
+                
+                // If the user already has a profile picture, load it up!
+                if let imageURL = snapshot.value as? String {
+                    self.profileObject.imageURL = imageURL
+                    let url = URL(string: imageURL)
+                    URLSession.shared.dataTask(with: url!, completionHandler: { (image, response, error) in
+                        if (error != nil) {
+                            print(error)
+                            return
+                        }
+                        DispatchQueue.main.async { // Make sure you're on the main thread here
+                            if let image = UIImage(data: image!) {
+                                user.image = image
+                                
+                                self.users.append(user)
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }).resume()
+                    // otherwise use this temporary image
+                } else {
+                    user.image = #imageLiteral(resourceName: "parti_logo")
+                    
+                    self.users.append(user)
+                    self.tableView.reloadData()
+                }
+            }
+        })
     }
     
     // This method updates filteredData based on the text in the Search Box
@@ -96,25 +156,7 @@ class CreateFriendListViewController: UIViewController, UITableViewDataSource, U
         performSegue(withIdentifier: "cancel", sender: self)
     }
     
-    /* If new user is in the create account flow, the next button saves their added friends
-     instead of immediately updating Firebase */
-    @IBAction func newUserAddButton(_ sender: UIButton) {
-        let button = sender as UIButton;
-        let indexPath = IndexPath(row: button.tag, section: 0)
-        let cell = tableView.cellForRow(at: indexPath)
-        if (cell?.backgroundColor == UIColor.clear) {
-            let friendID = users[button.tag].userID
-            profileObject.friendsList[friendID] = 1
-            cell?.backgroundColor = UIColor.lightGray
-            button.setTitle("-", for: .selected)
-        } else {
-            let friendID = users[button.tag].userID
-            profileObject.friendsList.removeValue(forKey: friendID)
-            cell?.backgroundColor = UIColor.clear
-            button.setTitle("+", for: .normal)
-        }
-    }
-    
+
     @IBAction func nextButton(_ sender: Any) {
         self.performSegue(withIdentifier: "createStepThree", sender: self)
     }

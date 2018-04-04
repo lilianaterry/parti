@@ -235,11 +235,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             // remove value from Firebase
             if (update == -1) {
                 let allergy = allergyList[index]
-                databaseRef.child("users/\(profileObject.userID)/allergyList/\(allergy)").removeValue()
+                databaseRef.child("users/\(profileObject.userID)/allergiesList/\(allergy)").removeValue()
             } else if (update == 1) {
                 // add entry to firebase
                 let allergy = [allergyList[index]: 1] as [String: Any]
-                databaseRef.child("users/\(profileObject.userID)/allergyList/").updateChildValues(allergy)
+                databaseRef.child("users/\(profileObject.userID)/allergiesList/").updateChildValues(allergy)
             }
             
             index += 1

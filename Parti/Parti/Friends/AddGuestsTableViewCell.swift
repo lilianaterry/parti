@@ -14,7 +14,6 @@ class AddGuestsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
-    @IBOutlet weak var newUserButton: UIButton!
     
     var profileModel: ProfileModel!
     // Firebase Database connection
@@ -27,9 +26,9 @@ class AddGuestsTableViewCell: UITableViewCell {
         databaseRef = Database.database().reference()
         self.backgroundColor = UIColor.clear
         
-        newUserButton.setTitle("-", for: .highlighted)
-        newUserButton.setTitle("+", for: .highlighted)
-        
+        // create circular mask on image
+        self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2
+        self.profilePicture.clipsToBounds = true
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -38,18 +37,4 @@ class AddGuestsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    /* update friendship in Firebase */
-    @IBAction func addFriend(_ sender: Any) {
-        let friendUid = profileModel.userID
-        let userID = Auth.auth().currentUser!.uid
-        let friendDict = [friendUid: 1]
-        let userDict = [userID: 1]
-        
-        self.databaseRef.child("users/\(friendUid)/friendsList").updateChildValues(userDict)
-        self.databaseRef.child("users/\(userID)/friendsList").updateChildValues(friendDict)
-    }
-    
-    @IBAction func upvote(_ sender: Any) {
-        
-    }
 }

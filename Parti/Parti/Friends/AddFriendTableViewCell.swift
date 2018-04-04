@@ -14,7 +14,6 @@ class AddFriendTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
-    @IBOutlet weak var newUserButton: UIButton!
     
     var profileModel: ProfileModel!
     // Firebase Database connection
@@ -27,15 +26,15 @@ class AddFriendTableViewCell: UITableViewCell {
         databaseRef = Database.database().reference()
         self.backgroundColor = UIColor.clear
         
-        newUserButton.setTitle("-", for: .selected)
-        newUserButton.setTitle("+", for: .selected)
-
+        // create circular mask on image
+        self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2
+        self.profilePicture.clipsToBounds = true
     }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
         
-        // Configure the view for the selected state
     }
     
     /* update friendship in Firebase */

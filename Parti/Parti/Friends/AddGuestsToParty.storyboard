@@ -48,29 +48,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sep-50-SP6">
-                                                    <rect key="frame" x="314" y="26" width="46" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal">
-                                                        <attributedString key="attributedTitle">
-                                                            <fragment content="+">
-                                                                <attributes>
-                                                                    <font key="NSFont" metaFont="system" size="15"/>
-                                                                </attributes>
-                                                            </fragment>
-                                                        </attributedString>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="addFriend:" destination="C8b-zd-jev" eventType="touchUpInside" id="XXv-9y-pTa"/>
-                                                        <action selector="newUserAddButton:" destination="OFU-kW-a0S" eventType="touchUpInside" id="FIq-YT-xxq"/>
-                                                        <action selector="upvote:" destination="C8b-zd-jev" eventType="touchUpInside" id="VDt-mT-XwF"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="gHf-rS-1IL" id="FsS-MC-AAw"/>
-                                            <outlet property="newUserButton" destination="sep-50-SP6" id="Byg-US-h10"/>
                                             <outlet property="profilePicture" destination="gJI-dg-a0p" id="83N-s2-DvF"/>
                                         </connections>
                                     </tableViewCell>

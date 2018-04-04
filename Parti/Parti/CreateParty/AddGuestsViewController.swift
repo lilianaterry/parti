@@ -36,7 +36,6 @@ class AddGuestsViewController: UIViewController, UITableViewDataSource, UISearch
         profileModel.userID = users[indexPath.row].userID
         cell.nameLabel?.text = users[indexPath.row].name
         cell.profileModel = profileModel
-        cell.newUserButton.tag = indexPath.row;
         return cell
     }
     

@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
+class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate, UITableViewDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var guestTableView: UITableView!
@@ -39,14 +39,32 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
         
         cell.nameLabel?.text = users[indexPath.row].name
         cell.profileModel = profileModel
-        cell.newUserButton.tag = indexPath.row;
         return cell
     }
     
+    // When a user is clicked
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! AddGuestsTableViewCell
+        let user = cell.profileModel
+        // if there is a checkmark, remove it
+        // if there is not a checkmark, add one
+        if (cell.accessoryType == UITableViewCellAccessoryType.checkmark) {
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+            let guestID = user?.userID
+            removeFromParty(userID: guestID!)
+        } else if (cell.accessoryType == UITableViewCellAccessoryType.none) {
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+            let guestID = user?.userID
+            addToParty(userID: guestID!)
+        }
+    }
+    
     override func viewDidLoad() {
+        print("this is the right view")
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         guestTableView.dataSource = self
+        guestTableView.delegate = self
         searchBar.delegate = self
         // set firebase reference
         databaseRef = Database.database().reference()
@@ -61,26 +79,56 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
         // Dispose of any resources that can be recreated.
     }
     
-    
+    // get all users (for now)
     func populateAllFriendsList() {
         databaseHandle = databaseRef?.child("users").queryOrdered(byChild: "name").observe(.childAdded) { snapshot in
             var data = snapshot.value as! [String: Any]
-            print("snapshot:")
-            print(snapshot.key)
-            print("hostID")
-            print(self.partyObject.hostID)
             // show all people that aren't the host
             if (snapshot.key != self.partyObject.hostID) {
                 var user = ProfileModel()
                 user.name = data["name"] as! String
                 user.userID = snapshot.key
                 if let imageURL = data["imageURL"] {
-                    user.imageURL = imageURL as! String
+                    self.getPicture(userID: user.userID, user: user)
                 }
                 self.users.append(user)
                 self.guestTableView.reloadData()
             }
         }
+    }
+    
+    // get the user's profile picture
+    func getPicture(userID: String, user: ProfileModel) {
+        // get the profile picture for this user
+        databaseHandle = databaseRef?.child("users/\(userID)/imageURL").observe(.value, with: { (snapshot) in
+            if (snapshot.exists()) {
+                
+                // If the user already has a profile picture, load it up!
+                if let imageURL = snapshot.value as? String {
+                    let url = URL(string: imageURL)
+                    URLSession.shared.dataTask(with: url!, completionHandler: { (image, response, error) in
+                        if (error != nil) {
+                            print(error)
+                            return
+                        }
+                        DispatchQueue.main.async { // Make sure you're on the main thread here
+                            if let image = UIImage(data: image!) {
+                                user.image = image
+                                
+                                self.users.append(user)
+                                self.guestTableView.reloadData()
+                            }
+                        }
+                    }).resume()
+                    // otherwise use this temporary image
+                } else {
+                    user.image = #imageLiteral(resourceName: "parti_logo")
+                    
+                    self.users.append(user)
+                    self.guestTableView.reloadData()
+                }
+            }
+        })
     }
     
     // This method updates filteredData based on the text in the Search Box
@@ -101,24 +149,6 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
                 self.users.append(user)
                 self.guestTableView.reloadData()
             }
-        }
-    }
-    
-    /* Adds this friend to the guest list ooooh so exclusive */
-    @IBAction func newUserAddButton(_ sender: UIButton) {
-        let button = sender as UIButton;
-        let indexPath = IndexPath(row: button.tag, section: 0)
-        let cell = guestTableView.cellForRow(at: indexPath)
-        if (cell?.backgroundColor == UIColor.clear) {
-            let guestID = users[button.tag].userID
-            cell?.backgroundColor = UIColor.lightGray
-            button.setTitle("-", for: .selected)
-            addToParty(userID: guestID)
-        } else {
-            let guestID = users[button.tag].userID
-            cell?.backgroundColor = UIColor.clear
-            button.setTitle("+", for: .normal)
-            removeFromParty(userID: guestID)
         }
     }
     
