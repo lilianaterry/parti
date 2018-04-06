@@ -16,7 +16,7 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
     
     // Firebase connection
     var databaseRef: DatabaseReference!
-    var databaseHandle:DatabaseHandle?
+    var databaseHandle: DatabaseHandle?
     
     // list of possible food/drink
     var foodList = [String: Int]()

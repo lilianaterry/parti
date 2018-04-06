@@ -66,6 +66,8 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
             return cell
         } else if (indexPath.section == 1) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "partyCell", for: indexPath) as! AttendingPartyTableViewCell
+            print("indexPath: \(indexPath.row)")
+            print("section: \(indexPath.section)")
             currentParty = attendingPartyList[indexPath.row] as PartyModel
             
             cell.partyName.text = currentParty.name
@@ -136,10 +138,11 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     func populateAttendingPartyList() {
         ref?.child("users/\(userID)/attending").observe(.childAdded, with: { (snapshot) in
             if (snapshot.exists()) {
+                print("attending")
                 for child in snapshot.children {
                     let snap = child as! DataSnapshot
                     let partyID = snap.key
-                    self.addParty(partyID: partyID, section: 0)
+                    self.addParty(partyID: partyID, section: 1)
                 }
             }
         }) { (error) in

@@ -36,19 +36,20 @@ class CreateFriendListViewController: UIViewController, UITableViewDataSource, U
     // Add or remove checkmarks from friends
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! AddFriendTableViewCell
+        let cell = tableView.cellForRow(at: indexPath) as! AddFriendTableViewCell
 
         let user = cell.profileModel
+
         // if there is a checkmark, remove it
         // if there is not a checkmark, add one
         if (cell.accessoryType == UITableViewCellAccessoryType.checkmark) {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
-            let friendID = user?.userID
-            profileObject.friendsList.removeValue(forKey: friendID!)
+            let friendID = user.userID
+            profileObject.friendsList.removeValue(forKey: friendID)
         } else if (cell.accessoryType == UITableViewCellAccessoryType.none) {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
-            let friendID = user?.userID
-            profileObject.friendsList[friendID!] = 1
+            let friendID = user.userID
+            profileObject.friendsList[friendID] = 1
         } else {
             print("FAILED TO EXECUTE CHECKMARK")
         }
@@ -56,19 +57,28 @@ class CreateFriendListViewController: UIViewController, UITableViewDataSource, U
     
     // fill in all of the cells with name and picture
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var profileModel: ProfileModel = ProfileModel()
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! AddFriendTableViewCell
-        var profileModel = users[indexPath.row]
+        
+        profileModel = users[indexPath.row]
+        print("profileModel UID: \(profileModel.userID)")
+        
         cell.profilePicture.image = profileModel.image
         cell.nameLabel?.text = users[indexPath.row].name
         cell.profileModel = profileModel
+        cell.profileModel.userID = profileModel.userID
+        cell.testing = true
+        
         return cell
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        tableView.dataSource = self
-        tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
         searchBar.delegate = self
         // set firebase reference
         databaseRef = Database.database().reference()
@@ -88,7 +98,6 @@ class CreateFriendListViewController: UIViewController, UITableViewDataSource, U
     func populateAllFriendsList() {
         databaseHandle = databaseRef?.child("users").queryOrdered(byChild: "name").observe(.childAdded) { snapshot in
             var data = snapshot.value as! [String: Any]
-            print(snapshot.key)
             var user = ProfileModel()
             user.name = data["name"] as! String
             user.userID = snapshot.key
@@ -115,7 +124,7 @@ class CreateFriendListViewController: UIViewController, UITableViewDataSource, U
                         DispatchQueue.main.async { // Make sure you're on the main thread here
                             if let image = UIImage(data: image!) {
                                 user.image = image
-                                
+                                                        
                                 self.users.append(user)
                                 self.tableView.reloadData()
                             }

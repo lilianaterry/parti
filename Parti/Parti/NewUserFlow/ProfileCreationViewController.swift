@@ -46,7 +46,9 @@ class ProfileCreationViewController: UIViewController, UIImagePickerControllerDe
         if (nameText.hasText && usernameText.hasText) {
             profileObject.name = nameText.text!
             profileObject.username = usernameText.text!.lowercased()
-            profileObject.image = profilePicture.image!
+            if (profilePicture.image != nil) {
+                profileObject.image = profilePicture.image!
+            }
             checkUsername(username: (usernameText.text?.lowercased())!)
         }
     }
@@ -139,6 +141,7 @@ class ProfileCreationViewController: UIViewController, UIImagePickerControllerDe
         // if a new image was selected, update Firebase and user's phone
         if let picture = selectedPicture {
             profilePicture.image = picture
+            profileObject.image = picture
         }
         
         // Get rid of image picking screen

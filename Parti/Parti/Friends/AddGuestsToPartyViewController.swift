@@ -44,8 +44,11 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
     
     // When a user is clicked
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! AddGuestsTableViewCell
+        
+        let cell = tableView.cellForRow(at: indexPath) as! AddGuestsTableViewCell
+        
         let user = cell.profileModel
+        
         // if there is a checkmark, remove it
         // if there is not a checkmark, add one
         if (cell.accessoryType == UITableViewCellAccessoryType.checkmark) {
@@ -60,15 +63,15 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
     }
     
     override func viewDidLoad() {
-        print("this is the right view")
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         guestTableView.dataSource = self
         guestTableView.delegate = self
         searchBar.delegate = self
+        
         // set firebase reference
         databaseRef = Database.database().reference()
-        // TODO: Fetch friends from Firebase
+        
         populateAllFriendsList()
         
         filteredUsers = users

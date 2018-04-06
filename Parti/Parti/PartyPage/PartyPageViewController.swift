@@ -39,6 +39,9 @@ class PartyPageViewController: UIViewController, UIImagePickerControllerDelegate
     @IBAction func moreGuests(_ sender: Any) {
         performSegue(withIdentifier: "guestListSegue", sender: self)
     }
+    @IBAction func foodList(_ sender: Any) {
+        performSegue(withIdentifier: "foodListSegue", sender: self)
+    }
     
     var guestButtons = [UIButton]()
     var displayedGuests = [ProfileModel]()
@@ -168,6 +171,10 @@ class PartyPageViewController: UIViewController, UIImagePickerControllerDelegate
                 destinationVC.partyObject.partyID = self.partyObject.partyID
             }
             
+        } else if (segueID == "foodListSegue") {
+            if let destinationVC = segue.destination as? PartyFoodListViewController {
+                destinationVC.partyObject = partyObject
+            }
         }
     }
 

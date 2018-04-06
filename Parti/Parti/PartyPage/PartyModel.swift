@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Firebase
 import UIKit
 
 /* Class pulls all information to populate a party cell or page */

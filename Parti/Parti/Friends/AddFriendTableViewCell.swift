@@ -15,7 +15,9 @@ class AddFriendTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
     
-    var profileModel: ProfileModel!
+    var profileModel = ProfileModel()
+    var testing = false
+    
     // Firebase Database connection
     var databaseRef: DatabaseReference!
     var databaseHandle: DatabaseHandle?
@@ -33,7 +35,6 @@ class AddFriendTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         
     }
     
