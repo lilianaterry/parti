@@ -60,6 +60,9 @@
 		F98083512020E98C00CB91C0 /* PartiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98083502020E98C00CB91C0 /* PartiTests.swift */; };
 		F9A651A8204B9E57007792E6 /* AttendingPartyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A651A7204B9E57007792E6 /* AttendingPartyTableViewCell.swift */; };
 		F9B245C12066EB3D0015F277 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9B245C02066EB3D0015F277 /* Main.storyboard */; };
+		F9BC64C720782D6E0049AEE5 /* HostFoodListView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9BC64C620782D6E0049AEE5 /* HostFoodListView.storyboard */; };
+		F9BC64C920782E310049AEE5 /* HostFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC64C820782E310049AEE5 /* HostFoodViewController.swift */; };
+		F9BC64CB207833870049AEE5 /* HostFoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC64CA207833870049AEE5 /* HostFoodTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +141,9 @@
 		F9A651A5204B9CA0007792E6 /* PartyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyListViewController.swift; sourceTree = "<group>"; };
 		F9A651A7204B9E57007792E6 /* AttendingPartyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendingPartyTableViewCell.swift; sourceTree = "<group>"; };
 		F9B245C02066EB3D0015F277 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F9BC64C620782D6E0049AEE5 /* HostFoodListView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HostFoodListView.storyboard; sourceTree = "<group>"; };
+		F9BC64C820782E310049AEE5 /* HostFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostFoodViewController.swift; sourceTree = "<group>"; };
+		F9BC64CA207833870049AEE5 /* HostFoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostFoodTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +224,9 @@
 				CE6CD6822047092D00BC3DD3 /* FoodListViewController.swift */,
 				CECC3CBC2077B93D009148A6 /* PartyFoodListViewController.swift */,
 				CECC3CBE2077B974009148A6 /* PartyFoodList.storyboard */,
+				F9BC64C620782D6E0049AEE5 /* HostFoodListView.storyboard */,
+				F9BC64C820782E310049AEE5 /* HostFoodViewController.swift */,
+				F9BC64CA207833870049AEE5 /* HostFoodTableViewCell.swift */,
 			);
 			path = FoodList;
 			sourceTree = "<group>";
@@ -440,6 +449,7 @@
 				CE05EA462075A52200886673 /* MusicList.storyboard in Resources */,
 				CEC9303320713938005C13E5 /* EditPartyPage.storyboard in Resources */,
 				CEF18A42204B74F8003071C5 /* SecondMain.storyboard in Resources */,
+				F9BC64C720782D6E0049AEE5 /* HostFoodListView.storyboard in Resources */,
 				CE2281FC206B512A00039578 /* EditProfile.storyboard in Resources */,
 				F90E780F206EB474007C5302 /* ProfileView.storyboard in Resources */,
 				CE05EA44207443FE00886673 /* AddFriends.storyboard in Resources */,
@@ -606,6 +616,7 @@
 				CE1189612051DF8400A0AD49 /* PartyListViewController.swift in Sources */,
 				CE31AB9F205F17ED00171BD1 /* CreatePartyViewController.swift in Sources */,
 				F90E7815206ED4F3007C5302 /* AddGuestsTableViewCell.swift in Sources */,
+				F9BC64C920782E310049AEE5 /* HostFoodViewController.swift in Sources */,
 				CECC3CAE2075AB25009148A6 /* MusicListViewController.swift in Sources */,
 				CEB33EF7205F464400F49918 /* GuestListViewController.swift in Sources */,
 				F90E7811206ECEDB007C5302 /* AddGuestsToPartyViewController.swift in Sources */,
@@ -615,6 +626,7 @@
 				F9620A8C2069CC270099BABA /* HostingPartyTableViewCell.swift in Sources */,
 				CE1C754720631568009A5914 /* ProfileCreationViewController.swift in Sources */,
 				CEAB8B6820644885005AD748 /* AddFriendTableViewCell.swift in Sources */,
+				F9BC64CB207833870049AEE5 /* HostFoodTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

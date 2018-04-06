@@ -7,13 +7,61 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
-class HostFoodViewController: ViewController {
-
+class HostFoodViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var foodTableView: UITableView!
+    @IBOutlet weak var tableViewCell: UITableViewCell!
+    
+    var foodList = [String: Int]()
+    var guestList = [String]()
+    
+    var partyObject: PartyModel = PartyModel()
+    
+    // Firebase connection
+    var databaseRef: DatabaseReference!
+    var databaseHandle: DatabaseHandle?
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return foodList.count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "partyFoodCell", for: indexPath) as! HostFoodTableViewCell
+        
+        cell.countLabel.text = ""
+        cell.foodLabel.text = ""
+        
+        
+        return cell
+        // Query for all users in party
+        // function for uid, query for that uid foodList
+    }
+    
+    //
+    func queryForUsers() {
+        databaseRef?.child("parties/\(partyObject.partyID)/guests").observeSingleEvent(of: .value, with: { (snapshot) in
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                var guestID = snap.key
+                
+                self.guestList.append(guestID)
+            }
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        foodTableView.delegate = self
+        foodTableView.dataSource = self
         // Do any additional setup after loading the view.
+        
+        databaseRef = Database.database().reference()
+        
+        queryForUsers()
     }
 
     override func didReceiveMemoryWarning() {
