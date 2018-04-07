@@ -102,7 +102,5 @@ class PartyFoodListViewController: UIViewController, UITableViewDelegate, UITabl
             }
         }
     }
-
-    
 }
 

@@ -75,7 +75,6 @@ class GuestListViewController: UIViewController, UITableViewDelegate, UITableVie
      Firebase and add parties to partyList */
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("did load")
 
         self.guestTableView.dataSource = self
         self.guestTableView.delegate = self
@@ -96,7 +95,6 @@ class GuestListViewController: UIViewController, UITableViewDelegate, UITableVie
     /* Creates an instance of the PartyModel class and fills in all relevant information
      from Firebase query. Adds the PartyModel to partyList and reloads View */
     func populateGuestTable() {
-        print("in populate guest table")
         databaseHandle = ref?.child("parties/\(self.partyObject.partyID)/guests").observe(.childAdded, with: { (snapshot) in
             
             let userID = snapshot.key
@@ -111,7 +109,6 @@ class GuestListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func getGuestInfo(userID: String) {
         databaseHandle = ref?.child("users/\(userID)").observe(.value, with: { (snapshot) in
-            print("POPULATE PROFILE PAGE")
             let data = snapshot.value as! [String: Any]
             
             var guest = ProfileModel()

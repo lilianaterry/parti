@@ -35,9 +35,6 @@ class PartyHostViewController: ViewController {
     @IBOutlet weak var guest2: UIButton!
     @IBOutlet weak var guest3: UIButton!
     @IBOutlet weak var guest4: UIButton!
-    @IBOutlet weak var guest5: UIButton!
-    @IBOutlet weak var guest6: UIButton!
-    @IBOutlet weak var guest7: UIButton!
     @IBAction func addGuests(_ sender: Any) {
         performSegue(withIdentifier: "guestListSegue", sender: self)
     }
@@ -71,7 +68,7 @@ class PartyHostViewController: ViewController {
         allergyImages = [nutButton, glutenButton, vegetarianButton, milkButton, veganButton]
         allergyLabels = [nutsLabel, glutenLabel, vegetarianLabel, milkLabel, veganLabel]
         
-        guestButtons = [guest1, guest2, guest3, guest4, guest5, guest6]
+        guestButtons = [guest1, guest2, guest3, guest4]
 
         setupAllergyIcons()
         setupGuestButtons()
@@ -84,6 +81,8 @@ class PartyHostViewController: ViewController {
         addressLabel.text = partyObject.address
         attireLabel.text = partyObject.attire
         dateLabel.text = partyObject.date
+        
+        setupUX()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -92,6 +91,20 @@ class PartyHostViewController: ViewController {
         addressLabel.text = partyObject.address
         attireLabel.text = partyObject.attire
         dateLabel.text = partyObject.date
+        
+        setupUX()
+    }
+    
+    func setupUX() {
+        // overlay on banner picture
+        let overlay: UIView = UIView(frame: CGRect(x: 0, y: 0, width: partyImage.frame.size.width, height: partyImage.frame.size.height))
+        overlay.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.1)
+        partyImage.addSubview(overlay)
+        
+        // add drop shadow to text on banner image
+        nameLabel.textDropShadow()
+        attireLabel.textDropShadow()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -124,10 +137,6 @@ class PartyHostViewController: ViewController {
         guest2.tag = 1
         guest3.tag = 2
         guest4.tag = 3
-        guest4.tag = 4
-        guest5.tag = 5
-        guest6.tag = 6
-        guest7.tag = 7
     }
     
     /* iterates over all guests invited to the party to populate profile objects and get allergies */
@@ -152,8 +161,6 @@ class PartyHostViewController: ViewController {
             newUser.userID = userID
             if (snapshot.exists()) {
                 let data = snapshot.value as! [String: Any]
-                print("got user info")
-                print(data)
                 
                 // If the user already has a profile picture, load it up!
                 if let imageURL = data["imageURL"] as? String {

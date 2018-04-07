@@ -32,7 +32,6 @@ class AddGuestsViewController: UIViewController, UITableViewDataSource, UISearch
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! AddFriendTableViewCell
         var profileModel = ProfileModel()
         profileModel.name = users[indexPath.row].name
-        print(profileModel.name)
         profileModel.userID = users[indexPath.row].userID
         cell.nameLabel?.text = users[indexPath.row].name
         cell.profileModel = profileModel
@@ -66,7 +65,6 @@ class AddGuestsViewController: UIViewController, UITableViewDataSource, UISearch
             var user = ProfileModel()
             user.name = data["name"] as! String
             user.userID = snapshot.key
-            print(user.userID)
             user.imageURL = data["imageURL"] as! String
             user.username = data["username"] as! String
             

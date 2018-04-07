@@ -80,7 +80,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 print("ERROR: Firebase authentication failed")
                 return
             } else {
-                print("Google login success!")
                 print(user!.uid)
             }
         }

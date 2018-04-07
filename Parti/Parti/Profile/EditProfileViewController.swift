@@ -48,7 +48,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
      Firebase and fetch this user's information */
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("IN VIEW DID LOAD")
         
         // set firebase references
         databaseRef = Database.database().reference()
@@ -189,7 +188,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 }
                 
                 // update user's profile URL in Firebase Database
-                print("Updating User's URL in Database")
                 let imageURL = metadata?.downloadURL()?.absoluteString
                 self.databaseRef.child("users/\(self.profileObject.userID)/imageURL").setValue(imageURL)
             })
@@ -254,7 +252,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     /* when user clicks save, THEN update all of their information to firebase */
     @IBAction func saveProfileButton(_ sender: Any) {
         updateUserInfo()
-        print("about to segue")
         self.performSegue(withIdentifier: "saveProfile", sender: self)
     }
     
@@ -265,9 +262,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         // Add Friend List Page
         if (segueID == "saveProfile") {
-            print("arrived here")
             if let destinationVC = segue.destination as? ProfileViewController {
-                print("saved picture")
                 destinationVC.profilePicture.image = profileImage.image
             }
         }

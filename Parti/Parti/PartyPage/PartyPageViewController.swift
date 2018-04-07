@@ -27,11 +27,27 @@ class PartyPageViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var attireLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
-    @IBOutlet weak var guest1: UIButton!
-    @IBOutlet weak var guest2: UIButton!
-    @IBOutlet weak var guest3: UIButton!
-    @IBOutlet weak var guest4: UIButton!
+    @IBOutlet weak var goingButton: UIButton!
+    @IBAction func goingButton(_ sender: Any) {
+        goingButton.isSelected = true
+        notGoingButton.isSelected = false
+        maybeButton.isSelected = false
+    }
+    @IBOutlet weak var notGoingButton: UIButton!
+    @IBAction func notGoingButton(_ sender: Any) {
+        goingButton.isSelected = false
+        notGoingButton.isSelected = true
+        maybeButton.isSelected = false
+    }
+    @IBOutlet weak var maybeButton: UIButton!
+    @IBAction func maybeButton(_ sender: Any) {
+        goingButton.isSelected = false
+        notGoingButton.isSelected = false
+        maybeButton.isSelected = true
+    }
+    
     @IBOutlet weak var guest5: UIButton!
     @IBOutlet weak var guest6: UIButton!
     @IBOutlet weak var guest7: UIButton!
@@ -61,25 +77,53 @@ class PartyPageViewController: UIViewController, UIImagePickerControllerDelegate
         dateLabel.text = partyObject.date
         attireLabel.text = partyObject.attire
         
-        guestButtons = [guest1, guest2, guest3, guest4, guest5, guest6]
+        
+        guestButtons = [guest5, guest6, guest7]
         
         setupGuestButtons()
+        setupUX()
         
         // Do any additional setup after loading the view.
         getGuests()
 
     }
     
+    // sets up borders and colors for buttons and other items
+    func setupUX() {
+        // overlay on banner picture
+        let overlay: UIView = UIView(frame: CGRect(x: 0, y: 0, width: partyImage.frame.size.width, height: partyImage.frame.size.height))
+        overlay.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.1)
+        partyImage.addSubview(overlay)
+        
+        // buttons user clicks if they are attending
+        let color = UIColor(hex: "55efc4")
+        goingButton.setBackgroundColor(color, for: .selected)
+        goingButton.adjustsImageWhenHighlighted = false
+        notGoingButton.setBackgroundColor(color, for: .selected)
+        notGoingButton.adjustsImageWhenHighlighted = false
+        maybeButton.setBackgroundColor(color, for: .selected)
+        maybeButton.adjustsImageWhenHighlighted = false
+        
+        // add drop shadow to text on banner image
+        nameLabel.textDropShadow()
+        attireLabel.textDropShadow()
+
+    }
+    
     /* makes buttons iterable and now we can tell which profile to go to */
     func setupGuestButtons() {
-        guest1.tag = 0
-        guest2.tag = 1
-        guest3.tag = 2
-        guest4.tag = 3
-        guest4.tag = 4
-        guest5.tag = 5
-        guest6.tag = 6
-        guest7.tag = 7
+        guest5.tag = 0
+        
+        guest5.imageView?.layer.cornerRadius = (guest5.imageView?.frame.size.width)! / 2
+        guest5.imageView?.clipsToBounds = true
+        
+        guest6.tag = 1
+        guest6.imageView?.layer.cornerRadius = (guest6.imageView?.frame.size.width)! / 2
+        guest6.imageView?.clipsToBounds = true
+        
+        guest7.tag = 2
+        guest7.imageView?.layer.cornerRadius = (guest7.imageView?.frame.size.width)! / 2
+        guest7.imageView?.clipsToBounds = true
     }
     
     /* iterates over all guests invited to the party to populate profile objects and get allergies */
@@ -178,4 +222,62 @@ class PartyPageViewController: UIViewController, UIImagePickerControllerDelegate
         }
     }
 
+}
+
+// allows you to change background color of button
+extension UIButton {
+    private func imageWithColor(color: UIColor) -> UIImage? {
+        let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        
+        context?.setFillColor(color.cgColor)
+        context?.fill(rect)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
+    
+    func setBackgroundColor(_ color: UIColor, for state: UIControlState) {
+        self.setBackgroundImage(imageWithColor(color: color), for: state)
+    }
+}
+
+// allows you to get a color object from a hex number
+extension UIColor {
+    convenience init(hex: String) {
+        let scanner = Scanner(string: hex)
+        scanner.scanLocation = 0
+        
+        var rgbValue: UInt64 = 0
+        
+        scanner.scanHexInt64(&rgbValue)
+        
+        let r = (rgbValue & 0xff0000) >> 16
+        let g = (rgbValue & 0xff00) >> 8
+        let b = rgbValue & 0xff
+        
+        self.init(
+            red: CGFloat(r) / 0xff,
+            green: CGFloat(g) / 0xff,
+            blue: CGFloat(b) / 0xff, alpha: 1
+        )
+    }
+}
+
+extension UILabel {
+    func textDropShadow() {
+        self.layer.masksToBounds = false
+        self.layer.shadowRadius = 2.0
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowOffset = CGSize(width: 1, height: 2)
+    }
+    
+    static func createCustomLabel() -> UILabel {
+        let label = UILabel()
+        label.textDropShadow()
+        return label
+    }
 }

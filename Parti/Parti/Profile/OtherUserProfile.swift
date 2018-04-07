@@ -106,7 +106,6 @@ class OtherUserProfile: UIViewController {
      from Firebase query. Sets the global PartyObject to this filled-in object */
     func populateProfilePage() {
         databaseHandle = databaseRef?.child("users/\(profileObject.userID)").observe(.value, with: { (snapshot) in
-            print("POPULATE PROFILE PAGE")
             if (snapshot.exists()) {
                 let data = snapshot.value as! [String: Any]
                 
@@ -119,7 +118,6 @@ class OtherUserProfile: UIViewController {
                             print(error)
                             return
                         }
-                        print("about to save!!! fingers crossed!")
                         DispatchQueue.main.async { // Make sure you're on the main thread here
                             self.profilePicture?.image = UIImage(data: image!)
                             self.profileObject.image = UIImage(data: image!)!
@@ -146,12 +144,10 @@ class OtherUserProfile: UIViewController {
                 }
                 
                 if let allergies = data["allergyList"] {
-                    print(allergies)
                     let userAllergies = allergies as! [String: Any]
                     
                     for allergy in userAllergies.keys {
                         let indexOfAllergy = self.allergyList.index(of: allergy)
-                        print("Allergy: \(allergy) Index: \(indexOfAllergy)")
                         self.allergyImages[indexOfAllergy!].isSelected = true
                         self.profileObject.allergiesList[allergy] = 1
                     }

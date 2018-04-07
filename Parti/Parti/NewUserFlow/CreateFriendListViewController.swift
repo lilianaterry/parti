@@ -63,7 +63,6 @@ class CreateFriendListViewController: UIViewController, UITableViewDataSource, U
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! AddFriendTableViewCell
         
         profileModel = users[indexPath.row]
-        print("profileModel UID: \(profileModel.userID)")
         
         cell.profilePicture.image = profileModel.image
         cell.nameLabel?.text = users[indexPath.row].name

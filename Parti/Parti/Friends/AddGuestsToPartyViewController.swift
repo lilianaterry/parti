@@ -23,7 +23,6 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
     var databaseHandle: DatabaseHandle?
     
     var users = [ProfileModel]()
-    var filteredUsers = [ProfileModel]()
     
     var partyObject = PartyModel()
     
@@ -73,8 +72,6 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
         databaseRef = Database.database().reference()
         
         populateAllFriendsList()
-        
-        filteredUsers = users
     }
     
     override func didReceiveMemoryWarning() {
@@ -94,8 +91,6 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
                 if let imageURL = data["imageURL"] {
                     self.getPicture(userID: user.userID, user: user)
                 }
-                self.users.append(user)
-                self.guestTableView.reloadData()
             }
         }
     }
@@ -141,8 +136,6 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
             
             var data = snapshot.value as! [String: Any]
             // show all people that aren't the host
-            print("host:")
-            print(self.partyObject.hostID)
             if (snapshot.key != self.partyObject.hostID) {
                 var user = ProfileModel()
                 user.name = data["name"] as! String

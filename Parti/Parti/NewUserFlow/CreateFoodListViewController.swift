@@ -51,7 +51,6 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
     // Add or remove checkmarks from food items
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        print ("Reached checkmark method ")
         // if there is a checkmark, remove it
         // if there is not a checkmark, add one
         if (cell?.accessoryType == UITableViewCellAccessoryType.checkmark) {
@@ -69,14 +68,12 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
     func addItem(index: Int) {
         let item = foodList[index]
         profileObject.foodList[item] = 1
-        print(profileObject.foodList)
     }
     
     // remove item from user's food list so it won't be uploaded to firebase
     func removeItem(index: Int) {
         let item = foodList[index]
         profileObject.foodList.removeValue(forKey: item)
-        print(profileObject.foodList)
     }
     
     override func viewDidLoad() {

@@ -125,10 +125,10 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     /* Goes through each party a user is hosting and adds the party object to the list */
     func populateHostingPartyList() {
         ref?.child("users/\(userID)/hosting").observe(.childAdded, with: { (snapshot) in
-
-            let partyID = snapshot.key
-            self.addParty(partyID: partyID, section: 0)
-            
+            if (snapshot.exists()) {
+                let partyID = snapshot.key
+                self.addParty(partyID: partyID, section: 0)
+            }
         }) { (error) in
             print(error.localizedDescription)
         }
@@ -138,12 +138,9 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     func populateAttendingPartyList() {
         ref?.child("users/\(userID)/attending").observe(.childAdded, with: { (snapshot) in
             if (snapshot.exists()) {
-                print("attending")
-                for child in snapshot.children {
-                    let snap = child as! DataSnapshot
-                    let partyID = snap.key
-                    self.addParty(partyID: partyID, section: 1)
-                }
+                print(snapshot.key)
+                let partyID = snapshot.key
+                self.addParty(partyID: partyID, section: 1)
             }
         }) { (error) in
             print(error.localizedDescription)
@@ -154,7 +151,7 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
         from Firebase query. Adds the PartyModel to partyList and reloads View */
     func addParty(partyID: String, section: Int) {
         ref?.child("parties/\(partyID)").observeSingleEvent(of: .value, with: { (snapshot) in
-
+            print("adding party to section: \(section)")
             let data = snapshot.value as! [String: Any]
             
             let partyObject = PartyModel()
@@ -175,7 +172,6 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             if let image = data["imageURL"] {
                 partyObject.imageURL = image as! String
-                print(image)
             }
             
             // If the user already has a profile picture, load it up!

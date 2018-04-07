@@ -54,9 +54,6 @@ class EditPartyViewController: UIViewController, UIImagePickerControllerDelegate
         
         // setup this page with the old profile information
         partyImage.image = partyObject.image
-        // create circular mask on image
-        self.partyImage.layer.cornerRadius = self.partyImage.frame.size.height / 2
-        self.partyImage.clipsToBounds = true
         
         nameField.text = partyObject.name
         addressField.text = partyObject.address

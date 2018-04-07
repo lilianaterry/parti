@@ -162,7 +162,6 @@ class ProfileCreationViewController: UIViewController, UIImagePickerControllerDe
     @IBAction func cancelRegistration(_ sender: Any) {
         let user = Auth.auth().currentUser
         user?.delete()
-        print("did Click")
         self.performSegue(withIdentifier: "cancel", sender: self)
     }
     

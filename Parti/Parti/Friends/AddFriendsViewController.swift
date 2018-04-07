@@ -23,7 +23,6 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
     var databaseHandle: DatabaseHandle?
     
     var users = [ProfileModel]()
-    var filteredUsers = [ProfileModel]()
     
     var profileObject = ProfileModel()
     
@@ -51,8 +50,6 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
         databaseRef = Database.database().reference()
         // TODO: Fetch friends from Firebase
         populateAllFriendsList()
-        
-        filteredUsers = users
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,7 +60,6 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
     // get all the users 
     func populateAllFriendsList() {
         databaseHandle = databaseRef?.child("users").queryOrdered(byChild: "name").observe(.childAdded) { snapshot in
-            print(snapshot)
             var data = snapshot.value as! [String: Any]
             var user = ProfileModel()
             user.name = data["name"] as! String

@@ -143,7 +143,6 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
     // *********** QUERY FIREBASE ***********
     
     func updateFirebaseStorage() {
-        print("Updating image in firebase storage")
         let imageRef = storageRef.child("partyPictures/\(self.partyObject.partyID)")
         
         if let uploadData = UIImageJPEGRepresentation(partyImage.image!, 0.1) {
