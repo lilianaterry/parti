@@ -98,7 +98,8 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
         
 
         
-        //setupPartyImage()
+        setupPartyImage()
+        setupUX()
     }
     
     func setupUX() {
