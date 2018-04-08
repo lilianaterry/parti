@@ -59,7 +59,7 @@ class EditPartyViewController: UIViewController, UIImagePickerControllerDelegate
         addressField.text = partyObject.address
         attireField.text = partyObject.attire
         
-        dateTime.date = getDate(date: partyObject.date)
+        //dateTime.date = getDate(date: partyObject.date)
     }
     
     // *********** LET USER SELECT PROFILE IMAGE ***********
@@ -166,7 +166,7 @@ class EditPartyViewController: UIViewController, UIImagePickerControllerDelegate
         
         let date = formatDate()
         databaseRef.child("parties/\(partyObject.partyID)/date").setValue(date)
-        partyObject.date = date
+        //partyObject.date = date
 
         // update picture
         if (imageDidChange) {

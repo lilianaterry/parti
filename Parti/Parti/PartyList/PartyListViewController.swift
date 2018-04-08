@@ -157,7 +157,7 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
             let partyObject = PartyModel()
             
             partyObject.attire = data["attire"] as! String
-            partyObject.date = data["date"] as! String
+            //partyObject.date = data["date"] as! String
             partyObject.hostID = data["hostID"] as! String
             partyObject.name = data["name"] as! String
             partyObject.address = data["address"] as! String
@@ -187,9 +187,13 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
                             partyObject.image = image
                             
                             if (section == 0) {
-                                self.hostingPartyList.append(partyObject)
+                                if self.hostingPartyList.index(where: {$0.date > partyObject.date }) != nil {
+                                    self.hostingPartyList.append(partyObject)
+                                }
                             } else if (section == 1) {
-                                self.attendingPartyList.append(partyObject)
+                                if self.attendingPartyList.index(where: {$0.date > partyObject.date }) != nil {
+                                    self.attendingPartyList.append(partyObject)
+                                }
                             }
                             
                             self.partyTableView.reloadData()
@@ -201,9 +205,15 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
                 partyObject.image = #imageLiteral(resourceName: "parti_logo")
                 
                 if (section == 0) {
-                    self.hostingPartyList.append(partyObject)
+                    if self.hostingPartyList.index(where: {$0.date > partyObject.date }) != nil {
+                        self.hostingPartyList.append(partyObject)
+                    }
+                    //self.hostingPartyList.sort(by: { $0.date > $1.date })
                 } else if (section == 1) {
-                    self.attendingPartyList.append(partyObject)
+                    if self.attendingPartyList.index(where: {$0.date > partyObject.date }) != nil {
+                        self.attendingPartyList.append(partyObject)
+                    }
+                    //self.attendingPartyList.sort(by: { $0.date > $1.date })
                 }
                 
                 self.partyTableView.reloadData()

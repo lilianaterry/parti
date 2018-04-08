@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseAuth
 
 class PartyPageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -34,18 +35,30 @@ class PartyPageViewController: UIViewController, UIImagePickerControllerDelegate
         goingButton.isSelected = true
         notGoingButton.isSelected = false
         maybeButton.isSelected = false
+        
+        // Set firebase value equal to 1
+        let userID = Auth.auth().currentUser!.uid
+        databaseRef.child("users/\(userID)/attending/\(partyObject.partyID)").setValue(1)
     }
     @IBOutlet weak var notGoingButton: UIButton!
     @IBAction func notGoingButton(_ sender: Any) {
         goingButton.isSelected = false
         notGoingButton.isSelected = true
         maybeButton.isSelected = false
+        
+        // Set firebase value equal to -1
+        let userID = Auth.auth().currentUser!.uid
+        databaseRef.child("users/\(userID)/attending/\(partyObject.partyID)").setValue(-1)
     }
     @IBOutlet weak var maybeButton: UIButton!
     @IBAction func maybeButton(_ sender: Any) {
         goingButton.isSelected = false
         notGoingButton.isSelected = false
         maybeButton.isSelected = true
+        
+        // Set firebase value equal to 0
+        let userID = Auth.auth().currentUser!.uid
+        databaseRef.child("users/\(userID)/attending/\(partyObject.partyID)").setValue(0)
     }
     
     @IBOutlet weak var guest5: UIButton!
@@ -74,7 +87,7 @@ class PartyPageViewController: UIViewController, UIImagePickerControllerDelegate
         partyImage.image = partyObject.image
         nameLabel.text = partyObject.name
         addressLabel.text = partyObject.address
-        dateLabel.text = partyObject.date
+        //dateLabel.text = partyObject.date
         attireLabel.text = partyObject.attire
         
         
@@ -128,21 +141,19 @@ class PartyPageViewController: UIViewController, UIImagePickerControllerDelegate
     
     /* iterates over all guests invited to the party to populate profile objects and get allergies */
     func getGuests() {
-        databaseRef.child("parties/\(partyObject.partyID)/guests").observeSingleEvent(of: .value) { (snapshot) in
+        databaseRef.child("parties/\(partyObject.partyID)/guests").observe(.childAdded) { (snapshot) in
             if snapshot.exists() {
-                for child in snapshot.children {
-                    let snap = child as! DataSnapshot
-                    let userID = snap.key
-                    
-                    self.queryGuestInfo(userID: userID)
-                }
+                //let snap = snapshot as! DataSnapshot
+                let userID = snapshot.key
+                
+                self.queryGuestInfo(userID: userID)
             }
         }
     }
     
     /* Get all of the allergy information, name, userID, etc  */
     func queryGuestInfo(userID: String) {
-        databaseRef.child("users/\(userID)").observe(.value) { (snapshot) in
+        databaseRef.child("users/\(userID)").observeSingleEvent(of: .value) { (snapshot) in
             // add all user information to the profile model object
             let newUser = ProfileModel()
             newUser.userID = userID
