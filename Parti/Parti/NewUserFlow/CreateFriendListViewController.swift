@@ -24,6 +24,7 @@ class CreateFriendListViewController: UIViewController, UITableViewDataSource, U
     var storageRef: StorageReference!
     var storageHandle: StorageHandle?
     
+    var nameToModel = [String: ProfileModel]()
     var users = [ProfileModel]()
     var filteredUsers = [ProfileModel]()
     
@@ -99,6 +100,7 @@ class CreateFriendListViewController: UIViewController, UITableViewDataSource, U
             var data = snapshot.value as! [String: Any]
             var user = ProfileModel()
             user.name = data["name"] as! String
+            self.nameToModel[user.name] = user
             user.userID = snapshot.key
             
             self.getPicture(userID: user.userID, user: user)
@@ -142,16 +144,27 @@ class CreateFriendListViewController: UIViewController, UITableViewDataSource, U
     
     // This method updates filteredData based on the text in the Search Box
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        databaseHandle = databaseRef?.child("users").queryOrdered(byChild: "name").queryEqual(toValue: searchText).observe(.childAdded)
-        { snapshot in
-            
-            var data = snapshot.value as! [String: Any]
-            var user = ProfileModel()
-            user.name = data["name"] as! String
-            user.userID = snapshot.key
-            
+        //        databaseHandle = databaseRef?.child("users").queryOrdered(byChild: "name").queryEqual(toValue: searchText).observe(.childAdded)
+        //        { snapshot in
+        //
+        //            var data = snapshot.value as! [String: Any]
+        //            var user = ProfileModel()
+        //            user.name = data["name"] as! String
+        //            user.userID = snapshot.key
+        //
+        //            self.users.removeAll()
+        //            self.users.append(user)
+        //            self.tableView.reloadData()
+        //        }
+        if (searchText == "") {
             self.users.removeAll()
-            self.users.append(user)
+            populateAllFriendsList()
+        }
+        
+        if (nameToModel[searchText] != nil) {
+            let user = nameToModel[searchText]
+            self.users.removeAll()
+            self.users.append(user!)
             self.tableView.reloadData()
         }
     }
