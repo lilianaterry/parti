@@ -283,8 +283,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3d5-dk-ogf">
-                                <rect key="frame" x="158" y="686" width="59" height="80"/>
-                                <state key="normal" title="Let's go!"/>
+                                <rect key="frame" x="137" y="686" width="100" height="80"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="17"/>
+                                <state key="normal" title="Let's go!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="uploadUser:" destination="Cg6-9b-17v" eventType="touchUpInside" id="1Bh-rQ-haU"/>
                                     <segue destination="4DP-33-3bD" kind="show" identifier="registrationComplete" animates="NO" id="EYp-b3-uRZ"/>

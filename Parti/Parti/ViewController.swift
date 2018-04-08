@@ -57,7 +57,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var googleSignInButton: GIDSignInButton!
     let application = UIApplication.shared
     
-    var movedUp = false
+    var movedUp = 0 as CGFloat
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,22 +68,31 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
+    // moves main stackframe up when keyboard appears
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if mainStack.frame.origin.y >= 0 {
-                print("moving up")
-                mainStack.frame.origin.y -= keyboardSize.height
                 
-                movedUp = true
+                var marginBelow = self.view.frame.height - (mainStack.frame.origin.y + mainStack.frame.height)
+                let roomNeeded = keyboardSize.height - marginBelow
+                
+                if (roomNeeded > 0) {
+                    print("moving up")
+                    mainStack.frame.origin.y -= roomNeeded
+                    movedUp = roomNeeded
+                }
+
             }
         }
     }
     
+    // moves main stackframe back down when keyboard disappears 
     @objc func keyboardWillHide(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if (movedUp) {
+            if (movedUp != 0) {
                 print("moving down")
-                mainStack.frame.origin.y += keyboardSize.height
+                mainStack.frame.origin.y += movedUp
+                movedUp = 0
             }
         }
     }
