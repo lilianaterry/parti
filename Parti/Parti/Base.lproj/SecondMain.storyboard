@@ -70,36 +70,40 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FM5-cw-Fac">
+                                                    <rect key="frame" x="15" y="12" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="UIh-fy-G77"/>
+                                                        <constraint firstAttribute="width" constant="60" id="iJJ-NH-UqG"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pk-mJ-CJa">
-                                                    <rect key="frame" x="95" y="33" width="265" height="20"/>
+                                                    <rect key="frame" x="83" y="32" width="277" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="277" id="rhI-dy-6Ks"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="9cX-I9-zIB">
-                                                    <rect key="frame" x="15" y="10" width="64" height="64"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="9cX-I9-zIB" secondAttribute="height" multiplier="1:1" id="9su-Pq-CRU"/>
-                                                    </constraints>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="9cX-I9-zIB" firstAttribute="leading" secondItem="brF-6I-AT7" secondAttribute="leadingMargin" id="6p1-wq-pm1"/>
-                                                <constraint firstItem="5pk-mJ-CJa" firstAttribute="trailing" secondItem="brF-6I-AT7" secondAttribute="trailingMargin" id="GR4-ey-sa4"/>
-                                                <constraint firstItem="5pk-mJ-CJa" firstAttribute="centerY" secondItem="brF-6I-AT7" secondAttribute="centerY" id="aLx-Dc-T9L"/>
-                                                <constraint firstItem="5pk-mJ-CJa" firstAttribute="leading" secondItem="9cX-I9-zIB" secondAttribute="trailing" constant="16" id="aiW-PG-Drz"/>
-                                                <constraint firstItem="9cX-I9-zIB" firstAttribute="centerY" secondItem="brF-6I-AT7" secondAttribute="centerY" id="dqa-Kk-7NP"/>
+                                                <constraint firstItem="FM5-cw-Fac" firstAttribute="leading" secondItem="brF-6I-AT7" secondAttribute="leadingMargin" id="ALH-ty-0Un"/>
+                                                <constraint firstItem="FM5-cw-Fac" firstAttribute="centerY" secondItem="brF-6I-AT7" secondAttribute="centerY" id="HZ6-CD-RNM"/>
+                                                <constraint firstItem="5pk-mJ-CJa" firstAttribute="centerY" secondItem="brF-6I-AT7" secondAttribute="centerY" id="d6v-r8-t19"/>
+                                                <constraint firstItem="5pk-mJ-CJa" firstAttribute="leading" secondItem="FM5-cw-Fac" secondAttribute="trailing" constant="8" id="yCn-Lx-oEI"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="5pk-mJ-CJa" id="PLG-X7-ZGJ"/>
-                                            <outlet property="profilePicture" destination="9cX-I9-zIB" id="uXl-R1-wzo"/>
+                                            <outlet property="profilePicture" destination="FM5-cw-Fac" id="eSn-g6-VaP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hz4-Uh-pkO">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Hz4-Uh-pkO">
                                 <rect key="frame" x="0.0" y="170" width="375" height="56"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add some friends to get this party started!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7t0-cR-IoV">
@@ -1748,7 +1752,7 @@
         <image name="vegetarian" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yW4-ie-5Dy"/>
+        <segue reference="9JR-VC-mjg"/>
         <segue reference="GUe-rZ-zmH"/>
     </inferredMetricsTieBreakers>
 </document>

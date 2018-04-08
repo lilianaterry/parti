@@ -51,17 +51,41 @@ import MediaPlayer
 class ViewController: UIViewController, GIDSignInUIDelegate {
     
     // MARK: Properties
+    @IBOutlet weak var mainStack: UIStackView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var googleSignInButton: GIDSignInButton!
     let application = UIApplication.shared
+    
+    var movedUp = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         GIDSignIn.sharedInstance().uiDelegate = self
         
-
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if mainStack.frame.origin.y >= 0 {
+                print("moving up")
+                mainStack.frame.origin.y -= keyboardSize.height
+                
+                movedUp = true
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if (movedUp) {
+                print("moving down")
+                mainStack.frame.origin.y += keyboardSize.height
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
