@@ -7,13 +7,19 @@
 //
 
 import UIKit
-import FirebaseStorage
+import FirebaseAuth
+import FirebaseDatabase
 
 class AttendingPartyTableViewCell: UITableViewCell {
 
     @IBOutlet weak var partyPicture: UIImageView!
     @IBOutlet weak var partyName: UILabel!
     @IBOutlet weak var address: UILabel!
+    @IBOutlet weak var attendingStatus: UIImageView!
+    
+    // Firebase connection
+    var ref: DatabaseReference!
+    var databaseHandle: DatabaseHandle?
     
     var partyObject = PartyModel()
     
@@ -21,17 +27,15 @@ class AttendingPartyTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         // create circular mask on image
-        self.partyPicture.layer.cornerRadius = self.partyPicture.frame.size.height / 2;
-        self.partyPicture.clipsToBounds = true;
+        self.partyPicture.layer.cornerRadius = self.partyPicture.frame.size.width / 2
+        self.partyPicture.clipsToBounds = true
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
-
-    @IBAction func foodDrinkOnClick(_ sender: Any) {
     }
     
 }

@@ -66,14 +66,29 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
             return cell
         } else if (indexPath.section == 1) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "partyCell", for: indexPath) as! AttendingPartyTableViewCell
-            print("indexPath: \(indexPath.row)")
-            print("section: \(indexPath.section)")
+
             currentParty = attendingPartyList[indexPath.row] as PartyModel
             
             cell.partyName.text = currentParty.name
             cell.address.text = currentParty.address
             cell.partyObject = currentParty
             cell.partyPicture.image = currentParty.image
+            
+            ref.child("users/\(userID)/attending/\(cell.partyObject.partyID)").observe(.value, with: { (snapshot) in
+                if (snapshot.exists()) {
+                    
+                    let value = snapshot.value as! Int
+                    
+                        
+                        if (value == 1) {
+                            cell.attendingStatus.image = #imageLiteral(resourceName: "attending1")
+                        } else if (value == 0) {
+                            cell.attendingStatus.image = #imageLiteral(resourceName: "maybe1")
+                        } else if (value == -1) {
+                            cell.attendingStatus.image = #imageLiteral(resourceName: "not_attending1")
+                        }
+                    }
+            })
             
             return cell
         }
@@ -138,7 +153,6 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     func populateAttendingPartyList() {
         ref?.child("users/\(userID)/attending").observe(.childAdded, with: { (snapshot) in
             if (snapshot.exists()) {
-                print(snapshot.key)
                 let partyID = snapshot.key
                 self.addParty(partyID: partyID, section: 1)
             }
@@ -151,13 +165,12 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
         from Firebase query. Adds the PartyModel to partyList and reloads View */
     func addParty(partyID: String, section: Int) {
         ref?.child("parties/\(partyID)").observeSingleEvent(of: .value, with: { (snapshot) in
-            print("adding party to section: \(section)")
             let data = snapshot.value as! [String: Any]
             
             let partyObject = PartyModel()
             
             partyObject.attire = data["attire"] as! String
-            partyObject.date = data["date"] as! String
+            //partyObject.date = data["date"] as! Double
             partyObject.hostID = data["hostID"] as! String
             partyObject.name = data["name"] as! String
             partyObject.address = data["address"] as! String

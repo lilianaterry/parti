@@ -80,7 +80,7 @@ class PartyHostViewController: ViewController {
         nameLabel.text = partyObject.name
         addressLabel.text = partyObject.address
         attireLabel.text = partyObject.attire
-        dateLabel.text = partyObject.date
+        //dateLabel.text = partyObject.date
         
         setupUX()
     }
@@ -90,7 +90,7 @@ class PartyHostViewController: ViewController {
         nameLabel.text = partyObject.name
         addressLabel.text = partyObject.address
         attireLabel.text = partyObject.attire
-        dateLabel.text = partyObject.date
+        //dateLabel.text = partyObject.date
         
         setupUX()
     }

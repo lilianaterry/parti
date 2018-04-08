@@ -126,7 +126,6 @@ class GuestListViewController: UIViewController, UITableViewDelegate, UITableVie
         }) { (error) in
             print(error.localizedDescription)
         }
-
     }
     
     @IBAction func dismiss(_ sender: Any) {

@@ -14,7 +14,7 @@ class PartyModel: NSObject {
     var address: String
     var attire: String
     var name: String
-    var date: String
+    var date: Double
     var hostID: String
     var guestList: Dictionary<String, Any>
     var foodList: Dictionary<String, Any>
@@ -24,24 +24,24 @@ class PartyModel: NSObject {
     var guests: [ProfileModel]
     var image: UIImage
     
-    init(hostID: String, imageURL: String, partyID: String, attire: String, name: String, date: String, address: String) {
+    init(hostID: String, imageURL: String, partyID: String, attire: String, name: String, address: String) {
         self.imageURL = imageURL
         self.partyID = partyID
         self.attire = attire
         self.hostID = hostID
         self.name = name
-        self.date = date
         self.foodList = [:]
         self.guestList = [:]
         self.address = address
         self.guests = []
         self.image = UIImage()
+        self.date = Double()
     }
     
     
     
     convenience override init() {
-        self.init(hostID: "", imageURL: "", partyID: "", attire: "", name: "", date: "", address: "")
+        self.init(hostID: "", imageURL: "", partyID: "", attire: "", name: "", address: "")
     }
 }
 

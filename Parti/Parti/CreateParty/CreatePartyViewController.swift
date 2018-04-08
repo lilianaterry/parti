@@ -24,12 +24,26 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
     var partyObject = PartyModel()
     
     @IBOutlet weak var partyImage: UIImageView!
+    @IBOutlet weak var chooseImageButton: UIButton!
     
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var addressField: UITextField!
+    @IBOutlet weak var attireLabel: UILabel!
     @IBOutlet weak var attireField: UITextField!
+    @IBOutlet weak var partyNameLabel: UILabel!
     @IBOutlet weak var partyNameField: UITextField!
-    @IBOutlet weak var dateTimePicker: UIDatePicker!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionField: UITextField!
     
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var timePicker: UIDatePicker!
+    
+    @IBAction func guestListButton(_ sender: Any) {
+    
+    }
     @IBAction func createPartyButton(_ sender: Any) {
         let filledOut = addressField.hasText && attireField.hasText && partyNameField.hasText
         if (filledOut) {
@@ -66,8 +80,9 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
         dateFormatter.dateStyle = DateFormatter.Style.short
         dateFormatter.timeStyle = DateFormatter.Style.short
         
-        let strDate = dateFormatter.string(from: dateTimePicker.date)
-        return strDate
+        //let strDate = dateFormatter.string(from: dateTimePicker.date)
+        //return strDate
+        return ""
     }
     
     override func viewDidLoad() {
@@ -81,19 +96,33 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
         partyObject.partyID = UUID().uuidString
         partyObject.hostID = (Auth.auth().currentUser?.uid)!
         
-        setupPartyImage()
+
+        
+        //setupPartyImage()
+    }
+    
+    func setupUX() {
+        addressField.setBottomBorder()
+        attireField.setBottomBorder()
+        partyNameField.setBottomBorder()
+        descriptionField.setBottomBorder()
+        
+        let textColor = UIColor(hex: "636e72")
+        partyNameLabel.textColor = textColor
+        addressLabel.textColor = textColor
+        attireLabel.textColor = textColor
+        descriptionLabel.textColor = textColor
+        dateLabel.textColor = textColor
+        timeLabel.textColor = textColor
     }
     
     func setupPartyImage () {
-        // create circular mask on image
-        self.partyImage.layer.cornerRadius = self.partyImage.frame.size.width / 2
-        self.partyImage.clipsToBounds = true
         
         // TODO CREATE WHITE BOARDER + DROP SHADOW
         
         // make party picture editable
-        partyImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectImageView)))
-        partyImage.isUserInteractionEnabled = true
+        chooseImageButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectImageView)))
+        chooseImageButton.isUserInteractionEnabled = true
     }
     
     // *********** LET USER SELECT PARTY IMAGE ***********
@@ -172,11 +201,24 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
         self.dismiss(animated: false, completion: nil)
     }
     
-    @IBAction func unwind(sender: UIStoryboardSegue) {
-        if let sourceVC = sender.source as? GuestListViewController {
-            partyObject.guests = sourceVC.guestList
-        }
+}
+
+extension UITextField {
+    
+    func setBottomBorder() {
+        self.borderStyle = .none
+        self.layer.backgroundColor = UIColor.white.cgColor
+        
+        self.layer.masksToBounds = false
+        let color = UIColor(hex: "b2bec3").cgColor
+        self.layer.shadowColor = color
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        self.layer.shadowOpacity = 1.0
+        self.layer.shadowRadius = 0.0
     }
     
 }
+
+
+
 

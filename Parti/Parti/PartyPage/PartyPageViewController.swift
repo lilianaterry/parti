@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseAuth
 
 class PartyPageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -29,23 +30,34 @@ class PartyPageViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
+    let userID = Auth.auth().currentUser!.uid
+    
     @IBOutlet weak var goingButton: UIButton!
     @IBAction func goingButton(_ sender: Any) {
         goingButton.isSelected = true
         notGoingButton.isSelected = false
         maybeButton.isSelected = false
+        
+        // set firebase value to 1
+        databaseRef.child("users/\(userID)/attending/\(partyObject.partyID)").setValue(1)
     }
     @IBOutlet weak var notGoingButton: UIButton!
     @IBAction func notGoingButton(_ sender: Any) {
         goingButton.isSelected = false
         notGoingButton.isSelected = true
         maybeButton.isSelected = false
+        
+        // set firebase value to -1
+        databaseRef.child("users/\(userID)/attending/\(partyObject.partyID)").setValue(-1)
     }
     @IBOutlet weak var maybeButton: UIButton!
     @IBAction func maybeButton(_ sender: Any) {
         goingButton.isSelected = false
         notGoingButton.isSelected = false
         maybeButton.isSelected = true
+        
+        // set firebase value to 1
+        databaseRef.child("users/\(userID)/attending/\(partyObject.partyID)").setValue(0)
     }
     
     @IBOutlet weak var guest5: UIButton!
@@ -74,7 +86,7 @@ class PartyPageViewController: UIViewController, UIImagePickerControllerDelegate
         partyImage.image = partyObject.image
         nameLabel.text = partyObject.name
         addressLabel.text = partyObject.address
-        dateLabel.text = partyObject.date
+        dateLabel.text = String(partyObject.date)
         attireLabel.text = partyObject.attire
         
         
