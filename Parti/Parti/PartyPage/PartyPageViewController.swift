@@ -140,21 +140,17 @@ class PartyPageViewController: UIViewController, UIImagePickerControllerDelegate
     
     /* iterates over all guests invited to the party to populate profile objects and get allergies */
     func getGuests() {
-        databaseRef.child("parties/\(partyObject.partyID)/guests").observeSingleEvent(of: .value) { (snapshot) in
+        databaseRef.child("parties/\(partyObject.partyID)/guests").observe(.childAdded) { (snapshot) in
             if snapshot.exists() {
-                for child in snapshot.children {
-                    let snap = child as! DataSnapshot
-                    let userID = snap.key
-                    
+                    let userID = snapshot.key
                     self.queryGuestInfo(userID: userID)
-                }
             }
         }
     }
     
     /* Get all of the allergy information, name, userID, etc  */
     func queryGuestInfo(userID: String) {
-        databaseRef.child("users/\(userID)").observe(.value) { (snapshot) in
+        databaseRef.child("users/\(userID)").observeSingleEvent(of: .value) { (snapshot) in
             // add all user information to the profile model object
             let newUser = ProfileModel()
             newUser.userID = userID

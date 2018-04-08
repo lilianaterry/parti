@@ -74,16 +74,7 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     
-    private func formatDate() -> String {
-        let dateFormatter = DateFormatter()
-        
-        dateFormatter.dateStyle = DateFormatter.Style.short
-        dateFormatter.timeStyle = DateFormatter.Style.short
-        
-        //let strDate = dateFormatter.string(from: dateTimePicker.date)
-        //return strDate
-        return ""
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,6 +91,16 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
         
         setupPartyImage()
         setupUX()
+    }
+    
+    private func formatDate() -> Double {
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        
+        let dateMilli = datePicker.date.timeIntervalSinceReferenceDate
+        return dateMilli
     }
     
     func setupUX() {

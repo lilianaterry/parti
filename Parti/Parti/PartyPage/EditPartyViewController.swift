@@ -25,10 +25,18 @@ class EditPartyViewController: UIViewController, UIImagePickerControllerDelegate
     var partyObject = PartyModel()
     
     @IBOutlet weak var partyImage: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var addressField: UITextField!
+    @IBOutlet weak var attireLabel: UILabel!
     @IBOutlet weak var attireField: UITextField!
-    @IBOutlet weak var dateTime: UIDatePicker!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionField: UITextField!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var date: UIDatePicker!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var time: UIDatePicker!
     @IBAction func updateGuestList(_ sender: Any) {
         performSegue(withIdentifier: "updateGuestList", sender: self)
     }
@@ -60,6 +68,22 @@ class EditPartyViewController: UIViewController, UIImagePickerControllerDelegate
         attireField.text = partyObject.attire
         
         //dateTime.date = getDate(date: partyObject.date)
+        setupUX()
+    }
+    
+    func setupUX() {
+        addressField.setBottomBorder()
+        attireField.setBottomBorder()
+        nameField.setBottomBorder()
+        descriptionField.setBottomBorder()
+        
+        let textColor = UIColor(hex: "636e72")
+        nameLabel.textColor = textColor
+        addressLabel.textColor = textColor
+        attireLabel.textColor = textColor
+        descriptionLabel.textColor = textColor
+        dateLabel.textColor = textColor
+        timeLabel.textColor = textColor
     }
     
     // *********** LET USER SELECT PROFILE IMAGE ***********
@@ -135,7 +159,7 @@ class EditPartyViewController: UIViewController, UIImagePickerControllerDelegate
         dateFormatter.dateStyle = DateFormatter.Style.short
         dateFormatter.timeStyle = DateFormatter.Style.short
         
-        let strDate = dateFormatter.string(from: dateTime.date)
+        let strDate = dateFormatter.string(from: date.date)
         return strDate
     }
     

@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseDatabase
 
 class AttendingPartyTableViewCell: UITableViewCell {
 
@@ -16,10 +14,6 @@ class AttendingPartyTableViewCell: UITableViewCell {
     @IBOutlet weak var partyName: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var attendingStatus: UIImageView!
-    
-    // Firebase connection
-    var ref: DatabaseReference!
-    var databaseHandle: DatabaseHandle?
     
     var partyObject = PartyModel()
     
@@ -31,7 +25,7 @@ class AttendingPartyTableViewCell: UITableViewCell {
         self.partyPicture.clipsToBounds = true
         
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
