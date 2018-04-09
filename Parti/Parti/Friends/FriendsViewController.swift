@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class FriendsViewController: ViewController, UITableViewDataSource {
+class FriendsViewController: ViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -18,7 +18,6 @@ class FriendsViewController: ViewController, UITableViewDataSource {
     var databaseRef: DatabaseReference!
     var databaseHandle: DatabaseHandle?
     
-    var friendUids = [String]()
     var users = [ProfileModel]()
     
     var profileObject = ProfileModel()
@@ -31,10 +30,14 @@ class FriendsViewController: ViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableViewCell
+        
         var profileModel = ProfileModel()
+        
         profileModel.name = users[indexPath.row].name
         profileModel.userID = users[indexPath.row].userID
         cell.nameLabel?.text = users[indexPath.row].name
+        cell.profilePicture.image = users[indexPath.row].image
+        
         cell.profileModel = profileModel
         
         return cell
@@ -44,12 +47,13 @@ class FriendsViewController: ViewController, UITableViewDataSource {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tableView.dataSource = self
+        tableView.delegate = self
         
         // set firebase reference
         databaseRef = Database.database().reference()
+        
         // TODO: Fetch friends from Firebase
-        populateFriendUids()
-        populateFriendsList()
+        getFriends()
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,33 +62,49 @@ class FriendsViewController: ViewController, UITableViewDataSource {
     }
     
     // get the friends of the current user
-    func populateFriendUids() {
+    func getFriends() {
         print(userID)
         databaseRef.child("users/\(userID)/friendsList").observe(.value) { snapshot in
             for child in snapshot.children {
                 let snap = child as! DataSnapshot
-                self.friendUids.append(snap.key)
+                self.getFriendData(friendID: snap.key)
             }
         }
-        print("Friend UIDs: ")
-        print(friendUids)
     }
     
-    func populateFriendsList() {
-        for uid in friendUids {
-            databaseRef.child("users/\(uid)").observe(.childAdded)
-            { snapshot in
-                var data = snapshot.value as! [String: Any]
-                var user = ProfileModel()
-                user.name = data["name"] as! String
-                user.userID = snapshot.key
-                user.imageURL = data["imageURL"] as! String
-                user.userID = data["username"] as! String
-                
+    // get information on a single friend
+    func getFriendData(friendID: String) {
+        databaseRef.child("users/\(friendID)").observeSingleEvent(of: .value) { (snapshot) in
+            var data = snapshot.value as! [String: Any]
+            var user = ProfileModel()
+            user.name = data["name"] as! String
+            user.userID = snapshot.key
+            user.username = data["username"] as! String
+            
+            
+            // If the user already has a profile picture, load it up!
+            if let imageURL = data["imageURL"] as? String {
+                user.imageURL = imageURL
+                let url = URL(string: imageURL)
+                URLSession.shared.dataTask(with: url!, completionHandler: { (image, response, error) in
+                    if (error != nil) {
+                        print(error)
+                        return
+                    }
+                    DispatchQueue.main.async { // Make sure you're on the main thread here
+                        if let image = UIImage(data: image!) {
+                            user.image = image
+                            self.users.append(user)
+                            self.tableView.reloadData()
+                        }
+                    }
+                }).resume()
+                // otherwise use this temporary image
+            } else {
+                user.image = #imageLiteral(resourceName: "parti_logo")
                 self.users.append(user)
                 self.tableView.reloadData()
             }
         }
     }
-
 }

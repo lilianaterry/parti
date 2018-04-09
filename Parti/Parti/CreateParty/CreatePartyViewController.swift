@@ -95,11 +95,12 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
     
     private func formatDate() -> Double {
         let dateFormatter = DateFormatter()
-        
+            
         dateFormatter.dateStyle = DateFormatter.Style.short
         dateFormatter.timeStyle = DateFormatter.Style.short
         
         let dateMilli = datePicker.date.timeIntervalSinceReferenceDate
+
         return dateMilli
     }
     

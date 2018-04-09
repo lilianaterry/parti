@@ -16,7 +16,6 @@ class FriendsTableViewCell: UITableViewCell {
     @IBOutlet weak var profilePicture: UIImageView!
     
     var profileModel = ProfileModel()
-    var testing = false
     
     // Firebase Database connection
     var databaseRef: DatabaseReference!
@@ -31,6 +30,7 @@ class FriendsTableViewCell: UITableViewCell {
         // create circular mask on image
         self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2
         self.profilePicture.clipsToBounds = true
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
