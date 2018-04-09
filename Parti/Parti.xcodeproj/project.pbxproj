@@ -91,6 +91,8 @@
 		F98083512020E98C00CB91C0 /* PartiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98083502020E98C00CB91C0 /* PartiTests.swift */; };
 		F9A651A8204B9E57007792E6 /* AttendingPartyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A651A7204B9E57007792E6 /* AttendingPartyTableViewCell.swift */; };
 		F9B245C12066EB3D0015F277 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9B245C02066EB3D0015F277 /* Main.storyboard */; };
+		F9B5265D207AD79F0029F480 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B5265C207AD79F0029F480 /* FriendsViewController.swift */; };
+		F9B5265F207AD85F0029F480 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B5265E207AD85F0029F480 /* FriendsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,6 +202,8 @@
 		F9A651A5204B9CA0007792E6 /* PartyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyListViewController.swift; sourceTree = "<group>"; };
 		F9A651A7204B9E57007792E6 /* AttendingPartyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendingPartyTableViewCell.swift; sourceTree = "<group>"; };
 		F9B245C02066EB3D0015F277 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F9B5265C207AD79F0029F480 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		F9B5265E207AD85F0029F480 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +250,8 @@
 				F90E7810206ECEDB007C5302 /* AddGuestsToPartyViewController.swift */,
 				F90E7812206ECFB4007C5302 /* AddGuestsToParty.storyboard */,
 				F90E7814206ED4F3007C5302 /* AddGuestsTableViewCell.swift */,
+				F9B5265C207AD79F0029F480 /* FriendsViewController.swift */,
+				F9B5265E207AD85F0029F480 /* FriendsTableViewCell.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -724,6 +730,7 @@
 				CEF4EB622066D0EF009387CB /* CreateFriendListViewController.swift in Sources */,
 				CEC9303720713EAB005C13E5 /* EditPartyViewController.swift in Sources */,
 				CE6CD6832047092D00BC3DD3 /* FoodListViewController.swift in Sources */,
+				F9B5265D207AD79F0029F480 /* FriendsViewController.swift in Sources */,
 				F9A651A8204B9E57007792E6 /* AttendingPartyTableViewCell.swift in Sources */,
 				CE228200206B57A200039578 /* EditProfileViewController.swift in Sources */,
 				CEF9D5882079450700DA505C /* HairlineViewHorizontal.swift in Sources */,
@@ -739,6 +746,7 @@
 				CE31AB9F205F17ED00171BD1 /* CreatePartyViewController.swift in Sources */,
 				F90E7815206ED4F3007C5302 /* AddGuestsTableViewCell.swift in Sources */,
 				CECC3CAE2075AB25009148A6 /* MusicListViewController.swift in Sources */,
+				F9B5265F207AD85F0029F480 /* FriendsTableViewCell.swift in Sources */,
 				CEB33EF7205F464400F49918 /* GuestListViewController.swift in Sources */,
 				F90E7811206ECEDB007C5302 /* AddGuestsToPartyViewController.swift in Sources */,
 				CECC3CB220768A75009148A6 /* MusicModel.swift in Sources */,

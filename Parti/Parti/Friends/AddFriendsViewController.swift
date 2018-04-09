@@ -14,6 +14,7 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    
     @IBAction func backButton(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
     }
