@@ -107,4 +107,36 @@ class FriendsViewController: ViewController, UITableViewDataSource, UITableViewD
             }
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! FriendsTableViewCell
+        
+        let user = cell.profileModel
+        
+        toggleFriend(friendUid: user.userID)
+    }
+    
+    func toggleFriend(friendUid: String) {
+        self.databaseRef.child("users/\(userID)/friendsList/").observeSingleEvent(of: .value, with: { (snapshot) in
+            if (snapshot.hasChild(friendUid)) {
+                self.removeFriend(friendUid: friendUid)
+            }
+//            } else {
+//                self.addFriend(friendUid: friendUid)
+//            }
+        })
+    }
+    
+    func addFriend(friendUid: String) {
+        let friendDict = [friendUid: 1]
+        let userDict = [userID: 1]
+        
+        self.databaseRef.child("users/\(friendUid)/friendsList").updateChildValues(userDict)
+        self.databaseRef.child("users/\(userID)/friendsList").updateChildValues(friendDict)
+    }
+    
+    func removeFriend(friendUid: String) {
+        self.databaseRef.child("users/\(friendUid)/friendsList/\(userID)").removeValue()
+        self.databaseRef.child("users/\(userID)/friendsList/\(friendUid)").removeValue()
+    }
 }
