@@ -95,7 +95,7 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
     /* Retrieves all foodlist items from Firebase */
     func populateFoodList() {
         // get all foodlist items and populate table view
-        let foodRef = databaseRef.child("foodlist");
+        let foodRef = databaseRef.child("foodList");
         
         // order the list so it's not a mess
         foodRef.queryOrderedByKey().observeSingleEvent(of: .value, with: { (snapshot) in
