@@ -27,6 +27,8 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
     
     var profileObject = ProfileModel()
     
+    let userID = Auth.auth().currentUser!.uid
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }
@@ -50,7 +52,7 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
         // set firebase reference
         databaseRef = Database.database().reference()
         // TODO: Fetch friends from Firebase
-        populateAllFriendsList()
+        populateAllUsersList()
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,7 +61,7 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
     }
     
     // get all the users 
-    func populateAllFriendsList() {
+    func populateAllUsersList() {
         databaseHandle = databaseRef?.child("users").queryOrdered(byChild: "name").observe(.childAdded) { snapshot in
             var data = snapshot.value as! [String: Any]
             var user = ProfileModel()
@@ -71,6 +73,23 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
             self.users.append(user)
             self.tableView.reloadData()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! AddFriendTableViewCell
+        
+        let user = cell.profileModel
+        print("Adding friend: " + user.userID)
+        
+        addFriend(friendUid: user.userID)
+    }
+    
+    func addFriend(friendUid: String) {
+        let friendDict = [friendUid: 1]
+        let userDict = [userID: 1]
+        
+        self.databaseRef.child("users/\(friendUid)/friendsList").updateChildValues(userDict)
+        self.databaseRef.child("users/\(userID)/friendsList").updateChildValues(friendDict)
     }
     
     // This method updates filteredData based on the text in the Search Box

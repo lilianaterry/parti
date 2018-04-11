@@ -110,7 +110,13 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         
             passwordSignIn(email: email, password: password)
         } else {
-            print("ERROR: email or password is incorrect")
+            //print("ERROR: email or password is incorrect")
+            let alert = UIAlertController(title: "Login Error", message: "Email or password is empty.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: {
+                (alertAction: UIAlertAction!) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true)
         }
     }
     
@@ -136,9 +142,21 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     func passwordReset(email: String) {
         Auth.auth().sendPasswordReset(withEmail: email) { (error) in
             if error != nil {
-                print("ERROR: Password reset failed")
+                //print("ERROR: Password reset failed")
+                let alert = UIAlertController(title: "Password Reset Error", message: "Password reset failed.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: {
+                    (alertAction: UIAlertAction!) in
+                    alert.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alert, animated: true)
             } else {
-                print("Password reset success!")
+                //print("Password reset success!")
+                let alert = UIAlertController(title: "Success!", message: "Password reset success!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: {
+                    (alertAction: UIAlertAction!) in
+                    alert.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alert, animated: true)
             }
         }
 
@@ -147,7 +165,13 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     func passwordSignIn(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error != nil {
-                print("ERROR: Failed Auth")
+                //print("ERROR: Failed Auth")
+                let alert = UIAlertController(title: "Login Error", message: "Email or password is incorrect.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: {
+                    (alertAction: UIAlertAction!) in
+                    alert.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alert, animated: true)
             } else {
                 self.performSegue(withIdentifier: "profileSegue", sender: self)
             }
