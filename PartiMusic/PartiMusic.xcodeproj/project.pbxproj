@@ -18,8 +18,9 @@
 		CE0EA06C207C498A006BE439 /* PartiMusicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EA06B207C498A006BE439 /* PartiMusicTests.swift */; };
 		CE0EA077207C498A006BE439 /* PartiMusicUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EA076207C498A006BE439 /* PartiMusicUITests.swift */; };
 		CE0EA085207C4A35006BE439 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CE0EA084207C4A35006BE439 /* Podfile */; };
-		CE8D27E7207D4A7C00BA7BBA /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D27E6207D4A7C00BA7BBA /* MusicModel.swift */; };
 		CE8D27EB207D51E800BA7BBA /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D27EA207D51E800BA7BBA /* MusicTableViewCell.swift */; };
+		CE8D27EF207D6EAD00BA7BBA /* AddSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D27EE207D6EAC00BA7BBA /* AddSongViewController.swift */; };
+		CE8D27F1207D882C00BA7BBA /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D27F0207D882C00BA7BBA /* SearchTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,8 +64,9 @@
 		CE0EA076207C498A006BE439 /* PartiMusicUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartiMusicUITests.swift; sourceTree = "<group>"; };
 		CE0EA078207C498A006BE439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE0EA084207C4A35006BE439 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
-		CE8D27E6207D4A7C00BA7BBA /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
 		CE8D27EA207D51E800BA7BBA /* MusicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
+		CE8D27EE207D6EAC00BA7BBA /* AddSongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSongViewController.swift; sourceTree = "<group>"; };
+		CE8D27F0207D882C00BA7BBA /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,10 +146,11 @@
 		CE0EA055207C498A006BE439 /* PartiMusic */ = {
 			isa = PBXGroup;
 			children = (
-				CE8D27EA207D51E800BA7BBA /* MusicTableViewCell.swift */,
-				CE0EA056207C498A006BE439 /* AppDelegate.swift */,
+				CE8D27EE207D6EAC00BA7BBA /* AddSongViewController.swift */,
 				CE0EA058207C498A006BE439 /* MusicListViewController.swift */,
-				CE8D27E6207D4A7C00BA7BBA /* MusicModel.swift */,
+				CE8D27EA207D51E800BA7BBA /* MusicTableViewCell.swift */,
+				CE8D27F0207D882C00BA7BBA /* SearchTableViewCell.swift */,
+				CE0EA056207C498A006BE439 /* AppDelegate.swift */,
 				CE0EA05A207C498A006BE439 /* Main.storyboard */,
 				CE0EA05D207C498A006BE439 /* Assets.xcassets */,
 				CE0EA05F207C498A006BE439 /* LaunchScreen.storyboard */,
@@ -389,9 +392,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE0EA059207C498A006BE439 /* MusicListViewController.swift in Sources */,
+				CE8D27EF207D6EAD00BA7BBA /* AddSongViewController.swift in Sources */,
 				CE0EA057207C498A006BE439 /* AppDelegate.swift in Sources */,
-				CE8D27E7207D4A7C00BA7BBA /* MusicModel.swift in Sources */,
 				CE8D27EB207D51E800BA7BBA /* MusicTableViewCell.swift in Sources */,
+				CE8D27F1207D882C00BA7BBA /* SearchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
