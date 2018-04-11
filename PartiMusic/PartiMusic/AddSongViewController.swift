@@ -17,9 +17,11 @@ class AddSongViewController: UIViewController, UISearchBarDelegate, UITableViewD
     @IBOutlet weak var musicTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var searchActive : Bool = false
-    
     var searchResults = [musicModel]()
+    
+    var selectedSong = musicModel()
+    
+    var previousList = [musicModel]()
     
     @IBAction func goBack(_ sender: Any) {
         dismiss(animated: false, completion: nil)
@@ -47,16 +49,44 @@ class AddSongViewController: UIViewController, UISearchBarDelegate, UITableViewD
         let track = searchResults[indexPath.row]
         
         cell.songName.text = track.songName
-        print(cell.songName)
         cell.artistName.text = track.artistName
         
         return cell
     }
     
+    // if cell is selected, add to table view below popup and close popup
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedSong = searchResults[indexPath.row]
+        let imageData = NSData(contentsOf: selectedSong.imageURL!)
+
+        let albumImage = UIImage(data: imageData! as Data)
+        selectedSong.albumImage = albumImage
+        
+        performSegue(withIdentifier: "addSongSegue", sender: self)
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchResults = []
         if (searchText != "") {
-            callAlamo(songName: searchText.lowercased())
+            // split word on space delimiter
+            var splitString = searchText.lowercased().components(separatedBy: " ")
+            var queryText = ""
+            for word in splitString {
+                queryText += "\(word)+"
+            }
+            
+            callAlamo(songName: queryText)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let segueID = segue.identifier
+        
+        if (segueID == "addSongSegue") {
+            if let destinationVC = segue.destination as? MusicListViewController {
+                previousList.append(selectedSong)
+                destinationVC.tracks = previousList
+            }
         }
     }
     
@@ -88,23 +118,20 @@ class AddSongViewController: UIViewController, UISearchBarDelegate, UITableViewD
                             track.songName = item["name"] as? String
                             track.artistName = item["artist"] as? String
                             
-//                            // get album cover art
-//                            if let image = item["image"] as? NSArray {
-//                                // get small sized image (1st block)
-//                                let imageBlock = image[2] as! JSONStandard
-//                                let imageURL = URL(string: imageBlock["#text"]! as! String)
-//                                let imageData = NSData(contentsOf: imageURL!)
-//
-//                                let albumImage = UIImage(data: imageData! as Data)
-//                                track.albumImage = albumImage
-//                                track.imageURL = imageURL
-//
-//                                self.searchResults.append(track)
-//                                self.musicTableView.reloadData()
-//                            } else {
+                            // get album cover art
+                            if let image = item["image"] as? NSArray {
+                                // get small sized image (1st block)
+                                let imageBlock = image[2] as! JSONStandard
+                                let imageURL = URL(string: imageBlock["#text"]! as! String)
+
+                                track.imageURL = imageURL
+
                                 self.searchResults.append(track)
                                 self.musicTableView.reloadData()
-//                            }
+                            } else {
+                                self.searchResults.append(track)
+                                self.musicTableView.reloadData()
+                            }
                         }
                     }
                 }

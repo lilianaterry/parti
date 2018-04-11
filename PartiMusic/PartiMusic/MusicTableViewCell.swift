@@ -10,7 +10,7 @@ import UIKit
 
 class MusicTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var albumImage: UIImageView?
+    @IBOutlet weak var albumImage: UIImageView!
     @IBOutlet weak var songName: UILabel!
     @IBOutlet weak var artistName: UILabel!
     

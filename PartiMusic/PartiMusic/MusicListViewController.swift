@@ -22,8 +22,10 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var musicTableView: UITableView!
     
-    
     var tracks = [musicModel]()
+    @IBAction func addTrack(_ sender: Any) {
+        performSegue(withIdentifier: "showPopupSegue", sender: self)
+    }
     
     // alias this so we can just type JSONStandard each time
     typealias JSONStandard = [String: AnyObject]
@@ -33,7 +35,6 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
         // Do any additional setup after loading the view, typically from a nib.
         self.musicTableView.dataSource = self
         self.musicTableView.delegate = self
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,9 +53,19 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
         let track = tracks[indexPath.row]
         cell.songName.text = track.songName
         cell.artistName.text = track.artistName
-        //cell.albumImage.image = track.albumImage
+        cell.albumImage.image = track.albumImage
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let segueID = segue.identifier
+        
+        if (segueID == "showPopupSegue") {
+            if let destinationVC = segue.destination as? AddSongViewController {
+                destinationVC.previousList = tracks
+            }
+        }
     }
 }
 
