@@ -27,6 +27,8 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
     
     var profileObject = ProfileModel()
     
+    let userID = Auth.auth().currentUser!.uid
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }
@@ -71,6 +73,14 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
             self.users.append(user)
             self.tableView.reloadData()
         }
+    }
+    
+    func addFriend(friendUid: String) {
+        let friendDict = [friendUid: 1]
+        let userDict = [userID: 1]
+        
+        self.databaseRef.child("users/\(friendUid)/friendsList").updateChildValues(userDict)
+        self.databaseRef.child("users/\(userID)/friendsList").updateChildValues(friendDict)
     }
     
     // This method updates filteredData based on the text in the Search Box

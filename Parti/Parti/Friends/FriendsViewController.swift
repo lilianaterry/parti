@@ -113,26 +113,21 @@ class FriendsViewController: ViewController, UITableViewDataSource, UITableViewD
         
         let user = cell.profileModel
         
-        toggleFriend(friendUid: user.userID)
+        promptForRemoveFriend(friendUid: user.userID)
     }
     
-    func toggleFriend(friendUid: String) {
-        self.databaseRef.child("users/\(userID)/friendsList/").observeSingleEvent(of: .value, with: { (snapshot) in
-            if (snapshot.hasChild(friendUid)) {
-                self.removeFriend(friendUid: friendUid)
-            }
-//            } else {
-//                self.addFriend(friendUid: friendUid)
-//            }
-        })
-    }
-    
-    func addFriend(friendUid: String) {
-        let friendDict = [friendUid: 1]
-        let userDict = [userID: 1]
-        
-        self.databaseRef.child("users/\(friendUid)/friendsList").updateChildValues(userDict)
-        self.databaseRef.child("users/\(userID)/friendsList").updateChildValues(friendDict)
+    func promptForRemoveFriend(friendUid: String) {
+        let alert = UIAlertController(title: "Remove friend?", message: "Are you sure you want to remove this friend?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            print("Removing friend")
+            self.databaseRef.child("users/\(self.userID)/friendsList/").observeSingleEvent(of: .value, with: { (snapshot) in
+                if (snapshot.hasChild(friendUid)) {
+                    self.removeFriend(friendUid: friendUid)
+                }
+            })
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
     }
     
     func removeFriend(friendUid: String) {
