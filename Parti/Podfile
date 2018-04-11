@@ -20,6 +20,9 @@ target 'Parti' do
   
   # Pods for music
   pod 'Alamofire', '~> 4.7'
+  
+  # Pods for UI
+  pod 'MaterialComponents'
 
   target 'PartiTests' do
     inherit! :search_paths

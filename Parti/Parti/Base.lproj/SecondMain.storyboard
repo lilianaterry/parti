@@ -974,23 +974,16 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="DDa-76-AAf">
-                                <rect key="frame" x="24" y="353" width="327" height="213.33333333333337"/>
+                                <rect key="frame" x="24" y="353" width="327" height="242.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="8nx-EW-TSA" userLabel="addresstime">
-                                        <rect key="frame" x="0.0" y="0.0" width="327" height="72"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="327" height="36"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="QnH-hd-W3x" userLabel="address">
-                                                <rect key="frame" x="0.0" y="0.0" width="138.66666666666666" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="138.66666666666666" height="18"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_location_on" translatesAutoresizingMaskIntoConstraints="NO" id="Ppl-s2-1DX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="24" id="K6I-Ye-Lxp"/>
-                                                            <constraint firstAttribute="height" constant="24" id="KjD-AW-1u7"/>
-                                                        </constraints>
-                                                    </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ps7-0V-zbA">
-                                                        <rect key="frame" x="0.0" y="24" width="58" height="24"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="58" height="18"/>
                                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -998,23 +991,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="sXf-QX-ga7" userLabel="time">
-                                                <rect key="frame" x="188.66666666666663" y="0.0" width="138.33333333333337" height="72"/>
+                                                <rect key="frame" x="188.66666666666663" y="0.0" width="138.33333333333337" height="36"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-calendar-50" translatesAutoresizingMaskIntoConstraints="NO" id="KUR-jN-YCg">
-                                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="Ca2-3O-91g"/>
-                                                            <constraint firstAttribute="width" constant="24" id="VT3-Ih-mpW"/>
-                                                        </constraints>
-                                                    </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkS-lc-L2Q">
-                                                        <rect key="frame" x="0.0" y="24" width="27.333333333333332" height="24"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="27.333333333333332" height="18"/>
                                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ko6-ei-qxr">
-                                                        <rect key="frame" x="0.0" y="48" width="35" height="24"/>
+                                                        <rect key="frame" x="0.0" y="18" width="35" height="18"/>
                                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1028,12 +1014,19 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEC-mk-TUf">
-                                        <rect key="frame" x="145.66666666666666" y="107" width="36" height="30"/>
+                                        <rect key="frame" x="145.66666666666666" y="71" width="36" height="30"/>
                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="15"/>
                                         <state key="normal" title="Food"/>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KA4-7t-5Eh">
+                                        <rect key="frame" x="143" y="136" width="41" height="30"/>
+                                        <state key="normal" title="Music"/>
+                                        <connections>
+                                            <segue destination="9jf-8t-flj" kind="show" animates="NO" id="MXi-tK-jga"/>
+                                        </connections>
+                                    </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Bxg-CF-FDg" userLabel="users">
-                                        <rect key="frame" x="0.0" y="172" width="327" height="41.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="201" width="327" height="41.333333333333343"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EvH-pb-WHL">
                                                 <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="41.333333333333336"/>
@@ -1112,7 +1105,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="v2E-hY-NY5" userLabel="allergies">
-                                <rect key="frame" x="8" y="627" width="359" height="75.333333333333371"/>
+                                <rect key="frame" x="8" y="656" width="359" height="75.333333333333371"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Qvu-Px-Rnn" userLabel="icons">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="50"/>
@@ -1251,6 +1244,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VA9-t3-ZDb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1956" y="460"/>
+        </scene>
+        <!--Music-->
+        <scene sceneID="4u2-7G-ldA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Music" id="9jf-8t-flj" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nv4-ia-V7H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1945" y="572"/>
         </scene>
         <!--Friends-->
         <scene sceneID="Eaz-Q4-zsQ">
@@ -1567,23 +1568,16 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="WTr-fs-CUe">
-                                <rect key="frame" x="0.0" y="356" width="375" height="302"/>
+                                <rect key="frame" x="0.0" y="356" width="375" height="346"/>
                                 <subviews>
                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="XKp-fW-zwW">
-                                        <rect key="frame" x="24" y="0.0" width="327" height="72"/>
+                                        <rect key="frame" x="24" y="0.0" width="327" height="36"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="gq0-lN-YXe">
-                                                <rect key="frame" x="0.0" y="0.0" width="138.66666666666666" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="138.66666666666666" height="18"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_location_on" translatesAutoresizingMaskIntoConstraints="NO" id="je5-XY-y0d">
-                                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="24" id="Ihq-NG-lzS"/>
-                                                            <constraint firstAttribute="height" constant="24" id="w6d-iY-bha"/>
-                                                        </constraints>
-                                                    </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSa-p5-sMi">
-                                                        <rect key="frame" x="0.0" y="24" width="58" height="24"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="58" height="18"/>
                                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1591,23 +1585,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="sGQ-mh-5Yo">
-                                                <rect key="frame" x="188.66666666666663" y="0.0" width="138.33333333333337" height="72"/>
+                                                <rect key="frame" x="188.66666666666663" y="0.0" width="138.33333333333337" height="36"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-calendar-50" translatesAutoresizingMaskIntoConstraints="NO" id="22r-v9-W3h">
-                                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="24" id="bL5-eN-ARC"/>
-                                                            <constraint firstAttribute="height" constant="24" id="j2S-w5-Yda"/>
-                                                        </constraints>
-                                                    </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Al-59-BKM">
-                                                        <rect key="frame" x="0.0" y="24" width="27.333333333333332" height="24"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="27.333333333333332" height="18"/>
                                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKb-9P-Kjd">
-                                                        <rect key="frame" x="0.0" y="48" width="35" height="24"/>
+                                                        <rect key="frame" x="0.0" y="18" width="35" height="18"/>
                                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1617,7 +1604,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="csf-Pz-skC">
-                                        <rect key="frame" x="27.666666666666657" y="102" width="320" height="200"/>
+                                        <rect key="frame" x="27.666666666666657" y="66" width="320" height="280"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="kqP-vr-aWy">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
@@ -1674,8 +1661,15 @@
                                                     <action selector="foodList:" destination="HdR-Sn-2rM" eventType="touchUpInside" id="wOT-9d-oq4"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gqx-jY-Tma">
+                                                <rect key="frame" x="139.33333333333334" y="160" width="41" height="30"/>
+                                                <state key="normal" title="Music"/>
+                                                <connections>
+                                                    <segue destination="9jf-8t-flj" kind="show" animates="NO" id="ugp-ZV-yv4"/>
+                                                </connections>
+                                            </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Cdc-GA-FcU">
-                                                <rect key="frame" x="0.0" y="160" width="320" height="40"/>
+                                                <rect key="frame" x="0.0" y="240" width="320" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Mc-ik-Ux2">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -1786,14 +1780,13 @@
         <image name="headline" width="24" height="24"/>
         <image name="ic_face" width="24" height="24"/>
         <image name="ic_local_dining" width="24" height="24"/>
-        <image name="ic_location_on" width="24" height="24"/>
-        <image name="icons8-calendar-50" width="50" height="50"/>
         <image name="nut-free" width="50" height="50"/>
         <image name="parti_logo" width="83" height="83"/>
         <image name="vegan" width="50" height="50"/>
         <image name="vegetarian" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="MXi-tK-jga"/>
         <segue reference="yW4-ie-5Dy"/>
         <segue reference="Ovt-k8-zB7"/>
     </inferredMetricsTieBreakers>

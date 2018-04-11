@@ -10,7 +10,6 @@
 		A7C495A50A922E01D5D2E3C6 /* Pods_Parti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2AA48FD3092F9D304DAB2E /* Pods_Parti.framework */; };
 		B1D90A9503ACE66E72E059F1 /* Pods_PartiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A300D2D9A3CCEBA5C96809E /* Pods_PartiTests.framework */; };
 		CE05EA44207443FE00886673 /* AddFriends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE05EA43207443FE00886673 /* AddFriends.storyboard */; };
-		CE05EA462075A52200886673 /* MusicList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE05EA452075A52200886673 /* MusicList.storyboard */; };
 		CE09DC56205C657C0097806D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09DC55205C657C0097806D /* ProfileViewController.swift */; };
 		CE09DC5C205C66410097806D /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09DC5B205C66410097806D /* ProfileModel.swift */; };
 		CE1189612051DF8400A0AD49 /* PartyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A651A5204B9CA0007792E6 /* PartyListViewController.swift */; };
@@ -58,16 +57,17 @@
 		CE6CD6832047092D00BC3DD3 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CD6822047092D00BC3DD3 /* FoodListViewController.swift */; };
 		CE6CD68520470C3C00BC3DD3 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CE6CD68420470C3C00BC3DD3 /* Podfile */; };
 		CE83FF602067EDB400542092 /* AddGuestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE83FF5F2067EDB400542092 /* AddGuestsViewController.swift */; };
+		CE8D27FF207EBEA500BA7BBA /* Music.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8D27FD207EBEA500BA7BBA /* Music.storyboard */; };
+		CE8D2801207EBEF800BA7BBA /* AddSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D2800207EBEF700BA7BBA /* AddSongViewController.swift */; };
+		CE8D2803207EC22B00BA7BBA /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D2802207EC22B00BA7BBA /* MusicListViewController.swift */; };
+		CE8D2805207EC25C00BA7BBA /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D2804207EC25C00BA7BBA /* MusicTableViewCell.swift */; };
+		CE8D2807207EC27900BA7BBA /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D2806207EC27800BA7BBA /* SearchTableViewCell.swift */; };
 		CEAB8B6720644885005AD748 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB8B6520644885005AD748 /* AddFriendsViewController.swift */; };
 		CEAB8B6820644885005AD748 /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB8B6620644885005AD748 /* AddFriendTableViewCell.swift */; };
 		CEB33EF5205F456100F49918 /* GuestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB33EF4205F456100F49918 /* GuestTableViewCell.swift */; };
 		CEB33EF7205F464400F49918 /* GuestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB33EF6205F464400F49918 /* GuestListViewController.swift */; };
 		CEC9303320713938005C13E5 /* EditPartyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC9303220713938005C13E5 /* EditPartyPage.storyboard */; };
 		CEC9303720713EAB005C13E5 /* EditPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC9303620713EAB005C13E5 /* EditPartyViewController.swift */; };
-		CECC3CAE2075AB25009148A6 /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC3CAD2075AB25009148A6 /* MusicListViewController.swift */; };
-		CECC3CB220768A75009148A6 /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC3CB120768A75009148A6 /* MusicModel.swift */; };
-		CECC3CB42076900E009148A6 /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC3CB32076900E009148A6 /* MusicTableViewCell.swift */; };
-		CECC3CBA207693E8009148A6 /* MusicTempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC3CB9207693E8009148A6 /* MusicTempViewController.swift */; };
 		CECC3CBD2077B93D009148A6 /* PartyFoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC3CBC2077B93D009148A6 /* PartyFoodListViewController.swift */; };
 		CECC3CBF2077B974009148A6 /* PartyFoodList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECC3CBE2077B974009148A6 /* PartyFoodList.storyboard */; };
 		CECC3CC32077BC11009148A6 /* PartyFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC3CC22077BC11009148A6 /* PartyFoodCell.swift */; };
@@ -113,7 +113,6 @@
 		A8B986416237F7F05208156B /* Pods-Parti.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parti.release.xcconfig"; path = "Pods/Target Support Files/Pods-Parti/Pods-Parti.release.xcconfig"; sourceTree = "<group>"; };
 		AD3F24396C751F1E6C4D8A77 /* Pods-PartiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PartiTests/Pods-PartiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE05EA43207443FE00886673 /* AddFriends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddFriends.storyboard; sourceTree = "<group>"; };
-		CE05EA452075A52200886673 /* MusicList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MusicList.storyboard; sourceTree = "<group>"; };
 		CE09DC55205C657C0097806D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CE09DC5B205C66410097806D /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		CE1189622051E00300A0AD49 /* PartyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyModel.swift; sourceTree = "<group>"; };
@@ -158,8 +157,13 @@
 		CE5ED8D3205ED25D00F6174F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CE5ED8D5205ED26D00F6174F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CE6CD6822047092D00BC3DD3 /* FoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
-		CE6CD68420470C3C00BC3DD3 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		CE6CD68420470C3C00BC3DD3 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		CE83FF5F2067EDB400542092 /* AddGuestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGuestsViewController.swift; sourceTree = "<group>"; };
+		CE8D27FE207EBEA500BA7BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../../PartiMusic/PartiMusic/Base.lproj/Music.storyboard; sourceTree = "<group>"; };
+		CE8D2800207EBEF700BA7BBA /* AddSongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddSongViewController.swift; path = ../../../PartiMusic/PartiMusic/AddSongViewController.swift; sourceTree = "<group>"; };
+		CE8D2802207EC22B00BA7BBA /* MusicListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusicListViewController.swift; path = ../../../PartiMusic/PartiMusic/MusicListViewController.swift; sourceTree = "<group>"; };
+		CE8D2804207EC25C00BA7BBA /* MusicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusicTableViewCell.swift; path = ../../../PartiMusic/PartiMusic/MusicTableViewCell.swift; sourceTree = "<group>"; };
+		CE8D2806207EC27800BA7BBA /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchTableViewCell.swift; path = ../../../PartiMusic/PartiMusic/SearchTableViewCell.swift; sourceTree = "<group>"; };
 		CEA81F35205F034C00D48895 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyMetadata.framework; path = System/Library/Frameworks/SpotifyMetadata.framework; sourceTree = SDKROOT; };
 		CEA81F36205F034C00D48895 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyAudioPlayback.framework; path = System/Library/Frameworks/SpotifyAudioPlayback.framework; sourceTree = SDKROOT; };
 		CEA81F37205F034C00D48895 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyAuthentication.framework; path = System/Library/Frameworks/SpotifyAuthentication.framework; sourceTree = SDKROOT; };
@@ -169,10 +173,6 @@
 		CEB33EF6205F464400F49918 /* GuestListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestListViewController.swift; sourceTree = "<group>"; };
 		CEC9303220713938005C13E5 /* EditPartyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditPartyPage.storyboard; sourceTree = "<group>"; };
 		CEC9303620713EAB005C13E5 /* EditPartyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPartyViewController.swift; sourceTree = "<group>"; };
-		CECC3CAD2075AB25009148A6 /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
-		CECC3CB120768A75009148A6 /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
-		CECC3CB32076900E009148A6 /* MusicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
-		CECC3CB9207693E8009148A6 /* MusicTempViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTempViewController.swift; sourceTree = "<group>"; };
 		CECC3CBC2077B93D009148A6 /* PartyFoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyFoodListViewController.swift; sourceTree = "<group>"; };
 		CECC3CBE2077B974009148A6 /* PartyFoodList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PartyFoodList.storyboard; sourceTree = "<group>"; };
 		CECC3CC22077BC11009148A6 /* PartyFoodCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyFoodCell.swift; sourceTree = "<group>"; };
@@ -364,11 +364,11 @@
 		CECC3CBB2077B8FD009148A6 /* MusicList */ = {
 			isa = PBXGroup;
 			children = (
-				CECC3CB120768A75009148A6 /* MusicModel.swift */,
-				CECC3CAD2075AB25009148A6 /* MusicListViewController.swift */,
-				CECC3CB32076900E009148A6 /* MusicTableViewCell.swift */,
-				CE05EA452075A52200886673 /* MusicList.storyboard */,
-				CECC3CB9207693E8009148A6 /* MusicTempViewController.swift */,
+				CE8D2804207EC25C00BA7BBA /* MusicTableViewCell.swift */,
+				CE8D2802207EC22B00BA7BBA /* MusicListViewController.swift */,
+				CE8D2800207EBEF700BA7BBA /* AddSongViewController.swift */,
+				CE8D2806207EC27800BA7BBA /* SearchTableViewCell.swift */,
+				CE8D27FD207EBEA500BA7BBA /* Music.storyboard */,
 			);
 			path = MusicList;
 			sourceTree = "<group>";
@@ -477,8 +477,6 @@
 				F98083482020E98C00CB91C0 /* Sources */,
 				F98083492020E98C00CB91C0 /* Frameworks */,
 				F980834A2020E98C00CB91C0 /* Resources */,
-				8C314BD25951898D194A8643 /* [CP] Embed Pods Frameworks */,
-				FD04DAE018D424976B1766ED /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -555,7 +553,6 @@
 				CE58393D207832F4006D67E9 /* SF-Pro-Display-Light.otf in Resources */,
 				CE58394B207832F4006D67E9 /* SF-Pro-Text-Heavy.otf in Resources */,
 				CE583952207832F4006D67E9 /* SF-Pro-Text-RegularItalic.otf in Resources */,
-				CE05EA462075A52200886673 /* MusicList.storyboard in Resources */,
 				CE583948207832F4006D67E9 /* SF-Pro-Display-UltralightItalic.otf in Resources */,
 				CE58394D207832F4006D67E9 /* SF-Pro-Text-Light.otf in Resources */,
 				CEC9303320713938005C13E5 /* EditPartyPage.storyboard in Resources */,
@@ -572,6 +569,7 @@
 				CE583938207832F4006D67E9 /* SF-Pro-Display-BlackItalic.otf in Resources */,
 				CE583950207832F4006D67E9 /* SF-Pro-Text-MediumItalic.otf in Resources */,
 				CE583942207832F4006D67E9 /* SF-Pro-Display-RegularItalic.otf in Resources */,
+				CE8D27FF207EBEA500BA7BBA /* Music.storyboard in Resources */,
 				CE583954207832F4006D67E9 /* SF-Pro-Text-SemiboldItalic.otf in Resources */,
 				CE05EA44207443FE00886673 /* AddFriends.storyboard in Resources */,
 				CECC3CBF2077B974009148A6 /* PartyFoodList.storyboard in Resources */,
@@ -612,21 +610,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8C314BD25951898D194A8643 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PartiTests/Pods-PartiTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B6DB3AB0ED88F9172C9871F2 /* [CP] Copy Pods Resources */ = {
@@ -672,44 +655,43 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Parti/Pods-Parti-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionAnimator/MotionAnimator.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionInterchange/MotionInterchange.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionTransitioning/MotionTransitioning.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionAnimator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionInterchange.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionTransitioning.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Parti/Pods-Parti-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FD04DAE018D424976B1766ED /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PartiTests/Pods-PartiTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -724,18 +706,19 @@
 				CE1189632051E00300A0AD49 /* PartyModel.swift in Sources */,
 				CE3E0DB12061E0980098F435 /* PartyPageViewController.swift in Sources */,
 				CE2ED8672065B65E00CFDEE3 /* CreateFoodListViewController.swift in Sources */,
-				CECC3CB42076900E009148A6 /* MusicTableViewCell.swift in Sources */,
+				CE8D2803207EC22B00BA7BBA /* MusicListViewController.swift in Sources */,
 				CE83FF602067EDB400542092 /* AddGuestsViewController.swift in Sources */,
 				F98083412020E98C00CB91C0 /* Parti.xcdatamodeld in Sources */,
 				CEF4EB622066D0EF009387CB /* CreateFriendListViewController.swift in Sources */,
+				CE8D2807207EC27900BA7BBA /* SearchTableViewCell.swift in Sources */,
 				CEC9303720713EAB005C13E5 /* EditPartyViewController.swift in Sources */,
 				CE6CD6832047092D00BC3DD3 /* FoodListViewController.swift in Sources */,
 				F9B5265D207AD79F0029F480 /* FriendsViewController.swift in Sources */,
 				F9A651A8204B9E57007792E6 /* AttendingPartyTableViewCell.swift in Sources */,
+				CE8D2801207EBEF800BA7BBA /* AddSongViewController.swift in Sources */,
 				CE228200206B57A200039578 /* EditProfileViewController.swift in Sources */,
 				CEF9D5882079450700DA505C /* HairlineViewHorizontal.swift in Sources */,
 				CECC3CBD2077B93D009148A6 /* PartyFoodListViewController.swift in Sources */,
-				CECC3CBA207693E8009148A6 /* MusicTempViewController.swift in Sources */,
 				CECC3CC32077BC11009148A6 /* PartyFoodCell.swift in Sources */,
 				CEB33EF5205F456100F49918 /* GuestTableViewCell.swift in Sources */,
 				CEAB8B6720644885005AD748 /* AddFriendsViewController.swift in Sources */,
@@ -744,12 +727,11 @@
 				F9620A8E206AB9770099BABA /* CreateAccountViewController.swift in Sources */,
 				CE1189612051DF8400A0AD49 /* PartyListViewController.swift in Sources */,
 				CE31AB9F205F17ED00171BD1 /* CreatePartyViewController.swift in Sources */,
+				CE8D2805207EC25C00BA7BBA /* MusicTableViewCell.swift in Sources */,
 				F90E7815206ED4F3007C5302 /* AddGuestsTableViewCell.swift in Sources */,
-				CECC3CAE2075AB25009148A6 /* MusicListViewController.swift in Sources */,
 				F9B5265F207AD85F0029F480 /* FriendsTableViewCell.swift in Sources */,
 				CEB33EF7205F464400F49918 /* GuestListViewController.swift in Sources */,
 				F90E7811206ECEDB007C5302 /* AddGuestsToPartyViewController.swift in Sources */,
-				CECC3CB220768A75009148A6 /* MusicModel.swift in Sources */,
 				CEEED9C8206DF5B800A45426 /* OtherUserProfile.swift in Sources */,
 				F9338584206941210080C59F /* PartyHostViewController.swift in Sources */,
 				F9620A8C2069CC270099BABA /* HostingPartyTableViewCell.swift in Sources */,
@@ -777,6 +759,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		CE8D27FD207EBEA500BA7BBA /* Music.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE8D27FE207EBEA500BA7BBA /* Base */,
+			);
+			name = Music.storyboard;
+			sourceTree = "<group>";
+		};
 		CEF18A40204B74F8003071C5 /* SecondMain.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
