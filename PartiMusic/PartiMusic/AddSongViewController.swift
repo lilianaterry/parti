@@ -19,7 +19,7 @@ class AddSongViewController: UIViewController, UISearchBarDelegate, UITableViewD
     
     var searchResults = [musicModel]()
     
-    var selectedSong = musicModel()
+    var selectedSong = musicModel(songName: "", artistName: "", albumImage: nil, count: 0, imageURL: nil)
     
     var previousList = [musicModel]()
     
@@ -46,12 +46,16 @@ class AddSongViewController: UIViewController, UISearchBarDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell") as! SearchTableViewCell
         
-        let track = searchResults[indexPath.row]
+        if (indexPath.row < searchResults.count) {
+            let track = searchResults[indexPath.row]
+            
+            cell.songName.text = track.songName
+            cell.artistName.text = track.artistName
+            
+            return cell
+        }
         
-        cell.songName.text = track.songName
-        cell.artistName.text = track.artistName
-        
-        return cell
+        return UITableViewCell()
     }
     
     // if cell is selected, add to table view below popup and close popup
@@ -114,7 +118,7 @@ class AddSongViewController: UIViewController, UISearchBarDelegate, UITableViewD
                         for i in (0..<tracks.count) {
                             let item = tracks[i]
                             
-                            var track = musicModel()
+                            var track = musicModel(songName: "", artistName: "", albumImage: nil, count: 0, imageURL: nil)
                             track.songName = item["name"] as? String
                             track.artistName = item["artist"] as? String
                             

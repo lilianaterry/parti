@@ -56,6 +56,29 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ff3-kG-o4O">
+                                                    <rect key="frame" x="322" y="11" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Up"/>
+                                                    <connections>
+                                                        <action selector="upVote:" destination="JIz-rY-CCp" eventType="touchUpInside" id="YnC-cu-A04"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iab-U8-aOU">
+                                                    <rect key="frame" x="318" y="63" width="39" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Down"/>
+                                                    <connections>
+                                                        <action selector="downVote:" destination="JIz-rY-CCp" eventType="touchUpInside" id="Jw4-E9-XoQ"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jz-IZ-HDC">
+                                                    <rect key="frame" x="310" y="40" width="47" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="pkh-zh-IDS" firstAttribute="leading" secondItem="SpB-wE-dPT" secondAttribute="leading" id="1m5-LS-M1S"/>
@@ -72,7 +95,10 @@
                                         <connections>
                                             <outlet property="albumImage" destination="pkh-zh-IDS" id="ntV-2L-fGD"/>
                                             <outlet property="artistName" destination="Fhn-6p-8Mi" id="bSq-2T-GBs"/>
+                                            <outlet property="downVoteButton" destination="iab-U8-aOU" id="1mx-tP-FW2"/>
                                             <outlet property="songName" destination="x6F-sc-DHH" id="UqH-i6-z9S"/>
+                                            <outlet property="upVoteButton" destination="ff3-kG-o4O" id="xA0-BQ-tPx"/>
+                                            <outlet property="voteCounts" destination="6Jz-IZ-HDC" id="dN7-GZ-U5F"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

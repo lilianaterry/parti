@@ -14,6 +14,7 @@ struct musicModel {
     var songName: String?
     var artistName: String?
     var albumImage: UIImage?
+    var count: Int
     
     var imageURL: URL?
 }
@@ -22,7 +23,9 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var musicTableView: UITableView!
     
+    // all songs currently in the shared list
     var tracks = [musicModel]()
+    
     @IBAction func addTrack(_ sender: Any) {
         performSegue(withIdentifier: "showPopupSegue", sender: self)
     }
@@ -54,8 +57,57 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.songName.text = track.songName
         cell.artistName.text = track.artistName
         cell.albumImage.image = track.albumImage
+        cell.voteCounts.text = String(track.count)
+        
+        // color the count if necessary
+        if (track.count > 0) {
+            cell.voteCounts.textColor = UIColor.green
+        } else if (track.count < 0) {
+            cell.voteCounts.textColor = UIColor.red
+        }
+        
+        cell.upVoteButton.tag = indexPath.row
+        cell.downVoteButton.tag = indexPath.row
         
         return cell
+    }
+    
+    // add 1 to this track's rating
+    @IBAction func upVote(_ sender: UIButton) {
+        let button = sender as UIButton;
+        let newCount = tracks[button.tag].count + 1
+        
+        let indexPath = IndexPath(row: button.tag, section: 0)
+        let cell = musicTableView.cellForRow(at: indexPath) as! MusicTableViewCell
+        
+        cell.voteCounts.text = String(newCount)
+        tracks[button.tag].count = newCount
+        
+        // change the color if we've gone above 0
+        if (newCount > 0) {
+            cell.voteCounts.textColor = UIColor.green
+        } else if (newCount == 0) {
+            cell.voteCounts.textColor = UIColor.black
+        }
+    }
+    
+    // subtract 1 from this track's rating
+    @IBAction func downVote(_ sender: UIButton) {
+        let button = sender as UIButton;
+        let newCount = tracks[button.tag].count - 1
+        
+        let indexPath = IndexPath(row: button.tag, section: 0)
+        let cell = musicTableView.cellForRow(at: indexPath) as! MusicTableViewCell
+        
+        cell.voteCounts.text = String(newCount)
+        tracks[button.tag].count = newCount
+        
+        // change the color if we've gone above 0
+        if (newCount < 0) {
+            cell.voteCounts.textColor = UIColor.red
+        } else if (newCount == 0) {
+            cell.voteCounts.textColor = UIColor.black
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
