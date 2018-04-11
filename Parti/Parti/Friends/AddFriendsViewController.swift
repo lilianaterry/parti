@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
+class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate, UITableViewDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -48,6 +48,7 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tableView.dataSource = self
+        tableView.delegate = self
         searchBar.delegate = self
         // set firebase reference
         databaseRef = Database.database().reference()
