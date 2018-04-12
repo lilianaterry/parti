@@ -58,10 +58,10 @@
 		CE6CD68520470C3C00BC3DD3 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CE6CD68420470C3C00BC3DD3 /* Podfile */; };
 		CE83FF602067EDB400542092 /* AddGuestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE83FF5F2067EDB400542092 /* AddGuestsViewController.swift */; };
 		CE8D27FF207EBEA500BA7BBA /* Music.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8D27FD207EBEA500BA7BBA /* Music.storyboard */; };
-		CE8D2801207EBEF800BA7BBA /* AddSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D2800207EBEF700BA7BBA /* AddSongViewController.swift */; };
-		CE8D2803207EC22B00BA7BBA /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D2802207EC22B00BA7BBA /* MusicListViewController.swift */; };
-		CE8D2805207EC25C00BA7BBA /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D2804207EC25C00BA7BBA /* MusicTableViewCell.swift */; };
-		CE8D2807207EC27900BA7BBA /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D2806207EC27800BA7BBA /* SearchTableViewCell.swift */; };
+		CE8D280C207F02BD00BA7BBA /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D2808207F02BC00BA7BBA /* MusicListViewController.swift */; };
+		CE8D280D207F02BD00BA7BBA /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D2809207F02BC00BA7BBA /* MusicTableViewCell.swift */; };
+		CE8D280E207F02BD00BA7BBA /* AddSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D280A207F02BC00BA7BBA /* AddSongViewController.swift */; };
+		CE8D280F207F02BD00BA7BBA /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D280B207F02BD00BA7BBA /* SearchTableViewCell.swift */; };
 		CEAB8B6720644885005AD748 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB8B6520644885005AD748 /* AddFriendsViewController.swift */; };
 		CEAB8B6820644885005AD748 /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB8B6620644885005AD748 /* AddFriendTableViewCell.swift */; };
 		CEB33EF5205F456100F49918 /* GuestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB33EF4205F456100F49918 /* GuestTableViewCell.swift */; };
@@ -160,10 +160,10 @@
 		CE6CD68420470C3C00BC3DD3 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		CE83FF5F2067EDB400542092 /* AddGuestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGuestsViewController.swift; sourceTree = "<group>"; };
 		CE8D27FE207EBEA500BA7BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../../PartiMusic/PartiMusic/Base.lproj/Music.storyboard; sourceTree = "<group>"; };
-		CE8D2800207EBEF700BA7BBA /* AddSongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddSongViewController.swift; path = ../../../PartiMusic/PartiMusic/AddSongViewController.swift; sourceTree = "<group>"; };
-		CE8D2802207EC22B00BA7BBA /* MusicListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusicListViewController.swift; path = ../../../PartiMusic/PartiMusic/MusicListViewController.swift; sourceTree = "<group>"; };
-		CE8D2804207EC25C00BA7BBA /* MusicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusicTableViewCell.swift; path = ../../../PartiMusic/PartiMusic/MusicTableViewCell.swift; sourceTree = "<group>"; };
-		CE8D2806207EC27800BA7BBA /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchTableViewCell.swift; path = ../../../PartiMusic/PartiMusic/SearchTableViewCell.swift; sourceTree = "<group>"; };
+		CE8D2808207F02BC00BA7BBA /* MusicListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
+		CE8D2809207F02BC00BA7BBA /* MusicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
+		CE8D280A207F02BC00BA7BBA /* AddSongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSongViewController.swift; sourceTree = "<group>"; };
+		CE8D280B207F02BD00BA7BBA /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		CEA81F35205F034C00D48895 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyMetadata.framework; path = System/Library/Frameworks/SpotifyMetadata.framework; sourceTree = SDKROOT; };
 		CEA81F36205F034C00D48895 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyAudioPlayback.framework; path = System/Library/Frameworks/SpotifyAudioPlayback.framework; sourceTree = SDKROOT; };
 		CEA81F37205F034C00D48895 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyAuthentication.framework; path = System/Library/Frameworks/SpotifyAuthentication.framework; sourceTree = SDKROOT; };
@@ -364,10 +364,10 @@
 		CECC3CBB2077B8FD009148A6 /* MusicList */ = {
 			isa = PBXGroup;
 			children = (
-				CE8D2804207EC25C00BA7BBA /* MusicTableViewCell.swift */,
-				CE8D2802207EC22B00BA7BBA /* MusicListViewController.swift */,
-				CE8D2800207EBEF700BA7BBA /* AddSongViewController.swift */,
-				CE8D2806207EC27800BA7BBA /* SearchTableViewCell.swift */,
+				CE8D280A207F02BC00BA7BBA /* AddSongViewController.swift */,
+				CE8D2808207F02BC00BA7BBA /* MusicListViewController.swift */,
+				CE8D2809207F02BC00BA7BBA /* MusicTableViewCell.swift */,
+				CE8D280B207F02BD00BA7BBA /* SearchTableViewCell.swift */,
 				CE8D27FD207EBEA500BA7BBA /* Music.storyboard */,
 			);
 			path = MusicList;
@@ -706,28 +706,28 @@
 				CE1189632051E00300A0AD49 /* PartyModel.swift in Sources */,
 				CE3E0DB12061E0980098F435 /* PartyPageViewController.swift in Sources */,
 				CE2ED8672065B65E00CFDEE3 /* CreateFoodListViewController.swift in Sources */,
-				CE8D2803207EC22B00BA7BBA /* MusicListViewController.swift in Sources */,
 				CE83FF602067EDB400542092 /* AddGuestsViewController.swift in Sources */,
 				F98083412020E98C00CB91C0 /* Parti.xcdatamodeld in Sources */,
 				CEF4EB622066D0EF009387CB /* CreateFriendListViewController.swift in Sources */,
-				CE8D2807207EC27900BA7BBA /* SearchTableViewCell.swift in Sources */,
 				CEC9303720713EAB005C13E5 /* EditPartyViewController.swift in Sources */,
+				CE8D280F207F02BD00BA7BBA /* SearchTableViewCell.swift in Sources */,
 				CE6CD6832047092D00BC3DD3 /* FoodListViewController.swift in Sources */,
 				F9B5265D207AD79F0029F480 /* FriendsViewController.swift in Sources */,
 				F9A651A8204B9E57007792E6 /* AttendingPartyTableViewCell.swift in Sources */,
-				CE8D2801207EBEF800BA7BBA /* AddSongViewController.swift in Sources */,
 				CE228200206B57A200039578 /* EditProfileViewController.swift in Sources */,
+				CE8D280E207F02BD00BA7BBA /* AddSongViewController.swift in Sources */,
 				CEF9D5882079450700DA505C /* HairlineViewHorizontal.swift in Sources */,
 				CECC3CBD2077B93D009148A6 /* PartyFoodListViewController.swift in Sources */,
+				CE8D280D207F02BD00BA7BBA /* MusicTableViewCell.swift in Sources */,
 				CECC3CC32077BC11009148A6 /* PartyFoodCell.swift in Sources */,
 				CEB33EF5205F456100F49918 /* GuestTableViewCell.swift in Sources */,
 				CEAB8B6720644885005AD748 /* AddFriendsViewController.swift in Sources */,
 				F98083392020E98C00CB91C0 /* AppDelegate.swift in Sources */,
 				CE09DC56205C657C0097806D /* ProfileViewController.swift in Sources */,
+				CE8D280C207F02BD00BA7BBA /* MusicListViewController.swift in Sources */,
 				F9620A8E206AB9770099BABA /* CreateAccountViewController.swift in Sources */,
 				CE1189612051DF8400A0AD49 /* PartyListViewController.swift in Sources */,
 				CE31AB9F205F17ED00171BD1 /* CreatePartyViewController.swift in Sources */,
-				CE8D2805207EC25C00BA7BBA /* MusicTableViewCell.swift in Sources */,
 				F90E7815206ED4F3007C5302 /* AddGuestsTableViewCell.swift in Sources */,
 				F9B5265F207AD85F0029F480 /* FriendsTableViewCell.swift in Sources */,
 				CEB33EF7205F464400F49918 /* GuestListViewController.swift in Sources */,

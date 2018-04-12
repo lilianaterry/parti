@@ -1,115 +1,156 @@
 //
-//  MusicListViewController.swift
-//  Parti
+//  ViewController.swift
+//  PartiMusic
 //
-//  Created by Liliana Terry on 4/4/18.
-//  Copyright © 2018 Arjun Gopisetty. All rights reserved.
+//  Created by Liliana Terry on 4/9/18.
+//  Copyright © 2018 The Party App. All rights reserved.
 //
 
 import UIKit
-import FirebaseDatabase
+import Alamofire
 
-class MusicListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+// object to hold API query items
+struct musicModel {
+    var songName: String?
+    var artistName: String?
+    var albumImage: UIImage?
+    var count: Int
+    var userVote: Int
+    
+    var imageURL: URL?
+}
 
-    // Firebase connection
-    var databaseRef: DatabaseReference!
-    var databaseHandle:DatabaseHandle?
-
-    var musicList = [String: Int]()
-
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return musicList.count
+class MusicListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+    
+    @IBOutlet weak var musicTableView: UITableView!
+    
+    // all songs currently in the shared list
+    var tracks = [musicModel]()
+    var tracksSet = Set<String>()
+    
+    @IBAction func addTrack(_ sender: Any) {
+        performSegue(withIdentifier: "showPopupSegue", sender: self)
     }
-
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "musicCell", for: indexPath)
-        cell.textLabel?.text = Array(foodList)[indexPath.row].key
-
-        // if the value in the foodList is 1 mark it as checked
-        if (Array(foodList)[indexPath.row].value == 1) {
-            cell.accessoryType = UITableViewCellAccessoryType.checkmark
-        }
-
-        return cell
+    @IBAction func backButton(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
     }
-
-    // Add or remove checkmarks from food items
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
-        // if there is a checkmark, remove it
-        // if there is not a checkmark, add one
-        if (cell?.accessoryType == UITableViewCellAccessoryType.checkmark) {
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
-            removeItem(index: indexPath.row)
-        } else if (cell?.accessoryType == UITableViewCellAccessoryType.none) {
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
-            addItem(index: indexPath.row)
-        } else {
-            print("FAILED TO EXECUTE CHECKMARK")
-        }
-    }
-
-    /* update addition of check in firebase */
-    func addItem(index: Int) {
-        let item = Array(foodList)[index].key
-        let value = [item: 1]
-        databaseRef.child("users/\(userID)/foodList").updateChildValues(value)
-    }
-
-    /* remove check in firebase */
-    func removeItem(index: Int) {
-        let item = Array(foodList)[index].key
-        let value = [item: nil] as [String: Any?]
-        databaseRef.child("users/\(userID)/foodList").updateChildValues(value)
-    }
+    
+    // alias this so we can just type JSONStandard each time
+    typealias JSONStandard = [String: AnyObject]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-
-        // set firebase reference
-        databaseRef = Database.database().reference()
-
-        getUsersFoodList()
+        // Do any additional setup after loading the view, typically from a nib.
+        self.musicTableView.dataSource = self
+        self.musicTableView.delegate = self
     }
-
-    /* Get the current users's food preferences and use these to mark generic food list */
-    func getUsersFoodList() {
-        databaseRef.child("users/\(userID)/foodList").observeSingleEvent(of: .value) { (snapshot) in
-            if snapshot.exists() {
-                self.userFoodList = snapshot.value as! [String: Any]
-            }
-            self.populateFoodList()
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tracks.count
+    }
+    
+    // populate cell with track information
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "musicCell") as! MusicTableViewCell
+        
+        let track = tracks[indexPath.row]
+        cell.songName.text = track.songName
+        cell.artistName.text = track.artistName
+        cell.albumImage.image = track.albumImage
+        cell.voteCounts.text = String(track.count)
+        
+        // color the buttons if necessary
+        if (track.userVote == 1) {
+            cell.upVoteButton.tintColor = UIColor.green
+        } else if (track.userVote == -1) {
+            cell.downVoteButton.tintColor = UIColor.red
         }
-
+        
+        cell.upVoteButton.tag = indexPath.row
+        cell.downVoteButton.tag = indexPath.row
+        
+        return cell
     }
-
-    /* Retrieves all foodlist items from Firebase */
-    func populateFoodList() {
-        // get all foodlist items and populate table view
-        let foodRef = databaseRef.child("foodlist");
-
-        // order the list so it's not a mess
-        foodRef.queryOrderedByKey().observeSingleEvent(of: .value, with: { (snapshot) in
-            self.foodList = snapshot.value as! [String: Any] as! [String : Int]
-            for child in snapshot.children {
-                let snap = child as! DataSnapshot
-                let key = snap.key
-
-                // if this item is in the user's list, mark it as checked in the table view
-                let containsElement = self.userFoodList.keys.contains(key)
-                let checked = containsElement ? 1 : 0
-
-                self.foodList[key] = checked
+    
+    // either cancel out an existing vote or add a new one
+    @IBAction func upVote(_ sender: UIButton) {
+        let button = sender as UIButton;
+        let userVote = tracks[button.tag].userVote
+        
+        let indexPath = IndexPath(row: button.tag, section: 0)
+        let cell = musicTableView.cellForRow(at: indexPath) as! MusicTableViewCell
+        
+        // user hasn't voted
+        if (userVote == 0) {
+            updateCount(button: button, amount: 1)
+            cell.upVoteButton.tintColor = UIColor.green
+            tracks[button.tag].userVote = 1
+        // undo a positive vote
+        } else if (userVote == 1) {
+            updateCount(button: button, amount: -1)
+            cell.upVoteButton.tintColor = UIColor.black
+            tracks[button.tag].userVote = 0
+        // switch from positive to negative vote
+        } else if (userVote == -1) {
+            updateCount(button: button, amount: 2)
+            cell.upVoteButton.tintColor = UIColor.green
+            cell.downVoteButton.tintColor = UIColor.black
+            tracks[button.tag].userVote = 1
+        }
+    }
+    
+    // either cancel out an existing vote or add a new one
+    @IBAction func downVote(_ sender: UIButton) {
+        let button = sender as UIButton;
+        let userVote = tracks[button.tag].userVote
+        
+        let indexPath = IndexPath(row: button.tag, section: 0)
+        let cell = musicTableView.cellForRow(at: indexPath) as! MusicTableViewCell
+        
+        // the user has not voted
+        if (userVote == 0) {
+            updateCount(button: button, amount: -1)
+            cell.downVoteButton.tintColor = UIColor.red
+            tracks[button.tag].userVote = -1
+        // undo a negative vote
+        } else if (userVote == -1) {
+            updateCount(button: button, amount: 1)
+            cell.downVoteButton.tintColor = UIColor.black
+            tracks[button.tag].userVote = 0
+        // switch from positive to negative vote
+        } else if (userVote == 1) {
+            updateCount(button: button, amount: -2)
+            cell.downVoteButton.tintColor = UIColor.red
+            cell.upVoteButton.tintColor = UIColor.black
+            tracks[button.tag].userVote = -1
+        }
+    }
+    
+    // change the count label by the amount specified (0, 1, -1, 2, -2)
+    func updateCount(button: UIButton, amount: Int) {
+        let newCount = tracks[button.tag].count + amount
+        
+        let indexPath = IndexPath(row: button.tag, section: 0)
+        let cell = musicTableView.cellForRow(at: indexPath) as! MusicTableViewCell
+        
+        cell.voteCounts.text = String(newCount)
+        tracks[button.tag].count = newCount
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let segueID = segue.identifier
+        
+        if (segueID == "showPopupSegue") {
+            if let destinationVC = segue.destination as? AddSongViewController {
+                destinationVC.previousList = tracks
+                destinationVC.previousSet = tracksSet
             }
-
-            self.tableView.reloadData()
-        })
+        }
     }
-
 }
-
 

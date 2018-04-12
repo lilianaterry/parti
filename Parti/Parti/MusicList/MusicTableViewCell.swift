@@ -1,41 +1,38 @@
 //
 //  MusicTableViewCell.swift
-//  Parti
+//  PartiMusic
 //
-//  Created by Liliana Terry on 4/4/18.
-//  Copyright © 2018 Arjun Gopisetty. All rights reserved.
+//  Created by Liliana Terry on 4/10/18.
+//  Copyright © 2018 The Party App. All rights reserved.
 //
 
 import UIKit
 
 class MusicTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var songLabel: UILabel!
-    @IBOutlet weak var artistLabel: UILabel!
-    @IBOutlet weak var count: UILabel!
     
-    @IBAction func upVote(_ sender: Any) {
-        
-    }
-    
-    @IBAction func downVote(_ sender: Any) {
-        
-    }
+    @IBOutlet weak var albumImage: UIImageView!
+    @IBOutlet weak var songName: UILabel!
+    @IBOutlet weak var artistName: UILabel!
+    @IBOutlet weak var voteCounts: UILabel!
+    @IBOutlet weak var upVoteButton: UIButton!
+    @IBOutlet weak var downVoteButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        // create circular mask on image
-        self.guestImage.layer.cornerRadius = self.guestImage.frame.size.width / 2;
-        self.guestImage.clipsToBounds = true;
+    
+        setupButtonColor()
+    }
+    
+    // allows up and down arrows to tint when selected
+    func setupButtonColor() {
+        let upImage = UIImage(named: "up_vote")
+        let downImage = UIImage(named: "down_vote")
+        upVoteButton.setImage(upImage?.withRenderingMode(UIImageRenderingMode.alwaysTemplate), for: .normal)
+        downVoteButton.setImage(downImage?.withRenderingMode(UIImageRenderingMode.alwaysTemplate), for: .normal)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
+        self.backgroundColor = UIColor.clear
     }
     
 }
-
