@@ -8,8 +8,16 @@
 
 import UIKit
 import Alamofire
+import FirebaseDatabase
+import FirebaseAuth
 
 class AddSongViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
+    
+    // Firebase Database connection
+    var databaseRef: DatabaseReference!
+    var databaseHandle: DatabaseHandle?
+    
+    var partyID = String()
     
     // alias this so we can just type JSONStandard each time
     typealias JSONStandard = [String: AnyObject]
@@ -18,10 +26,11 @@ class AddSongViewController: UIViewController, UISearchBarDelegate, UITableViewD
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var duplicateMessage: UILabel!
     
+    // results and the song that was ultimately selected
     var searchResults = [musicModel]()
-    
     var selectedSong = musicModel(songName: "", artistName: "", albumImage: nil, count: 0, userVote: 0, imageURL: nil)
     
+    // update song list for MusicListViewController
     var previousList = [musicModel]()
     var previousSet = Set<String>()
     
@@ -39,7 +48,10 @@ class AddSongViewController: UIViewController, UISearchBarDelegate, UITableViewD
         
         self.searchBar.delegate = self
         
+        // message that alerts user that this song has already been added
         duplicateMessage.isHidden = true
+        
+        databaseRef = Database.database().reference()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,7 +85,7 @@ class AddSongViewController: UIViewController, UISearchBarDelegate, UITableViewD
             let albumImage = UIImage(data: imageData! as Data)
             selectedSong.albumImage = albumImage
             
-            performSegue(withIdentifier: "addSongSegue", sender: self)
+            updateFirebase()
         } else {
             duplicateMessage.isHidden = false
         }
@@ -157,6 +169,25 @@ class AddSongViewController: UIViewController, UISearchBarDelegate, UITableViewD
         } catch {
             print(error)
         }
+    }
+    
+    // add the new song entry to firebase
+    func updateFirebase() {
+        let trackKey = "\(selectedSong.songName!)\(selectedSong.artistName!)"
+        let post = [
+            trackKey: [
+                "songName": "\(selectedSong.songName!)",
+                "artistName": "\(selectedSong.artistName!)",
+                "count": 0,
+                "imageURL": "\(selectedSong.imageURL?.absoluteString)",
+                "votes": [
+                    "\(Auth.auth().currentUser!.uid)": 0
+                ]
+            ]
+        ]
+        
+        databaseRef.child("parties/\(partyID)/musicList").updateChildValues(post)
+        performSegue(withIdentifier: "addSongSegue", sender: self)
     }
 }
 

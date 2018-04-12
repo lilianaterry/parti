@@ -41,6 +41,11 @@ class PartyHostViewController: ViewController {
     @IBAction func editPartyButton(_ sender: Any) {
         performSegue(withIdentifier: "editPartySegue", sender: self)
     }
+    @IBAction func musicListButton(_ sender: Any) {
+        performSegue(withIdentifier: "musicListSegue", sender: self)
+    }
+    
+    @IBAction func unwindToHostViewController(segue: UIStoryboardSegue) { }
     
     var guestButtons = [UIButton]()
     var displayedGuests = [ProfileModel]()
@@ -246,6 +251,11 @@ class PartyHostViewController: ViewController {
         } else if (segueID == "editPartySegue") {
             if let destinationVC = segue.destination as? EditPartyViewController {
                 destinationVC.partyObject = self.partyObject
+            }
+        } else if (segueID == "musicListSegue") {
+            if let destinationVC = segue.destination as? MusicListViewController {
+                destinationVC.partyID = partyObject.partyID
+                destinationVC.hostView = true
             }
         }
     }

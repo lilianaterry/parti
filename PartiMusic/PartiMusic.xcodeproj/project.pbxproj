@@ -12,7 +12,7 @@
 		C03E9A1C517436FF270CB1A4 /* Pods_PartiMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A73B52B930AA0E3AA865FC9 /* Pods_PartiMusic.framework */; };
 		CE0EA057207C498A006BE439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EA056207C498A006BE439 /* AppDelegate.swift */; };
 		CE0EA059207C498A006BE439 /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EA058207C498A006BE439 /* MusicListViewController.swift */; };
-		CE0EA05C207C498A006BE439 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0EA05A207C498A006BE439 /* Main.storyboard */; };
+		CE0EA05C207C498A006BE439 /* Music.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0EA05A207C498A006BE439 /* Music.storyboard */; };
 		CE0EA05E207C498A006BE439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0EA05D207C498A006BE439 /* Assets.xcassets */; };
 		CE0EA061207C498A006BE439 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0EA05F207C498A006BE439 /* LaunchScreen.storyboard */; };
 		CE0EA06C207C498A006BE439 /* PartiMusicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EA06B207C498A006BE439 /* PartiMusicTests.swift */; };
@@ -53,7 +53,7 @@
 		CE0EA053207C498A006BE439 /* PartiMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartiMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0EA056207C498A006BE439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE0EA058207C498A006BE439 /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
-		CE0EA05B207C498A006BE439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE0EA05B207C498A006BE439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Music.storyboard; sourceTree = "<group>"; };
 		CE0EA05D207C498A006BE439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE0EA060207C498A006BE439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE0EA062207C498A006BE439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 				CE8D27EA207D51E800BA7BBA /* MusicTableViewCell.swift */,
 				CE8D27F0207D882C00BA7BBA /* SearchTableViewCell.swift */,
 				CE0EA056207C498A006BE439 /* AppDelegate.swift */,
-				CE0EA05A207C498A006BE439 /* Main.storyboard */,
+				CE0EA05A207C498A006BE439 /* Music.storyboard */,
 				CE0EA05D207C498A006BE439 /* Assets.xcassets */,
 				CE0EA05F207C498A006BE439 /* LaunchScreen.storyboard */,
 				CE0EA062207C498A006BE439 /* Info.plist */,
@@ -291,7 +291,7 @@
 				CE0EA061207C498A006BE439 /* LaunchScreen.storyboard in Resources */,
 				CE0EA05E207C498A006BE439 /* Assets.xcassets in Resources */,
 				CE0EA085207C4A35006BE439 /* Podfile in Resources */,
-				CE0EA05C207C498A006BE439 /* Main.storyboard in Resources */,
+				CE0EA05C207C498A006BE439 /* Music.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,12 +431,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CE0EA05A207C498A006BE439 /* Main.storyboard */ = {
+		CE0EA05A207C498A006BE439 /* Music.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CE0EA05B207C498A006BE439 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Music.storyboard;
 			sourceTree = "<group>";
 		};
 		CE0EA05F207C498A006BE439 /* LaunchScreen.storyboard */ = {

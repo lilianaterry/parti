@@ -1022,7 +1022,7 @@
                                         <rect key="frame" x="143" y="136" width="41" height="30"/>
                                         <state key="normal" title="Music"/>
                                         <connections>
-                                            <segue destination="9jf-8t-flj" kind="show" animates="NO" id="MXi-tK-jga"/>
+                                            <action selector="musicListButton:" destination="D0Z-FS-81f" eventType="touchUpInside" id="7De-42-Z1m"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Bxg-CF-FDg" userLabel="users">
@@ -1215,6 +1215,7 @@
                         <segue destination="bJF-T5-5u8" kind="show" identifier="guestListSegue" animates="NO" id="cs0-rd-on5"/>
                         <segue destination="etb-UH-iUe" kind="show" identifier="guestProfileSegue" animates="NO" id="yW4-ie-5Dy"/>
                         <segue destination="vs2-Yp-fpP" kind="show" identifier="editPartySegue" animates="NO" id="WUq-fp-HsC"/>
+                        <segue destination="9jf-8t-flj" kind="show" identifier="musicListSegue" animates="NO" id="6Gu-bd-4eq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nFx-Vu-ujI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1311,7 +1312,7 @@
                                     <navigationItem title="Friends" id="ub4-DC-Jrf">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="EPp-zp-OgN">
                                             <connections>
-                                                <segue destination="wJy-nt-2cR" kind="show" id="QVS-wG-lTs"/>
+                                                <segue destination="wJy-nt-2cR" kind="show" animates="NO" id="QVS-wG-lTs"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1665,7 +1666,7 @@
                                                 <rect key="frame" x="139.33333333333334" y="160" width="41" height="30"/>
                                                 <state key="normal" title="Music"/>
                                                 <connections>
-                                                    <segue destination="9jf-8t-flj" kind="show" animates="NO" id="ugp-ZV-yv4"/>
+                                                    <action selector="musicListButton:" destination="HdR-Sn-2rM" eventType="touchUpInside" id="DLF-4n-IXe"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Cdc-GA-FcU">
@@ -1762,6 +1763,7 @@
                         <segue destination="fI7-Jc-tfo" kind="show" identifier="guestListSegue" animates="NO" id="ZMK-gI-7PD"/>
                         <segue destination="etb-UH-iUe" kind="show" identifier="guestProfileSegue" animates="NO" id="oW6-Pw-K4u"/>
                         <segue destination="7ei-0X-8nP" kind="show" identifier="foodListSegue" animates="NO" id="IDp-bi-c08"/>
+                        <segue destination="9jf-8t-flj" kind="show" identifier="musicListSegue" animates="NO" id="m55-8c-pmF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVP-BC-1bn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1786,8 +1788,8 @@
         <image name="vegetarian" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MXi-tK-jga"/>
+        <segue reference="6Gu-bd-4eq"/>
         <segue reference="yW4-ie-5Dy"/>
-        <segue reference="Ovt-k8-zB7"/>
+        <segue reference="GUe-rZ-zmH"/>
     </inferredMetricsTieBreakers>
 </document>
