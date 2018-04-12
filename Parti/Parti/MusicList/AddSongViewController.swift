@@ -79,7 +79,6 @@ class AddSongViewController: UIViewController, UISearchBarDelegate, UITableViewD
         selectedSong = searchResults[indexPath.row]
         
         if (!previousSet.contains("\(selectedSong.songName!)\(selectedSong.artistName!)")) {
-            print("no matches")
             let imageData = NSData(contentsOf: selectedSong.imageURL!)
 
             let albumImage = UIImage(data: imageData! as Data)
@@ -180,10 +179,7 @@ class AddSongViewController: UIViewController, UISearchBarDelegate, UITableViewD
                 "songName": selectedSong.songName,
                 "artistName": selectedSong.artistName,
                 "count": 0,
-                "imageURL": selectedSong.imageURL?.absoluteString,
-                "votes": [
-                    "\(Auth.auth().currentUser!.uid)": 0
-                ]
+                "imageURL": selectedSong.imageURL?.absoluteString
             ]
         ]
         

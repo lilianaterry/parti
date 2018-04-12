@@ -86,15 +86,20 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
                 newTrack.albumImage = albumImage
                 
                 // if this user has voted, have their votes reflected in the list
-                let votes = track["votes"] as! [String: Any]
-                if (votes.keys.contains(self.currentUser!)) {
-                    newTrack.userVote = votes[self.currentUser!] as! Int
+                if let votes = track["votes"] as? [String: Any] {
+                    if (votes.keys.contains(self.currentUser!)) {
+                        newTrack.userVote = votes[self.currentUser!] as! Int
+                    }
                 } else {
                     newTrack.userVote = 0
                 }
                 
-                self.tracks.append(newTrack)
                 self.tracksSet.insert("\(newTrack.songName!)\(newTrack.artistName!)")
+                if let index = self.tracks.index(where: { $0.count < newTrack.count }) {
+                    self.tracks.insert(newTrack, at: index)
+                } else {
+                    self.tracks.append(newTrack)
+                }
                 self.musicTableView.reloadData()
             }
         }
@@ -122,8 +127,13 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
         // color the buttons if necessary
         if (track.userVote == 1) {
             cell.upVoteButton.tintColor = UIColor.green
+            cell.downVoteButton.tintColor = UIColor.black
         } else if (track.userVote == -1) {
             cell.downVoteButton.tintColor = UIColor.red
+            cell.upVoteButton.tintColor = UIColor.black
+        } else if (track.userVote == 0) {
+            cell.downVoteButton.tintColor = UIColor.black
+            cell.upVoteButton.tintColor = UIColor.black
         }
         
         cell.upVoteButton.tag = indexPath.row
@@ -227,6 +237,10 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
         } else {
             databaseRef.child(path).setValue(newVote)
         }
+        
+        // resort the list to reflect the changes
+        tracks.sort{$0.count > $1.count}
+        musicTableView.reloadData()
     }
     
     // update this track's total votes in Firebase
