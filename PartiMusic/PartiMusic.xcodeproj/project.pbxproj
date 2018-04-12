@@ -11,16 +11,15 @@
 		9F3D6324C0788E611A0D4C2A /* Pods_PartiMusicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CBD1687871BB82C771D1C1B /* Pods_PartiMusicTests.framework */; };
 		C03E9A1C517436FF270CB1A4 /* Pods_PartiMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A73B52B930AA0E3AA865FC9 /* Pods_PartiMusic.framework */; };
 		CE0EA057207C498A006BE439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EA056207C498A006BE439 /* AppDelegate.swift */; };
-		CE0EA059207C498A006BE439 /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EA058207C498A006BE439 /* MusicListViewController.swift */; };
-		CE0EA05C207C498A006BE439 /* Music.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0EA05A207C498A006BE439 /* Music.storyboard */; };
+		CE0EA05C207C498A006BE439 /* Food.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0EA05A207C498A006BE439 /* Food.storyboard */; };
 		CE0EA05E207C498A006BE439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0EA05D207C498A006BE439 /* Assets.xcassets */; };
 		CE0EA061207C498A006BE439 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0EA05F207C498A006BE439 /* LaunchScreen.storyboard */; };
 		CE0EA06C207C498A006BE439 /* PartiMusicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EA06B207C498A006BE439 /* PartiMusicTests.swift */; };
 		CE0EA077207C498A006BE439 /* PartiMusicUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EA076207C498A006BE439 /* PartiMusicUITests.swift */; };
 		CE0EA085207C4A35006BE439 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CE0EA084207C4A35006BE439 /* Podfile */; };
-		CE8D27EB207D51E800BA7BBA /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D27EA207D51E800BA7BBA /* MusicTableViewCell.swift */; };
-		CE8D27EF207D6EAD00BA7BBA /* AddSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D27EE207D6EAC00BA7BBA /* AddSongViewController.swift */; };
-		CE8D27F1207D882C00BA7BBA /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D27F0207D882C00BA7BBA /* SearchTableViewCell.swift */; };
+		CE8D28112080072800BA7BBA /* PartyFoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D28102080072800BA7BBA /* PartyFoodListViewController.swift */; };
+		CE8D281220800A5B00BA7BBA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE0EA062207C498A006BE439 /* Info.plist */; };
+		CE8D281420800AA000BA7BBA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE0EA06D207C498A006BE439 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +51,7 @@
 		8CBD1687871BB82C771D1C1B /* Pods_PartiMusicTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartiMusicTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0EA053207C498A006BE439 /* PartiMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartiMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0EA056207C498A006BE439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE0EA058207C498A006BE439 /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
-		CE0EA05B207C498A006BE439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Music.storyboard; sourceTree = "<group>"; };
+		CE0EA05B207C498A006BE439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Food.storyboard; sourceTree = "<group>"; };
 		CE0EA05D207C498A006BE439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE0EA060207C498A006BE439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE0EA062207C498A006BE439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,10 +61,8 @@
 		CE0EA072207C498A006BE439 /* PartiMusicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PartiMusicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0EA076207C498A006BE439 /* PartiMusicUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartiMusicUITests.swift; sourceTree = "<group>"; };
 		CE0EA078207C498A006BE439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE0EA084207C4A35006BE439 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
-		CE8D27EA207D51E800BA7BBA /* MusicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
-		CE8D27EE207D6EAC00BA7BBA /* AddSongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSongViewController.swift; sourceTree = "<group>"; };
-		CE8D27F0207D882C00BA7BBA /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		CE0EA084207C4A35006BE439 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		CE8D28102080072800BA7BBA /* PartyFoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyFoodListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +119,8 @@
 		CE0EA04A207C498A006BE439 = {
 			isa = PBXGroup;
 			children = (
-				CE0EA055207C498A006BE439 /* PartiMusic */,
+				CE0EA062207C498A006BE439 /* Info.plist */,
+				CE0EA055207C498A006BE439 /* PartyFood */,
 				CE0EA06A207C498A006BE439 /* PartiMusicTests */,
 				CE0EA075207C498A006BE439 /* PartiMusicUITests */,
 				CE0EA054207C498A006BE439 /* Products */,
@@ -143,20 +140,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CE0EA055207C498A006BE439 /* PartiMusic */ = {
+		CE0EA055207C498A006BE439 /* PartyFood */ = {
 			isa = PBXGroup;
 			children = (
-				CE8D27EE207D6EAC00BA7BBA /* AddSongViewController.swift */,
-				CE0EA058207C498A006BE439 /* MusicListViewController.swift */,
-				CE8D27EA207D51E800BA7BBA /* MusicTableViewCell.swift */,
-				CE8D27F0207D882C00BA7BBA /* SearchTableViewCell.swift */,
+				CE8D28102080072800BA7BBA /* PartyFoodListViewController.swift */,
+				CE0EA05A207C498A006BE439 /* Food.storyboard */,
 				CE0EA056207C498A006BE439 /* AppDelegate.swift */,
-				CE0EA05A207C498A006BE439 /* Music.storyboard */,
 				CE0EA05D207C498A006BE439 /* Assets.xcassets */,
 				CE0EA05F207C498A006BE439 /* LaunchScreen.storyboard */,
-				CE0EA062207C498A006BE439 /* Info.plist */,
 			);
-			path = PartiMusic;
+			path = PartyFood;
 			sourceTree = "<group>";
 		};
 		CE0EA06A207C498A006BE439 /* PartiMusicTests */ = {
@@ -291,7 +284,8 @@
 				CE0EA061207C498A006BE439 /* LaunchScreen.storyboard in Resources */,
 				CE0EA05E207C498A006BE439 /* Assets.xcassets in Resources */,
 				CE0EA085207C4A35006BE439 /* Podfile in Resources */,
-				CE0EA05C207C498A006BE439 /* Music.storyboard in Resources */,
+				CE8D281220800A5B00BA7BBA /* Info.plist in Resources */,
+				CE0EA05C207C498A006BE439 /* Food.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE8D281420800AA000BA7BBA /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,10 +351,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PartiMusic/Pods-PartiMusic-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -391,11 +392,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE0EA059207C498A006BE439 /* MusicListViewController.swift in Sources */,
-				CE8D27EF207D6EAD00BA7BBA /* AddSongViewController.swift in Sources */,
 				CE0EA057207C498A006BE439 /* AppDelegate.swift in Sources */,
-				CE8D27EB207D51E800BA7BBA /* MusicTableViewCell.swift in Sources */,
-				CE8D27F1207D882C00BA7BBA /* SearchTableViewCell.swift in Sources */,
+				CE8D28112080072800BA7BBA /* PartyFoodListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,12 +429,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CE0EA05A207C498A006BE439 /* Music.storyboard */ = {
+		CE0EA05A207C498A006BE439 /* Food.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CE0EA05B207C498A006BE439 /* Base */,
 			);
-			name = Music.storyboard;
+			name = Food.storyboard;
 			sourceTree = "<group>";
 		};
 		CE0EA05F207C498A006BE439 /* LaunchScreen.storyboard */ = {

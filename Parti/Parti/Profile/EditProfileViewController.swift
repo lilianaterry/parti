@@ -246,7 +246,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     /* don't save anything, go back to the original profile view */
     @IBAction func dismiss(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
     
     /* when user clicks save, THEN update all of their information to firebase */

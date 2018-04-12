@@ -1,16 +1,45 @@
 PODS:
   - Alamofire (4.7.1)
+  - MaterialComponents/ButtonBar (54.1.0):
+    - MaterialComponents/Buttons
+    - MDFInternationalization
+  - MaterialComponents/Buttons (54.1.0):
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Typography
+    - MDFInternationalization
+    - MDFTextAccessibility
+  - MaterialComponents/Ink (54.1.0):
+    - MaterialComponents/private/Math
+  - MaterialComponents/private/Application (54.1.0)
+  - MaterialComponents/private/Math (54.1.0)
+  - MaterialComponents/ShadowElevations (54.1.0)
+  - MaterialComponents/ShadowLayer (54.1.0):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/Typography (54.1.0):
+    - MaterialComponents/private/Application
+  - MDFInternationalization (1.0.4)
+  - MDFTextAccessibility (1.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - MaterialComponents/ButtonBar
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
+    - MaterialComponents
+    - MDFInternationalization
+    - MDFTextAccessibility
 
 SPEC CHECKSUMS:
   Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  MaterialComponents: d004032f7168f9f84a4d9119f67ef73066c027db
+  MDFInternationalization: e355b0cebecf53d60233bd267084e49366c82513
+  MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
 
-PODFILE CHECKSUM: acbdbc5e221fef728be88e662b16e688289962f5
+PODFILE CHECKSUM: 59419e3b69c23fc2a9938c32125c3cf1243439e4
 
 COCOAPODS: 1.5.0

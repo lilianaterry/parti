@@ -228,7 +228,7 @@ class PartyHostViewController: ViewController {
     }
     
     @IBAction func dismiss(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
     
     // Pass user information to profile page or pass party id to guest list

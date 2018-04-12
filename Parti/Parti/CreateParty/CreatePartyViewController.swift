@@ -164,7 +164,7 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
     
     /* If user clicks on Cancel instead of selecting an image */
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

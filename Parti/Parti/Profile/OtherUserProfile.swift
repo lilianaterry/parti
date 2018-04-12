@@ -162,7 +162,7 @@ class OtherUserProfile: UIViewController {
     }
     
     @IBAction func dismiss(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
 
 }
