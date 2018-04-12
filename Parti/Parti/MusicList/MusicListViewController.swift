@@ -158,7 +158,7 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
             tracks[button.tag].userVote = 1
         }
         
-        let trackKey = "\(tracks[button.tag].songName!)\(tracks[button.tag].artistName!))"
+        let trackKey = "\(tracks[button.tag].songName!)\(tracks[button.tag].artistName!)"
         updateFirebaseUserVote(newVote: tracks[button.tag].userVote, trackKey: trackKey)
     }
     
@@ -188,8 +188,9 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
             tracks[button.tag].userVote = -1
         }
         
-        let trackKey = "\(tracks[button.tag].songName!)\(tracks[button.tag].artistName!))"
-        updateFirebaseUserVote(newVote: tracks[button.tag].userVote, trackKey: trackKey)
+        let trackKey = "\(tracks[button.tag].songName!)\(tracks[button.tag].artistName!)"
+        let cleanTrackKey = stripCharacters(string: trackKey)
+        updateFirebaseUserVote(newVote: tracks[button.tag].userVote, trackKey: cleanTrackKey)
     }
     
     // change the count label by the amount specified (0, 1, -1, 2, -2)
@@ -203,8 +204,17 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
         tracks[button.tag].count = newCount
         
         // now make this change stick
-        let trackKey = "\(tracks[button.tag].songName!)\(tracks[button.tag].artistName!))"
-        updateFirebaseTrackCount(newCount: newCount, trackKey: trackKey)
+        let trackKey = "\(tracks[button.tag].songName!)\(tracks[button.tag].artistName!)"
+        let cleanTrackKey = stripCharacters(string: trackKey)
+        updateFirebaseUserVote(newVote: tracks[button.tag].userVote, trackKey: cleanTrackKey)
+    }
+    
+    // strips off characters that Firebase can't handle
+    func stripCharacters(string: String) -> String {
+        struct Constants {
+            static let validChars = Set(".#$[]".characters)
+        }
+        return String(string.characters.filter { Constants.validChars.contains($0) })
     }
     
     // update this user's vote in Firebase
