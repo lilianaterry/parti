@@ -9,11 +9,12 @@
 import MaterialComponents
 
 class PartyFoodListViewController: UIViewController {
+    @IBAction func tabBar(_ sender: UISegmentedControl) {
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTabBar()
     }
     
     // adds food, alcohol, and mixer tab bar to top of view
@@ -25,7 +26,7 @@ class PartyFoodListViewController: UIViewController {
             UITabBarItem(title: "Food", image: nil, tag: 0),
             UITabBarItem(title: "Mixers", image: nil, tag: 0),
         ]
-                
+        
         tabBar.itemAppearance = .titledImages
         tabBar.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
         tabBar.sizeToFit()
