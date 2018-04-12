@@ -112,10 +112,11 @@ class AddSongViewController: UIViewController, UISearchBarDelegate, UITableViewD
         
         if (segueID == "addSongSegue") {
             if let destinationVC = segue.destination as? MusicListViewController {
-                previousList.append(selectedSong)
-                previousSet.insert("\(selectedSong.songName!)\(selectedSong.artistName!)")
-                destinationVC.tracks = previousList
-                destinationVC.tracksSet = previousSet
+//                previousList.append(selectedSong)
+//                previousSet.insert("\(selectedSong.songName!)\(selectedSong.artistName!)")
+//                destinationVC.tracks = previousList
+//                destinationVC.tracksSet = previousSet
+                destinationVC.partyID = partyID
             }
         }
     }
@@ -174,13 +175,12 @@ class AddSongViewController: UIViewController, UISearchBarDelegate, UITableViewD
     // add the new song entry to firebase
     func updateFirebase() {
         let trackKey = "\(selectedSong.songName!)\(selectedSong.artistName!)"
-        let cleanTrackKey = stripCharacters(string: trackKey)
         let post = [
-            cleanTrackKey: [
-                "songName": "\(selectedSong.songName!)",
-                "artistName": "\(selectedSong.artistName!)",
+            trackKey: [
+                "songName": selectedSong.songName,
+                "artistName": selectedSong.artistName,
                 "count": 0,
-                "imageURL": "\(selectedSong.imageURL?.absoluteString)",
+                "imageURL": selectedSong.imageURL?.absoluteString,
                 "votes": [
                     "\(Auth.auth().currentUser!.uid)": 0
                 ]
@@ -189,14 +189,6 @@ class AddSongViewController: UIViewController, UISearchBarDelegate, UITableViewD
         
         databaseRef.child("parties/\(partyID)/musicList").updateChildValues(post)
         performSegue(withIdentifier: "addSongSegue", sender: self)
-    }
-    
-    // strips off characters that Firebase can't handle
-    func stripCharacters(string: String) -> String {
-        struct Constants {
-            static let validChars = Set(".#$[]".characters)
-        }
-        return String(string.characters.filter { Constants.validChars.contains($0) })
     }
 }
 

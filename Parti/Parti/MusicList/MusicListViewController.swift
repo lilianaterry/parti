@@ -189,8 +189,8 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         let trackKey = "\(tracks[button.tag].songName!)\(tracks[button.tag].artistName!)"
-        let cleanTrackKey = stripCharacters(string: trackKey)
-        updateFirebaseUserVote(newVote: tracks[button.tag].userVote, trackKey: cleanTrackKey)
+        //let cleanTrackKey = stripCharacters(string: trackKey)
+        updateFirebaseUserVote(newVote: tracks[button.tag].userVote, trackKey: trackKey)
     }
     
     // change the count label by the amount specified (0, 1, -1, 2, -2)
@@ -205,8 +205,8 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         // now make this change stick
         let trackKey = "\(tracks[button.tag].songName!)\(tracks[button.tag].artistName!)"
-        let cleanTrackKey = stripCharacters(string: trackKey)
-        updateFirebaseUserVote(newVote: tracks[button.tag].userVote, trackKey: cleanTrackKey)
+        //let cleanTrackKey = stripCharacters(string: trackKey)
+        updateFirebaseTrackCount(newCount: newCount, trackKey: trackKey)
     }
     
     // strips off characters that Firebase can't handle
