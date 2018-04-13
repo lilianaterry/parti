@@ -57,7 +57,6 @@
 		CE6CD6832047092D00BC3DD3 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CD6822047092D00BC3DD3 /* FoodListViewController.swift */; };
 		CE6CD68520470C3C00BC3DD3 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CE6CD68420470C3C00BC3DD3 /* Podfile */; };
 		CE83FF602067EDB400542092 /* AddGuestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE83FF5F2067EDB400542092 /* AddGuestsViewController.swift */; };
-		CE8D27FF207EBEA500BA7BBA /* Music.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8D27FD207EBEA500BA7BBA /* Music.storyboard */; };
 		CE8D280C207F02BD00BA7BBA /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D2808207F02BC00BA7BBA /* MusicListViewController.swift */; };
 		CE8D280D207F02BD00BA7BBA /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D2809207F02BC00BA7BBA /* MusicTableViewCell.swift */; };
 		CE8D280E207F02BD00BA7BBA /* AddSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D280A207F02BC00BA7BBA /* AddSongViewController.swift */; };
@@ -93,6 +92,7 @@
 		F9B245C12066EB3D0015F277 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9B245C02066EB3D0015F277 /* Main.storyboard */; };
 		F9B5265D207AD79F0029F480 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B5265C207AD79F0029F480 /* FriendsViewController.swift */; };
 		F9B5265F207AD85F0029F480 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B5265E207AD85F0029F480 /* FriendsTableViewCell.swift */; };
+		F9D52CBE208026D7005ADE89 /* Music.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9D52CBD208026D7005ADE89 /* Music.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,7 +159,6 @@
 		CE6CD6822047092D00BC3DD3 /* FoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
 		CE6CD68420470C3C00BC3DD3 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		CE83FF5F2067EDB400542092 /* AddGuestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGuestsViewController.swift; sourceTree = "<group>"; };
-		CE8D27FE207EBEA500BA7BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../../PartiMusic/PartiMusic/Base.lproj/Music.storyboard; sourceTree = "<group>"; };
 		CE8D2808207F02BC00BA7BBA /* MusicListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
 		CE8D2809207F02BC00BA7BBA /* MusicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
 		CE8D280A207F02BC00BA7BBA /* AddSongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSongViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +203,7 @@
 		F9B245C02066EB3D0015F277 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F9B5265C207AD79F0029F480 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		F9B5265E207AD85F0029F480 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
+		F9D52CBD208026D7005ADE89 /* Music.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Music.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -364,11 +364,11 @@
 		CECC3CBB2077B8FD009148A6 /* MusicList */ = {
 			isa = PBXGroup;
 			children = (
+				F9D52CBD208026D7005ADE89 /* Music.storyboard */,
 				CE8D280A207F02BC00BA7BBA /* AddSongViewController.swift */,
 				CE8D2808207F02BC00BA7BBA /* MusicListViewController.swift */,
 				CE8D2809207F02BC00BA7BBA /* MusicTableViewCell.swift */,
 				CE8D280B207F02BD00BA7BBA /* SearchTableViewCell.swift */,
-				CE8D27FD207EBEA500BA7BBA /* Music.storyboard */,
 			);
 			path = MusicList;
 			sourceTree = "<group>";
@@ -477,6 +477,8 @@
 				F98083482020E98C00CB91C0 /* Sources */,
 				F98083492020E98C00CB91C0 /* Frameworks */,
 				F980834A2020E98C00CB91C0 /* Resources */,
+				9301603269A1D66BEB061E32 /* [CP] Embed Pods Frameworks */,
+				A31BB7C4A7EF9E04CE6764CC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -565,11 +567,11 @@
 				CEF18A42204B74F8003071C5 /* SecondMain.storyboard in Resources */,
 				CE583937207832C6006D67E9 /* SF-Pro-Display-Black.otf in Resources */,
 				CE2281FC206B512A00039578 /* EditProfile.storyboard in Resources */,
+				F9D52CBE208026D7005ADE89 /* Music.storyboard in Resources */,
 				F90E780F206EB474007C5302 /* ProfileView.storyboard in Resources */,
 				CE583938207832F4006D67E9 /* SF-Pro-Display-BlackItalic.otf in Resources */,
 				CE583950207832F4006D67E9 /* SF-Pro-Text-MediumItalic.otf in Resources */,
 				CE583942207832F4006D67E9 /* SF-Pro-Display-RegularItalic.otf in Resources */,
-				CE8D27FF207EBEA500BA7BBA /* Music.storyboard in Resources */,
 				CE583954207832F4006D67E9 /* SF-Pro-Text-SemiboldItalic.otf in Resources */,
 				CE05EA44207443FE00886673 /* AddFriends.storyboard in Resources */,
 				CECC3CBF2077B974009148A6 /* PartyFoodList.storyboard in Resources */,
@@ -610,6 +612,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9301603269A1D66BEB061E32 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PartiTests/Pods-PartiTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A31BB7C4A7EF9E04CE6764CC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PartiTests/Pods-PartiTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B6DB3AB0ED88F9172C9871F2 /* [CP] Copy Pods Resources */ = {
@@ -759,14 +791,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CE8D27FD207EBEA500BA7BBA /* Music.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE8D27FE207EBEA500BA7BBA /* Base */,
-			);
-			name = Music.storyboard;
-			sourceTree = "<group>";
-		};
 		CEF18A40204B74F8003071C5 /* SecondMain.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
