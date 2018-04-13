@@ -66,6 +66,10 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        if (Auth.auth().currentUser != nil) {
+            // Segue here, its crashing other parts of the app
+        }
     }
     
     // moves main stackframe up when keyboard appears
