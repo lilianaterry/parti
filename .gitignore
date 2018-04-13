@@ -7,7 +7,7 @@
 # CocoaPods - Only use to conserve bandwidth / Save time on Pushing
 #           - Also handy if you have a large number of dependant pods
 #           - AS PER https://guides.cocoapods.org/using/using-cocoapods.html NEVER IGNORE THE LOCK FILE
-Pods/
+# Pods/
 
 ### Swift ###
 # Xcode
@@ -33,6 +33,7 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
+
 
 ## Obj-C/Swift specific
 *.hmap
@@ -77,6 +78,7 @@ fastlane/test_output
 ## Various settings
 
 ## Other
+.DS_Store
 
 ### Xcode Patch ###
 *.xcodeproj/*
