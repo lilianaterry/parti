@@ -24,6 +24,10 @@ target 'Parti' do
   # Pods for UI
   pod 'MaterialComponents'
 
+  # Pods for Crashlytics
+  pod 'Fabric', '~> 1.7.6'
+  pod 'Crashlytics', '~> 3.10.1'
+
   target 'PartiTests' do
     inherit! :search_paths
     # Pods for testing

@@ -6,6 +6,9 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
+  - Crashlytics (3.10.1):
+    - Fabric (~> 1.7.5)
+  - Fabric (1.7.6)
   - FBSDKCoreKit (4.32.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.32.0):
@@ -507,6 +510,8 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - Crashlytics (~> 3.10.1)
+  - Fabric (~> 1.7.6)
   - FBSDKCoreKit
   - FBSDKLoginKit
   - Firebase
@@ -520,6 +525,8 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
+  Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
   FBSDKCoreKit: 55d7f2ac45d9c4b9b6119f4e43900fe84b9b7b1b
   FBSDKLoginKit: 32ac05c2a59952c363c2e85aafa8f73ba93bcbad
   Firebase: d7fdf40e4d6c841849c52919f437fd3a0009ded0
@@ -542,6 +549,6 @@ SPEC CHECKSUMS:
   MotionTransitioning: 23d25edc2f4606efb922403cbac6d81af37aa33a
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
 
-PODFILE CHECKSUM: f5302ecbf146f78031bddd8a410f6b72864963a4
+PODFILE CHECKSUM: 7caa86c96a88be5ada5e6032806bf6419a32b061
 
 COCOAPODS: 1.4.0
