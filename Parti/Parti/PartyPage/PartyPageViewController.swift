@@ -121,6 +121,18 @@ class PartyPageViewController: UIViewController, UIImagePickerControllerDelegate
         maybeButton.setBackgroundColor(color, for: .selected)
         maybeButton.adjustsImageWhenHighlighted = false
         
+        databaseRef.child("users/\(userID)/attending/\(partyObject.partyID)").observeSingleEvent(of: .value) { (snapshot) in
+            if let attendingStatus = snapshot.value as? Int {
+                if (attendingStatus == 1) {
+                    self.goingButton.isSelected = true
+                } else if (attendingStatus == 0) {
+                    self.maybeButton.isSelected = true
+                } else {
+                    self.notGoingButton.isSelected = true
+                }
+            }
+        }
+        
         // add drop shadow to text on banner image
         nameLabel.textDropShadow()
         attireLabel.textDropShadow()
