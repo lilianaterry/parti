@@ -10,6 +10,10 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
+protocol ReturnDelegate {
+    func clearFriendsList()
+}
+
 class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate, UITableViewDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!

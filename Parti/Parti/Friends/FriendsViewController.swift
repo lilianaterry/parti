@@ -63,7 +63,7 @@ class FriendsViewController: ViewController, UITableViewDataSource, UITableViewD
     
     // get the friends of the current user
     func getFriends() {
-        print(userID)
+        users.removeAll()
         databaseRef.child("users/\(userID)/friendsList").observe(.value) { snapshot in
             for child in snapshot.children {
                 let snap = child as! DataSnapshot
@@ -133,5 +133,13 @@ class FriendsViewController: ViewController, UITableViewDataSource, UITableViewD
     func removeFriend(friendUid: String) {
         self.databaseRef.child("users/\(friendUid)/friendsList/\(userID)").removeValue()
         self.databaseRef.child("users/\(userID)/friendsList/\(friendUid)").removeValue()
+        users.removeAll()
+    }
+    
+    override func dismiss(animated flag: Bool, completion: (() -> Void)?)
+    {
+        super.dismiss(animated: flag, completion: completion)
+        print("Coming back from add friends")
+        users.removeAll()
     }
 }
