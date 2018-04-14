@@ -36,6 +36,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var drinkOfChoiceLabel: UILabel!
     @IBOutlet weak var partyTrickLabel: UILabel!
     
+    @IBAction func logout(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            print ("Logging out")
+            self.performSegue(withIdentifier: "logoutSegue", sender: self)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
     
     var allergyImages = [UIButton]()
     var allergyList = ["Nuts", "Gluten", "Vegetarian", "Dairy", "Vegan"]

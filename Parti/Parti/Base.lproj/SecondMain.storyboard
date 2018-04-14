@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vQR-Sf-TMo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vQR-Sf-TMo">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -773,7 +773,7 @@
                                     <navigationItem title="Profile" id="JbZ-FF-fAy">
                                         <barButtonItem key="leftBarButtonItem" title="Logout" id="YWM-za-IOJ">
                                             <connections>
-                                                <segue destination="mWi-TJ-Xeh" kind="show" animates="NO" id="Ovt-k8-zB7"/>
+                                                <action selector="logout:" destination="4Wg-KH-jIa" id="wwN-pe-eMZ"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="dF9-5w-5JE">
@@ -913,6 +913,7 @@
                         <outlet property="veganButton" destination="mO3-gs-jIo" id="RT4-U8-5GG"/>
                         <outlet property="vegetarianButton" destination="rEI-fC-RE6" id="lIB-m2-mdM"/>
                         <segue destination="Yep-Km-sMQ" kind="show" identifier="editProfileSegue" animates="NO" id="dP8-QS-13q"/>
+                        <segue destination="mWi-TJ-Xeh" kind="show" identifier="logoutSegue" id="rH1-EW-QhL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VnD-U9-mQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -933,7 +934,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="editProfileViewController" storyboardName="EditProfile" id="Yep-Km-sMQ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NhK-OG-jcL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-142" y="1248"/>
+            <point key="canvasLocation" x="-30" y="1230"/>
         </scene>
         <!--Party Host View Controller-->
         <scene sceneID="otA-MG-cF4">
@@ -1790,6 +1791,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="6Gu-bd-4eq"/>
         <segue reference="yW4-ie-5Dy"/>
-        <segue reference="GUe-rZ-zmH"/>
+        <segue reference="rH1-EW-QhL"/>
     </inferredMetricsTieBreakers>
 </document>
