@@ -12,7 +12,7 @@
 		CE096400208298B1005197C7 /* GuestFoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0963FF208298B1005197C7 /* GuestFoodTableViewCell.swift */; };
 		CE8D282220800AD100BA7BBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D282120800AD100BA7BBA /* AppDelegate.swift */; };
 		CE8D282420800AD100BA7BBA /* PartyFoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D282320800AD100BA7BBA /* PartyFoodListViewController.swift */; };
-		CE8D282720800AD100BA7BBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8D282520800AD100BA7BBA /* Main.storyboard */; };
+		CE8D282720800AD100BA7BBA /* PartyFoodList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8D282520800AD100BA7BBA /* PartyFoodList.storyboard */; };
 		CE8D282920800AD100BA7BBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8D282820800AD100BA7BBA /* Assets.xcassets */; };
 		CE8D282C20800AD100BA7BBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8D282A20800AD100BA7BBA /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -25,7 +25,7 @@
 		CE8D281E20800AD100BA7BBA /* PartiFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartiFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8D282120800AD100BA7BBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE8D282320800AD100BA7BBA /* PartyFoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyFoodListViewController.swift; sourceTree = "<group>"; };
-		CE8D282620800AD100BA7BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE8D282620800AD100BA7BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PartyFoodList.storyboard; sourceTree = "<group>"; };
 		CE8D282820800AD100BA7BBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE8D282B20800AD100BA7BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE8D282D20800AD100BA7BBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 				CE8D282320800AD100BA7BBA /* PartyFoodListViewController.swift */,
 				CE0963FB2082860B005197C7 /* PartyFoodTableViewCell.swift */,
 				CE8D282120800AD100BA7BBA /* AppDelegate.swift */,
-				CE8D282520800AD100BA7BBA /* Main.storyboard */,
+				CE8D282520800AD100BA7BBA /* PartyFoodList.storyboard */,
 				CE8D282820800AD100BA7BBA /* Assets.xcassets */,
 				CE8D282A20800AD100BA7BBA /* LaunchScreen.storyboard */,
 				CE8D282D20800AD100BA7BBA /* Info.plist */,
@@ -157,7 +157,7 @@
 			files = (
 				CE8D282C20800AD100BA7BBA /* LaunchScreen.storyboard in Resources */,
 				CE8D282920800AD100BA7BBA /* Assets.xcassets in Resources */,
-				CE8D282720800AD100BA7BBA /* Main.storyboard in Resources */,
+				CE8D282720800AD100BA7BBA /* PartyFoodList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,12 +219,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CE8D282520800AD100BA7BBA /* Main.storyboard */ = {
+		CE8D282520800AD100BA7BBA /* PartyFoodList.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CE8D282620800AD100BA7BBA /* Base */,
 			);
-			name = Main.storyboard;
+			name = PartyFoodList.storyboard;
 			sourceTree = "<group>";
 		};
 		CE8D282A20800AD100BA7BBA /* LaunchScreen.storyboard */ = {

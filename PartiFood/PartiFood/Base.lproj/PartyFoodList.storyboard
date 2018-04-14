@@ -19,7 +19,7 @@
         <!--Party Food List View Controller-->
         <scene sceneID="PDp-Tx-Q9u">
             <objects>
-                <viewController id="Qo7-V8-6WH" customClass="PartyFoodListViewController" customModule="PartiFood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Qo7-V8-6WH" customClass="PartyFoodListViewController" customModule="Parti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lFz-Un-Jvm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,14 +29,21 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <navigationItem title="Food" id="t8b-3B-8Eo"/>
+                                    <navigationItem title="Food" id="t8b-3B-8Eo">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="Disclosure Indicator" id="6zY-MW-EQD">
+                                            <color key="tintColor" red="0.1161970571" green="0.53316992519999995" blue="0.99837404490000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="backButton:" destination="Qo7-V8-6WH" id="mz7-98-Q8F"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wNN-oQ-O2v">
                                 <rect key="frame" x="0.0" y="116" width="375" height="662"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="partyFoodCell" id="nPw-Xk-64S" customClass="PartyFoodTableViewCell" customModule="PartiFood" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="partyFoodCell" id="nPw-Xk-64S" customClass="PartyFoodTableViewCell" customModule="Parti" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nPw-Xk-64S" id="CyA-aB-RwT">
@@ -54,7 +61,10 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1b-Sr-gkz">
                                                     <rect key="frame" x="345" y="7" width="30" height="30"/>
-                                                    <state key="normal" title="+"/>
+                                                    <color key="tintColor" red="0.35915416480000001" green="0.99286979440000001" blue="0.79679876569999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <connections>
+                                                        <action selector="addUserToFood:" destination="Qo7-V8-6WH" eventType="touchUpInside" id="zRF-0Q-8pH"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhE-A7-bdf">
                                                     <rect key="frame" x="55" y="12" width="282" height="21"/>
@@ -73,14 +83,15 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="addButton" destination="O1b-Sr-gkz" id="4eA-dh-LeW"/>
                                             <outlet property="foodCount" destination="Ufb-Kb-DFg" id="riz-7y-vy7"/>
                                             <outlet property="foodLabel" destination="EhE-A7-bdf" id="fXo-wf-LB4"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="guestFoodCell" id="Mkd-Xi-Ykd" customClass="GuestFoodTableViewCell" customModule="PartiFood" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="guestFoodCell" id="Mkd-Xi-Ykd" customClass="GuestFoodTableViewCell" customModule="Parti" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mkd-Xi-Ykd" id="uWt-56-UZS" customClass="GuestFoodTableViewCell" customModule="PartiFood" customModuleProvider="target">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mkd-Xi-Ykd" id="uWt-56-UZS" customClass="GuestFoodTableViewCell" customModule="Parti" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -138,11 +149,17 @@
                     </view>
                     <connections>
                         <outlet property="foodTableView" destination="wNN-oQ-O2v" id="aWf-LP-CtF"/>
+                        <segue destination="ukt-td-KLm" kind="unwind" identifier="guestPartyPage" animates="NO" unwindAction="unwindToGuestViewControllerWithSegue:" id="Mbg-b4-e0D"/>
+                        <segue destination="ukt-td-KLm" kind="unwind" identifier="hostPartyPage" animates="NO" unwindAction="unwindToHostViewControllerWithSegue:" id="UCA-xu-HUh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6UR-72-Svl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ukt-td-KLm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="186.40000000000001" y="-37.684729064039409"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Disclosure Indicator" width="8" height="13"/>
+    </resources>
 </document>
