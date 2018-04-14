@@ -69,7 +69,7 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
             user.name = data["name"] as! String
             user.userID = snapshot.key
             user.imageURL = data["imageURL"] as! String
-            user.userID = data["username"] as! String
+            user.username = data["username"] as! String
             
             self.users.append(user)
             self.tableView.reloadData()
