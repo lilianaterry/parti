@@ -252,6 +252,11 @@ class PartyHostViewController: ViewController {
             if let destinationVC = segue.destination as? EditPartyViewController {
                 destinationVC.partyObject = self.partyObject
             }
+        } else if (segueID == "foodListSegue") {
+            if let destinationVC = segue.destination as? PartyFoodListViewController {
+                destinationVC.partyObject = partyObject
+                destinationVC.hostView = false
+            }
         } else if (segueID == "musicListSegue") {
             if let destinationVC = segue.destination as? MusicListViewController {
                 destinationVC.partyID = partyObject.partyID

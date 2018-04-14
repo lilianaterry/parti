@@ -8,13 +8,137 @@
 
 import MaterialComponents
 
-class PartyFoodListViewController: UIViewController {
+struct cellData {
+    var opened = Bool()
+    var name = String()
+    var count = Int()
+    var userData = [String]()
+    var added = Bool()
+}
+
+class PartyFoodListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    // switch to a different table view
     @IBAction func tabBar(_ sender: UISegmentedControl) {
+        currentTab = sender.selectedSegmentIndex
+        foodTableView.reloadData()
     }
+    
+    // go back to the main party page
+    @IBAction func backButton(_ sender: Any) {
+        if (hostView) {
+            self.performSegue(withIdentifier: "hostPartyPage", sender: self)
+        } else {
+            self.performSegue(withIdentifier: "guestPartyPage", sender: self)
+        }
+    }
+    
+    @IBOutlet weak var foodTableView: UITableView!
+    
+    var data = [[cellData]]()
+    var currentTab: Int!
+    var currentUser: String!
+    
+    var partyObject = PartyModel()
+    var hostView = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        data = [
+            [cellData.init(opened: false, name: "icecream", count: 2, userData: ["Liliana"], added: false),
+             cellData.init(opened: false, name: "tacos", count: 4, userData: ["Carter", "Liliana"], added: true)],
+            [cellData.init(opened: false, name: "vodka", count: 2, userData: ["Liliana"], added: false),
+             cellData.init(opened: false, name: "amaretto", count: 16, userData: ["Carter", "Liliana"], added: true)],
+            [cellData.init(opened: false, name: "sprite", count: 1, userData: ["Liliana"], added: false),
+             cellData.init(opened: false, name: "cocacola", count: 7, userData: ["Carter", "Liliana"], added: true)]
+        ]
+        
+        currentTab = 0
+        currentUser = "Carter"
+    }
+    
+    // number of food items in this tab
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return data[currentTab].count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // the number of rows is none if the section is not opened
+        // the number of rows increases if the section is opened
+        if (data[currentTab][section].opened) {
+            return data[currentTab][section].userData.count + 1
+        } else {
+            return 1
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // get the item info and populate the cell with it
+        let item = data[currentTab][indexPath.section] as cellData
+        
+        // food item cell
+        if (indexPath.row == 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "partyFoodCell") as! PartyFoodTableViewCell
+        
+            let name = item.name
+            let count = item.count
+            
+            cell.customInit(name: name, count: count, index: indexPath.section)
+            
+            return cell
+        // name of guest bringing food item
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "guestFoodCell") as! GuestFoodTableViewCell
+            
+            let name = item.userData[indexPath.row - 1]
+            
+            cell.customInit(name: name)
+            
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // if it is already opened, close it
+        if (data[currentTab][indexPath.section].opened) {
+            data[currentTab][indexPath.section].opened = false
+            let section = IndexSet.init(integer: indexPath.section)
+            tableView.reloadSections(section, with: .none)
+        // otherwise open it
+        } else {
+            data[currentTab][indexPath.section].opened = true
+            let section = IndexSet.init(integer: indexPath.section)
+            tableView.reloadSections(section, with: .none)
+        }
+    }
+    
+    // if the user clicks the add button, they append their name to this item
+    @IBAction func addUserToFood(_ sender: UIButton) {
+        let button = sender as UIButton
+        let item = data[currentTab][button.tag]
+        
+        // if the user has added themselves already, remove them
+        if (item.added) {
+            let indexToRemove = item.userData.index(of: currentUser)
+            data[currentTab][button.tag].userData.remove(at: indexToRemove!)
+            data[currentTab][button.tag].added = false
+            data[currentTab][button.tag].opened = true
+            
+            sender.isSelected = true
+            
+        // otherwise add them to this food item
+        } else {
+            data[currentTab][button.tag].userData.append(currentUser)
+            data[currentTab][button.tag].added = true
+            data[currentTab][button.tag].opened = true
+            
+            sender.isSelected = false
+        }
+        
+        // reload tableView to reflect the change
+        let section = IndexSet.init(integer: button.tag)
+        foodTableView.reloadSections(section, with: .none)
     }
     
     // adds food, alcohol, and mixer tab bar to top of view
@@ -39,24 +163,3 @@ class PartyFoodListViewController: UIViewController {
 
 }
 
-// allows you to get a color object from a hex number
-extension UIColor {
-    convenience init(hex: String) {
-        let scanner = Scanner(string: hex)
-        scanner.scanLocation = 0
-        
-        var rgbValue: UInt64 = 0
-        
-        scanner.scanHexInt64(&rgbValue)
-        
-        let r = (rgbValue & 0xff0000) >> 16
-        let g = (rgbValue & 0xff00) >> 8
-        let b = rgbValue & 0xff
-        
-        self.init(
-            red: CGFloat(r) / 0xff,
-            green: CGFloat(g) / 0xff,
-            blue: CGFloat(b) / 0xff, alpha: 1
-        )
-    }
-}

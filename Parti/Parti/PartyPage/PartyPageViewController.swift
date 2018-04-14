@@ -243,6 +243,7 @@ class PartyPageViewController: UIViewController, UIImagePickerControllerDelegate
         } else if (segueID == "foodListSegue") {
             if let destinationVC = segue.destination as? PartyFoodListViewController {
                 destinationVC.partyObject = partyObject
+                destinationVC.hostView = false
             }
         } else if (segueID == "musicListSegue") {
             if let destinationVC = segue.destination as? MusicListViewController {
