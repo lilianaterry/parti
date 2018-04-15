@@ -510,7 +510,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
-  - Crashlytics (~> 3.10.1)
+  - Crashlytics
   - Fabric (~> 1.7.6)
   - FBSDKCoreKit
   - FBSDKLoginKit
@@ -549,6 +549,6 @@ SPEC CHECKSUMS:
   MotionTransitioning: 23d25edc2f4606efb922403cbac6d81af37aa33a
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
 
-PODFILE CHECKSUM: 7caa86c96a88be5ada5e6032806bf6419a32b061
+PODFILE CHECKSUM: 9628d18a6fa74c25545c7b26fca94229f298fd76
 
 COCOAPODS: 1.4.0

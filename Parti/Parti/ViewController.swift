@@ -14,6 +14,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import StoreKit
 import MediaPlayer
+import Crashlytics
 
 @IBDesignable extension UIButton {
     
@@ -108,6 +109,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
 
     // MARK: Actions
     @IBAction func emailLogin(_ sender: Any) {
+        //Crashlytics.sharedInstance().crash()
         if (emailTextField.hasText && passwordTextField.hasText) {
             let email = emailTextField.text!;
             let password = passwordTextField.text!;
