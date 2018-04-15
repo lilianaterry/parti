@@ -19,6 +19,7 @@ class FriendsViewController: ViewController, UITableViewDataSource, UITableViewD
     var databaseHandle: DatabaseHandle?
     
     var users = [ProfileModel]()
+    var uidToUser = [String : ProfileModel]()
     
     var profileObject = ProfileModel()
     
@@ -63,24 +64,35 @@ class FriendsViewController: ViewController, UITableViewDataSource, UITableViewD
     
     // get the friends of the current user
     func getFriends() {
-        users.removeAll()
-        databaseRef.child("users/\(userID)/friendsList").observe(.value) { snapshot in
-            for child in snapshot.children {
-                let snap = child as! DataSnapshot
-                self.getFriendData(friendID: snap.key)
+//        users.removeAll()
+//        tableView.reloadData()
+        print("getFriends()")
+        databaseRef.child("users/\(userID)/friendsList").observe(.childAdded) {
+            snapshot in
+            self.getFriendData(friendID: snapshot.key)
+        }
+        databaseRef.child("users/\(userID)/friendsList").observe(.childRemoved) {
+            snapshot in
+            print(snapshot.key)
+            var removedFriendProfile: ProfileModel = self.uidToUser[snapshot.key]!
+            if let index = self.users.index(of: removedFriendProfile) {
+                print("friend deleted")
+                self.users.remove(at: index)
             }
+            self.tableView.reloadData()
         }
     }
     
     // get information on a single friend
     func getFriendData(friendID: String) {
+        print("getFriendData()")
         databaseRef.child("users/\(friendID)").observeSingleEvent(of: .value) { (snapshot) in
             var data = snapshot.value as! [String: Any]
             var user = ProfileModel()
             user.name = data["name"] as! String
             user.userID = snapshot.key
             user.username = data["username"] as! String
-            
+            self.uidToUser[snapshot.key] = user
             
             // If the user already has a profile picture, load it up!
             if let imageURL = data["imageURL"] as? String {
@@ -119,7 +131,7 @@ class FriendsViewController: ViewController, UITableViewDataSource, UITableViewD
     func promptForRemoveFriend(friendUid: String) {
         let alert = UIAlertController(title: "Remove friend?", message: "Are you sure you want to remove this friend?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-            print("Removing friend")
+            //print("Removing friend")
             self.databaseRef.child("users/\(self.userID)/friendsList/").observeSingleEvent(of: .value, with: { (snapshot) in
                 if (snapshot.hasChild(friendUid)) {
                     self.removeFriend(friendUid: friendUid)
@@ -133,13 +145,13 @@ class FriendsViewController: ViewController, UITableViewDataSource, UITableViewD
     func removeFriend(friendUid: String) {
         self.databaseRef.child("users/\(friendUid)/friendsList/\(userID)").removeValue()
         self.databaseRef.child("users/\(userID)/friendsList/\(friendUid)").removeValue()
-        users.removeAll()
+        //users.removeAll()
     }
     
-    override func dismiss(animated flag: Bool, completion: (() -> Void)?)
-    {
-        super.dismiss(animated: flag, completion: completion)
-        print("Coming back from add friends")
-        users.removeAll()
-    }
+//    override func dismiss(animated flag: Bool, completion: (() -> Void)?)
+//    {
+//        super.dismiss(animated: flag, completion: completion)
+//        print("Coming back from add friends")
+//        users.removeAll()
+//    }
 }

@@ -58,7 +58,6 @@
 		CE5ED8CE205DEE2100F6174F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5ED8CD205DEE2100F6174F /* MediaPlayer.framework */; };
 		CE5ED8D4205ED25D00F6174F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5ED8D3205ED25D00F6174F /* AVFoundation.framework */; };
 		CE5ED8D6205ED26D00F6174F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5ED8D5205ED26D00F6174F /* SystemConfiguration.framework */; };
-		CE6CD6832047092D00BC3DD3 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CD6822047092D00BC3DD3 /* FoodListViewController.swift */; };
 		CE6CD68520470C3C00BC3DD3 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CE6CD68420470C3C00BC3DD3 /* Podfile */; };
 		CE83FF602067EDB400542092 /* AddGuestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE83FF5F2067EDB400542092 /* AddGuestsViewController.swift */; };
 		CE8D280C207F02BD00BA7BBA /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D2808207F02BC00BA7BBA /* MusicListViewController.swift */; };
@@ -93,6 +92,7 @@
 		F9B245C12066EB3D0015F277 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9B245C02066EB3D0015F277 /* Main.storyboard */; };
 		F9B5265D207AD79F0029F480 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B5265C207AD79F0029F480 /* FriendsViewController.swift */; };
 		F9B5265F207AD85F0029F480 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B5265E207AD85F0029F480 /* FriendsTableViewCell.swift */; };
+		F9BA2F1C2083008500C36DC7 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA2F1B2083008500C36DC7 /* FoodListViewController.swift */; };
 		F9D52CBE208026D7005ADE89 /* Music.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9D52CBD208026D7005ADE89 /* Music.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -161,7 +161,6 @@
 		CE5ED8CD205DEE2100F6174F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		CE5ED8D3205ED25D00F6174F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CE5ED8D5205ED26D00F6174F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		CE6CD6822047092D00BC3DD3 /* FoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
 		CE6CD68420470C3C00BC3DD3 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CE83FF5F2067EDB400542092 /* AddGuestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGuestsViewController.swift; sourceTree = "<group>"; };
 		CE8D2808207F02BC00BA7BBA /* MusicListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +204,7 @@
 		F9B245C02066EB3D0015F277 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F9B5265C207AD79F0029F480 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		F9B5265E207AD85F0029F480 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
+		F9BA2F1B2083008500C36DC7 /* FoodListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
 		F9D52CBD208026D7005ADE89 /* Music.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Music.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -284,10 +284,10 @@
 		CE09DC5A205C66220097806D /* FoodList */ = {
 			isa = PBXGroup;
 			children = (
+				F9BA2F1B2083008500C36DC7 /* FoodListViewController.swift */,
 				CE0964022082ACE6005197C7 /* GuestFoodTableViewCell.swift */,
 				CE0964012082ACE6005197C7 /* PartyFoodListViewController.swift */,
 				CE0964052082ACE6005197C7 /* PartyFoodTableViewCell.swift */,
-				CE6CD6822047092D00BC3DD3 /* FoodListViewController.swift */,
 				CE0964032082ACE6005197C7 /* PartyFoodList.storyboard */,
 			);
 			path = FoodList;
@@ -760,7 +760,6 @@
 				CEF4EB622066D0EF009387CB /* CreateFriendListViewController.swift in Sources */,
 				CEC9303720713EAB005C13E5 /* EditPartyViewController.swift in Sources */,
 				CE8D280F207F02BD00BA7BBA /* SearchTableViewCell.swift in Sources */,
-				CE6CD6832047092D00BC3DD3 /* FoodListViewController.swift in Sources */,
 				F9B5265D207AD79F0029F480 /* FriendsViewController.swift in Sources */,
 				CE0964092082ACE7005197C7 /* PartyFoodTableViewCell.swift in Sources */,
 				F9A651A8204B9E57007792E6 /* AttendingPartyTableViewCell.swift in Sources */,
@@ -776,6 +775,7 @@
 				CE09DC56205C657C0097806D /* ProfileViewController.swift in Sources */,
 				CE8D280C207F02BD00BA7BBA /* MusicListViewController.swift in Sources */,
 				F9620A8E206AB9770099BABA /* CreateAccountViewController.swift in Sources */,
+				F9BA2F1C2083008500C36DC7 /* FoodListViewController.swift in Sources */,
 				CE1189612051DF8400A0AD49 /* PartyListViewController.swift in Sources */,
 				CE31AB9F205F17ED00171BD1 /* CreatePartyViewController.swift in Sources */,
 				F90E7815206ED4F3007C5302 /* AddGuestsTableViewCell.swift in Sources */,
