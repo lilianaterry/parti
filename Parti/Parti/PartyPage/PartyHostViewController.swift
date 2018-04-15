@@ -157,14 +157,10 @@ class PartyHostViewController: ViewController {
     
     /* iterates over all guests invited to the party to populate profile objects and get allergies */
     func getGuests() {
-        databaseRef.child("parties/\(partyObject.partyID)/guests").observeSingleEvent(of: .value) { (snapshot) in
+        databaseRef.child("parties/\(partyObject.partyID)/guests").observe(.childAdded) { (snapshot) in
             if snapshot.exists() {
-                for child in snapshot.children {
-                    let snap = child as! DataSnapshot
-                    let userID = snap.key
-                    
-                    self.queryGuestInfo(userID: userID)
-                }
+                let userID = snapshot.key
+                self.queryGuestInfo(userID: userID)
             }
         }
     }
