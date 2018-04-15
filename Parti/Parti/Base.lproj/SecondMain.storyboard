@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vQR-Sf-TMo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vQR-Sf-TMo">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -485,7 +485,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="guestListButton:" destination="Kwk-Us-otN" eventType="touchUpInside" id="wtK-hz-qoq"/>
+                                                    <segue destination="6GW-Cj-S76" kind="show" id="Wsj-JR-XGZ"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="left" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Description" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="EOp-X5-Tg9">
@@ -583,7 +583,6 @@
                         <outlet property="partyNameLabel" destination="P6f-qM-gAe" id="Fg9-vK-Gzw"/>
                         <outlet property="timeLabel" destination="Skl-Su-2zy" id="qR9-gv-Tby"/>
                         <outlet property="timePicker" destination="Zcg-aa-Boa" id="KuK-Yq-6TK"/>
-                        <segue destination="6GW-Cj-S76" kind="show" animates="NO" id="0RK-pP-PXZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mo9-lG-9JF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1797,9 +1796,9 @@
         <image name="vegetarian" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="m55-8c-pmF"/>
-        <segue reference="oW6-Pw-K4u"/>
-        <segue reference="IDp-bi-c08"/>
+        <segue reference="6Gu-bd-4eq"/>
+        <segue reference="yW4-ie-5Dy"/>
+        <segue reference="PhQ-ob-AKh"/>
         <segue reference="rH1-EW-QhL"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -41,9 +41,10 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var timePicker: UIDatePicker!
     
-    @IBAction func guestListButton(_ sender: Any) {
+//    @IBAction func guestListButton(_ sender: Any) {
+//        performSegue(withIdentifier: <#T##String#>, sender: self)
+//    }
     
-    }
     @IBAction func createPartyButton(_ sender: Any) {
         let filledOut = addressField.hasText && attireField.hasText && partyNameField.hasText
         if (filledOut) {
