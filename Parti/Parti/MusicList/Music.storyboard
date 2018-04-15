@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JIz-rY-CCp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JIz-rY-CCp">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Bold</string>
+        </array>
         <array key="SF-Pro-Display-Semibold.otf">
             <string>SFProDisplay-Semibold</string>
         </array>
@@ -43,13 +46,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fhn-6p-8Mi">
-                                                    <rect key="frame" x="108" y="68.666666666666671" width="252" height="18.666666666666671"/>
+                                                    <rect key="frame" x="108" y="69" width="211" height="19"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="x6F-sc-DHH">
-                                                    <rect key="frame" x="108" y="39" width="252" height="21.666666666666671"/>
+                                                    <rect key="frame" x="108" y="39.333333333333336" width="211" height="21.666666666666664"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -99,12 +102,12 @@
                                                 <constraint firstItem="Fhn-6p-8Mi" firstAttribute="leading" secondItem="pkh-zh-IDS" secondAttribute="trailing" constant="8" id="CwN-IL-UzP"/>
                                                 <constraint firstItem="pkh-zh-IDS" firstAttribute="centerY" secondItem="SpB-wE-dPT" secondAttribute="centerY" id="IVN-D1-FaN"/>
                                                 <constraint firstItem="738-3b-oKF" firstAttribute="centerY" secondItem="SpB-wE-dPT" secondAttribute="centerY" id="Jgy-PQ-bhD"/>
+                                                <constraint firstItem="738-3b-oKF" firstAttribute="leading" secondItem="x6F-sc-DHH" secondAttribute="trailing" id="Lhe-P8-Knk"/>
                                                 <constraint firstAttribute="trailing" secondItem="738-3b-oKF" secondAttribute="trailing" constant="8" id="OQt-x5-yuC"/>
                                                 <constraint firstItem="Fhn-6p-8Mi" firstAttribute="top" secondItem="x6F-sc-DHH" secondAttribute="bottom" constant="8" id="QFG-IU-GmG"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Fhn-6p-8Mi" secondAttribute="trailing" id="lnQ-qU-gqi"/>
                                                 <constraint firstItem="pkh-zh-IDS" firstAttribute="centerY" secondItem="SpB-wE-dPT" secondAttribute="centerY" id="mY2-UX-4Sf"/>
                                                 <constraint firstItem="x6F-sc-DHH" firstAttribute="centerY" secondItem="SpB-wE-dPT" secondAttribute="centerY" id="mj4-i0-KLa"/>
-                                                <constraint firstItem="x6F-sc-DHH" firstAttribute="trailing" secondItem="SpB-wE-dPT" secondAttribute="trailingMargin" id="tcE-Td-JoK"/>
+                                                <constraint firstItem="738-3b-oKF" firstAttribute="leading" secondItem="Fhn-6p-8Mi" secondAttribute="trailing" id="sYL-hw-gcz"/>
                                                 <constraint firstItem="x6F-sc-DHH" firstAttribute="leading" secondItem="pkh-zh-IDS" secondAttribute="trailing" constant="8" id="u4u-t8-3Cx"/>
                                             </constraints>
                                         </tableViewCellContentView>
