@@ -44,6 +44,9 @@ class PartyHostViewController: ViewController {
     @IBAction func musicListButton(_ sender: Any) {
         performSegue(withIdentifier: "musicListSegue", sender: self)
     }
+    @IBAction func foodListButton(_ sender: Any) {
+        performSegue(withIdentifier: "foodListSegue", sender: self)
+    }
     
     @IBAction func unwindToHostViewController(segue: UIStoryboardSegue) { }
     
