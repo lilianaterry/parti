@@ -177,10 +177,7 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
 
             partyObject.partyID = partyID
             
-            if let foodList = data["foodList"] {
-                partyObject.foodList = foodList as! [String: Any]
-            }
-            if let guestList = data["guestList"] {
+            if let guestList = data["guests"] {
                 partyObject.guestList = guestList as! [String: Any]
             }
             if let image = data["imageURL"] {

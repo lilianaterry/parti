@@ -1018,6 +1018,9 @@
                                         <rect key="frame" x="145.66666666666666" y="71" width="36" height="30"/>
                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="15"/>
                                         <state key="normal" title="Food"/>
+                                        <connections>
+                                            <action selector="foodListButton:" destination="D0Z-FS-81f" eventType="touchUpInside" id="UEr-Ks-k4a"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KA4-7t-5Eh">
                                         <rect key="frame" x="143" y="136" width="41" height="30"/>
@@ -1790,9 +1793,9 @@
         <image name="vegetarian" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="m55-8c-pmF"/>
+        <segue reference="6Gu-bd-4eq"/>
         <segue reference="yW4-ie-5Dy"/>
-        <segue reference="IDp-bi-c08"/>
+        <segue reference="PhQ-ob-AKh"/>
         <segue reference="rH1-EW-QhL"/>
     </inferredMetricsTieBreakers>
 </document>
