@@ -141,9 +141,17 @@ class PartyHostViewController: ViewController {
     
     /* makes buttons iterable and now we can tell which profile to go to */
     func setupGuestButtons() {
+        guest1.imageView?.layer.cornerRadius = (guest1.imageView?.frame.size.width)! / 2
+        guest1.imageView?.clipsToBounds = true
         guest1.tag = 0
+        guest2.imageView?.layer.cornerRadius = (guest2.imageView?.frame.size.width)! / 2
+        guest2.imageView?.clipsToBounds = true
         guest2.tag = 1
+        guest3.imageView?.layer.cornerRadius = (guest3.imageView?.frame.size.width)! / 2
+        guest3.imageView?.clipsToBounds = true
         guest3.tag = 2
+        guest4.imageView?.layer.cornerRadius = (guest4.imageView?.frame.size.width)! / 2
+        guest4.imageView?.clipsToBounds = true
         guest4.tag = 3
     }
     
