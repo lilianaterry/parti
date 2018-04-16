@@ -143,11 +143,14 @@ class OtherUserProfile: UIViewController {
                     self.partyTrickLabel.text = trick as! String
                 }
                 
-                if let allergies = data["allergyList"] {
+                if let allergies = data["allergiesList"] {
                     let userAllergies = allergies as! [String: Any]
                     
                     for allergy in userAllergies.keys {
                         let indexOfAllergy = self.allergyList.index(of: allergy)
+                        print("Allergies")
+                        print(allergy)
+                        print(indexOfAllergy!)
                         self.allergyImages[indexOfAllergy!].isSelected = true
                         self.profileObject.allergiesList[allergy] = 1
                     }
