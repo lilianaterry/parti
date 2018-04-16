@@ -10,7 +10,6 @@ import MaterialComponents
 
 struct cellData {
     var opened = Bool()
-    var name = String()
     var count = Int()
     var userData = [String]()
     var added = Bool()
@@ -45,17 +44,9 @@ class PartyFoodListViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        data = [
-            [cellData.init(opened: false, name: "icecream", count: 2, userData: ["Liliana"], added: false),
-             cellData.init(opened: false, name: "tacos", count: 4, userData: ["Carter", "Liliana"], added: true)],
-            [cellData.init(opened: false, name: "vodka", count: 2, userData: ["Liliana"], added: false),
-             cellData.init(opened: false, name: "amaretto", count: 16, userData: ["Carter", "Liliana"], added: true)],
-            [cellData.init(opened: false, name: "sprite", count: 1, userData: ["Liliana"], added: false),
-             cellData.init(opened: false, name: "cocacola", count: 7, userData: ["Carter", "Liliana"], added: true)]
-        ]
+        data = [[:], [:], [:]]
         
         currentTab = 0
-        currentUser = "Carter"
     }
     
     // number of food items in this tab
@@ -80,14 +71,14 @@ class PartyFoodListViewController: UIViewController, UITableViewDelegate, UITabl
         // food item cell
         if (indexPath.row == 0) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "partyFoodCell") as! PartyFoodTableViewCell
-        
+            
             let name = item.name
             let count = item.count
             
             cell.customInit(name: name, count: count, index: indexPath.section)
             
             return cell
-        // name of guest bringing food item
+            // name of guest bringing food item
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "guestFoodCell") as! GuestFoodTableViewCell
             
@@ -105,7 +96,7 @@ class PartyFoodListViewController: UIViewController, UITableViewDelegate, UITabl
             data[currentTab][indexPath.section].opened = false
             let section = IndexSet.init(integer: indexPath.section)
             tableView.reloadSections(section, with: .none)
-        // otherwise open it
+            // otherwise open it
         } else {
             data[currentTab][indexPath.section].opened = true
             let section = IndexSet.init(integer: indexPath.section)
@@ -127,7 +118,7 @@ class PartyFoodListViewController: UIViewController, UITableViewDelegate, UITabl
             
             sender.isSelected = true
             
-        // otherwise add them to this food item
+            // otherwise add them to this food item
         } else {
             data[currentTab][button.tag].userData.append(currentUser)
             data[currentTab][button.tag].added = true
@@ -160,6 +151,7 @@ class PartyFoodListViewController: UIViewController, UITableViewDelegate, UITabl
         view.addSubview(tabBar)
     }
     
-
+    
 }
+
 
