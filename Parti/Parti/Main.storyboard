@@ -155,6 +155,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background_gradient" translatesAutoresizingMaskIntoConstraints="NO" id="p7M-oL-Cao">
+                                <rect key="frame" x="0.0" y="332" width="375" height="480"/>
+                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eJs-jj-FKL">
                                 <rect key="frame" x="80" y="391" width="214" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -219,9 +222,6 @@
                                 <rect key="frame" x="115" y="173" width="145" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background_gradient" translatesAutoresizingMaskIntoConstraints="NO" id="p7M-oL-Cao">
-                                <rect key="frame" x="0.0" y="332" width="375" height="480"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.35915416480000001" green="0.99286979440000001" blue="0.79679876569999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -261,6 +261,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background_gradient" translatesAutoresizingMaskIntoConstraints="NO" id="vje-nz-Xt7">
+                                <rect key="frame" x="0.0" y="332" width="375" height="480"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="parti_logo" translatesAutoresizingMaskIntoConstraints="NO" id="79E-Kv-sWQ">
                                 <rect key="frame" x="137.66666666666666" y="236" width="100" height="100"/>
                                 <constraints>
@@ -334,9 +337,6 @@
                                     <action selector="cancel:" destination="R1C-9e-CUD" eventType="touchUpInside" id="DDd-Va-Rto"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background_gradient" translatesAutoresizingMaskIntoConstraints="NO" id="vje-nz-Xt7">
-                                <rect key="frame" x="0.0" y="332" width="375" height="480"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.36395931243896484" green="0.98887890577316284" blue="0.7969326376914978" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>

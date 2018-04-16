@@ -72,15 +72,15 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
 //            // Segue here, its crashing other parts of the app
 //
 //        }
-        Auth.auth().addStateDidChangeListener { (auth, user) in
-            if user != nil {
-                // user is signed in
-                self.performSegue(withIdentifier: "profileSegue", sender: self)
-            }
-//            else {
-//                // user is not signed in
+//        Auth.auth().addStateDidChangeListener { (auth, user) in
+//            if user != nil {
+//                // user is signed in
+//                self.performSegue(withIdentifier: "profileSegue", sender: self)
 //            }
-        }
+////            else {
+////                // user is not signed in
+////            }
+//        }
     }
     
     // moves main stackframe up when keyboard appears

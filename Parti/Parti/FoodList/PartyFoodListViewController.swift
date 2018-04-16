@@ -56,6 +56,8 @@ class PartyFoodListViewController: UIViewController, UITableViewDelegate, UITabl
         
         currentTab = 0
         currentUser = Auth.auth().currentUser?.uid
+        
+        loadFoodList()
     }
     
     // number of food items in this tab
@@ -143,7 +145,148 @@ class PartyFoodListViewController: UIViewController, UITableViewDelegate, UITabl
         foodTableView.reloadSections(section, with: .none)
     }
 
+    // go through all of the food data that has already been saved
+    // then iterate through all guests to get the ordered list of all favorites
+    func loadFoodList() {
+        // load the food people have already put their names down on
+        databaseRef.child("parties/\(partyObject.partyID)/foodList").observeSingleEvent(of: .value) { (snapshot) in
+            if (snapshot.exists()) {
+                let storedFood = snapshot.value as! [String: Any]
+                
+                // get alcohol
+                if let alcoholList = storedFood["alcohol"] as? [String: Any] {
+                    for item in alcoholList.keys {
+                        print("item: \(item)")
+                        let itemData = alcoholList[item] as! [String: Any]
+                        let name = item
+                        var guests = [String]()
+                        var added = false
+                        if let tempGuestList = itemData["guests"] as? [String: Any] {
+                            if (tempGuestList.keys.contains(self.currentUser)) {
+                                added = true
+                            }
+                            // add just the names, not the UID
+                            for (_, guestName) in tempGuestList {
+                                guests.append(guestName as! String)
+                            }
+                        }
+                        
+                        let newCell = cellData.init(opened: false, count: 0, userData: guests, added: added)
+                        
+                        // add this new cell to the data
+                        self.data[0][name] = newCell
+                    }
+                }
+                
+                // get food
+                if let foodList = storedFood["food"] as? [String: Any] {
+                    for item in foodList.keys {
+                        let itemData = foodList[item] as! [String: Any]
+                        let name = item
+                        var guests = [String]()
+                        var added = false
+                        if let tempGuestList = itemData["guests"] as? [String: Any] {
+                            if (tempGuestList.keys.contains(self.currentUser)) {
+                                added = true
+                            }
+                            // add just the names, not the UID
+                            for (_, guestName) in tempGuestList {
+                                guests.append(guestName as! String)
+                            }
+                        }
+                        
+                        let newCell = cellData.init(opened: false, count: 0, userData: guests, added: added)
+                        
+                        // add this new cell to the data
+                        self.data[1][name] = newCell
+                    }
+                }
+                
+                // get mixers
+                if let mixersList = storedFood["mixers"] as? [String: Any] {
+                    for item in mixersList.keys {
+                        let itemData = mixersList[item] as! [String: Any]
+                        let name = item
+                        var guests = [String]()
+                        var added = false
+                        if let tempGuestList = itemData["guests"] as? [String: Any] {
+                            if (tempGuestList.keys.contains(self.currentUser)) {
+                                added = true
+                            }
+                            // add just the names, not the UID
+                            for (_, guestName) in tempGuestList {
+                                guests.append(guestName as! String)
+                            }
+                        }
+                        
+                        // don't add the count in case new people have selected items
+                        let newCell = cellData.init(opened: false, count: 0, userData: guests, added: added)
+                        
+                        // add this new cell to the data
+                        self.data[2][name] = newCell
+                    }
+                }
+                
+                // now get all of the other items that people have not yet put their names down on
+                self.getAllUserPreferences()
+            }
+        }
+    }
     
+    // iterate over the foodlist of all users
+    func getAllUserPreferences() {
+        print("guests: \(partyObject.guests)")
+        for guestID in partyObject.guests {
+            databaseRef.child("users/\(guestID)/foodList").observeSingleEvent(of: .value, with: { (snapshot) in
+                if (snapshot.exists()) {
+                    let userInfo = snapshot.value as! [String: Any]
+                    
+                    // get alcohol
+                    if let alcohol = userInfo["alcohol"] as? [String: Any] {
+                        for (item, _) in alcohol {
+                            // if the item is already in the list, just increment count
+                            if (self.data[0].keys.contains(item)) {
+                                self.data[0][item]?.count += 1
+                            } else {
+                                let newCell = cellData.init(opened: false, count: 1, userData: [], added: false)
+                                self.data[0][item] = newCell
+                            }
+                        }
+                    }
+                    
+                    // get food
+                    if let food = userInfo["food"] as? [String: Any] {
+                        for (item, _) in food {
+                            // if the item is already in the list, just increment count
+                            if (self.data[1].keys.contains(item)) {
+                                self.data[1][item]?.count += 1
+                            } else {
+                                let newCell = cellData.init(opened: false, count: 1, userData: [], added: false)
+                                self.data[1][item] = newCell
+                            }
+                        }
+                    }
+                    
+                    // get mixers
+                    if let mixers = userInfo["mixers"] as? [String: Any] {
+                        for (item, _) in mixers {
+                            // if the item is already in the list, just increment count
+                            if (self.data[2].keys.contains(item)) {
+                                self.data[2][item]?.count += 1
+                            } else {
+                                let newCell = cellData.init(opened: false, count: 1, userData: [], added: false)
+                                self.data[2][item] = newCell
+                            }
+                        }
+                    }
+                    
+                    // now actually update our foodList in the tableview
+                    self.foodTableView.reloadData()
+                }
+            })
+        }
+
+    }
     
 }
 
