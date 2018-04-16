@@ -146,11 +146,11 @@ class OtherUserProfile: UIViewController {
                 if let allergies = data["allergiesList"] {
                     let userAllergies = allergies as! [String: Any]
                     
+                    print("Allergies")
                     for allergy in userAllergies.keys {
                         let indexOfAllergy = self.allergyList.index(of: allergy)
-                        print("Allergies")
                         print(allergy)
-                        print(indexOfAllergy!)
+                        //print(indexOfAllergy!)
                         self.allergyImages[indexOfAllergy!].isSelected = true
                         self.profileObject.allergiesList[allergy] = 1
                     }

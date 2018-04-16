@@ -23,6 +23,7 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
     var databaseHandle: DatabaseHandle?
     
     var users = [ProfileModel]()
+    var invitedUsers = [String : Int]()
     
     var partyObject = PartyModel()
     
@@ -35,6 +36,13 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
         var profileModel = ProfileModel()
         profileModel.name = users[indexPath.row].name
         profileModel.userID = users[indexPath.row].userID
+        
+        // Check if user has already been invitied
+        //print("Checking if user is attending")
+        if (invitedUsers[profileModel.userID] == 1) {
+            print("User is attending")
+            cell.accessoryType = UITableViewCellAccessoryType.checkmark
+        }
         
         cell.nameLabel?.text = users[indexPath.row].name
         cell.profileModel = profileModel
@@ -91,7 +99,25 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
                 if let imageURL = data["imageURL"] {
                     self.getPicture(userID: user.userID, user: user)
                 }
+                self.populateGuestAttending(profileModel: user)
             }
+        }
+    }
+    
+    // Populates dictionary with guests attending
+    func populateGuestAttending(profileModel: ProfileModel) {
+        databaseRef.child("parties/\(partyObject.partyID)/guests").observeSingleEvent(of: .value) { (snapshot) in
+            if (snapshot.hasChild(profileModel.userID)) {
+                //print("Attending")
+                print(profileModel.userID)
+                self.invitedUsers[profileModel.userID] = 1
+            }
+//            else {
+//                print("Not attending")
+//                print(profileModel.userID)
+//                self.invitedUsers[profileModel.userID] = 0
+//            }
+            self.guestTableView.reloadData()
         }
     }
     

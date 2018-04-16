@@ -20,7 +20,6 @@ class AddGuestsViewController: UIViewController, UITableViewDataSource, UISearch
     var databaseHandle: DatabaseHandle?
     
     var users = [ProfileModel]()
-    var filteredUsers = [ProfileModel]()
     
     var partyObject = PartyModel()
     
@@ -33,6 +32,7 @@ class AddGuestsViewController: UIViewController, UITableViewDataSource, UISearch
         var profileModel = ProfileModel()
         profileModel.name = users[indexPath.row].name
         profileModel.userID = users[indexPath.row].userID
+        
         cell.nameLabel?.text = users[indexPath.row].name
         cell.profileModel = profileModel
         return cell
@@ -50,14 +50,12 @@ class AddGuestsViewController: UIViewController, UITableViewDataSource, UISearch
         // TODO: Fetch friends from Firebase
         populateAllFriendsList()
         
-        filteredUsers = users
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     func populateAllFriendsList() {
         databaseHandle = databaseRef?.child("users/\(partyObject.hostID)/friends").queryOrdered(byChild: "name").observe(.childAdded) { snapshot in

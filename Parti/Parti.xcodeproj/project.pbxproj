@@ -249,9 +249,6 @@
 				CEAB8B6520644885005AD748 /* AddFriendsViewController.swift */,
 				CE05EA43207443FE00886673 /* AddFriends.storyboard */,
 				CEAB8B6620644885005AD748 /* AddFriendTableViewCell.swift */,
-				F90E7810206ECEDB007C5302 /* AddGuestsToPartyViewController.swift */,
-				F90E7812206ECFB4007C5302 /* AddGuestsToParty.storyboard */,
-				F90E7814206ED4F3007C5302 /* AddGuestsTableViewCell.swift */,
 				F9B5265C207AD79F0029F480 /* FriendsViewController.swift */,
 				F9B5265E207AD85F0029F480 /* FriendsTableViewCell.swift */,
 			);
@@ -307,6 +304,9 @@
 		CE31AB9B205F152200171BD1 /* CreateParty */ = {
 			isa = PBXGroup;
 			children = (
+				F90E7810206ECEDB007C5302 /* AddGuestsToPartyViewController.swift */,
+				F90E7812206ECFB4007C5302 /* AddGuestsToParty.storyboard */,
+				F90E7814206ED4F3007C5302 /* AddGuestsTableViewCell.swift */,
 				CE31AB9E205F17ED00171BD1 /* CreatePartyViewController.swift */,
 				CE83FF5F2067EDB400542092 /* AddGuestsViewController.swift */,
 			);
