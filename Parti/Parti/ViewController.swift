@@ -68,8 +68,18 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
-        if (Auth.auth().currentUser != nil) {
-            // Segue here, its crashing other parts of the app
+//        if (Auth.auth().currentUser != nil) {
+//            // Segue here, its crashing other parts of the app
+//
+//        }
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                // user is signed in
+                self.performSegue(withIdentifier: "profileSegue", sender: self)
+            }
+//            else {
+//                // user is not signed in
+//            }
         }
     }
     
