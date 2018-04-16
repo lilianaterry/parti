@@ -41,8 +41,10 @@ class PartyFoodListViewController: UIViewController, UITableViewDelegate, UITabl
     var databaseHandle: DatabaseHandle?
     
     var data = [[String: cellData]]()
+    var sections = ["alcohol", "food", "mixers"]
     var currentTab: Int!
     var currentUser: String!
+    var currentUserName: String!
     
     var partyObject = PartyModel()
     var hostView = true
@@ -56,6 +58,9 @@ class PartyFoodListViewController: UIViewController, UITableViewDelegate, UITabl
         
         currentTab = 0
         currentUser = Auth.auth().currentUser?.uid
+        databaseRef.child("users/\(currentUser!)/name").observeSingleEvent(of: .value) { (snapshot) in
+            self.currentUserName = snapshot.value as! String
+        }
         
         loadFoodList()
     }
@@ -108,7 +113,7 @@ class PartyFoodListViewController: UIViewController, UITableViewDelegate, UITabl
             data[currentTab][key]?.opened = false
             let section = IndexSet.init(integer: indexPath.section)
             tableView.reloadSections(section, with: .none)
-            // otherwise open it
+        // otherwise open it
         } else {
             data[currentTab][key]?.opened = true
             let section = IndexSet.init(integer: indexPath.section)
@@ -131,6 +136,8 @@ class PartyFoodListViewController: UIViewController, UITableViewDelegate, UITabl
             
             sender.isSelected = true
             
+            removeFromFirebase(section: button.tag, itemName: key)
+            
             // otherwise add them to this food item
         } else {
             data[currentTab][key]?.userData.append(currentUser)
@@ -138,11 +145,25 @@ class PartyFoodListViewController: UIViewController, UITableViewDelegate, UITabl
             data[currentTab][key]?.opened = true
             
             sender.isSelected = false
+            
+            addToFirebase(section: button.tag, itemName: key)
         }
         
         // reload tableView to reflect the change
         let section = IndexSet.init(integer: button.tag)
         foodTableView.reloadSections(section, with: .none)
+    }
+    
+    // let user add themselves to an item and update firebase
+    func addToFirebase(section: Int, itemName: String) {
+        let sectionName = sections[section]
+        databaseRef.child("parties/\(partyObject.partyID)/foodList/\(sectionName)/\(itemName)/guests/\(currentUser!)").setValue(currentUserName)
+    }
+    
+    // let user remove themselves from an item and update firebase
+    func removeFromFirebase(section: Int, itemName: String) {
+        let sectionName = sections[section]
+        databaseRef.child("parties/\(partyObject.partyID)/foodList/\(sectionName)/\(itemName)/guests/\(currentUser!)").removeValue()
     }
 
     // go through all of the food data that has already been saved
@@ -229,15 +250,16 @@ class PartyFoodListViewController: UIViewController, UITableViewDelegate, UITabl
                 
                 // now get all of the other items that people have not yet put their names down on
                 self.getAllUserPreferences()
+            } else {
+                self.getAllUserPreferences()
             }
         }
     }
     
     // iterate over the foodlist of all users
     func getAllUserPreferences() {
-        print("guests: \(partyObject.guests)")
         for guestID in partyObject.guests {
-            databaseRef.child("users/\(guestID)/foodList").observeSingleEvent(of: .value, with: { (snapshot) in
+            databaseRef.child("users/\(guestID.userID)/foodList").observeSingleEvent(of: .value, with: { (snapshot) in
                 if (snapshot.exists()) {
                     let userInfo = snapshot.value as! [String: Any]
                     
