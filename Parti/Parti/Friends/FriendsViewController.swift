@@ -9,9 +9,10 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import SwipeCellKit
 
-class FriendsViewController: ViewController, UITableViewDataSource, UITableViewDelegate {
-
+class FriendsViewController: ViewController, UITableViewDataSource, UITableViewDelegate, SwipeTableViewCellDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
     
     // Firebase Database connection
@@ -31,6 +32,7 @@ class FriendsViewController: ViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableViewCell
+        cell.delegate = self
         
         var profileModel = ProfileModel()
         
@@ -42,6 +44,27 @@ class FriendsViewController: ViewController, UITableViewDataSource, UITableViewD
         cell.profileModel = profileModel
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            // handle action by updating model with deletion
+            print("delete friend at: ")
+            print(indexPath.row)
+            
+            let cell = tableView.cellForRow(at: indexPath) as! FriendsTableViewCell
+            let user = cell.profileModel
+        
+            self.promptForRemoveFriend(friendUid: user.userID)
+        }
+        
+        // customize the action appearance
+        deleteAction.image = #imageLiteral(resourceName: "Trash")
+        deleteAction.backgroundColor = .red
+        
+        return [deleteAction]
     }
     
     override func viewDidLoad() {
@@ -121,11 +144,11 @@ class FriendsViewController: ViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! FriendsTableViewCell
-        
-        let user = cell.profileModel
-        
-        promptForRemoveFriend(friendUid: user.userID)
+//        let cell = tableView.cellForRow(at: indexPath) as! FriendsTableViewCell
+//
+//        let user = cell.profileModel
+//
+//        promptForRemoveFriend(friendUid: user.userID)
     }
     
     func promptForRemoveFriend(friendUid: String) {
