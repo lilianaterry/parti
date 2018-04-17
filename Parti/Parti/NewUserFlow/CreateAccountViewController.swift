@@ -33,9 +33,13 @@ class CreateAccountViewController: ViewController {
     }
     
     @IBAction func createAccount(_ sender: Any) {
-        if (!emailText.hasText) { emailErrorLabel.text = "Please enter an email"}
-        else if (!passwordText.hasText) { passwordErrorLabel.text = "Please enter an password" }
-        else if (!verifyPasswordText.hasText || (verifyPasswordText.text! != passwordText.text!)) {
+        emailErrorLabel.text = ""
+        passwordErrorLabel.text = ""
+        if (!emailText.hasText || emailText.text!.range(of: "@") == nil) {
+            emailErrorLabel.text = "Please enter a valid email"
+        } else if (!passwordText.hasText) {
+            passwordErrorLabel.text = "Please enter an password"
+        } else if (!verifyPasswordText.hasText || (verifyPasswordText.text! != passwordText.text!)) {
             passwordErrorLabel.text = "Passwords do not match"
         } else {
             let email = emailText.text!
