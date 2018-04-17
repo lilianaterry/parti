@@ -201,7 +201,7 @@ class PartyHostViewController: ViewController {
                     }
                 }
                 
-                if let allergies = data["allergyList"] {
+                if let allergies = data["allergiesList"] {
                     let userAllergies = allergies as! [String: Any]
                     newUser.allergiesList = userAllergies
                     
