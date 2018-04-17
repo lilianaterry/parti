@@ -144,11 +144,11 @@ class FriendsViewController: ViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let cell = tableView.cellForRow(at: indexPath) as! FriendsTableViewCell
-//
-//        let user = cell.profileModel
 //
 //        promptForRemoveFriend(friendUid: user.userID)
+        // Segue to OtherProfile
+        //friendProfileSegue
+        performSegue(withIdentifier: "friendProfileSegue", sender: self)
     }
     
     func promptForRemoveFriend(friendUid: String) {
@@ -169,6 +169,21 @@ class FriendsViewController: ViewController, UITableViewDataSource, UITableViewD
         self.databaseRef.child("users/\(friendUid)/friendsList/\(userID)").removeValue()
         self.databaseRef.child("users/\(userID)/friendsList/\(friendUid)").removeValue()
         //users.removeAll()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let segueID = segue.identifier
+        
+        // Go to friends profile
+        if (segueID == "friendProfileSegue") {
+            if let destinationVC = segue.destination as? OtherUserProfile {
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    let cell = tableView.cellForRow(at: indexPath) as! FriendsTableViewCell
+                    let user = cell.profileModel
+                    destinationVC.profileObject.userID = user.userID
+                }
+            }
+        }
     }
     
 //    override func dismiss(animated flag: Bool, completion: (() -> Void)?)
