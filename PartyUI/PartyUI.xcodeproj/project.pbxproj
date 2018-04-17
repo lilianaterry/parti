@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE34A24720868ECE00CD2BEE /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34A24620868ECE00CD2BEE /* ImageCollectionViewCell.swift */; };
 		CEFAD33B208599EC00C6741C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFAD33A208599EC00C6741C /* AppDelegate.swift */; };
 		CEFAD33D208599EC00C6741C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFAD33C208599EC00C6741C /* ViewController.swift */; };
 		CEFAD340208599EC00C6741C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFAD33E208599EC00C6741C /* Main.storyboard */; };
@@ -42,10 +43,10 @@
 		CEFAD38620859ADD00C6741C /* SF-Pro-Text-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEFAD35D20859AC400C6741C /* SF-Pro-Text-RegularItalic.otf */; };
 		CEFAD38720859ADD00C6741C /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEFAD35420859AC300C6741C /* SF-Pro-Text-Semibold.otf */; };
 		CEFAD38820859ADD00C6741C /* SF-Pro-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEFAD35E20859AC400C6741C /* SF-Pro-Text-SemiboldItalic.otf */; };
-		CEFAD38A20859FEB00C6741C /* adult-celebration-cheers-415318.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEFAD38920859FEB00C6741C /* adult-celebration-cheers-415318.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE34A24620868ECE00CD2BEE /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEFAD337208599EC00C6741C /* PartyUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFAD33A208599EC00C6741C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEFAD33C208599EC00C6741C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,7 +84,6 @@
 		CEFAD36820859AC600C6741C /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		CEFAD36920859AC700C6741C /* SF-Pro-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Ultralight.otf"; sourceTree = "<group>"; };
 		CEFAD36A20859AC700C6741C /* SF-Pro-Text-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-BoldItalic.otf"; sourceTree = "<group>"; };
-		CEFAD38920859FEB00C6741C /* adult-celebration-cheers-415318.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "adult-celebration-cheers-415318.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,10 +119,10 @@
 				CEFAD34C20859A8400C6741C /* SF Font */,
 				CEFAD33A208599EC00C6741C /* AppDelegate.swift */,
 				CEFAD33C208599EC00C6741C /* ViewController.swift */,
+				CE34A24620868ECE00CD2BEE /* ImageCollectionViewCell.swift */,
 				CEFAD33E208599EC00C6741C /* Main.storyboard */,
-				CEFAD341208599EC00C6741C /* Assets.xcassets */,
-				CEFAD38920859FEB00C6741C /* adult-celebration-cheers-415318.jpg */,
 				CEFAD343208599EC00C6741C /* LaunchScreen.storyboard */,
+				CEFAD341208599EC00C6741C /* Assets.xcassets */,
 				CEFAD346208599EC00C6741C /* Info.plist */,
 			);
 			path = PartyUI;
@@ -243,7 +243,6 @@
 				CEFAD342208599EC00C6741C /* Assets.xcassets in Resources */,
 				CEFAD37720859ADD00C6741C /* SF-Pro-Display-Semibold.otf in Resources */,
 				CEFAD37620859ADD00C6741C /* SF-Pro-Display-RegularItalic.otf in Resources */,
-				CEFAD38A20859FEB00C6741C /* adult-celebration-cheers-415318.jpg in Resources */,
 				CEFAD38820859ADD00C6741C /* SF-Pro-Text-SemiboldItalic.otf in Resources */,
 				CEFAD37120859ADD00C6741C /* SF-Pro-Display-Light.otf in Resources */,
 				CEFAD38720859ADD00C6741C /* SF-Pro-Text-Semibold.otf in Resources */,
@@ -268,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE34A24720868ECE00CD2BEE /* ImageCollectionViewCell.swift in Sources */,
 				CEFAD33D208599EC00C6741C /* ViewController.swift in Sources */,
 				CEFAD33B208599EC00C6741C /* AppDelegate.swift in Sources */,
 			);

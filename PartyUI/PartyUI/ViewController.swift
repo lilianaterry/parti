@@ -8,12 +8,27 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    @IBOutlet var mainView: UIView!
     @IBOutlet weak var attendingBarBackground: UIView!
     @IBOutlet weak var partyImage: UIImageView!
     @IBOutlet weak var partyTitleLabel: UILabel!
     @IBOutlet weak var attireLabel: UILabel!
+    
+    
+    @IBOutlet weak var infoSectionBackground: UIView!
+    @IBOutlet weak var placeTitle: UILabel!
+    @IBOutlet weak var addressLine1: UILabel!
+    @IBOutlet weak var addressLine2: UILabel!
+    @IBOutlet weak var timeTitle: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var scrollView: UICollectionView!
+    let portraits = [#imageLiteral(resourceName: "portrait1"), #imageLiteral(resourceName: "portrait2"), #imageLiteral(resourceName: "portrait3"), #imageLiteral(resourceName: "portrait4"), #imageLiteral(resourceName: "portrait5"), #imageLiteral(resourceName: "portrait6"), #imageLiteral(resourceName: "portrait6"), #imageLiteral(resourceName: "portrait6")]
+    
+    @IBOutlet weak var bottomView: UIView!
     
     // color pallete definitions
     let mainColor = UIColor.init(hex: 0x55efc4)
@@ -56,39 +71,27 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    /* MAIN METHOD */
     override func viewDidLoad() {
         super.viewDidLoad()
         
         partyBanner()
         attendingBar()
         headerText()
+        partyInfo()
+        bottomBar()
+        
+        mainView.bringSubview(toFront: infoSectionBackground)
+        mainView.bringSubview(toFront: attendingBarBackground)
+
+        mainView.bringSubview(toFront: bottomView)
     }
     
     func partyBanner() {
         partyImage.image = #imageLiteral(resourceName: "placeholder_banner")
     }
     
-    func attendingBar() {
-        attendingBarBackground.layer.shadowColor = UIColor.black.cgColor
-        attendingBarBackground.layer.shadowOffset = CGSize(width: 2, height: 2)
-        attendingBarBackground.layer.shadowRadius = 2
-        attendingBarBackground.layer.shadowOpacity = 0.2
-        
-        maybeButton.setTitleColor(UIColor.white, for: .selected)
-        maybeButton.setTitleColor(mainColor, for: .normal)
-        maybeButton.isSelected = false
-        
-        goingButton.setTitleColor(UIColor.white, for: .selected)
-        goingButton.setTitleColor(mainColor, for: .normal)
-        goingButton.isSelected = false
-        
-        notGoingButton.setTitleColor(UIColor.white, for: .selected)
-        notGoingButton.setTitleColor(mainColor, for: .normal)
-        goingButton.isSelected = false
-
-    }
-    
+    // add a shadow to the text on the image
     func headerText() {
         partyTitleLabel.layer.shadowColor = UIColor.black.cgColor
         partyTitleLabel.layer.shadowRadius = 3.0
@@ -101,6 +104,25 @@ class ViewController: UIViewController {
         attireLabel.layer.shadowOpacity = 0.33
         attireLabel.layer.shadowOffset = CGSize(width: 2, height: 2)
         attireLabel.layer.masksToBounds = false
+    }
+    
+    // add drop shadow to this bar and setup button ui
+    func attendingBar() {
+        mainView.bringSubview(toFront: attendingBarBackground)
+        attendingBarBackground.layer.applyShadow(color: mediumGrey, alpha: 0.2, x: 0, y: 1, blur: 2, spread: 0)
+        
+        maybeButton.setTitleColor(UIColor.white, for: .selected)
+        maybeButton.setTitleColor(darkGrey, for: .normal)
+        maybeButton.isSelected = false
+        
+        goingButton.setTitleColor(UIColor.white, for: .selected)
+        goingButton.setTitleColor(darkGrey, for: .normal)
+        goingButton.isSelected = false
+        
+        notGoingButton.setTitleColor(UIColor.white, for: .selected)
+        notGoingButton.setTitleColor(darkGrey, for: .normal)
+        goingButton.isSelected = false
+
     }
     
     // toggle any of the attending bar buttons on
@@ -117,7 +139,38 @@ class ViewController: UIViewController {
         button.backgroundColor = UIColor.white
         button.isSelected = false
     }
+    
+    // add drop shadow to this section and setup text colors
+    func partyInfo() {
+        infoSectionBackground.layer.applyShadow(color: UIColor.black, alpha: 0.1, x: 0, y: 2, blur: 5, spread: 0)
+        
+        placeTitle.textColor = darkMint
+        timeTitle.textColor = darkMint
+        
+        addressLine1.textColor = darkGrey
+        addressLine2.textColor = mediumGrey
+        dateLabel.textColor = darkGrey
+        timeLabel.textColor = mediumGrey
+    }
 
+    // handles the sliding collection view feature
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return portraits.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "guestPicture", for: indexPath) as! ImageCollectionViewCell
+        
+        cell.guestPicture.image = portraits[indexPath.row]
+        
+        return cell
+    }
+    
+    func bottomBar() {
+        bottomView.layer.applyShadow(color: UIColor.black, alpha: 0.1, x: 0, y: -2, blur: 5, spread: 0)
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -137,5 +190,28 @@ extension UIColor {
         self.init(red: components.R, green: components.G, blue: components.B, alpha: 1)
     }
     
+}
+
+extension CALayer {
+    func applyShadow(
+        color: UIColor,
+        alpha: Float,
+        x: CGFloat,
+        y: CGFloat,
+        blur: CGFloat,
+        spread: CGFloat)
+    {
+        shadowColor = color.cgColor
+        shadowOpacity = alpha
+        shadowOffset = CGSize(width: x, height: y)
+        shadowRadius = blur / 2.0
+        if spread == 0 {
+            shadowPath = nil
+        } else {
+            let dx = -spread
+            let rect = bounds.insetBy(dx: dx, dy: dx)
+            shadowPath = UIBezierPath(rect: rect).cgPath
+        }
+    }
 }
 
