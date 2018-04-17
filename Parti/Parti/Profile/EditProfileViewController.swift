@@ -113,11 +113,15 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             let allergy = allergyList[tag]
             if button.isSelected {
                 // set deselected
+                print(allergy)
+                print("deselected")
                 button.isSelected = false
                 allergyChanges[tag] -= 1
                 profileObject.allergiesList.removeValue(forKey: allergy)
             } else {
                 // set selected
+                print(allergy)
+                print("selected")
                 button.isSelected = true
                 allergyChanges[tag] += 1
                 profileObject.allergiesList[allergy] = 1
