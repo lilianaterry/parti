@@ -83,7 +83,7 @@
 		F9620A8C2069CC270099BABA /* HostingPartyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9620A8B2069CC270099BABA /* HostingPartyTableViewCell.swift */; };
 		F9620A8E206AB9770099BABA /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9620A8D206AB9770099BABA /* CreateAccountViewController.swift */; };
 		F98083392020E98C00CB91C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98083382020E98C00CB91C0 /* AppDelegate.swift */; };
-		F980833B2020E98C00CB91C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F980833A2020E98C00CB91C0 /* ViewController.swift */; };
+		F980833B2020E98C00CB91C0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F980833A2020E98C00CB91C0 /* LoginViewController.swift */; };
 		F98083412020E98C00CB91C0 /* Parti.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F980833F2020E98C00CB91C0 /* Parti.xcdatamodeld */; };
 		F98083432020E98C00CB91C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F98083422020E98C00CB91C0 /* Assets.xcassets */; };
 		F98083462020E98C00CB91C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F98083442020E98C00CB91C0 /* LaunchScreen.storyboard */; };
@@ -191,7 +191,7 @@
 		F9620A8D206AB9770099BABA /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		F98083352020E98C00CB91C0 /* Parti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98083382020E98C00CB91C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F980833A2020E98C00CB91C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F980833A2020E98C00CB91C0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F98083402020E98C00CB91C0 /* Parti.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Parti.xcdatamodel; sourceTree = "<group>"; };
 		F98083422020E98C00CB91C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F98083452020E98C00CB91C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -430,7 +430,7 @@
 				F9B245C02066EB3D0015F277 /* Main.storyboard */,
 				F957DEDA204146E400FB15A3 /* Parti.entitlements */,
 				F98083382020E98C00CB91C0 /* AppDelegate.swift */,
-				F980833A2020E98C00CB91C0 /* ViewController.swift */,
+				F980833A2020E98C00CB91C0 /* LoginViewController.swift */,
 				F98083422020E98C00CB91C0 /* Assets.xcassets */,
 				F98083442020E98C00CB91C0 /* LaunchScreen.storyboard */,
 				F98083472020E98C00CB91C0 /* Info.plist */,
@@ -753,7 +753,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE09DC5C205C66410097806D /* ProfileModel.swift in Sources */,
-				F980833B2020E98C00CB91C0 /* ViewController.swift in Sources */,
+				F980833B2020E98C00CB91C0 /* LoginViewController.swift in Sources */,
 				CE1189632051E00300A0AD49 /* PartyModel.swift in Sources */,
 				CE3E0DB12061E0980098F435 /* PartyPageViewController.swift in Sources */,
 				CE2ED8672065B65E00CFDEE3 /* CreateFoodListViewController.swift in Sources */,

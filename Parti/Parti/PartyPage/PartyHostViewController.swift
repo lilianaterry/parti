@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseStorage
 
-class PartyHostViewController: ViewController {
+class PartyHostViewController: UIViewController {
     
     @IBOutlet weak var partyImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!

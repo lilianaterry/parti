@@ -11,7 +11,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import SwipeCellKit
 
-class FriendsViewController: ViewController, UITableViewDataSource, UITableViewDelegate, SwipeTableViewCellDelegate {
+class FriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SwipeTableViewCellDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -170,7 +170,7 @@ class FriendsViewController: ViewController, UITableViewDataSource, UITableViewD
         self.databaseRef.child("users/\(userID)/friendsList/\(friendUid)").removeValue()
         //users.removeAll()
     }
-    
+        
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let segueID = segue.identifier
         

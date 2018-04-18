@@ -49,7 +49,7 @@ import Crashlytics
 }
 
 
-class ViewController: UIViewController, GIDSignInUIDelegate {
+class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     // MARK: Properties
     @IBOutlet weak var mainStack: UIStackView!
@@ -65,22 +65,23 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         
         GIDSignIn.sharedInstance().uiDelegate = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
 //        if (Auth.auth().currentUser != nil) {
 //            // Segue here, its crashing other parts of the app
 //
 //        }
-//        Auth.auth().addStateDidChangeListener { (auth, user) in
-//            if user != nil {
-//                // user is signed in
-//                self.performSegue(withIdentifier: "profileSegue", sender: self)
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                // user is signed in
+                print("User auto-signed in")
+                self.performSegue(withIdentifier: "profileSegue", sender: self)
+            }
+//            else {
+//                // user is not signed in
 //            }
-////            else {
-////                // user is not signed in
-////            }
-//        }
+        }
     }
     
     // moves main stackframe up when keyboard appears
