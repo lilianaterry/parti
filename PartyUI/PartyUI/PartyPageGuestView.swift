@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var attendingBarBackground: UIView!
@@ -42,7 +42,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // deselect
         if (goingButton.isSelected) {
             toggleButtonOff(button: goingButton)
-            print("going button on")
         // select
         } else {
             toggleButtonOn(button: goingButton, off1: maybeButton, off2: notGoingButton)
@@ -179,39 +178,4 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
 }
 
-extension UIColor {
-    
-    convenience init(hex: Int) {
-        let components = (
-            R: CGFloat((hex >> 16) & 0xff) / 255,
-            G: CGFloat((hex >> 08) & 0xff) / 255,
-            B: CGFloat((hex >> 00) & 0xff) / 255
-        )
-        self.init(red: components.R, green: components.G, blue: components.B, alpha: 1)
-    }
-    
-}
-
-extension CALayer {
-    func applyShadow(
-        color: UIColor,
-        alpha: Float,
-        x: CGFloat,
-        y: CGFloat,
-        blur: CGFloat,
-        spread: CGFloat)
-    {
-        shadowColor = color.cgColor
-        shadowOpacity = alpha
-        shadowOffset = CGSize(width: x, height: y)
-        shadowRadius = blur / 2.0
-        if spread == 0 {
-            shadowPath = nil
-        } else {
-            let dx = -spread
-            let rect = bounds.insetBy(dx: dx, dy: dx)
-            shadowPath = UIBezierPath(rect: rect).cgPath
-        }
-    }
-}
 
