@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE34A24720868ECE00CD2BEE /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34A24620868ECE00CD2BEE /* ImageCollectionViewCell.swift */; };
+		CE34A24720868ECE00CD2BEE /* GuestPicsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34A24620868ECE00CD2BEE /* GuestPicsCollectionCell.swift */; };
+		CE34A2492086D95E00CD2BEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE34A2482086D95E00CD2BEE /* Main.storyboard */; };
+		CE34A24B2086DE8C00CD2BEE /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE34A24A2086DE8C00CD2BEE /* Profile.storyboard */; };
+		CE34A24D2086DEED00CD2BEE /* FoodList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE34A24C2086DEED00CD2BEE /* FoodList.storyboard */; };
+		CE34A24F2086DEFA00CD2BEE /* FriendList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE34A24E2086DEFA00CD2BEE /* FriendList.storyboard */; };
+		CE34A2512086E13100CD2BEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34A2502086E13100CD2BEE /* ViewController.swift */; };
 		CEFAD33B208599EC00C6741C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFAD33A208599EC00C6741C /* AppDelegate.swift */; };
-		CEFAD33D208599EC00C6741C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFAD33C208599EC00C6741C /* ViewController.swift */; };
-		CEFAD340208599EC00C6741C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFAD33E208599EC00C6741C /* Main.storyboard */; };
+		CEFAD33D208599EC00C6741C /* PartyPageGuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFAD33C208599EC00C6741C /* PartyPageGuestView.swift */; };
+		CEFAD340208599EC00C6741C /* PartyPageGuestView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFAD33E208599EC00C6741C /* PartyPageGuestView.storyboard */; };
 		CEFAD342208599EC00C6741C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEFAD341208599EC00C6741C /* Assets.xcassets */; };
 		CEFAD345208599EC00C6741C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFAD343208599EC00C6741C /* LaunchScreen.storyboard */; };
 		CEFAD36B20859ADD00C6741C /* SF-Pro-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEFAD36620859AC600C6741C /* SF-Pro-Display-Black.otf */; };
@@ -46,11 +51,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE34A24620868ECE00CD2BEE /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE34A24620868ECE00CD2BEE /* GuestPicsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestPicsCollectionCell.swift; sourceTree = "<group>"; };
+		CE34A2482086D95E00CD2BEE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		CE34A24A2086DE8C00CD2BEE /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		CE34A24C2086DEED00CD2BEE /* FoodList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FoodList.storyboard; sourceTree = "<group>"; };
+		CE34A24E2086DEFA00CD2BEE /* FriendList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FriendList.storyboard; sourceTree = "<group>"; };
+		CE34A2502086E13100CD2BEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CEFAD337208599EC00C6741C /* PartyUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFAD33A208599EC00C6741C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CEFAD33C208599EC00C6741C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CEFAD33F208599EC00C6741C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CEFAD33C208599EC00C6741C /* PartyPageGuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyPageGuestView.swift; sourceTree = "<group>"; };
+		CEFAD33F208599EC00C6741C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PartyPageGuestView.storyboard; sourceTree = "<group>"; };
 		CEFAD341208599EC00C6741C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEFAD344208599EC00C6741C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEFAD346208599EC00C6741C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,12 +128,17 @@
 			children = (
 				CEFAD34C20859A8400C6741C /* SF Font */,
 				CEFAD33A208599EC00C6741C /* AppDelegate.swift */,
-				CEFAD33C208599EC00C6741C /* ViewController.swift */,
-				CE34A24620868ECE00CD2BEE /* ImageCollectionViewCell.swift */,
-				CEFAD33E208599EC00C6741C /* Main.storyboard */,
+				CEFAD33C208599EC00C6741C /* PartyPageGuestView.swift */,
+				CE34A24620868ECE00CD2BEE /* GuestPicsCollectionCell.swift */,
+				CEFAD33E208599EC00C6741C /* PartyPageGuestView.storyboard */,
 				CEFAD343208599EC00C6741C /* LaunchScreen.storyboard */,
 				CEFAD341208599EC00C6741C /* Assets.xcassets */,
 				CEFAD346208599EC00C6741C /* Info.plist */,
+				CE34A2482086D95E00CD2BEE /* Main.storyboard */,
+				CE34A24A2086DE8C00CD2BEE /* Profile.storyboard */,
+				CE34A24C2086DEED00CD2BEE /* FoodList.storyboard */,
+				CE34A24E2086DEFA00CD2BEE /* FriendList.storyboard */,
+				CE34A2502086E13100CD2BEE /* ViewController.swift */,
 			);
 			path = PartyUI;
 			sourceTree = "<group>";
@@ -236,21 +251,25 @@
 				CEFAD36F20859ADD00C6741C /* SF-Pro-Display-Heavy.otf in Resources */,
 				CEFAD37B20859ADD00C6741C /* SF-Pro-Display-Ultralight.otf in Resources */,
 				CEFAD38220859ADD00C6741C /* SF-Pro-Text-LightItalic.otf in Resources */,
+				CE34A24B2086DE8C00CD2BEE /* Profile.storyboard in Resources */,
 				CEFAD36D20859ADD00C6741C /* SF-Pro-Display-Bold.otf in Resources */,
 				CEFAD38320859ADD00C6741C /* SF-Pro-Text-Medium.otf in Resources */,
 				CEFAD37420859ADD00C6741C /* SF-Pro-Display-MediumItalic.otf in Resources */,
 				CEFAD38120859ADD00C6741C /* SF-Pro-Text-Light.otf in Resources */,
 				CEFAD342208599EC00C6741C /* Assets.xcassets in Resources */,
+				CE34A24D2086DEED00CD2BEE /* FoodList.storyboard in Resources */,
 				CEFAD37720859ADD00C6741C /* SF-Pro-Display-Semibold.otf in Resources */,
 				CEFAD37620859ADD00C6741C /* SF-Pro-Display-RegularItalic.otf in Resources */,
 				CEFAD38820859ADD00C6741C /* SF-Pro-Text-SemiboldItalic.otf in Resources */,
 				CEFAD37120859ADD00C6741C /* SF-Pro-Display-Light.otf in Resources */,
 				CEFAD38720859ADD00C6741C /* SF-Pro-Text-Semibold.otf in Resources */,
-				CEFAD340208599EC00C6741C /* Main.storyboard in Resources */,
+				CEFAD340208599EC00C6741C /* PartyPageGuestView.storyboard in Resources */,
+				CE34A2492086D95E00CD2BEE /* Main.storyboard in Resources */,
 				CEFAD37D20859ADD00C6741C /* SF-Pro-Text-Bold.otf in Resources */,
 				CEFAD37220859ADD00C6741C /* SF-Pro-Display-LightItalic.otf in Resources */,
 				CEFAD38420859ADD00C6741C /* SF-Pro-Text-MediumItalic.otf in Resources */,
 				CEFAD37E20859ADD00C6741C /* SF-Pro-Text-BoldItalic.otf in Resources */,
+				CE34A24F2086DEFA00CD2BEE /* FriendList.storyboard in Resources */,
 				CEFAD38620859ADD00C6741C /* SF-Pro-Text-RegularItalic.otf in Resources */,
 				CEFAD37020859ADD00C6741C /* SF-Pro-Display-HeavyItalic.otf in Resources */,
 				CEFAD37520859ADD00C6741C /* SF-Pro-Display-Regular.otf in Resources */,
@@ -267,8 +286,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE34A24720868ECE00CD2BEE /* ImageCollectionViewCell.swift in Sources */,
-				CEFAD33D208599EC00C6741C /* ViewController.swift in Sources */,
+				CE34A24720868ECE00CD2BEE /* GuestPicsCollectionCell.swift in Sources */,
+				CEFAD33D208599EC00C6741C /* PartyPageGuestView.swift in Sources */,
+				CE34A2512086E13100CD2BEE /* ViewController.swift in Sources */,
 				CEFAD33B208599EC00C6741C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,12 +296,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CEFAD33E208599EC00C6741C /* Main.storyboard */ = {
+		CEFAD33E208599EC00C6741C /* PartyPageGuestView.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CEFAD33F208599EC00C6741C /* Base */,
 			);
-			name = Main.storyboard;
+			name = PartyPageGuestView.storyboard;
 			sourceTree = "<group>";
 		};
 		CEFAD343208599EC00C6741C /* LaunchScreen.storyboard */ = {

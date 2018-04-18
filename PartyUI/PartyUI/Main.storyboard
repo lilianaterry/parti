@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile-->
+        <scene sceneID="IP2-8K-SRG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="bNi-1T-dbh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" id="EK0-uO-s7t"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="skq-ZV-BnB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-190" y="-709"/>
+        </scene>
+        <!--FoodList-->
+        <scene sceneID="Wy7-E4-Q4D">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FoodList" id="rM6-7o-q2m" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Food" id="CMQ-kT-qFN"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mhs-rT-qon" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-180" y="-624"/>
+        </scene>
+        <!--FriendList-->
+        <scene sceneID="9Bq-BL-3PX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FriendList" id="SOk-8X-3TG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Friends" id="Dox-5O-rsI"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="akZ-YN-Daw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-174" y="-546"/>
+        </scene>
+        <!--PartyList-->
+        <scene sceneID="icV-rq-6Sm">
+            <objects>
+                <viewController title="PartyList" id="UoG-HV-91K" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IPE-FV-uvh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2y-s7-Csg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.39519533509999999" green="0.9848011136" blue="0.8010476232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="8Jg-NR-caw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="b2y-s7-Csg" firstAttribute="leading" secondItem="O7h-GB-Ggu" secondAttribute="leading" id="QI0-Mf-PMX"/>
+                            <constraint firstItem="b2y-s7-Csg" firstAttribute="trailing" secondItem="O7h-GB-Ggu" secondAttribute="trailing" id="Ru4-zG-LMk"/>
+                            <constraint firstItem="b2y-s7-Csg" firstAttribute="top" secondItem="IPE-FV-uvh" secondAttribute="top" id="cZu-2x-4pT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="O7h-GB-Ggu"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Parties" id="yIJ-Xy-lSb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5dD-fi-VUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="112.8" y="-148.87556221889056"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="03H-MV-nUQ">
+            <objects>
+                <tabBarController id="cgd-Iw-Q6y" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ji6-9j-fij">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="bNi-1T-dbh" kind="relationship" relationship="viewControllers" id="y6w-MR-OI8"/>
+                        <segue destination="UoG-HV-91K" kind="relationship" relationship="viewControllers" id="wxa-zE-U1v"/>
+                        <segue destination="rM6-7o-q2m" kind="relationship" relationship="viewControllers" id="Ch7-xo-Ku7"/>
+                        <segue destination="SOk-8X-3TG" kind="relationship" relationship="viewControllers" id="o3t-KD-rSp"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bkd-2b-WA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-729" y="-147"/>
+        </scene>
+    </scenes>
+</document>
