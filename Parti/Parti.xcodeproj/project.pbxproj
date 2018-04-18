@@ -500,7 +500,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = "Arjun Gopisetty";
+				ORGANIZATIONNAME = "Liliana Terry";
 				TargetAttributes = {
 					F98083342020E98C00CB91C0 = {
 						CreatedOnToolsVersion = 9.2;
@@ -920,7 +920,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = RWK7TT7K5A;
+				DEVELOPMENT_TEAM = C7F665E2YD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -959,7 +959,7 @@
 				CODE_SIGN_ENTITLEMENTS = Parti/Parti.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RWK7TT7K5A;
+				DEVELOPMENT_TEAM = C7F665E2YD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

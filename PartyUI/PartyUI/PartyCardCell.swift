@@ -60,13 +60,23 @@ class PartyCardCell: UITableViewCell {
     }
     
     func setupCard() {
-        // main background
+        // main card view
+        cardBackground.clipsToBounds = false
         cardBackground.layer.cornerRadius = 10
-        cardBackground.clipsToBounds = true
-        cardBackground.layer.applyShadow(color: UIColor.black, alpha: 0.5, x: 3, y: 3, blur: 3, spread: 10)
+        cardBackground.layer.applyShadow(color: UIColor.black, alpha: 0.15, x: 3, y: 3, blur: 6, spread: 0)
         
         // attending status bar
         attendingBackground.layer.backgroundColor = colors.backgroundDarkGrey.cgColor
+        attendingBackground.clipsToBounds = true
+        
+        // round only the bottom 2 corners
+        let rectShape = CAShapeLayer()
+        rectShape.bounds = attendingBackground.frame
+        rectShape.position = attendingBackground.center
+        rectShape.path = UIBezierPath(roundedRect: attendingBackground.bounds, byRoundingCorners: [.bottomLeft , .bottomRight], cornerRadii: CGSize(width: 10, height: 10)).cgPath
+        attendingBackground.layer.mask = rectShape
+        
+        
         goingButton.setTitleColor(colors.buttonText, for: .normal)
         goingButton.setTitleColor(UIColor.white, for: .selected)
         
