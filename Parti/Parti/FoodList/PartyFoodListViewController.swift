@@ -27,11 +27,12 @@ class PartyFoodListViewController: UIViewController, UITableViewDelegate, UITabl
     
     // go back to the main party page
     @IBAction func backButton(_ sender: Any) {
-        if (hostView) {
-            self.performSegue(withIdentifier: "hostPartyPage", sender: self)
-        } else {
-            self.performSegue(withIdentifier: "guestPartyPage", sender: self)
-        }
+//        if (hostView) {
+//            self.performSegue(withIdentifier: "hostPartyPage", sender: self)
+//        } else {
+//            self.performSegue(withIdentifier: "guestPartyPage", sender: self)
+//        }
+        dismiss(animated: false, completion: nil)
     }
     
     @IBOutlet weak var foodTableView: UITableView!
