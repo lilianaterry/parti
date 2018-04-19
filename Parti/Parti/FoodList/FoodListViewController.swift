@@ -98,13 +98,18 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
         var item = ""
         if (section == 0) {
             item = Array(alcoholList)[index].key
+            let value = [item: 1]
+            databaseRef.child("users/\(userID)/foodList/alcohol").updateChildValues(value)
         } else if (section == 1) {
+            // This wont work until food sections are set up
             item = Array(foodList)[index].key
+            let value = [item: 1]
+            databaseRef.child("users/\(userID)/foodList/food").updateChildValues(value)
         } else {
             item = Array(mixerList)[index].key
+            let value = [item: 1]
+            databaseRef.child("users/\(userID)/foodList/mixers").updateChildValues(value)
         }
-        let value = [item: 1]
-        databaseRef.child("users/\(userID)/foodList").updateChildValues(value)
     }
     
     /* remove check in firebase */
@@ -112,13 +117,18 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
         var item = ""
         if (section == 0) {
             item = Array(alcoholList)[index].key
+            let value = [item: nil] as [String: Any?]
+            databaseRef.child("users/\(userID)/foodList/alcohol").updateChildValues(value)
         } else if (section == 1) {
             item = Array(foodList)[index].key
+            let value = [item: nil] as [String: Any?]
+            databaseRef.child("users/\(userID)/foodList/food").updateChildValues(value)
         } else {
             item = Array(mixerList)[index].key
+            let value = [item: nil] as [String: Any?]
+            databaseRef.child("users/\(userID)/foodList/mixers").updateChildValues(value)
         }
-        let value = [item: nil] as [String: Any?]
-        databaseRef.child("users/\(userID)/foodList").updateChildValues(value)
+        
     }
     
     override func viewDidLoad() {
@@ -134,11 +144,30 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
     
     /* Get the current users's food preferences and use these to mark generic food list */
     func getUsersFoodList() {
-        databaseRef.child("users/\(userID)/foodList").observeSingleEvent(of: .value) { (snapshot) in
+        databaseRef.child("users/\(userID)/foodList/alcohol").observeSingleEvent(of: .value) { (snapshot) in
             if snapshot.exists() {
-                self.userFoodList = snapshot.value as! [String: Any]
+                let foodDict = snapshot.value as! [String: Any]
+                for (food, value) in foodDict {
+                    self.userFoodList[food] = value
+                }
             }
-            // self.populateFoodList()
+        }
+        databaseRef.child("users/\(userID)/foodList/food").observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.exists() {
+                let foodDict = snapshot.value as! [String: Any]
+                for (food, value) in foodDict {
+                    self.userFoodList[food] = value
+                }
+            }
+        }
+        databaseRef.child("users/\(userID)/foodList/mixers").observeSingleEvent(of: .value)
+            { (snapshot) in
+            if snapshot.exists() {
+                let foodDict = snapshot.value as! [String: Any]
+                for (food, value) in foodDict {
+                    self.userFoodList[food] = value
+                }
+            }
             self.populateAlcoholList()
             self.populateFoodList()
             self.populateMixersList()
