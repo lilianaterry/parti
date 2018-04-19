@@ -52,6 +52,7 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
             
             // if the value in the foodList is 1 mark it as checked
             if (Array(alcoholList)[indexPath.row].value == 1) {
+                print(Array(alcoholList)[indexPath.row].key)
                 cell.accessoryType = UITableViewCellAccessoryType.checkmark
             }
         } else if (indexPath.section == 1) {
@@ -59,6 +60,7 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
             
             // if the value in the foodList is 1 mark it as checked
             if (Array(foodList)[indexPath.row].value == 1) {
+                print(Array(foodList)[indexPath.row].key)
                 cell.accessoryType = UITableViewCellAccessoryType.checkmark
             }
         } else {
@@ -66,6 +68,7 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
             
             // if the value in the foodList is 1 mark it as checked
             if (Array(mixerList)[indexPath.row].value == 1) {
+                print(Array(mixerList)[indexPath.row].key)
                 cell.accessoryType = UITableViewCellAccessoryType.checkmark
             }
         }
