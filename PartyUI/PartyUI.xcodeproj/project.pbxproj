@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		CE34A24720868ECE00CD2BEE /* GuestPicsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34A24620868ECE00CD2BEE /* GuestPicsCollectionCell.swift */; };
-		CE34A2492086D95E00CD2BEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE34A2482086D95E00CD2BEE /* Main.storyboard */; };
-		CE34A24B2086DE8C00CD2BEE /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE34A24A2086DE8C00CD2BEE /* Profile.storyboard */; };
+		CE34A2492086D95E00CD2BEE /* PartyList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE34A2482086D95E00CD2BEE /* PartyList.storyboard */; };
+		CE34A24B2086DE8C00CD2BEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE34A24A2086DE8C00CD2BEE /* Main.storyboard */; };
 		CE34A24D2086DEED00CD2BEE /* FoodList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE34A24C2086DEED00CD2BEE /* FoodList.storyboard */; };
 		CE34A24F2086DEFA00CD2BEE /* FriendList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE34A24E2086DEFA00CD2BEE /* FriendList.storyboard */; };
-		CE34A2512086E13100CD2BEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34A2502086E13100CD2BEE /* ViewController.swift */; };
+		CE34A2512086E13100CD2BEE /* PartyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34A2502086E13100CD2BEE /* PartyListViewController.swift */; };
 		CE34A2532086E22200CD2BEE /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34A2522086E22200CD2BEE /* UIExtensions.swift */; };
 		CE34A2572086F39300CD2BEE /* PartyCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34A2562086F39300CD2BEE /* PartyCardCell.swift */; };
+		CE810EB42089495A009D9575 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE810EB32089495A009D9575 /* ViewController.swift */; };
 		CEFAD33B208599EC00C6741C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFAD33A208599EC00C6741C /* AppDelegate.swift */; };
 		CEFAD33D208599EC00C6741C /* PartyPageGuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFAD33C208599EC00C6741C /* PartyPageGuestView.swift */; };
 		CEFAD340208599EC00C6741C /* PartyPageGuestView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFAD33E208599EC00C6741C /* PartyPageGuestView.storyboard */; };
@@ -54,13 +55,14 @@
 
 /* Begin PBXFileReference section */
 		CE34A24620868ECE00CD2BEE /* GuestPicsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestPicsCollectionCell.swift; sourceTree = "<group>"; };
-		CE34A2482086D95E00CD2BEE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		CE34A24A2086DE8C00CD2BEE /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		CE34A2482086D95E00CD2BEE /* PartyList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PartyList.storyboard; sourceTree = "<group>"; };
+		CE34A24A2086DE8C00CD2BEE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CE34A24C2086DEED00CD2BEE /* FoodList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FoodList.storyboard; sourceTree = "<group>"; };
 		CE34A24E2086DEFA00CD2BEE /* FriendList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FriendList.storyboard; sourceTree = "<group>"; };
-		CE34A2502086E13100CD2BEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE34A2502086E13100CD2BEE /* PartyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyListViewController.swift; sourceTree = "<group>"; };
 		CE34A2522086E22200CD2BEE /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		CE34A2562086F39300CD2BEE /* PartyCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyCardCell.swift; sourceTree = "<group>"; };
+		CE810EB32089495A009D9575 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CEFAD337208599EC00C6741C /* PartyUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFAD33A208599EC00C6741C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEFAD33C208599EC00C6741C /* PartyPageGuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyPageGuestView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE810EB12089492A009D9575 /* PartyList */ = {
+			isa = PBXGroup;
+			children = (
+				CE34A2482086D95E00CD2BEE /* PartyList.storyboard */,
+				CE34A2502086E13100CD2BEE /* PartyListViewController.swift */,
+				CE34A2562086F39300CD2BEE /* PartyCardCell.swift */,
+			);
+			path = PartyList;
+			sourceTree = "<group>";
+		};
+		CE810EB220894938009D9575 /* PartyPage */ = {
+			isa = PBXGroup;
+			children = (
+				CEFAD33C208599EC00C6741C /* PartyPageGuestView.swift */,
+				CE34A24620868ECE00CD2BEE /* GuestPicsCollectionCell.swift */,
+				CEFAD33E208599EC00C6741C /* PartyPageGuestView.storyboard */,
+			);
+			path = PartyPage;
+			sourceTree = "<group>";
+		};
 		CEFAD32E208599EC00C6741C = {
 			isa = PBXGroup;
 			children = (
@@ -130,20 +152,17 @@
 		CEFAD339208599EC00C6741C /* PartyUI */ = {
 			isa = PBXGroup;
 			children = (
+				CE34A24A2086DE8C00CD2BEE /* Main.storyboard */,
+				CE810EB32089495A009D9575 /* ViewController.swift */,
+				CE810EB220894938009D9575 /* PartyPage */,
+				CE810EB12089492A009D9575 /* PartyList */,
 				CEFAD34C20859A8400C6741C /* SF Font */,
 				CEFAD33A208599EC00C6741C /* AppDelegate.swift */,
-				CEFAD33C208599EC00C6741C /* PartyPageGuestView.swift */,
-				CE34A24620868ECE00CD2BEE /* GuestPicsCollectionCell.swift */,
-				CEFAD33E208599EC00C6741C /* PartyPageGuestView.storyboard */,
 				CEFAD343208599EC00C6741C /* LaunchScreen.storyboard */,
 				CEFAD341208599EC00C6741C /* Assets.xcassets */,
 				CEFAD346208599EC00C6741C /* Info.plist */,
-				CE34A2482086D95E00CD2BEE /* Main.storyboard */,
-				CE34A24A2086DE8C00CD2BEE /* Profile.storyboard */,
 				CE34A24C2086DEED00CD2BEE /* FoodList.storyboard */,
 				CE34A24E2086DEFA00CD2BEE /* FriendList.storyboard */,
-				CE34A2502086E13100CD2BEE /* ViewController.swift */,
-				CE34A2562086F39300CD2BEE /* PartyCardCell.swift */,
 				CE34A2522086E22200CD2BEE /* UIExtensions.swift */,
 			);
 			path = PartyUI;
@@ -257,7 +276,7 @@
 				CEFAD36F20859ADD00C6741C /* SF-Pro-Display-Heavy.otf in Resources */,
 				CEFAD37B20859ADD00C6741C /* SF-Pro-Display-Ultralight.otf in Resources */,
 				CEFAD38220859ADD00C6741C /* SF-Pro-Text-LightItalic.otf in Resources */,
-				CE34A24B2086DE8C00CD2BEE /* Profile.storyboard in Resources */,
+				CE34A24B2086DE8C00CD2BEE /* Main.storyboard in Resources */,
 				CEFAD36D20859ADD00C6741C /* SF-Pro-Display-Bold.otf in Resources */,
 				CEFAD38320859ADD00C6741C /* SF-Pro-Text-Medium.otf in Resources */,
 				CEFAD37420859ADD00C6741C /* SF-Pro-Display-MediumItalic.otf in Resources */,
@@ -270,7 +289,7 @@
 				CEFAD37120859ADD00C6741C /* SF-Pro-Display-Light.otf in Resources */,
 				CEFAD38720859ADD00C6741C /* SF-Pro-Text-Semibold.otf in Resources */,
 				CEFAD340208599EC00C6741C /* PartyPageGuestView.storyboard in Resources */,
-				CE34A2492086D95E00CD2BEE /* Main.storyboard in Resources */,
+				CE34A2492086D95E00CD2BEE /* PartyList.storyboard in Resources */,
 				CEFAD37D20859ADD00C6741C /* SF-Pro-Text-Bold.otf in Resources */,
 				CEFAD37220859ADD00C6741C /* SF-Pro-Display-LightItalic.otf in Resources */,
 				CEFAD38420859ADD00C6741C /* SF-Pro-Text-MediumItalic.otf in Resources */,
@@ -295,7 +314,8 @@
 				CE34A24720868ECE00CD2BEE /* GuestPicsCollectionCell.swift in Sources */,
 				CEFAD33D208599EC00C6741C /* PartyPageGuestView.swift in Sources */,
 				CE34A2572086F39300CD2BEE /* PartyCardCell.swift in Sources */,
-				CE34A2512086E13100CD2BEE /* ViewController.swift in Sources */,
+				CE34A2512086E13100CD2BEE /* PartyListViewController.swift in Sources */,
+				CE810EB42089495A009D9575 /* ViewController.swift in Sources */,
 				CE34A2532086E22200CD2BEE /* UIExtensions.swift in Sources */,
 				CEFAD33B208599EC00C6741C /* AppDelegate.swift in Sources */,
 			);

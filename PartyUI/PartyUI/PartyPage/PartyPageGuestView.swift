@@ -29,6 +29,9 @@ class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollecti
     let portraits = [#imageLiteral(resourceName: "portrait1"), #imageLiteral(resourceName: "portrait2"), #imageLiteral(resourceName: "portrait3"), #imageLiteral(resourceName: "portrait4"), #imageLiteral(resourceName: "portrait5"), #imageLiteral(resourceName: "portrait6"), #imageLiteral(resourceName: "portrait6"), #imageLiteral(resourceName: "portrait6")]
     
     @IBOutlet weak var bottomView: UIView!
+    @IBAction func foodListButton(_ sender: Any) {
+    }
+    @IBOutlet weak var musicListButton: UIButton!
     
     // color pallete definitions
     let mainColor = UIColor.init(hex: 0x55efc4)
@@ -175,7 +178,10 @@ class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollecti
         // Dispose of any resources that can be recreated.
     }
 
-
+    
+    @IBAction func backButton(_ sender: Any) {
+    }
+    
 }
 
 

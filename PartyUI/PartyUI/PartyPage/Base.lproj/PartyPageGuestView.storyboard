@@ -283,11 +283,50 @@
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmd-yM-YUh">
                                 <rect key="frame" x="0.0" y="591" width="375" height="76"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="dl8-B6-vqw">
+                                        <rect key="frame" x="112.5" y="8" width="150" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZl-qU-s8Y">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="3wv-k4-njf"/>
+                                                    <constraint firstAttribute="width" constant="60" id="jVF-y1-Gio"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="food_button"/>
+                                                <connections>
+                                                    <action selector="foodListButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r2o-tf-QTP"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ba3-fh-zgX">
+                                                <rect key="frame" x="90" y="0.0" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="gyu-OG-TTc"/>
+                                                    <constraint firstAttribute="width" constant="60" id="hFk-hv-2Bn"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="music_button"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="76" id="7uL-Zf-5yc"/>
+                                    <constraint firstItem="dl8-B6-vqw" firstAttribute="centerY" secondItem="gmd-yM-YUh" secondAttribute="centerY" id="Hti-eL-OLI"/>
+                                    <constraint firstItem="dl8-B6-vqw" firstAttribute="centerX" secondItem="gmd-yM-YUh" secondAttribute="centerX" id="Jqg-Ga-0CL"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCp-Wf-PpU">
+                                <rect key="frame" x="8" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="XUG-3i-vPQ"/>
+                                    <constraint firstAttribute="width" constant="40" id="eQJ-2g-YSc"/>
+                                </constraints>
+                                <state key="normal" image="back_button"/>
+                                <connections>
+                                    <action selector="backButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hs6-Dg-ola"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -295,6 +334,7 @@
                             <constraint firstItem="8Sx-0i-sCs" firstAttribute="top" secondItem="LBA-4I-v7i" secondAttribute="bottom" id="3Dy-Tv-jYb"/>
                             <constraint firstItem="hSx-N5-GO2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="6Ic-cb-PP0"/>
                             <constraint firstItem="gmd-yM-YUh" firstAttribute="top" secondItem="8Sx-0i-sCs" secondAttribute="bottom" id="6j8-Qn-gf1"/>
+                            <constraint firstItem="VCp-Wf-PpU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7gY-w9-OdB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5L0-tw-dZT" secondAttribute="trailing" constant="16" id="GVG-1G-jx5"/>
                             <constraint firstItem="pDO-hT-DHD" firstAttribute="top" secondItem="Kyz-nI-Ktk" secondAttribute="bottom" id="HXT-65-LQd"/>
                             <constraint firstItem="pDO-hT-DHD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IlR-Bb-k4e"/>
@@ -314,6 +354,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hSx-N5-GO2" secondAttribute="trailing" constant="16" id="sIJ-Zv-TBo"/>
                             <constraint firstItem="gmd-yM-YUh" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wbW-So-5So"/>
                             <constraint firstItem="Kyz-nI-Ktk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xkS-uG-aFZ"/>
+                            <constraint firstItem="VCp-Wf-PpU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="yYx-1v-BUF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -329,6 +370,7 @@
                         <outlet property="infoSectionBackground" destination="LBA-4I-v7i" id="h76-Vi-idR"/>
                         <outlet property="mainView" destination="8bC-Xf-vdC" id="Lzr-N0-3s0"/>
                         <outlet property="maybeButton" destination="s1O-Ac-yGf" id="42B-xK-tf5"/>
+                        <outlet property="musicListButton" destination="Ba3-fh-zgX" id="IKM-Ip-ptM"/>
                         <outlet property="notGoingButton" destination="IT5-wj-e3f" id="RAL-0u-sas"/>
                         <outlet property="partyImage" destination="Kyz-nI-Ktk" id="H5z-gm-4Y8"/>
                         <outlet property="partyTitleLabel" destination="5L0-tw-dZT" id="aQT-6R-G7m"/>
@@ -344,6 +386,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back_button" width="48" height="48"/>
+        <image name="food_button" width="87" height="87"/>
+        <image name="music_button" width="87" height="87"/>
         <image name="portrait1" width="5184" height="3456"/>
     </resources>
 </document>

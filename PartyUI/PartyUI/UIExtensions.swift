@@ -20,6 +20,9 @@ class UIExtensions {
     let darkGrey = UIColor.init(hex: 0x2d3436)
     let mediumGrey = UIColor.init(hex: 0xb2bec3)
     let lightGrey = UIColor.init(hex: 0xdfe6e9)
+    
+    // profile colors
+    let nameColor = UIColor.init(hex: 0x222222)
 }
 
 // create UI color from hex code
