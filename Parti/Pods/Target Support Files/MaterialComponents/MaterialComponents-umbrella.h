@@ -43,6 +43,8 @@
 #import "MDCFloatingButton.h"
 #import "MDCRaisedButton.h"
 #import "MDCButtonColorThemer.h"
+#import "MDCContainedButtonColorThemer.h"
+#import "MDCTextButtonColorThemer.h"
 #import "MDCButtonTitleColorAccessibilityMutator.h"
 #import "MDCButtonTypographyThemer.h"
 #import "MaterialCards.h"
