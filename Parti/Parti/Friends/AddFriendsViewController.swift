@@ -10,10 +10,6 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-protocol ReturnDelegate {
-    func clearFriendsList()
-}
-
 class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate, UITableViewDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -28,6 +24,7 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
     var databaseHandle: DatabaseHandle?
     
     var users = [ProfileModel]()
+    var uidToFriendStatus = [String : Int]()
     
     var profileObject = ProfileModel()
     
@@ -44,7 +41,11 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
         profileModel.userID = users[indexPath.row].userID
         cell.nameLabel?.text = users[indexPath.row].name
         cell.profileModel = profileModel
-
+        
+        if (uidToFriendStatus[profileModel.userID] == 1) {
+            cell.accessoryType = UITableViewCellAccessoryType.checkmark
+        }
+        
         return cell
     }
     
@@ -70,12 +71,28 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
         databaseHandle = databaseRef?.child("users").queryOrdered(byChild: "name").observe(.childAdded) { snapshot in
             var data = snapshot.value as! [String: Any]
             var user = ProfileModel()
-            user.name = data["name"] as! String
-            user.userID = snapshot.key
-            user.imageURL = data["imageURL"] as! String
-            user.username = data["username"] as! String
+            // User shouldn't be able to add themselves as a friend
+            if (snapshot.key != self.userID) {
+                user.name = data["name"] as! String
+                user.userID = snapshot.key
+                user.imageURL = data["imageURL"] as! String
+                user.username = data["username"] as! String
             
-            self.users.append(user)
+                self.users.append(user)
+                self.isFriendOfUser(friendUid: user.userID)
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func isFriendOfUser(friendUid: String) {
+        databaseRef.child("users/\(userID)/friendsList").observeSingleEvent(of: .value) { (snapshot) in
+            if (snapshot.hasChild(friendUid)) {
+                print("they r a friend")
+                //print(profileModel.userID)
+                self.uidToFriendStatus[friendUid] = 1
+            }
+            
             self.tableView.reloadData()
         }
     }

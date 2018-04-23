@@ -899,7 +899,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6So-Pt-n6O"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="DefaultProfilePicture" id="Woc-us-aLj"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="ic_account_circle" selectedImage="ic_account_circle" id="Woc-us-aLj"/>
                     <connections>
                         <outlet property="drinkOfChoiceLabel" destination="7KE-ra-gFS" id="P8B-Op-4Xa"/>
                         <outlet property="glutenButton" destination="5V3-Fv-OVr" id="9x0-Xr-B6R"/>
@@ -1248,7 +1248,7 @@
                 <viewControllerPlaceholder storyboardName="ProfileView" referencedIdentifier="otherProfileController" id="etb-UH-iUe" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VA9-t3-ZDb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2044" y="494"/>
+            <point key="canvasLocation" x="1887" y="1672"/>
         </scene>
         <!--Music-->
         <scene sceneID="4u2-7G-ldA">
@@ -1341,6 +1341,7 @@
                     <tabBarItem key="tabBarItem" title="Friends" image="ic_face" id="bfA-Ph-pex"/>
                     <connections>
                         <outlet property="tableView" destination="hZY-FO-fat" id="VFU-hs-NnT"/>
+                        <segue destination="etb-UH-iUe" kind="show" identifier="friendProfileSegue" id="mpS-Th-8YQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Sr-bQ-p46" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1628,7 +1629,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Kzc-cs-Omy" userLabel="Food/Guests">
-                                <rect key="frame" x="16" y="604.66666666666663" width="343" height="125.66666666666663"/>
+                                <rect key="frame" x="16" y="605.33333333333337" width="343" height="125"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TME-R7-Oar" userLabel="Food and Music">
                                         <rect key="frame" x="66.666666666666686" y="0.0" width="210" height="30"/>
@@ -1664,24 +1665,24 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Cdc-GA-FcU" userLabel="Guests">
-                                        <rect key="frame" x="0.0" y="80" width="343" height="45.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="80" width="343" height="45"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Mc-ik-Ux2">
-                                                <rect key="frame" x="0.0" y="0.0" width="44.666666666666664" height="45.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="44.666666666666664" height="45"/>
                                                 <state key="normal" title="Button" image="empty_guest"/>
                                                 <connections>
                                                     <action selector="selectGuest:" destination="HdR-Sn-2rM" eventType="touchUpInside" id="el4-Ld-tP2"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zpr-jN-X0C">
-                                                <rect key="frame" x="74.666666666666671" y="0.0" width="44.666666666666671" height="45.666666666666664"/>
+                                                <rect key="frame" x="74.666666666666671" y="0.0" width="44.666666666666671" height="45"/>
                                                 <state key="normal" title="Button" image="empty_guest"/>
                                                 <connections>
                                                     <action selector="selectGuest:" destination="HdR-Sn-2rM" eventType="touchUpInside" id="772-mm-xya"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ls5-F4-TtK">
-                                                <rect key="frame" x="149.33333333333334" y="0.0" width="44.333333333333343" height="45.666666666666664"/>
+                                                <rect key="frame" x="149.33333333333334" y="0.0" width="44.333333333333343" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Ls5-F4-TtK" secondAttribute="height" multiplier="1:1" id="the-gc-V4p"/>
                                                 </constraints>
@@ -1691,14 +1692,14 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J54-c4-aJi">
-                                                <rect key="frame" x="223.66666666666666" y="0.0" width="44.666666666666657" height="45.666666666666664"/>
+                                                <rect key="frame" x="223.66666666666666" y="0.0" width="44.666666666666657" height="45"/>
                                                 <state key="normal" title="Button" image="empty_guest"/>
                                                 <connections>
                                                     <action selector="selectGuest:" destination="HdR-Sn-2rM" eventType="touchUpInside" id="RYC-vs-3ob"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shS-qE-lL3">
-                                                <rect key="frame" x="298.33333333333331" y="0.0" width="44.666666666666686" height="45.666666666666664"/>
+                                                <rect key="frame" x="298.33333333333331" y="0.0" width="44.666666666666686" height="45"/>
                                                 <state key="normal" title="Button" image="addPicture"/>
                                                 <connections>
                                                     <action selector="moreGuests:" destination="HdR-Sn-2rM" eventType="touchUpInside" id="2GE-re-V7n"/>
@@ -1780,7 +1781,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DefaultProfilePicture" width="64" height="64"/>
         <image name="Disclosure Indicator" width="8" height="13"/>
         <image name="addPicture" width="145" height="145"/>
         <image name="background_gradient" width="375" height="667"/>
@@ -1788,6 +1788,7 @@
         <image name="empty_guest" width="143" height="143"/>
         <image name="gluten-free" width="50" height="50"/>
         <image name="headline" width="24" height="24"/>
+        <image name="ic_account_circle" width="24" height="24"/>
         <image name="ic_face" width="24" height="24"/>
         <image name="ic_local_dining" width="24" height="24"/>
         <image name="nut-free" width="50" height="50"/>
@@ -1797,7 +1798,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6Gu-bd-4eq"/>
-        <segue reference="yW4-ie-5Dy"/>
+        <segue reference="mpS-Th-8YQ"/>
         <segue reference="PhQ-ob-AKh"/>
         <segue reference="rH1-EW-QhL"/>
     </inferredMetricsTieBreakers>

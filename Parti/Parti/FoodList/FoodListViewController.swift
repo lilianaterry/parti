@@ -52,6 +52,7 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
             
             // if the value in the foodList is 1 mark it as checked
             if (Array(alcoholList)[indexPath.row].value == 1) {
+                print(Array(alcoholList)[indexPath.row].key)
                 cell.accessoryType = UITableViewCellAccessoryType.checkmark
             }
         } else if (indexPath.section == 1) {
@@ -59,6 +60,7 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
             
             // if the value in the foodList is 1 mark it as checked
             if (Array(foodList)[indexPath.row].value == 1) {
+                print(Array(foodList)[indexPath.row].key)
                 cell.accessoryType = UITableViewCellAccessoryType.checkmark
             }
         } else {
@@ -66,6 +68,7 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
             
             // if the value in the foodList is 1 mark it as checked
             if (Array(mixerList)[indexPath.row].value == 1) {
+                print(Array(mixerList)[indexPath.row].key)
                 cell.accessoryType = UITableViewCellAccessoryType.checkmark
             }
         }
@@ -98,13 +101,18 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
         var item = ""
         if (section == 0) {
             item = Array(alcoholList)[index].key
+            let value = [item: 1]
+            databaseRef.child("users/\(userID)/foodList/alcohol").updateChildValues(value)
         } else if (section == 1) {
+            // This wont work until food sections are set up
             item = Array(foodList)[index].key
+            let value = [item: 1]
+            databaseRef.child("users/\(userID)/foodList/food").updateChildValues(value)
         } else {
             item = Array(mixerList)[index].key
+            let value = [item: 1]
+            databaseRef.child("users/\(userID)/foodList/mixers").updateChildValues(value)
         }
-        let value = [item: 1]
-        databaseRef.child("users/\(userID)/foodList").updateChildValues(value)
     }
     
     /* remove check in firebase */
@@ -112,13 +120,18 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
         var item = ""
         if (section == 0) {
             item = Array(alcoholList)[index].key
+            let value = [item: nil] as [String: Any?]
+            databaseRef.child("users/\(userID)/foodList/alcohol").updateChildValues(value)
         } else if (section == 1) {
             item = Array(foodList)[index].key
+            let value = [item: nil] as [String: Any?]
+            databaseRef.child("users/\(userID)/foodList/food").updateChildValues(value)
         } else {
             item = Array(mixerList)[index].key
+            let value = [item: nil] as [String: Any?]
+            databaseRef.child("users/\(userID)/foodList/mixers").updateChildValues(value)
         }
-        let value = [item: nil] as [String: Any?]
-        databaseRef.child("users/\(userID)/foodList").updateChildValues(value)
+        
     }
     
     override func viewDidLoad() {
@@ -134,21 +147,40 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
     
     /* Get the current users's food preferences and use these to mark generic food list */
     func getUsersFoodList() {
-        databaseRef.child("users/\(userID)/foodList").observeSingleEvent(of: .value) { (snapshot) in
+        databaseRef.child("users/\(userID)/foodList/alcohol").observeSingleEvent(of: .value) { (snapshot) in
             if snapshot.exists() {
-                self.userFoodList = snapshot.value as! [String: Any]
+                let foodDict = snapshot.value as! [String: Any]
+                for (food, value) in foodDict {
+                    self.userFoodList[food] = value
+                }
+                self.populateAlcoholList()
             }
-            // self.populateFoodList()
-            self.populateAlcoholList()
-            self.populateFoodList()
-            self.populateMixersList()
         }
-        
+        databaseRef.child("users/\(userID)/foodList/food").observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.exists() {
+                //print(snapshot.value)
+                let foodDict = snapshot.value as! [String: Any]
+                for (food, value) in foodDict {
+                    self.userFoodList[food] = value
+                }
+                self.populateFoodList()
+            }
+        }
+        databaseRef.child("users/\(userID)/foodList/mixers").observeSingleEvent(of: .value)
+            { (snapshot) in
+            if snapshot.exists() {
+                let foodDict = snapshot.value as! [String: Any]
+                for (food, value) in foodDict {
+                    self.userFoodList[food] = value
+                }
+                self.populateMixersList()
+            }
+        }
     }
     
     func populateAlcoholList() {
         databaseRef.child("foodList/Alcohol").observe(.value) { snapshot in
-            self.alcoholList = snapshot.value as! [String: Any] as! [String : Int]
+            //self.alcoholList = snapshot.value as! [String: Any] as! [String : Int]
             for child in snapshot.children {
                 let snap = child as! DataSnapshot
                 let key = snap.key
@@ -159,22 +191,62 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 self.alcoholList[key] = checked
             }
+            print(self.alcoholList)
             self.tableView.reloadData()
         }
     }
     
     func populateFoodList() {
         databaseRef.child("foodList/Food").observe(.value) { snapshot in
-            for child in snapshot.children {
-                let snap = child as! DataSnapshot
-                let key = snap.key
-                
-                // if this item is in the user's list, mark it as checked in the table view
-                let containsElement = self.userFoodList.keys.contains(key)
+            var foodDict = snapshot.value as! [String: Any]
+            //print(foodDict)
+            let meatDict = foodDict["Meats"] as! [String: Any]
+            let fruitDict = foodDict["Fruit"] as! [String: Any]
+            let chipsDict = foodDict["Chips"] as! [String: Any]
+            let veggiesDict = foodDict["Veggies"] as! [String: Any]
+            let cheeseDict = foodDict["Cheese"] as! [String: Any]
+            for (food, _) in meatDict {
+                let containsElement = self.userFoodList.keys.contains(food)
                 let checked = containsElement ? 1 : 0
                 
-                self.foodList[key] = checked
+                self.foodList[food] = checked
             }
+            for (food, _) in fruitDict {
+                let containsElement = self.userFoodList.keys.contains(food)
+                let checked = containsElement ? 1 : 0
+                
+                self.foodList[food] = checked
+            }
+            for (food, _) in chipsDict {
+                let containsElement = self.userFoodList.keys.contains(food)
+                let checked = containsElement ? 1 : 0
+                
+                self.foodList[food] = checked
+            }
+            for (food, _) in veggiesDict {
+                let containsElement = self.userFoodList.keys.contains(food)
+                let checked = containsElement ? 1 : 0
+                
+                self.foodList[food] = checked
+            }
+            for (food, _) in cheeseDict {
+                let containsElement = self.userFoodList.keys.contains(food)
+                let checked = containsElement ? 1 : 0
+                
+                self.foodList[food] = checked
+            }
+            
+//            for child in snapshot.children {
+//                let snap = child as! DataSnapshot
+//                let key = snap.key
+//
+//                // if this item is in the user's list, mark it as checked in the table view
+//                let containsElement = self.userFoodList.keys.contains(key)
+//                let checked = containsElement ? 1 : 0
+//
+//                self.foodList[key] = checked
+//            }
+            print(self.foodList)
             self.tableView.reloadData()
         }
     }
@@ -191,6 +263,7 @@ class FoodListViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 self.mixerList[key] = checked
             }
+            print(self.mixerList)
             self.tableView.reloadData()
         }
     }

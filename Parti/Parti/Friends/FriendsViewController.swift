@@ -9,9 +9,10 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import SwipeCellKit
 
-class FriendsViewController: ViewController, UITableViewDataSource, UITableViewDelegate {
-
+class FriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SwipeTableViewCellDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
     
     // Firebase Database connection
@@ -31,6 +32,7 @@ class FriendsViewController: ViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableViewCell
+        cell.delegate = self
         
         var profileModel = ProfileModel()
         
@@ -42,6 +44,27 @@ class FriendsViewController: ViewController, UITableViewDataSource, UITableViewD
         cell.profileModel = profileModel
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            // handle action by updating model with deletion
+            print("delete friend at: ")
+            print(indexPath.row)
+            
+            let cell = tableView.cellForRow(at: indexPath) as! FriendsTableViewCell
+            let user = cell.profileModel
+        
+            self.promptForRemoveFriend(friendUid: user.userID)
+        }
+        
+        // customize the action appearance
+        deleteAction.image = #imageLiteral(resourceName: "Trash")
+        deleteAction.backgroundColor = .red
+        
+        return [deleteAction]
     }
     
     override func viewDidLoad() {
@@ -121,11 +144,11 @@ class FriendsViewController: ViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! FriendsTableViewCell
-        
-        let user = cell.profileModel
-        
-        promptForRemoveFriend(friendUid: user.userID)
+//
+//        promptForRemoveFriend(friendUid: user.userID)
+        // Segue to OtherProfile
+        //friendProfileSegue
+        performSegue(withIdentifier: "friendProfileSegue", sender: self)
     }
     
     func promptForRemoveFriend(friendUid: String) {
@@ -146,6 +169,21 @@ class FriendsViewController: ViewController, UITableViewDataSource, UITableViewD
         self.databaseRef.child("users/\(friendUid)/friendsList/\(userID)").removeValue()
         self.databaseRef.child("users/\(userID)/friendsList/\(friendUid)").removeValue()
         //users.removeAll()
+    }
+        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let segueID = segue.identifier
+        
+        // Go to friends profile
+        if (segueID == "friendProfileSegue") {
+            if let destinationVC = segue.destination as? OtherUserProfile {
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    let cell = tableView.cellForRow(at: indexPath) as! FriendsTableViewCell
+                    let user = cell.profileModel
+                    destinationVC.profileObject.userID = user.userID
+                }
+            }
+        }
     }
     
 //    override func dismiss(animated flag: Bool, completion: (() -> Void)?)
