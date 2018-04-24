@@ -1,191 +1,116 @@
 //
-//  ProfileViewController.swift
-//  Parti
+//  ViewController.swift
+//  PartyUI
 //
-//  Created by Liliana Terry on 3/16/18.
-//  Copyright © 2018 Arjun Gopisetty. All rights reserved.
+//  Created by Liliana Terry on 4/19/18.
+//  Copyright © 2018 The Party App. All rights reserved.
 //
-
 
 import UIKit
-import FirebaseDatabase
-import FirebaseStorage
-import FirebaseAuth
 
-class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileViewController: UIViewController {
     
-    // Firebase Database connection
-    var databaseRef: DatabaseReference!
-    var databaseHandle: DatabaseHandle?
+    @IBOutlet var mainView: UIView!
     
-    // Firebase Storage connection
-    var storageRef: StorageReference!
-    var storageHandle: StorageHandle?
-    
-    var profileObject = ProfileModel()
-    
-    @IBOutlet weak var nutsButton: UIButton!
-    @IBOutlet weak var glutenButton: UIButton!
-    @IBOutlet weak var vegetarianButton: UIButton!
-    @IBOutlet weak var lactoseButton: UIButton!
-    @IBOutlet weak var veganButton: UIButton!
-    
+    @IBOutlet weak var imageBorder: UIView!
+    @IBOutlet weak var borderWidth: NSLayoutConstraint!
+    @IBOutlet weak var borderHeight: NSLayoutConstraint!
     @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var picWidth: NSLayoutConstraint!
+    @IBOutlet weak var picHeight: NSLayoutConstraint!
+    @IBOutlet weak var bottomDist: NSLayoutConstraint!
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var drinkOfChoiceLabel: UILabel!
-    @IBOutlet weak var partyTrickLabel: UILabel!
     
-    @IBAction func logout(_ sender: Any) {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            print ("Logging out")
-            self.performSegue(withIdentifier: "logoutSegue", sender: self)
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-    }
+    @IBOutlet weak var infoBar: UIView!
+    @IBOutlet weak var trickBox: UIView!
+    @IBOutlet weak var drinkBox: UIView!
+    @IBOutlet weak var trickTitle: UILabel!
+    @IBOutlet weak var trickLabel: UILabel!
+    @IBOutlet weak var drinkTitle: UILabel!
+    @IBOutlet weak var drinkLabel: UILabel!
     
-    var allergyImages = [UIButton]()
-    var allergyList = ["Nuts", "Gluten", "Vegetarian", "Dairy", "Vegan"]
-
-    /* Runs when page is loaded, sets the delegate and datasource then calls method to query
-     Firebase and fetch this user's information */
+    @IBOutlet weak var allergyBar: UIView!
+    @IBOutlet weak var nuts: UIButton!
+    @IBOutlet weak var vegetarian: UIButton!
+    @IBOutlet weak var gluten: UIButton!
+    @IBOutlet weak var vegan: UIButton!
+    @IBOutlet weak var dairy: UIButton!
+    var allergyIcons = [UIButton]()
+    
+    
+    @IBOutlet weak var bottomBar: UIView!
+    
+    let colors = UIExtensions()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        // set firebase references
-        databaseRef = Database.database().reference()
-        storageRef = Storage.storage().reference()
+        topHalf()
+        trickAndDrink()
+        allergies()
+        bottom()
         
-        allergyImages = [nutsButton, glutenButton, vegetarianButton, lactoseButton, veganButton]
-        
-        profileObject.userID = Auth.auth().currentUser?.uid as! String
-        
-        setupProfilePicture()
-        
-        setupAllergyIcons()
-        
-        // query Firebase to get the current user's information
-        populateProfilePage()
-    }
-        
-    /* Adds color selection functionality to allergy icons */
-    func setupAllergyIcons() {
-        nutsButton.setImage(#imageLiteral(resourceName: "nuts-orange.png"), for: .selected)
-        nutsButton.setImage(#imageLiteral(resourceName: "nut-free"), for: .normal)
-        nutsButton.tag = 0
-        glutenButton.setImage(#imageLiteral(resourceName: "gluten-yellow"), for: .selected)
-        glutenButton.setImage(#imageLiteral(resourceName: "gluten-free"), for: .normal)
-        glutenButton.tag = 1
-        vegetarianButton.setImage(#imageLiteral(resourceName: "veggie-green"), for: .selected)
-        vegetarianButton.setImage(#imageLiteral(resourceName: "vegetarian"), for: .normal)
-        vegetarianButton.tag = 2
-        lactoseButton.setImage(#imageLiteral(resourceName: "milk-blue"), for: .selected)
-        lactoseButton.setImage(#imageLiteral(resourceName: "dairy"), for: .normal)
-        lactoseButton.tag = 3
-        veganButton.setImage(#imageLiteral(resourceName: "vegan-blue"), for: .selected)
-        veganButton.setImage(#imageLiteral(resourceName: "vegan"), for: .normal)
-        veganButton.tag = 4
-    }
-    
-    func setupProfilePicture () {
-        // create circular mask on image
-        self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2
-        self.profilePicture.clipsToBounds = true
-        
-        if (profilePicture.image == nil) {
-            databaseHandle = databaseRef?.child("users/\(profileObject.userID)/imageURL").observe(.value, with: { (snapshot) in
-                if (snapshot.exists()) {
-                    
-                    // If the user already has a profile picture, load it up!
-                    if let imageURL = snapshot.value as? String {
-                        self.profileObject.imageURL = imageURL
-                        let url = URL(string: imageURL)
-                        URLSession.shared.dataTask(with: url!, completionHandler: { (image, response, error) in
-                            if (error != nil) {
-                                print(error)
-                                return
-                            }
-                            DispatchQueue.main.async { // Make sure you're on the main thread here
-                                if let image = UIImage(data: image!) {
-                                    self.profilePicture?.image = image
-                                    self.profileObject.image = image
-                                }
-                            }
-                        }).resume()
-                        // otherwise use this temporary image
-                    } else {
-                        self.profilePicture?.image = #imageLiteral(resourceName: "parti_logo")
-                    }
-                }
-            })
+        // if on a 5s, make additional changes
+        if (mainView.frame.height == 568) {
+            smallScreenSizes()
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    /* Creates an instance of the ProfileModel class and fills in all relevant information
-     from Firebase query. Sets the global PartyObject to this filled-in object */
-    func populateProfilePage() {
-        databaseHandle = databaseRef?.child("users/\(profileObject.userID)").observe(.value, with: { (snapshot) in
-            if (snapshot.exists()) {
-                let data = snapshot.value as! [String: Any]
-            
-                if let name = data["name"] {
-                    self.profileObject.name = name as! String
-                    self.nameLabel.text = name as! String
-                }
-                if let username = data["username"] {
-                    self.profileObject.username = username as! String
-                    self.usernameLabel.text = username as! String
-                }
-                if let drink = data["drinkOfChoice"] {
-                    self.profileObject.drink = drink as! String
-                    self.drinkOfChoiceLabel.text = drink as! String
-                }
-                if let trick = data["partyTrick"] {
-                    self.profileObject.trick = trick as! String
-                    self.partyTrickLabel.text = trick as! String
-                }
-                
-                // color all of the allergy icons
-                if let allergies = data["allergiesList"] {
-                    let userAllergies = allergies as! [String: Any]
-                    
-                    for allergy in userAllergies.keys {
-                        let indexOfAllergy = self.allergyList.index(of: allergy)
-                        self.profileObject.allergiesList[allergy] = 1
-                        self.allergyImages[indexOfAllergy!].isUserInteractionEnabled = false
-                        self.allergyImages[indexOfAllergy!].isSelected = true
-                    }
-                }
-                
-            } else {
-                print("No user in Firebase yet")
-            }
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-    }
-    
-    @IBAction func editButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "editProfileSegue", sender: self)
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let segueID = segue.identifier
-        if (segueID == "editProfileSegue") {
-            if let destinationVC = segue.destination as? EditProfileViewController {
-                destinationVC.profileObject = profileObject
-            }
-        }
+    // Profile picture, name, username
+    func topHalf() {
+        imageBorder.backgroundColor = UIColor.white
+        imageBorder.layer.applyShadow(color: UIColor.black, alpha: 0.15, x: 0, y: 3, blur: 6, spread: 0)
+        imageBorder.layer.cornerRadius = imageBorder.frame.size.height / 2
         
+        profilePicture.layer.cornerRadius = profilePicture.frame.size.height / 2
+        profilePicture.clipsToBounds = true
+        
+        nameLabel.textColor = colors.nameColor
+        usernameLabel.textColor = UIColor.white
     }
     
+    // add center line and drop shadow to guest info bar
+    func trickAndDrink() {
+        mainView.sendSubview(toBack: allergyBar)
+        trickBox.layer.addBorder(edge: .right, color: colors.backgroundLightGrey, thickness: 1)
+        infoBar.layer.applyShadow(color: UIColor.black, alpha: 0.1, x: 0, y: 2, blur: 5, spread: 0)
+        
+        trickTitle.textColor = colors.darkMint
+        trickTitle.layer.addBorder(edge: .bottom, color: colors.mainColor, thickness: 1)
+        trickLabel.textColor = colors.darkGrey
+        drinkTitle.textColor = colors.darkMint
+        drinkTitle.layer.addBorder(edge: .bottom, color: colors.mainColor, thickness: 1)
+        drinkLabel.textColor = colors.darkGrey
+    }
+    
+    // set background color and allergy button colorings
+    func allergies() {
+        allergyIcons = [nuts, vegetarian, gluten, vegan, dairy]
+
+        for icon in allergyIcons {
+            icon.tintColor = colors.mediumGrey
+        }
+        nuts.tintColor = colors.darkMint
+        gluten.tintColor = colors.darkMint
+    }
+    
+    // add drop shadow to the top of the bottom bar to make allergy bar look recessed
+    func bottom() {
+        bottomBar.layer.applyShadow(color: UIColor.black, alpha: 0.1, x: 0, y: -2, blur: 5, spread: 0)
+    }
+    
+    // if on a 5s, constraints start breaking
+    func smallScreenSizes() {
+        borderWidth.constant = 100
+        borderHeight.constant = 100
+        imageBorder.layer.cornerRadius = 50
+        
+        picWidth.constant = 90
+        picHeight.constant = 90
+        profilePicture.layer.cornerRadius = 45
+        
+        bottomDist.constant = 20
+    }
 }

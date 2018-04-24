@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icons8-natural-food-50.png",
+      "filename" : "icons8-natural-food-50 (1).png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "icons8-natural-food-100.png",
       "scale" : "2x"
     },
     {
