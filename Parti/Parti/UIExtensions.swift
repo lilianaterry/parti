@@ -68,6 +68,7 @@ extension CALayer {
     func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
         
         let border = CALayer()
+        border.name = "underline"
         
         switch edge {
         case .top:

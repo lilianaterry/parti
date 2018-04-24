@@ -35,8 +35,10 @@ class OtherUserProfile: UIViewController {
     @IBOutlet weak var drinkOfChoiceLabel: UILabel!
     @IBOutlet weak var partyTrickLabel: UILabel!
     
+    let colors = UIExtensions()
+    
     var allergyImages = [UIButton]()
-    var allergyList = ["Nuts", "Gluten", "Vegetarian", "Dairy", "Vegan"]
+    var allergyList = ["Nuts", "Vegetarian", "Gluten", "Vegan", "Dairy"]
     
     /* Runs when page is loaded, sets the delegate and datasource then calls method to query
      Firebase and fetch this user's information */
@@ -47,10 +49,12 @@ class OtherUserProfile: UIViewController {
         databaseRef = Database.database().reference()
         storageRef = Storage.storage().reference()
         
-        allergyImages = [nutsButton, glutenButton, vegetarianButton, lactoseButton, veganButton]
+        allergyImages = [nutsButton, vegetarianButton, glutenButton, veganButton, lactoseButton]
+        for allergy in allergyImages {
+            allergy.tintColor = colors.mediumGrey
+        }
 
         setupProfilePicture()
-        setupAllergyIcons()
         
         // query Firebase to get the current user's information
         populateProfilePage()
@@ -68,25 +72,6 @@ class OtherUserProfile: UIViewController {
         
         // query Firebase to get the current user's information
         populateProfilePage()
-    }
-    
-    /* Adds color selection functionality to allergy icons */
-    func setupAllergyIcons() {
-        nutsButton.setImage(#imageLiteral(resourceName: "nuts-orange.png"), for: .selected)
-        nutsButton.setImage(#imageLiteral(resourceName: "nut-free"), for: .normal)
-        nutsButton.tag = 0
-        glutenButton.setImage(#imageLiteral(resourceName: "gluten-yellow"), for: .selected)
-        glutenButton.setImage(#imageLiteral(resourceName: "gluten-free"), for: .normal)
-        glutenButton.tag = 1
-        vegetarianButton.setImage(#imageLiteral(resourceName: "veggie-green"), for: .selected)
-        vegetarianButton.setImage(#imageLiteral(resourceName: "vegetarian"), for: .normal)
-        vegetarianButton.tag = 2
-        lactoseButton.setImage(#imageLiteral(resourceName: "milk-blue"), for: .selected)
-        lactoseButton.setImage(#imageLiteral(resourceName: "dairy"), for: .normal)
-        lactoseButton.tag = 3
-        veganButton.setImage(#imageLiteral(resourceName: "vegan-blue"), for: .selected)
-        veganButton.setImage(#imageLiteral(resourceName: "vegan"), for: .normal)
-        veganButton.tag = 4
     }
     
     func setupProfilePicture () {
@@ -146,12 +131,11 @@ class OtherUserProfile: UIViewController {
                 if let allergies = data["allergiesList"] {
                     let userAllergies = allergies as! [String: Any]
                     
-                    print("Allergies")
                     for allergy in userAllergies.keys {
                         let indexOfAllergy = self.allergyList.index(of: allergy)
                         print(allergy)
                         //print(indexOfAllergy!)
-                        self.allergyImages[indexOfAllergy!].isSelected = true
+                        self.allergyImages[indexOfAllergy!].tintColor = self.colors.darkMint
                         self.profileObject.allergiesList[allergy] = 1
                     }
                 }

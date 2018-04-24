@@ -851,7 +851,7 @@
                     <tabBarItem key="tabBarItem" title="Friends" image="ic_face" id="bfA-Ph-pex"/>
                     <connections>
                         <outlet property="tableView" destination="hZY-FO-fat" id="VFU-hs-NnT"/>
-                        <segue destination="12m-AN-sz1" kind="show" id="Qth-yF-GFB"/>
+                        <segue destination="12m-AN-sz1" kind="show" identifier="friendProfileSegue" id="Qth-yF-GFB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Sr-bQ-p46" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -866,10 +866,10 @@
             </objects>
             <point key="canvasLocation" x="-1445" y="1649"/>
         </scene>
-        <!--Profile-->
+        <!--OtherProfile-->
         <scene sceneID="Muy-d4-5rU">
             <objects>
-                <viewControllerPlaceholder storyboardName="Profile" id="12m-AN-sz1" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="OtherProfile" id="12m-AN-sz1" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r7o-dK-trG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-646" y="1173"/>
