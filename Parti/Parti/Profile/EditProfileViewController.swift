@@ -38,9 +38,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
+    let colors = UIExtensions()
+    
     var imageDidChange = false
     
-    let allergyList = ["Nuts", "Gluten", "Vegetarian", "Dairy", "Vegan"]
+    let allergyList = ["Nuts", "Vegetarian", "Gluten", "Vegan", "Dairy"]
     var allergyIcons = [UIButton]()
     var allergyChanges = [0,0,0,0,0]
     
@@ -65,44 +67,27 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         emailField.text = Auth.auth().currentUser?.email
         
-        allergyIcons = [nutsButton, glutenButton, vegetarianButton, lactoseButton, veganButton]
+        allergyIcons = [nutsButton, vegetarianButton, glutenButton, veganButton, lactoseButton]
         
         setupAllergyIcons()
         
-        colorIcons()
     }
     
     /* Adds color selection functionality to allergy icons */
     func setupAllergyIcons() {
-        nutsButton.setImage(#imageLiteral(resourceName: "nuts-orange.png"), for: .selected)
-        nutsButton.setImage(#imageLiteral(resourceName: "nut-free"), for: .normal)
         nutsButton.tag = 0
-        glutenButton.setImage(#imageLiteral(resourceName: "gluten-yellow"), for: .selected)
-        glutenButton.setImage(#imageLiteral(resourceName: "gluten-free"), for: .normal)
-        glutenButton.tag = 1
-        vegetarianButton.setImage(#imageLiteral(resourceName: "veggie-green"), for: .selected)
-        vegetarianButton.setImage(#imageLiteral(resourceName: "vegetarian"), for: .normal)
-        vegetarianButton.tag = 2
-        lactoseButton.setImage(#imageLiteral(resourceName: "milk-blue"), for: .selected)
-        lactoseButton.setImage(#imageLiteral(resourceName: "dairy"), for: .normal)
-        lactoseButton.tag = 3
-        veganButton.setImage(#imageLiteral(resourceName: "vegan-blue"), for: .selected)
-        veganButton.setImage(#imageLiteral(resourceName: "vegan"), for: .normal)
-        veganButton.tag = 4
+        vegetarianButton.tag = 1
+        glutenButton.tag = 2
+        veganButton.tag = 3
+        lactoseButton.tag = 4
+                
+        for allergy in allergyIcons {
+            allergy.tintColor = colors.mediumGrey
+        }
         
         for allergy in profileObject.allergiesList.keys {
             let indexOfAllergy = allergyList.index(of: allergy)
-            allergyIcons[indexOfAllergy!].isSelected = true
-        }
-    }
-    
-    /* colors icons based on what user has already chosen */
-    func colorIcons() {
-        let allergies = profileObject.allergiesList
-        for allergy in allergies.keys {
-            let index = allergyList.index(of: allergy)
-            let button = allergyIcons[index!]
-            button.isSelected = true
+            allergyIcons[indexOfAllergy!].tintColor = colors.darkMint
         }
     }
     
@@ -111,18 +96,14 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         if let button = sender as? UIButton {
             let tag = button.tag
             let allergy = allergyList[tag]
-            if button.isSelected {
+            if button.tintColor == colors.darkMint {
                 // set deselected
-                print(allergy)
-                print("deselected")
-                button.isSelected = false
+                button.tintColor = colors.mediumGrey
                 allergyChanges[tag] -= 1
                 profileObject.allergiesList.removeValue(forKey: allergy)
             } else {
                 // set selected
-                print(allergy)
-                print("selected")
-                button.isSelected = true
+                button.tintColor = colors.darkMint
                 allergyChanges[tag] += 1
                 profileObject.allergiesList[allergy] = 1
             }
@@ -141,9 +122,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         present(picker, animated: false, completion: nil)
     }
-//    @objc func handleSelectProfileImageView() {
-//
-//    }
     
     /* Triggers image picking screen when imageView is selected */
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -187,7 +165,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 (metadata, error) in
                 
                 if (error != nil) {
-                    print(error)
                     return
                 }
                 

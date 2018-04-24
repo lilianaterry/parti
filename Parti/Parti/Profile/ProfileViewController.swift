@@ -51,7 +51,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var vegan: UIButton!
     @IBOutlet weak var dairy: UIButton!
     var allergyIcons = [UIButton]()
-    var allergyList = ["Nuts", "Gluten", "Vegetarian", "Dairy", "Vegan"]
+    var allergyList = ["Nuts", "Vegetarian", "Gluten", "Vegan", "Dairy"]
     
     @IBOutlet weak var bottomBar: UIView!
     
@@ -201,6 +201,7 @@ class ProfileViewController: UIViewController {
         
         nameLabel.textColor = colors.nameColor
         usernameLabel.textColor = UIColor.white
+        
     }
     
     // add center line and drop shadow to guest info bar
