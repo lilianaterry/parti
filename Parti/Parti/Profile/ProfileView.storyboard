@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Tf-bq-PmA">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile-->
+        <scene sceneID="TCD-kD-On4">
+            <objects>
+                <viewController storyboardIdentifier="otherProfileController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Tf-bq-PmA" customClass="OtherUserProfile" customModule="Parti" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4p6-Lq-nno">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBq-tW-Pia">
+                                <rect key="frame" x="0.0" y="44" width="375" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="Wos-Mj-BIE"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Profile" id="lce-OF-qP8">
+                                        <barButtonItem key="leftBarButtonItem" image="Disclosure Indicator" id="B9C-jW-uP9">
+                                            <connections>
+                                                <action selector="dismiss:" destination="4Tf-bq-PmA" id="eqz-20-wOn"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2K-7m-15A">
+                                <rect key="frame" x="165" y="343" width="45" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="UsernameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQz-hq-9kr">
+                                <rect key="frame" x="128" y="371.33333333333331" width="119" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U7J-v9-HG0">
+                                <rect key="frame" x="113" y="168" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="hYb-s0-Adc"/>
+                                    <constraint firstAttribute="height" constant="150" id="mJZ-ta-VdB"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Trick" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEP-HB-X2R">
+                                <rect key="frame" x="169" y="547.66666666666663" width="37" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Party Trick:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peF-dF-nzr">
+                                <rect key="frame" x="132" y="515.66666666666663" width="112" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <color key="textColor" red="0.39519533509999999" green="0.9848011136" blue="0.8010476232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="M8g-cC-1PM">
+                                <rect key="frame" x="57" y="605" width="260" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bk-qv-Wi1">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="0qb-TT-9RP"/>
+                                            <constraint firstAttribute="width" constant="40" id="grg-Bi-f99"/>
+                                        </constraints>
+                                        <state key="normal" image="nut-free"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eun-Ho-Wsf">
+                                        <rect key="frame" x="55" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="K3K-K5-bas"/>
+                                            <constraint firstAttribute="width" constant="40" id="R1Z-8H-47Y"/>
+                                        </constraints>
+                                        <state key="normal" image="gluten-free"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fef-5q-IdU">
+                                        <rect key="frame" x="110" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="6Lz-Jv-Kfk"/>
+                                            <constraint firstAttribute="height" constant="40" id="wQx-wu-gAp"/>
+                                        </constraints>
+                                        <state key="normal" image="vegetarian"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btA-o8-ZCm">
+                                        <rect key="frame" x="165" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="nnl-vp-KaR"/>
+                                            <constraint firstAttribute="width" constant="40" id="tvv-fv-xjB"/>
+                                        </constraints>
+                                        <state key="normal" image="dairy"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8o-dF-I7M">
+                                        <rect key="frame" x="220" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="WTQ-al-SEN"/>
+                                            <constraint firstAttribute="width" constant="40" id="sbT-Ta-ZVY"/>
+                                        </constraints>
+                                        <state key="normal" image="vegan"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Drink of Choice:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peu-jk-lzH">
+                                <rect key="frame" x="110.00000000000001" y="422.33333333333331" width="156.33333333333337" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <color key="textColor" red="0.39519533509999999" green="0.9848011136" blue="0.8010476232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uO4-mQ-Vph">
+                                <rect key="frame" x="165.33333333333334" y="454.33333333333331" width="45.666666666666657" height="36.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MBq-tW-Pia" firstAttribute="trailing" secondItem="P9N-VU-cqK" secondAttribute="trailing" id="1hg-k7-tnb"/>
+                            <constraint firstItem="M8g-cC-1PM" firstAttribute="top" secondItem="BEP-HB-X2R" secondAttribute="bottom" constant="37" id="6M5-15-Gwo"/>
+                            <constraint firstItem="uO4-mQ-Vph" firstAttribute="top" secondItem="peu-jk-lzH" secondAttribute="bottom" constant="8" id="Bsc-OS-bor"/>
+                            <constraint firstItem="oQz-hq-9kr" firstAttribute="centerX" secondItem="4p6-Lq-nno" secondAttribute="centerX" id="Eft-OS-8FW"/>
+                            <constraint firstItem="peu-jk-lzH" firstAttribute="centerX" secondItem="4p6-Lq-nno" secondAttribute="centerX" id="Ghz-jy-bB0"/>
+                            <constraint firstItem="U7J-v9-HG0" firstAttribute="centerX" secondItem="4p6-Lq-nno" secondAttribute="centerX" id="PIj-AP-fRI"/>
+                            <constraint firstItem="MBq-tW-Pia" firstAttribute="top" secondItem="P9N-VU-cqK" secondAttribute="top" id="QAW-o3-gce"/>
+                            <constraint firstItem="MBq-tW-Pia" firstAttribute="leading" secondItem="P9N-VU-cqK" secondAttribute="leading" id="RVM-vy-k2l"/>
+                            <constraint firstItem="uO4-mQ-Vph" firstAttribute="centerX" secondItem="4p6-Lq-nno" secondAttribute="centerX" id="VCU-mq-YWv"/>
+                            <constraint firstItem="D2K-7m-15A" firstAttribute="centerX" secondItem="4p6-Lq-nno" secondAttribute="centerX" id="aev-yJ-hzY"/>
+                            <constraint firstItem="U7J-v9-HG0" firstAttribute="leading" secondItem="P9N-VU-cqK" secondAttribute="leading" constant="113" id="dJE-7B-5gn"/>
+                            <constraint firstItem="U7J-v9-HG0" firstAttribute="top" secondItem="MBq-tW-Pia" secondAttribute="bottom" constant="56" id="f1p-lS-3Hg"/>
+                            <constraint firstItem="BEP-HB-X2R" firstAttribute="top" secondItem="peF-dF-nzr" secondAttribute="bottom" constant="8" id="fGf-3v-jlV"/>
+                            <constraint firstItem="peF-dF-nzr" firstAttribute="top" secondItem="uO4-mQ-Vph" secondAttribute="bottom" constant="25" id="faC-rP-m8l"/>
+                            <constraint firstItem="BEP-HB-X2R" firstAttribute="centerX" secondItem="4p6-Lq-nno" secondAttribute="centerX" id="hqW-a0-1ua"/>
+                            <constraint firstItem="P9N-VU-cqK" firstAttribute="bottom" secondItem="M8g-cC-1PM" secondAttribute="bottom" constant="133" id="odM-Ky-25l"/>
+                            <constraint firstItem="M8g-cC-1PM" firstAttribute="centerX" secondItem="4p6-Lq-nno" secondAttribute="centerX" id="qFZ-Th-PUU"/>
+                            <constraint firstItem="MBq-tW-Pia" firstAttribute="top" secondItem="P9N-VU-cqK" secondAttribute="top" id="t3s-ku-P7i"/>
+                            <constraint firstItem="peF-dF-nzr" firstAttribute="centerX" secondItem="4p6-Lq-nno" secondAttribute="centerX" id="t4C-0Z-nfi"/>
+                            <constraint firstItem="peu-jk-lzH" firstAttribute="top" secondItem="oQz-hq-9kr" secondAttribute="bottom" constant="30.670000000000002" id="uuV-6S-4c2"/>
+                            <constraint firstItem="MBq-tW-Pia" firstAttribute="leading" secondItem="4p6-Lq-nno" secondAttribute="leading" id="vf8-ld-r4g"/>
+                            <constraint firstItem="oQz-hq-9kr" firstAttribute="top" secondItem="D2K-7m-15A" secondAttribute="bottom" constant="8" id="wFL-o9-GBy"/>
+                            <constraint firstItem="D2K-7m-15A" firstAttribute="top" secondItem="U7J-v9-HG0" secondAttribute="bottom" constant="25" id="wVe-1r-JTg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="P9N-VU-cqK"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="DefaultProfilePicture" id="ITi-nl-ysB"/>
+                    <connections>
+                        <outlet property="drinkOfChoiceLabel" destination="uO4-mQ-Vph" id="G2l-Gn-LVD"/>
+                        <outlet property="glutenButton" destination="Eun-Ho-Wsf" id="YDB-Cf-O3a"/>
+                        <outlet property="lactoseButton" destination="btA-o8-ZCm" id="mMm-wh-eHN"/>
+                        <outlet property="nameLabel" destination="D2K-7m-15A" id="I5t-lZ-cd7"/>
+                        <outlet property="nutsButton" destination="8bk-qv-Wi1" id="WgW-q9-pHe"/>
+                        <outlet property="partyTrickLabel" destination="BEP-HB-X2R" id="7P9-wR-k0F"/>
+                        <outlet property="profilePicture" destination="U7J-v9-HG0" id="aDU-3V-6mH"/>
+                        <outlet property="usernameLabel" destination="oQz-hq-9kr" id="uUB-NU-YbV"/>
+                        <outlet property="veganButton" destination="S8o-dF-I7M" id="pEj-NK-frT"/>
+                        <outlet property="vegetarianButton" destination="fef-5q-IdU" id="lPi-5X-fXh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4dH-Fx-g0b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-684" y="1229.5566502463055"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="DefaultProfilePicture" width="64" height="64"/>
+        <image name="Disclosure Indicator" width="8" height="13"/>
+        <image name="dairy" width="50" height="50"/>
+        <image name="gluten-free" width="50" height="50"/>
+        <image name="nut-free" width="50" height="50"/>
+        <image name="vegan" width="50" height="50"/>
+        <image name="vegetarian" width="50" height="50"/>
+    </resources>
+</document>

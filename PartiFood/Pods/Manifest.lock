@@ -1,0 +1,50 @@
+PODS:
+  - MaterialComponents/AnimationTiming (54.1.0)
+  - MaterialComponents/Ink (54.1.0):
+    - MaterialComponents/private/Math
+  - MaterialComponents/private/Application (54.1.0)
+  - MaterialComponents/private/Math (54.1.0)
+  - MaterialComponents/schemes/Color (54.1.0)
+  - MaterialComponents/schemes/Typography (54.1.0)
+  - MaterialComponents/ShadowElevations (54.1.0)
+  - MaterialComponents/ShadowLayer (54.1.0):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/Tabs (54.1.0):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Typography
+    - MDFInternationalization
+  - "MaterialComponents/Tabs+Extensions (54.1.0)":
+    - "MaterialComponents/Tabs+Extensions/ColorThemer (= 54.1.0)"
+    - "MaterialComponents/Tabs+Extensions/FontThemer (= 54.1.0)"
+  - "MaterialComponents/Tabs+Extensions/ColorThemer (54.1.0)":
+    - MaterialComponents/Tabs
+    - MaterialComponents/Themes
+  - "MaterialComponents/Tabs+Extensions/FontThemer (54.1.0)":
+    - MaterialComponents/Tabs
+    - MaterialComponents/Themes
+  - MaterialComponents/Themes (54.1.0):
+    - MaterialComponents/schemes/Color
+    - MaterialComponents/schemes/Typography
+  - MaterialComponents/Typography (54.1.0):
+    - MaterialComponents/private/Application
+  - MDFInternationalization (1.0.4)
+
+DEPENDENCIES:
+  - "MaterialComponents/Tabs+Extensions"
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - MaterialComponents
+    - MDFInternationalization
+
+SPEC CHECKSUMS:
+  MaterialComponents: d004032f7168f9f84a4d9119f67ef73066c027db
+  MDFInternationalization: e355b0cebecf53d60233bd267084e49366c82513
+
+PODFILE CHECKSUM: b0d02bcc597ab9331fba777cf998a2a6ec8d20a1
+
+COCOAPODS: 1.5.0

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OFU-kW-a0S">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Guests To Party View Controller-->
+        <scene sceneID="Mv2-dt-drP">
+            <objects>
+                <viewController storyboardIdentifier="addGuestsToPartyView" id="OFU-kW-a0S" customClass="AddGuestsToPartyViewController" customModule="Parti" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="addGuestsToParty" id="Cm9-7J-Qd1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rn6-Zk-1FD">
+                                <rect key="frame" x="0.0" y="144" width="375" height="634"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="friendCell" rowHeight="85" id="C8b-zd-jev" customClass="AddGuestsTableViewCell" customModule="Parti" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C8b-zd-jev" id="n2F-c4-hWk">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="84.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="gJI-dg-a0p">
+                                                    <rect key="frame" x="23" y="7" width="64" height="64"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="gJI-dg-a0p" secondAttribute="height" multiplier="1:1" id="19f-tg-ud2"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHf-rS-1IL">
+                                                    <rect key="frame" x="91" y="25" width="257" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="gJI-dg-a0p" secondAttribute="bottom" constant="3" id="Gig-5K-Ptf"/>
+                                                <constraint firstItem="gJI-dg-a0p" firstAttribute="leading" secondItem="n2F-c4-hWk" secondAttribute="leadingMargin" constant="8" id="UZ1-GB-0fs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="gHf-rS-1IL" id="FsS-MC-AAw"/>
+                                            <outlet property="profilePicture" destination="gJI-dg-a0p" id="83N-s2-DvF"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RMn-pw-hp2">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Add Friends to the Party!" id="sAA-Gy-9GN">
+                                        <barButtonItem key="leftBarButtonItem" image="back_button" id="Lpy-R9-Lpz">
+                                            <connections>
+                                                <action selector="backButton:" destination="OFU-kW-a0S" id="JuS-TK-1Mz"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="yR1-oD-Gnq">
+                                <rect key="frame" x="0.0" y="88" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rn6-Zk-1FD" firstAttribute="trailing" secondItem="Sw8-ca-MwL" secondAttribute="trailing" id="7lg-u1-Tdy"/>
+                            <constraint firstItem="RMn-pw-hp2" firstAttribute="trailing" secondItem="Sw8-ca-MwL" secondAttribute="trailing" id="84G-1M-aUN"/>
+                            <constraint firstItem="RMn-pw-hp2" firstAttribute="top" secondItem="Sw8-ca-MwL" secondAttribute="top" id="CTK-ty-CxF"/>
+                            <constraint firstItem="rn6-Zk-1FD" firstAttribute="top" secondItem="yR1-oD-Gnq" secondAttribute="bottom" id="Dpm-3W-1wy"/>
+                            <constraint firstItem="yR1-oD-Gnq" firstAttribute="trailing" secondItem="Sw8-ca-MwL" secondAttribute="trailing" id="EMh-cK-8yG"/>
+                            <constraint firstItem="yR1-oD-Gnq" firstAttribute="top" secondItem="RMn-pw-hp2" secondAttribute="bottom" id="LGT-wu-nUr"/>
+                            <constraint firstItem="rn6-Zk-1FD" firstAttribute="bottom" secondItem="Sw8-ca-MwL" secondAttribute="bottom" id="SbE-BN-gNg"/>
+                            <constraint firstItem="yR1-oD-Gnq" firstAttribute="leading" secondItem="Sw8-ca-MwL" secondAttribute="leading" id="UGW-5j-Azf"/>
+                            <constraint firstItem="rn6-Zk-1FD" firstAttribute="leading" secondItem="Sw8-ca-MwL" secondAttribute="leading" id="dNb-s4-khX"/>
+                            <constraint firstItem="RMn-pw-hp2" firstAttribute="leading" secondItem="Sw8-ca-MwL" secondAttribute="leading" id="j3a-wd-Zdu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Sw8-ca-MwL"/>
+                    </view>
+                    <connections>
+                        <outlet property="guestTableView" destination="rn6-Zk-1FD" id="k3z-VA-bqB"/>
+                        <outlet property="searchBar" destination="yR1-oD-Gnq" id="8kI-2Z-hbY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kUX-ND-FYj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="123.39901477832512"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="DefaultProfilePicture" width="64" height="64"/>
+        <image name="back_button" width="48" height="48"/>
+    </resources>
+</document>
