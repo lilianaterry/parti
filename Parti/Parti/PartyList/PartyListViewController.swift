@@ -82,13 +82,7 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // remove underline from this button
     func removeUnderline(sender: UIButton) {
-        if sender.layer.sublayers != nil {
-            for layer in sender.layer.sublayers! {
-                if (layer.name == "underline") {
-                    layer.removeFromSuperlayer()
-                }
-            }
-        }
+        sender.layer.addBorder(edge: .bottom, color: UIColor.clear, thickness: 0)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

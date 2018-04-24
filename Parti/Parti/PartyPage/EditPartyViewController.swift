@@ -77,7 +77,7 @@ class EditPartyViewController: UIViewController, UIImagePickerControllerDelegate
         nameField.setBottomBorder()
         descriptionField.setBottomBorder()
         
-        let textColor = UIColor(hex: "636e72")
+        let textColor = UIColor(hex: 0x636e72)
         nameLabel.textColor = textColor
         addressLabel.textColor = textColor
         attireLabel.textColor = textColor

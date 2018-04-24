@@ -111,7 +111,7 @@ class CreatePartyViewController: UIViewController, UIImagePickerControllerDelega
         partyNameField.setBottomBorder()
         descriptionField.setBottomBorder()
         
-        let textColor = UIColor(hex: "636e72")
+        let textColor = UIColor(hex: 0x636e72)
         partyNameLabel.textColor = textColor
         addressLabel.textColor = textColor
         attireLabel.textColor = textColor
@@ -214,7 +214,7 @@ extension UITextField {
         self.layer.backgroundColor = UIColor.white.cgColor
         
         self.layer.masksToBounds = false
-        let color = UIColor(hex: "b2bec3").cgColor
+        let color = UIColor(hex: 0xb2bec3).cgColor
         self.layer.shadowColor = color
         self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         self.layer.shadowOpacity = 1.0

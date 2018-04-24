@@ -12,7 +12,7 @@ import FirebaseDatabase
 import FirebaseStorage
 import FirebaseAuth
 
-class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class OldProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // Firebase Database connection
     var databaseRef: DatabaseReference!
@@ -92,9 +92,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func setupProfilePicture () {
-        // create circular mask on image
-        self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2
-        self.profilePicture.clipsToBounds = true
         
         if (profilePicture.image == nil) {
             databaseHandle = databaseRef?.child("users/\(profileObject.userID)/imageURL").observe(.value, with: { (snapshot) in

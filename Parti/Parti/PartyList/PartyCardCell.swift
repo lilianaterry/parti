@@ -57,6 +57,7 @@ class PartyCardCell: UITableViewCell {
         super.awakeFromNib()
         
         setupCard()
+        self.selectionStyle = UITableViewCellSelectionStyle.none
     }
     
     func setupCard() {

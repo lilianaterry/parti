@@ -24,14 +24,13 @@
         <!--Edit Party View Controller-->
         <scene sceneID="pME-88-xEK">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jPy-Pp-GZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController restorationIdentifier="editPartyPage" id="JpB-ls-dri" customClass="EditPartyViewController" customModule="Parti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OdE-zF-GnA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVX-Cd-PvH">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="fFc-wo-ymu"/>
                                 </constraints>
@@ -52,7 +51,7 @@
                                 </items>
                             </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBH-8o-lOL">
-                                <rect key="frame" x="0.0" y="88" width="375" height="1112"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="1136"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="out-dR-huR">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
@@ -65,7 +64,7 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbu-nQ-iw2">
-                                                <rect key="frame" x="135.33333333333334" y="156" width="105" height="30"/>
+                                                <rect key="frame" x="135.5" y="156" width="105" height="30"/>
                                                 <state key="normal" title="Choose Picture"/>
                                             </button>
                                             <textField opaque="NO" contentMode="left" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Party Name" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="6Z8-OZ-NhR">
@@ -101,7 +100,7 @@
                                                 </date>
                                             </datePicker>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueg-Yl-DWm">
-                                                <rect key="frame" x="15.999999999999996" y="202" width="37.666666666666657" height="18"/>
+                                                <rect key="frame" x="16" y="202" width="38" height="18"/>
                                                 <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -113,7 +112,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attire" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZT-hv-7c6">
-                                                <rect key="frame" x="16.000000000000004" y="350" width="33.333333333333343" height="18"/>
+                                                <rect key="frame" x="16" y="350" width="33.5" height="18"/>
                                                 <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -131,19 +130,19 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZI-2Y-3xs">
-                                                <rect key="frame" x="16.000000000000004" y="756" width="33.333333333333343" height="19.333333333333371"/>
+                                                <rect key="frame" x="16" y="756" width="33.5" height="19.5"/>
                                                 <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fTD-sz-TMT">
-                                                <rect key="frame" x="16" y="783.33333333333337" width="343" height="216"/>
+                                                <rect key="frame" x="16" y="783.5" width="343" height="216"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="544860998.720649">
                                                     <!--2018-04-08 06:16:38 +0000-->
                                                 </date>
                                             </datePicker>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MoQ-2V-36z">
-                                                <rect key="frame" x="112.33333333333331" y="1031.3333333333333" width="150" height="33"/>
+                                                <rect key="frame" x="112.5" y="1031.5" width="150" height="33"/>
                                                 <color key="backgroundColor" red="0.35915416480000001" green="0.99286979440000001" blue="0.79679876569999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="yeE-0D-BQ1"/>
@@ -258,9 +257,10 @@
                         <outlet property="time" destination="fTD-sz-TMT" id="HsH-SB-sFX"/>
                         <outlet property="timeLabel" destination="XZI-2Y-3xs" id="LxP-GJ-FMA"/>
                         <segue destination="6BP-xG-lRh" kind="show" identifier="updateGuestList" animates="NO" id="IHC-P0-mP4"/>
-                        <segue destination="FLu-Ti-rnC" kind="show" identifier="savePartySegue" animates="NO" id="h7X-Pr-Edi"/>
+                        <segue destination="Np8-ed-mCP" kind="show" id="72E-Ma-XHX"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jPy-Pp-GZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-10.4" y="108.62068965517241"/>
         </scene>
@@ -272,13 +272,13 @@
             </objects>
             <point key="canvasLocation" x="618" y="96"/>
         </scene>
-        <!--partyPage-->
-        <scene sceneID="gTq-1B-pSI">
+        <!--PartyPage-->
+        <scene sceneID="fL5-7o-bZt">
             <objects>
-                <viewControllerPlaceholder storyboardName="SecondMain" referencedIdentifier="partyPage" id="FLu-Ti-rnC" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OYl-81-kok" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="PartyPage" id="Np8-ed-mCP" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7iH-RQ-nef" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="617" y="219"/>
+            <point key="canvasLocation" x="574" y="195"/>
         </scene>
     </scenes>
 </document>

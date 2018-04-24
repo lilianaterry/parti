@@ -156,7 +156,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/MotionAnimator/MotionAnimator.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MotionInterchange/MotionInterchange.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MotionTransitioning/MotionTransitioning.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework"
 fi
@@ -174,7 +173,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/MotionAnimator/MotionAnimator.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MotionInterchange/MotionInterchange.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MotionTransitioning/MotionTransitioning.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework"
 fi

@@ -12,14 +12,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--partyPage-->
-        <scene sceneID="dOz-5r-Wc6">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="partyPage" storyboardName="SecondMain" referencedIdentifier="partyPage" id="0pu-Cg-0fZ" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EcD-cp-dYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-481" y="-4"/>
-        </scene>
         <!--Add Guests To Party View Controller-->
         <scene sceneID="Mv2-dt-drP">
             <objects>
@@ -69,7 +61,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Add Friends to the Party!" id="sAA-Gy-9GN">
-                                        <barButtonItem key="leftBarButtonItem" image="Disclosure Indicator" id="Lpy-R9-Lpz">
+                                        <barButtonItem key="leftBarButtonItem" image="back_button" id="Lpy-R9-Lpz">
                                             <connections>
                                                 <action selector="backButton:" destination="OFU-kW-a0S" id="JuS-TK-1Mz"/>
                                             </connections>
@@ -109,6 +101,6 @@
     </scenes>
     <resources>
         <image name="DefaultProfilePicture" width="64" height="64"/>
-        <image name="Disclosure Indicator" width="8" height="13"/>
+        <image name="back_button" width="48" height="48"/>
     </resources>
 </document>

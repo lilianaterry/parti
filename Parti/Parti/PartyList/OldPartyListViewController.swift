@@ -11,7 +11,7 @@ import FirebaseDatabase
 import Firebase
 import FirebaseStorage
 
-class PartyListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class OldPartyListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var partyTableView: UITableView!
     

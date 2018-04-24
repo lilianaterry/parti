@@ -507,7 +507,6 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - SwipeCellKit (2.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
@@ -522,7 +521,6 @@ DEPENDENCIES:
   - Firebase/Storage
   - GoogleSignIn
   - MaterialComponents
-  - SwipeCellKit
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -551,7 +549,6 @@ SPEC REPOS:
     - MotionInterchange
     - MotionTransitioning
     - nanopb
-    - SwipeCellKit
 
 SPEC CHECKSUMS:
   Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
@@ -579,8 +576,7 @@ SPEC CHECKSUMS:
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
   MotionTransitioning: 23d25edc2f4606efb922403cbac6d81af37aa33a
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  SwipeCellKit: 8ae09401e1137566b187980d824310129233c959
 
-PODFILE CHECKSUM: 65cefe11536a418147404e9bf841102add89f65b
+PODFILE CHECKSUM: 9628d18a6fa74c25545c7b26fca94229f298fd76
 
 COCOAPODS: 1.5.0

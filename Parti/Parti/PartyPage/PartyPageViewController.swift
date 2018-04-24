@@ -113,7 +113,7 @@ class PartyPageViewController: UIViewController, UIImagePickerControllerDelegate
         partyImage.addSubview(overlay)
         
         // buttons user clicks if they are attending
-        let color = UIColor(hex: "55efc4")
+        let color = UIColor(hex: 0x55efc4)
         goingButton.setBackgroundColor(color, for: .selected)
         goingButton.adjustsImageWhenHighlighted = false
         notGoingButton.setBackgroundColor(color, for: .selected)
