@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class PartyCardCell: UITableViewCell {
     
@@ -24,37 +25,52 @@ class PartyCardCell: UITableViewCell {
     
     var colors = UIExtensions()
     
+    var userID = String()
+    var partyID = String()
+    
+    // Firebase connection
+    var databaseRef: DatabaseReference!
+    var databaseHandle: DatabaseHandle?
+    
     @IBAction func goingButton(_ sender: Any) {
         // deselect
         if (goingButton.isSelected) {
             toggleButtonOff(button: goingButton)
-            // select
+            databaseRef.child("users/\(userID)/attending/\(partyID)").setValue(-2)
+        // select
         } else {
             toggleButtonOn(button: goingButton, off1: maybeButton, off2: notGoingButton)
+            databaseRef.child("users/\(userID)/attending/\(partyID)").setValue(1)
         }
     }
     @IBAction func notGoingButton(_ sender: Any) {
         // deselect
         if (notGoingButton.isSelected) {
             toggleButtonOff(button: notGoingButton)
+            databaseRef.child("users/\(userID)/attending/\(partyID)").setValue(-2)
             // select
         } else {
             toggleButtonOn(button: notGoingButton, off1: maybeButton, off2: goingButton)
+            databaseRef.child("users/\(userID)/attending/\(partyID)").setValue(-1)
         }
     }
     @IBAction func maybeButton(_ sender: Any) {
         // deselect
         if (maybeButton.isSelected) {
             toggleButtonOff(button: maybeButton)
+            databaseRef.child("users/\(userID)/attending/\(partyID)").setValue(-2)
             // select
         } else {
             toggleButtonOn(button: maybeButton, off1: notGoingButton, off2: goingButton)
+            databaseRef.child("users/\(userID)/attending/\(partyID)").setValue(0)
         }
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        // set firebase reference
+        databaseRef = Database.database().reference()
         
         setupCard()
         self.selectionStyle = UITableViewCellSelectionStyle.none

@@ -20,6 +20,7 @@ struct partyCard {
     var partyID: String
     var hostID: String
     var guestList: [String: Any]
+    var guests: [ProfileModel]
     
     var image: UIImage
     var imageURL: String
@@ -34,12 +35,14 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBAction func attendingSection(_ sender: Any) {
         toggleSections(sender: attendingSection, other: hostingSection)
         displaying = attending
+        displayBool = true
         partyTableView.reloadData()
     }
     @IBOutlet weak var hostingSection: UIButton!
     @IBAction func hostingSection(_ sender: Any) {
         toggleSections(sender: hostingSection, other: attendingSection)
         displaying = hosting
+        displayBool = false
         partyTableView.reloadData()
     }
     
@@ -99,6 +102,8 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.addressLabel.text = currentParty.address
             cell.dateLabel.text = "null"
             cell.timeLabel.text = "null"
+            cell.userID = userID
+            cell.partyID = currentParty.partyID
             
             ref.child("users/\(userID)/attending/\(currentParty.partyID)").observe(.value, with: { (snapshot) in
                 if (snapshot.exists()) {
@@ -106,11 +111,11 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
                     let value = snapshot.value as! Int
                     
                     if (value == 1) {
-                        cell.goingButton.isSelected = true
+                        cell.toggleButtonOn(button: cell.goingButton, off1: cell.maybeButton, off2: cell.notGoingButton)
                     } else if (value == 0) {
-                        cell.maybeButton.isSelected = true
-                    } else {
-                        cell.notGoingButton.isSelected = true
+                        cell.toggleButtonOn(button: cell.maybeButton, off1: cell.goingButton, off2: cell.notGoingButton)
+                    } else if (value == -1) {
+                        cell.toggleButtonOn(button: cell.notGoingButton, off1: cell.maybeButton, off2: cell.goingButton)
                     }
                 }
             })
@@ -119,7 +124,7 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
             
         // hosting
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "partyCardCell", for: indexPath) as! PartyCardCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "hostPartyCardCell", for: indexPath) as! HostPartyCardCell
             
             cell.nameLabel.text = currentParty.name
             cell.addressLabel.text = currentParty.address
@@ -132,12 +137,11 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath.section == 0) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "partyCardCell", for: indexPath) as! PartyCardCell
+        let cell = displaying[indexPath.row]
+        if (!displayBool) {
             // Segue to the party hosting view controller
             self.performSegue(withIdentifier: "hostingPartySegue", sender: cell)
-        } else if (indexPath.section == 1) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "partyCardCell", for: indexPath) as! PartyCardCell
+        } else {
             // Segue to the party attending view controller
             self.performSegue(withIdentifier: "attendingPartySegue", sender: cell)
         }
@@ -145,6 +149,14 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return displaying.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (displayBool) {
+            return 200
+        } else {
+            return 150
+        }
     }
     
     /* Goes through each party a user is hosting and adds the party object to the list */
@@ -177,7 +189,7 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
         ref?.child("parties/\(partyID)").observeSingleEvent(of: .value, with: { (snapshot) in
             let data = snapshot.value as! [String: Any]
             
-            var partyObject = partyCard.init(name: "", address: "", time: 0, date: 0, attire: "", partyID: "", hostID: "", guestList: [:], image: UIImage(), imageURL: "", userStatus: 0)
+            var partyObject = partyCard.init(name: "", address: "", time: 0, date: 0, attire: "", partyID: "", hostID: "", guestList: [:], guests: [], image: UIImage(), imageURL: "", userStatus: 0)
             
             partyObject.attire = data["attire"] as! String
             //partyObject.date = Double(data["date"] as! String)
@@ -246,14 +258,14 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let segueID = segue.identifier
         if (segueID == "hostingPartySegue") {
-            let cell = sender as! HostingPartyTableViewCell
+            let partyObject = sender as! partyCard
             if let destinationVC = segue.destination as? PartyHostViewController {
-                destinationVC.partyObject = cell.partyObject
+                destinationVC.partyObject = partyObject
             }
         } else if (segueID == "attendingPartySegue") {
-            let cell = sender as! AttendingPartyTableViewCell
-            if let destinationVC = segue.destination as? PartyPageViewController {
-                destinationVC.partyObject = cell.partyObject
+            let partyObject = sender as! partyCard
+            if let destinationVC = segue.destination as? PartyPageGuestView {
+                destinationVC.partyObject = partyObject
             }
         }
     }
@@ -274,7 +286,7 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
         hostingSection.setTitleColor(colors.darkMint, for: .normal)
         hostingSection.setTitleColor(UIColor.white, for: .selected)
         
-        createEventButton.tintColor = UIColor.white
+        createEventButton.imageView?.tintColor = UIColor.white
     }
     
     // turn buttons on and off

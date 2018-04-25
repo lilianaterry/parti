@@ -65,7 +65,7 @@ class PartyHostViewController: UIViewController {
     var allergyImages = [UIButton]()
     var allergyLabels = [UILabel]()
     
-    var partyObject = PartyModel()
+    var partyObject = partyCard.init(name: "", address: "", time: 0, date: 0, attire: "", partyID: "", hostID: "", guestList: [:], guests: [], image: UIImage(), imageURL: "", userStatus: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()

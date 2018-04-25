@@ -25,7 +25,7 @@ class AddGuestsToPartyViewController: UIViewController, UITableViewDataSource, U
     var users = [ProfileModel]()
     var invitedUsers = [String : Int]()
     
-    var partyObject = PartyModel()
+    var partyObject = partyCard.init(name: "", address: "", time: 0, date: 0, attire: "", partyID: "", hostID: "", guestList: [:], guests: [], image: UIImage(), imageURL: "", userStatus: 0)
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count

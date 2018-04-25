@@ -10,13 +10,15 @@ import UIKit
 
 class ImageCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var guestPicture: UIImageView!
+    @IBOutlet weak var guestButton: UIButton!
+    @IBAction func goToProfile(_ sender: Any) {
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        guestPicture.layer.cornerRadius = guestPicture.frame.size.width/2
-        guestPicture.clipsToBounds = true
+        guestButton.layer.cornerRadius = guestButton.frame.size.width/2
+        guestButton.clipsToBounds = true
     }
 
 }

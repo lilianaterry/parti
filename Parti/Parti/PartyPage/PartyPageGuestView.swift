@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseStorage
+import FirebaseAuth
 
 class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -17,8 +20,7 @@ class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var attireLabel: UILabel!
     @IBAction func descriptionButton(_ sender: Any) {
     }
-    
-    
+
     @IBOutlet weak var infoSectionBackground: UIView!
     @IBOutlet weak var placeTitle: UILabel!
     @IBOutlet weak var addressLine1: UILabel!
@@ -28,12 +30,8 @@ class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var timeLabel: UILabel!
     
     @IBOutlet weak var scrollView: UICollectionView!
-    let portraits = [#imageLiteral(resourceName: "portrait1"), #imageLiteral(resourceName: "portrait2"), #imageLiteral(resourceName: "portrait3"), #imageLiteral(resourceName: "portrait4"), #imageLiteral(resourceName: "portrait5"), #imageLiteral(resourceName: "portrait6"), #imageLiteral(resourceName: "portrait6"), #imageLiteral(resourceName: "portrait6")]
     
     @IBOutlet weak var bottomView: UIView!
-    @IBAction func foodListButton(_ sender: Any) {
-    }
-    @IBOutlet weak var musicListButton: UIButton!
     
     // color pallete definitions
     let mainColor = UIColor.init(hex: 0x55efc4)
@@ -74,12 +72,55 @@ class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollecti
             toggleButtonOn(button: maybeButton, off1: goingButton, off2: notGoingButton)
         }
     }
+
+    // Firebase Database connection
+    var databaseRef: DatabaseReference!
+    var databaseHandle: DatabaseHandle?
     
-    /* MAIN METHOD */
+    // Firebase Storage connection
+    var storageRef: StorageReference!
+    var storageHandle: StorageHandle?
+    
+    var partyObject = partyCard.init(name: "", address: "", time: 0, date: 0, attire: "", partyID: "", hostID: "", guestList: [:], guests: [], image: UIImage(), imageURL: "", userStatus: 0)
+    
+    let userID = Auth.auth().currentUser!.uid
+
+    // see more guests invited
+//    @IBAction func moreGuests(_ sender: Any) {
+//        performSegue(withIdentifier: "guestListSegue", sender: self)
+//    }
+    @IBAction func foodList(_ sender: Any) {
+        performSegue(withIdentifier: "foodListSegue", sender: self)
+    }
+    @IBAction func musicListButton(_ sender: Any) {
+        performSegue(withIdentifier: "musicListSegue", sender: self)
+    }
+    
+    @IBAction func unwindToGuestViewController(segue: UIStoryboardSegue) { }
+    
+    var guestButtons = [UIButton]()
+    var displayedGuests = [ProfileModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        partyBanner()
+        setupUI()
+        
+        // set firebase references
+        databaseRef = Database.database().reference()
+        storageRef = Storage.storage().reference()
+        
+        partyImage.image = partyObject.image
+        partyTitleLabel.text = partyObject.name
+        addressLine1.text = partyObject.address
+        dateLabel.text = String(partyObject.date)
+        attireLabel.text = partyObject.attire
+        
+        // Do any additional setup after loading the view.
+        getGuests()
+    }
+    
+    func setupUI() {
         attendingBar()
         headerText()
         partyInfo()
@@ -87,12 +128,103 @@ class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollecti
         
         mainView.bringSubview(toFront: infoSectionBackground)
         mainView.bringSubview(toFront: attendingBarBackground)
-
+        
         mainView.bringSubview(toFront: bottomView)
     }
     
-    func partyBanner() {
-        partyImage.image = #imageLiteral(resourceName: "placeholder_banner")
+    
+    /* iterates over all guests invited to the party to populate profile objects and get allergies */
+    func getGuests() {
+        databaseRef.child("parties/\(partyObject.partyID)/guests").observe(.childAdded) { (snapshot) in
+            if snapshot.exists() {
+                let userID = snapshot.key
+                self.queryGuestInfo(userID: userID)
+            }
+        }
+    }
+    
+    /* Get all of the allergy information, name, userID, etc  */
+    func queryGuestInfo(userID: String) {
+        databaseRef.child("users/\(userID)").observeSingleEvent(of: .value) { (snapshot) in
+            // add all user information to the profile model object
+            let newUser = ProfileModel()
+            newUser.userID = userID
+            if (snapshot.exists()) {
+                let data = snapshot.value as! [String: Any]
+                
+                // If the user already has a profile picture, load it up!
+                if let imageURL = data["imageURL"] as? String {
+                    let url = URL(string: imageURL)
+                    URLSession.shared.dataTask(with: url!, completionHandler: { (image, response, error) in
+                        if (error != nil) {
+                            print(error)
+                            return
+                        }
+                        
+                        DispatchQueue.main.async { // Make sure you're on the main thread here
+                            newUser.image = UIImage(data: image!)!
+                            // if we still have guest buttons to populate, do so
+                            let fillIndex = self.displayedGuests.count
+                            self.displayedGuests.append(newUser)
+                            let newButton = UIButton()
+                            newButton.setImage(UIImage(data: image!), for: .normal)
+                            newButton.tag = fillIndex
+                            self.guestButtons.append(newButton)
+                            self.guestButtons[fillIndex].setImage(UIImage(data: image!), for: .normal)
+                        }
+                    }).resume()
+                }
+                
+                self.partyObject.guests.append(newUser)
+                
+            } else {
+                print("No user in Firebase yet")
+            }
+        }
+    }
+    
+    /* When user button is selected, go to profile or go to add guests page */
+    @IBAction func selectGuest(_ sender: Any) {
+        if let button = sender as? UIButton {
+            let userIndex = button.tag
+            if (userIndex < displayedGuests.count) {
+                performSegue(withIdentifier: "guestProfileSegue", sender: button)
+            }
+        }
+    }
+    
+    @IBAction func dismiss(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
+    // Pass user information to profile page or pass party id to guest list
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let segueID = segue.identifier
+        
+        // Create Profile Step 1
+        if (segueID == "guestProfileSegue") {
+            if let destinationVC = segue.destination as? OtherUserProfile {
+                let button = sender as! UIButton
+                let userID = displayedGuests[button.tag].userID
+                destinationVC.profileObject.userID = userID
+            }
+            // Party List Page
+        } else if (segueID == "guestListSegue") {
+            if let destinationVC = segue.destination as? GuestListViewController {
+                destinationVC.partyObject.partyID = self.partyObject.partyID
+            }
+            
+        } else if (segueID == "foodListSegue") {
+            if let destinationVC = segue.destination as? PartyFoodListViewController {
+                destinationVC.partyObject = partyObject
+                destinationVC.hostView = false
+            }
+        } else if (segueID == "musicListSegue") {
+            if let destinationVC = segue.destination as? MusicListViewController {
+                destinationVC.partyID = partyObject.partyID
+                destinationVC.hostView = false
+            }
+        }
     }
     
     // add a shadow to the text on the image
@@ -159,13 +291,13 @@ class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollecti
 
     // handles the sliding collection view feature
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return portraits.count
+        return guestButtons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "guestPicture", for: indexPath) as! ImageCollectionViewCell
         
-        cell.guestPicture.image = portraits[indexPath.row]
+        cell.guestButton.imageView?.image = displayedGuests[indexPath.row].image as UIImage
         
         return cell
     }

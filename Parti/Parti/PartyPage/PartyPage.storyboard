@@ -24,7 +24,7 @@
         <!--Title-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PartyPageGuestView" customModule="PartyUI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PartyPageGuestView" customModule="Parti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,7 +42,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PARTY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="5L0-tw-dZT">
-                                <rect key="frame" x="16" y="226" width="343" height="72"/>
+                                <rect key="frame" x="16" y="226" width="312" height="72"/>
                                 <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="60"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -253,26 +253,33 @@
                                     <inset key="sectionInset" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="guestPicture" id="sMm-rU-ZVj" customClass="ImageCollectionViewCell" customModule="PartyUI" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="guestPicture" id="sMm-rU-ZVj" customClass="ImageCollectionViewCell" customModule="Parti" customModuleProvider="target">
                                         <rect key="frame" x="16" y="15" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="portrait1" translatesAutoresizingMaskIntoConstraints="NO" id="Q7z-78-zIk">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYH-H9-fSz">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                </imageView>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="Jgv-Ol-rYr"/>
+                                                        <constraint firstAttribute="height" constant="50" id="L8Z-tX-JYY"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="goToProfile:" destination="sMm-rU-ZVj" eventType="touchUpInside" id="lGu-R1-4fC"/>
+                                                        <action selector="guestButton:" destination="sMm-rU-ZVj" eventType="touchUpInside" id="jdW-gH-W6L"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="Q7z-78-zIk" firstAttribute="leading" secondItem="sMm-rU-ZVj" secondAttribute="leading" id="8yu-GD-Rgt"/>
-                                            <constraint firstItem="Q7z-78-zIk" firstAttribute="top" secondItem="sMm-rU-ZVj" secondAttribute="top" id="IeD-a8-cVt"/>
-                                            <constraint firstAttribute="trailing" secondItem="Q7z-78-zIk" secondAttribute="trailing" id="WvK-ao-wOa"/>
-                                            <constraint firstAttribute="bottom" secondItem="Q7z-78-zIk" secondAttribute="bottom" id="nVb-wf-s3y"/>
+                                            <constraint firstItem="ZYH-H9-fSz" firstAttribute="top" secondItem="sMm-rU-ZVj" secondAttribute="top" id="Ly8-im-a3k"/>
+                                            <constraint firstItem="ZYH-H9-fSz" firstAttribute="leading" secondItem="sMm-rU-ZVj" secondAttribute="leading" id="qUz-Ol-nYc"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZYH-H9-fSz" secondAttribute="bottom" id="sR9-VS-dbM"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="guestPicture" destination="Q7z-78-zIk" id="w2K-hu-aRP"/>
+                                            <outlet property="guestButton" destination="ZYH-H9-fSz" id="MuJ-AB-GBf"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -295,7 +302,7 @@
                                                 </constraints>
                                                 <state key="normal" title="Button" image="food_button"/>
                                                 <connections>
-                                                    <action selector="foodListButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r2o-tf-QTP"/>
+                                                    <action selector="foodList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cxd-jo-I6b"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ba3-fh-zgX">
@@ -305,6 +312,9 @@
                                                     <constraint firstAttribute="width" constant="60" id="hFk-hv-2Bn"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="music_button"/>
+                                                <connections>
+                                                    <action selector="musicListButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O9G-ri-7d5"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -325,6 +335,7 @@
                                 <state key="normal" image="back_button"/>
                                 <connections>
                                     <action selector="backButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hs6-Dg-ola"/>
+                                    <action selector="dismiss:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DNG-hv-MZL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9C-KB-Hl9">
@@ -349,7 +360,7 @@
                             <constraint firstItem="hSx-N5-GO2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="6Ic-cb-PP0"/>
                             <constraint firstItem="gmd-yM-YUh" firstAttribute="top" secondItem="8Sx-0i-sCs" secondAttribute="bottom" id="6j8-Qn-gf1"/>
                             <constraint firstItem="VCp-Wf-PpU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7gY-w9-OdB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5L0-tw-dZT" secondAttribute="trailing" constant="16" id="GVG-1G-jx5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5L0-tw-dZT" secondAttribute="trailing" constant="47" id="GVG-1G-jx5"/>
                             <constraint firstItem="pDO-hT-DHD" firstAttribute="top" secondItem="Kyz-nI-Ktk" secondAttribute="bottom" id="HXT-65-LQd"/>
                             <constraint firstItem="pDO-hT-DHD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IlR-Bb-k4e"/>
                             <constraint firstItem="Kyz-nI-Ktk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ma2-b4-DvU"/>
@@ -386,7 +397,6 @@
                         <outlet property="infoSectionBackground" destination="LBA-4I-v7i" id="h76-Vi-idR"/>
                         <outlet property="mainView" destination="8bC-Xf-vdC" id="Lzr-N0-3s0"/>
                         <outlet property="maybeButton" destination="s1O-Ac-yGf" id="42B-xK-tf5"/>
-                        <outlet property="musicListButton" destination="Ba3-fh-zgX" id="IKM-Ip-ptM"/>
                         <outlet property="notGoingButton" destination="IT5-wj-e3f" id="RAL-0u-sas"/>
                         <outlet property="partyImage" destination="Kyz-nI-Ktk" id="H5z-gm-4Y8"/>
                         <outlet property="partyTitleLabel" destination="5L0-tw-dZT" id="aQT-6R-G7m"/>
@@ -394,6 +404,8 @@
                         <outlet property="scrollView" destination="8Sx-0i-sCs" id="fyG-Uz-Mgw"/>
                         <outlet property="timeLabel" destination="Kd2-Kd-cpl" id="0ZG-77-mpZ"/>
                         <outlet property="timeTitle" destination="Lnr-YM-vZJ" id="h0F-Oj-s34"/>
+                        <segue destination="r09-wj-sDe" kind="show" identifier="foodListSegue" animates="NO" id="xep-Ay-MKY"/>
+                        <segue destination="TaK-51-hp6" kind="show" identifier="musicListSegue" animates="NO" id="SW3-8t-dYp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -411,7 +423,11 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sxV-gN-dcO">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="Fxr-U3-5fJ" kind="unwind" unwindAction="unwindToHostViewControllerWithSegue:" id="7bB-ZH-GNZ"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BHw-oS-HE9">
                                 <rect key="frame" x="67" y="213" width="240" height="240"/>
@@ -434,8 +450,25 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5f-lP-GV6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Fxr-U3-5fJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="869.60000000000002" y="132.68365817091455"/>
+        </scene>
+        <!--PartyFoodList-->
+        <scene sceneID="i9Y-5g-93H">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PartyFoodList" id="r09-wj-sDe" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0QR-v2-s7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137" y="602"/>
+        </scene>
+        <!--Music-->
+        <scene sceneID="iFf-Nd-pjT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Music" id="TaK-51-hp6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7SC-EC-ARc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="425" y="604"/>
         </scene>
     </scenes>
     <resources>
@@ -443,6 +476,5 @@
         <image name="description" width="48" height="48"/>
         <image name="food_button" width="87" height="87"/>
         <image name="music_button" width="87" height="87"/>
-        <image name="portrait1" width="5184" height="3456"/>
     </resources>
 </document>

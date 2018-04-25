@@ -23,6 +23,8 @@ class UIExtensions {
     
     // profile colors
     let nameColor = UIColor.init(hex: 0x222222)
+    
+    var newPartyCard = partyCard.init(name: "", address: "", time: 0, date: 0, attire: "", partyID: "", hostID: "", guestList: [:], guests: [], image: UIImage(), imageURL: "", userStatus: 0)
 }
 
 // create UI color from hex code

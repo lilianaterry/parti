@@ -21,7 +21,7 @@ class PartyPageViewController: UIViewController, UIImagePickerControllerDelegate
     var storageRef: StorageReference!
     var storageHandle: StorageHandle?
     
-    var partyObject = PartyModel()
+    var partyObject = partyCard.init(name: "", address: "", time: 0, date: 0, attire: "", partyID: "", hostID: "", guestList: [:], guests: [], image: UIImage(), imageURL: "", userStatus: 0)
     
     @IBOutlet weak var partyImage: UIImageView!
     @IBOutlet weak var addressLabel: UILabel!
