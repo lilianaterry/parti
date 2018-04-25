@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6OK-B4-CL6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6OK-B4-CL6">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,6 +22,14 @@
         </array>
     </customFonts>
     <scenes>
+        <!--loginViewController-->
+        <scene sceneID="OkH-gI-4g3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="loginViewController" id="D2u-dy-B1a" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="63p-Tz-hoF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="250" y="-609"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="MqA-od-2q7">
             <objects>
@@ -328,6 +336,7 @@
                         <outlet property="vegan" destination="hZ2-Wa-e65" id="b03-y2-v1H"/>
                         <outlet property="vegetarian" destination="6Ut-aC-foH" id="JWp-UL-oin"/>
                         <segue destination="yEd-CQ-Yxn" kind="show" identifier="editProfileSegue" animates="NO" id="4FI-U5-eGi"/>
+                        <segue destination="D2u-dy-B1a" kind="show" identifier="logoutSegue" id="yDx-EL-8Yy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfz-4N-o8O" userLabel="First Responder" sceneMemberID="firstResponder"/>
