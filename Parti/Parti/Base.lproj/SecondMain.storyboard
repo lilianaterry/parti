@@ -605,7 +605,7 @@
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem title="Attendees" id="GjH-t0-hC1">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="Disclosure Indicator" id="eKd-Gs-egD">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="back_button" id="eKd-Gs-egD">
                                             <connections>
                                                 <action selector="dismiss:" destination="fI7-Jc-tfo" id="03i-dh-9Iu"/>
                                             </connections>
@@ -877,6 +877,7 @@
     </scenes>
     <resources>
         <image name="Disclosure Indicator" width="8" height="13"/>
+        <image name="back_button" width="48" height="48"/>
         <image name="background_gradient" width="375" height="667"/>
         <image name="dairy" width="50" height="50"/>
         <image name="gluten" width="50" height="50"/>
@@ -890,6 +891,6 @@
         <image name="vegetarian" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qth-yF-GFB"/>
+        <segue reference="KmK-0Q-iJ6"/>
     </inferredMetricsTieBreakers>
 </document>
