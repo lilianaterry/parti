@@ -100,8 +100,8 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
             
             cell.nameLabel.text = currentParty.name
             cell.addressLabel.text = currentParty.address
-            cell.dateLabel.text = "null"
-            cell.timeLabel.text = "null"
+            cell.dateLabel.text = "April 28th, 2018"
+            cell.timeLabel.text = "8:00"
             cell.userID = userID
             cell.partyID = currentParty.partyID
             
@@ -128,8 +128,8 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
             
             cell.nameLabel.text = currentParty.name
             cell.addressLabel.text = currentParty.address
-            cell.dateLabel.text = "null"
-            cell.timeLabel.text = "null"
+            cell.dateLabel.text = "April 28th, 2018"
+            cell.timeLabel.text = "8:00"
             
             return cell
         }
