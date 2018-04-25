@@ -218,7 +218,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8f-Sa-bpu">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bqg-Of-Qvu">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_add_circle_48pt" translatesAutoresizingMaskIntoConstraints="NO" id="Bqg-Of-Qvu">
                                                 <rect key="frame" x="5" y="5" width="140" height="140"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="140" id="aYi-6D-8w7"/>
@@ -357,6 +357,7 @@
         <image name="edit" width="48" height="48"/>
         <image name="gluten" width="50" height="50"/>
         <image name="ic_account_circle" width="24" height="24"/>
+        <image name="ic_add_circle_48pt" width="48" height="48"/>
         <image name="nuts" width="50" height="50"/>
         <image name="profile_background" width="375" height="334"/>
         <image name="vegan" width="50" height="50"/>
