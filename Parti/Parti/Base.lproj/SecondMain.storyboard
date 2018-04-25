@@ -231,7 +231,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcb-Ni-OUd">
                                 <rect key="frame" x="10" y="579" width="50" height="50"/>
-                                <state key="normal" image="nut-free"/>
+                                <state key="normal" image="nuts"/>
                                 <connections>
                                     <action selector="toggleImage:" destination="Cg6-9b-17v" eventType="touchUpInside" id="zDt-ET-6Dw"/>
                                 </connections>
@@ -245,7 +245,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8S-t4-7PG">
                                 <rect key="frame" x="87" y="579" width="50" height="50"/>
-                                <state key="normal" image="gluten-free"/>
+                                <state key="normal" image="gluten"/>
                                 <connections>
                                     <action selector="toggleImage:" destination="Cg6-9b-17v" eventType="touchUpInside" id="yZi-SK-ReX"/>
                                 </connections>
@@ -879,12 +879,12 @@
         <image name="Disclosure Indicator" width="8" height="13"/>
         <image name="background_gradient" width="375" height="667"/>
         <image name="dairy" width="50" height="50"/>
-        <image name="gluten-free" width="50" height="50"/>
+        <image name="gluten" width="50" height="50"/>
         <image name="headline" width="24" height="24"/>
         <image name="ic_account_circle" width="24" height="24"/>
         <image name="ic_face" width="24" height="24"/>
         <image name="ic_local_dining" width="24" height="24"/>
-        <image name="nut-free" width="50" height="50"/>
+        <image name="nuts" width="50" height="50"/>
         <image name="parti_logo" width="83" height="83"/>
         <image name="vegan" width="50" height="50"/>
         <image name="vegetarian" width="50" height="50"/>
