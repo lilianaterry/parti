@@ -92,19 +92,19 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
     
     /* Adds color selection functionality to allergy icons */
     func setupAllergyIcons() {
-        nutsButton.setImage(#imageLiteral(resourceName: "nuts-orange.png"), for: .selected)
-        nutsButton.setImage(#imageLiteral(resourceName: "nut-free"), for: .normal)
+        nutsButton.setImage(#imageLiteral(resourceName: "nuts"), for: .selected)
+        nutsButton.setImage(#imageLiteral(resourceName: "nuts"), for: .normal)
         nutsButton.tag = 0
-        glutenButton.setImage(#imageLiteral(resourceName: "gluten-yellow"), for: .selected)
-        glutenButton.setImage(#imageLiteral(resourceName: "gluten-free"), for: .normal)
+        glutenButton.setImage(#imageLiteral(resourceName: "gluten"), for: .selected)
+        glutenButton.setImage(#imageLiteral(resourceName: "gluten"), for: .normal)
         glutenButton.tag = 1
-        vegetarianButton.setImage(#imageLiteral(resourceName: "veggie-green"), for: .selected)
+        vegetarianButton.setImage(#imageLiteral(resourceName: "vegetarian"), for: .selected)
         vegetarianButton.setImage(#imageLiteral(resourceName: "vegetarian"), for: .normal)
         vegetarianButton.tag = 2
-        lactoseButton.setImage(#imageLiteral(resourceName: "milk-blue"), for: .selected)
+        lactoseButton.setImage(#imageLiteral(resourceName: "dairy"), for: .selected)
         lactoseButton.setImage(#imageLiteral(resourceName: "dairy"), for: .normal)
         lactoseButton.tag = 3
-        veganButton.setImage(#imageLiteral(resourceName: "vegan-blue"), for: .selected)
+        veganButton.setImage(#imageLiteral(resourceName: "vegan"), for: .selected)
         veganButton.setImage(#imageLiteral(resourceName: "vegan"), for: .normal)
         veganButton.tag = 4
     }
