@@ -301,6 +301,7 @@
                         <outlet property="partyTableView" destination="lNy-3r-c9s" id="h4B-mE-h4f"/>
                         <segue destination="0SS-K8-cez" kind="show" identifier="addEvent" animates="NO" id="sLS-ca-PeL"/>
                         <segue destination="Ofd-T5-dAM" kind="show" identifier="attendingPartySegue" animates="NO" id="bdC-MB-d5O"/>
+                        <segue destination="EiO-UN-G6u" kind="show" identifier="hostingPartySegue" animates="NO" id="bOC-KQ-3IT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5dD-fi-VUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -322,6 +323,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NIm-ET-CbT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="303" y="-243"/>
+        </scene>
+        <!--HostPartyPage-->
+        <scene sceneID="SGf-gd-Zor">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HostPartyPage" id="EiO-UN-G6u" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rkC-0s-UKm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="324" y="-90"/>
         </scene>
     </scenes>
     <resources>

@@ -90,7 +90,6 @@ class PartyHostViewController: UIViewController {
         attireLabel.text = partyObject.attire
         //dateLabel.text = partyObject.date
         
-        setupUX()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -99,19 +98,6 @@ class PartyHostViewController: UIViewController {
         addressLabel.text = partyObject.address
         attireLabel.text = partyObject.attire
         //dateLabel.text = partyObject.date
-        
-        setupUX()
-    }
-    
-    func setupUX() {
-        // overlay on banner picture
-        let overlay: UIView = UIView(frame: CGRect(x: 0, y: 0, width: partyImage.frame.size.width, height: partyImage.frame.size.height))
-        overlay.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.1)
-        partyImage.addSubview(overlay)
-        
-        // add drop shadow to text on banner image
-        nameLabel.textDropShadow()
-        attireLabel.textDropShadow()
         
     }
 

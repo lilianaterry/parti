@@ -253,22 +253,22 @@
                                     <inset key="sectionInset" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="guestPicture" id="sMm-rU-ZVj" customClass="ImageCollectionViewCell" customModule="Parti" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="guestPicture" id="sMm-rU-ZVj" customClass="GuestPicsCollectionCell" customModule="Parti" customModuleProvider="target">
                                         <rect key="frame" x="16" y="15" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYH-H9-fSz">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYH-H9-fSz">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="Jgv-Ol-rYr"/>
                                                         <constraint firstAttribute="height" constant="50" id="L8Z-tX-JYY"/>
                                                     </constraints>
+                                                    <state key="normal" image="portrait1"/>
                                                     <connections>
-                                                        <action selector="goToProfile:" destination="sMm-rU-ZVj" eventType="touchUpInside" id="lGu-R1-4fC"/>
-                                                        <action selector="guestButton:" destination="sMm-rU-ZVj" eventType="touchUpInside" id="jdW-gH-W6L"/>
+                                                        <action selector="selectGuest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RdS-dc-rDp"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -279,7 +279,7 @@
                                             <constraint firstAttribute="bottom" secondItem="ZYH-H9-fSz" secondAttribute="bottom" id="sR9-VS-dbM"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="guestButton" destination="ZYH-H9-fSz" id="MuJ-AB-GBf"/>
+                                            <outlet property="guestButton" destination="ZYH-H9-fSz" id="qED-QU-7nN"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -347,9 +347,7 @@
                                 <state key="normal" image="description"/>
                                 <connections>
                                     <action selector="descriptionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bje-HV-hqr"/>
-                                    <segue destination="kkx-PS-luf" kind="popoverPresentation" popoverAnchorView="y9C-KB-Hl9" id="2qC-j6-elD">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="kkx-PS-luf" kind="presentation" id="2qC-j6-elD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -476,5 +474,6 @@
         <image name="description" width="48" height="48"/>
         <image name="food_button" width="87" height="87"/>
         <image name="music_button" width="87" height="87"/>
+        <image name="portrait1" width="5184" height="3456"/>
     </resources>
 </document>

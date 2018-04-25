@@ -11,8 +11,8 @@ import FirebaseDatabase
 import FirebaseStorage
 import FirebaseAuth
 
-class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
+class PartyPageHostView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var attendingBarBackground: UIView!
     @IBOutlet weak var partyImage: UIImageView!
@@ -20,7 +20,7 @@ class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var attireLabel: UILabel!
     @IBAction func descriptionButton(_ sender: Any) {
     }
-
+    
     @IBOutlet weak var infoSectionBackground: UIView!
     @IBOutlet weak var placeTitle: UILabel!
     @IBOutlet weak var addressLine1: UILabel!
@@ -29,7 +29,7 @@ class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
-    @IBOutlet weak var scrollView: UICollectionView!
+//    @IBOutlet weak var scrollView: UICollectionView!
     
     @IBOutlet weak var bottomView: UIView!
     
@@ -46,7 +46,7 @@ class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollecti
         if (goingButton.isSelected) {
             toggleButtonOff(button: goingButton)
             databaseRef.child("users/\(userID)/attending/\(partyObject.partyID)").setValue(-2)
-        // select
+            // select
         } else {
             toggleButtonOn(button: goingButton, off1: maybeButton, off2: notGoingButton)
             databaseRef.child("users/\(userID)/attending/\(partyObject.partyID)").setValue(1)
@@ -59,7 +59,7 @@ class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollecti
         if (notGoingButton.isSelected) {
             toggleButtonOff(button: notGoingButton)
             databaseRef.child("users/\(userID)/attending/\(partyObject.partyID)").setValue(-2)
-        // select
+            // select
         } else {
             toggleButtonOn(button: notGoingButton, off1: goingButton, off2: maybeButton)
             databaseRef.child("users/\(userID)/attending/\(partyObject.partyID)").setValue(-1)
@@ -72,13 +72,13 @@ class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollecti
         if (maybeButton.isSelected) {
             toggleButtonOff(button: maybeButton)
             databaseRef.child("users/\(userID)/attending/\(partyObject.partyID)").setValue(-2)
-        // select
+            // select
         } else {
             toggleButtonOn(button: maybeButton, off1: goingButton, off2: notGoingButton)
             databaseRef.child("users/\(userID)/attending/\(partyObject.partyID)").setValue(0)
         }
     }
-
+    
     // Firebase Database connection
     var databaseRef: DatabaseReference!
     var databaseHandle: DatabaseHandle?
@@ -90,11 +90,11 @@ class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollecti
     var partyObject = partyCard.init(name: "", address: "", time: 0, date: 0, attire: "", partyID: "", hostID: "", guestList: [:], guests: [], image: UIImage(), imageURL: "", userStatus: 0)
     
     let userID = Auth.auth().currentUser!.uid
-
+    
     // see more guests invited
-//    @IBAction func moreGuests(_ sender: Any) {
-//        performSegue(withIdentifier: "guestListSegue", sender: self)
-//    }
+    //    @IBAction func moreGuests(_ sender: Any) {
+    //        performSegue(withIdentifier: "guestListSegue", sender: self)
+    //    }
     @IBAction func foodList(_ sender: Any) {
         performSegue(withIdentifier: "foodListSegue", sender: self)
     }
@@ -106,6 +106,23 @@ class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollecti
     
     var guestButtons = [UIButton]()
     var displayedGuests = [ProfileModel]()
+    
+    var allergyList = ["Nuts", "Vegetarian", "Gluten",  "Vegan", "Dairy"]
+    var allergyCounts = [0, 0, 0, 0, 0]
+    var allergyImages = [UIButton]()
+    var allergyLabels = [UILabel]()
+    
+    @IBOutlet weak var nutButton: UIButton!
+    @IBOutlet weak var glutenButton: UIButton!
+    @IBOutlet weak var vegetarianButton: UIButton!
+    @IBOutlet weak var milkButton: UIButton!
+    @IBOutlet weak var veganButton: UIButton!
+    
+    @IBOutlet weak var nutsLabel: UILabel!
+    @IBOutlet weak var glutenLabel: UILabel!
+    @IBOutlet weak var vegetarianLabel: UILabel!
+    @IBOutlet weak var milkLabel: UILabel!
+    @IBOutlet weak var veganLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,9 +139,27 @@ class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollecti
         dateLabel.text = String(partyObject.date)
         attireLabel.text = partyObject.attire
         
+        allergyImages = [nutButton, vegetarianButton, glutenButton, veganButton,  milkButton]
+        allergyLabels = [nutsLabel, vegetarianLabel, glutenLabel, veganLabel, milkLabel,]
         
+        
+        setupAllergyIcons()
         // Do any additional setup after loading the view.
         getGuests()
+    }
+    
+    /* Adds color selection functionality to allergy icons */
+    func setupAllergyIcons() {
+
+        nutButton.tag = 0
+
+        glutenButton.tag = 1
+
+        vegetarianButton.tag = 2
+
+        milkButton.tag = 3
+
+        veganButton.tag = 4
     }
     
     func setupUI() {
@@ -170,30 +205,41 @@ class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollecti
             if (snapshot.exists()) {
                 let data = snapshot.value as! [String: Any]
                 
-                // If the user already has a profile picture, load it up!
-                if let imageURL = data["imageURL"] as? String {
-                    let url = URL(string: imageURL)
-                    URLSession.shared.dataTask(with: url!, completionHandler: { (image, response, error) in
-                        if (error != nil) {
-                            print(error)
-                            return
-                        }
-                        
-                        DispatchQueue.main.async { // Make sure you're on the main thread here
-                            newUser.image = UIImage(data: image!)!
-                            // if we still have guest buttons to populate, do so
-                            let fillIndex = self.displayedGuests.count
-                            self.displayedGuests.append(newUser)
-                            let newButton = UIButton()
-                            newButton.setImage(UIImage(data: image!), for: .normal)
-                            newButton.imageView?.image = UIImage(data: image!)
-                            newButton.tag = fillIndex
-                            self.guestButtons.append(newButton)
-                            
-                            self.scrollView.reloadData()
-                        }
-                    }).resume()
+                if let allergies = data["allergiesList"] {
+                    let userAllergies = allergies as! [String: Any]
+                    newUser.allergiesList = userAllergies
+                    
+                    for allergy in userAllergies.keys {
+                        let index = self.allergyList.index(of: allergy)
+                        self.allergyImages[index!].isSelected = true
+                        self.allergyCounts[index!] += 1
+                        self.allergyLabels[index!].text = String(self.allergyCounts[index!])
+                    }
                 }
+                
+//                // If the user already has a profile picture, load it up!
+//                if let imageURL = data["imageURL"] as? String {
+//                    let url = URL(string: imageURL)
+//                    URLSession.shared.dataTask(with: url!, completionHandler: { (image, response, error) in
+//                        if (error != nil) {
+//                            print(error)
+//                            return
+//                        }
+//                        
+//                        DispatchQueue.main.async { // Make sure you're on the main thread here
+//                            newUser.image = UIImage(data: image!)!
+//                            // if we still have guest buttons to populate, do so
+//                            let fillIndex = self.displayedGuests.count
+//                            self.displayedGuests.append(newUser)
+//                            let newButton = UIButton()
+//                            newButton.setImage(UIImage(data: image!), for: .normal)
+//                            newButton.imageView?.image = UIImage(data: image!)
+//                            newButton.tag = fillIndex
+//                            self.guestButtons.append(newButton)
+//                            
+//                        }
+//                    }).resume()
+//                }
                 
                 self.partyObject.guests.append(newUser)
                 
@@ -277,7 +323,7 @@ class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollecti
         notGoingButton.setTitleColor(UIColor.white, for: .selected)
         notGoingButton.setTitleColor(darkGrey, for: .normal)
         goingButton.isSelected = false
-
+        
     }
     
     // toggle any of the attending bar buttons on
@@ -307,7 +353,7 @@ class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollecti
         dateLabel.textColor = darkGrey
         timeLabel.textColor = mediumGrey
     }
-
+    
     // handles the sliding collection view feature
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return displayedGuests.count
@@ -330,11 +376,10 @@ class PartyPageGuestView: UIViewController, UICollectionViewDelegate, UICollecti
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     
-    @IBAction func backButton(_ sender: Any) {
-    }
+    
     
 }
+
 
 

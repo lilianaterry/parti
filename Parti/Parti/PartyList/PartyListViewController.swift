@@ -137,11 +137,12 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = displaying[indexPath.row]
         if (!displayBool) {
+            let cell = hosting[indexPath.row]
             // Segue to the party hosting view controller
             self.performSegue(withIdentifier: "hostingPartySegue", sender: cell)
         } else {
+            let cell = attending[indexPath.row]
             // Segue to the party attending view controller
             self.performSegue(withIdentifier: "attendingPartySegue", sender: cell)
         }
@@ -260,6 +261,7 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
         if (segueID == "hostingPartySegue") {
             let partyObject = sender as! partyCard
             if let destinationVC = segue.destination as? PartyHostViewController {
+                print(partyObject.image.description)
                 destinationVC.partyObject = partyObject
             }
         } else if (segueID == "attendingPartySegue") {

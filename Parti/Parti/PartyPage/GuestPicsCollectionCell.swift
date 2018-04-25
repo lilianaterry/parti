@@ -8,11 +8,9 @@
 
 import UIKit
 
-class ImageCollectionViewCell: UICollectionViewCell {
+class GuestPicsCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var guestButton: UIButton!
-    @IBAction func goToProfile(_ sender: Any) {
-    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
