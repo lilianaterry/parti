@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -404,6 +404,7 @@
                         <outlet property="timeTitle" destination="Lnr-YM-vZJ" id="h0F-Oj-s34"/>
                         <segue destination="r09-wj-sDe" kind="show" identifier="foodListSegue" animates="NO" id="xep-Ay-MKY"/>
                         <segue destination="TaK-51-hp6" kind="show" identifier="musicListSegue" animates="NO" id="SW3-8t-dYp"/>
+                        <segue destination="jP2-Aw-WaJ" kind="show" identifier="guestProfileSegue" id="fuN-KZ-YLg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -451,6 +452,14 @@
                 <exit id="Fxr-U3-5fJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="869.60000000000002" y="132.68365817091455"/>
+        </scene>
+        <!--OtherProfile-->
+        <scene sceneID="ofh-9S-vpb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OtherProfile" id="jP2-Aw-WaJ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J7w-fr-AR1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-187" y="598"/>
         </scene>
         <!--PartyFoodList-->
         <scene sceneID="i9Y-5g-93H">
