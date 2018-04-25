@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OFU-kW-a0S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OFU-kW-a0S">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -61,7 +61,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Add Friends to the Party!" id="sAA-Gy-9GN">
-                                        <barButtonItem key="leftBarButtonItem" image="back_button" id="Lpy-R9-Lpz">
+                                        <barButtonItem key="leftBarButtonItem" image="ic_arrow_back" id="Lpy-R9-Lpz">
                                             <connections>
                                                 <action selector="backButton:" destination="OFU-kW-a0S" id="JuS-TK-1Mz"/>
                                             </connections>
@@ -101,6 +101,6 @@
     </scenes>
     <resources>
         <image name="DefaultProfilePicture" width="64" height="64"/>
-        <image name="back_button" width="48" height="48"/>
+        <image name="ic_arrow_back" width="24" height="24"/>
     </resources>
 </document>

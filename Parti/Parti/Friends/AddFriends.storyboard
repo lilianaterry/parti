@@ -25,7 +25,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Title" id="CQD-Fn-IT9">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="Disclosure Indicator" id="O1w-cJ-440">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="ic_arrow_back" id="O1w-cJ-440">
                                             <connections>
                                                 <action selector="backButton:" destination="WBf-u2-IPp" id="PTF-dJ-RdS"/>
                                             </connections>
@@ -95,6 +95,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Disclosure Indicator" width="8" height="13"/>
+        <image name="ic_arrow_back" width="24" height="24"/>
     </resources>
 </document>
