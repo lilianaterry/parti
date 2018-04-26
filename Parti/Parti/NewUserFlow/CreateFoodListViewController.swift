@@ -30,62 +30,29 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
     var storageHandle: StorageHandle?
     
     // list of possible food/drink
-    var alcohol = [String: Any]()
-    var food = [String: [String: Any]]()
-    var mixers = [String: Any]()
-    var displaying: Any!
-    var numSections = 5
-    var sectionNum = 1
+    var alcohol = [String]()
+    var food = [String]()
+    var mixers = [String]()
+    var displaying = [String]()
+    var sectionNum = 0
+    
+    var sections = ["food", "alcohol", "mixers"]
     
     let allergyList = ["Nuts", "Gluten", "Vegetarian", "Dairy", "Vegan"]
     
     // our user's information
     var profileObject = ProfileModel()
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        if (numSections == 1) {
-            let list = displaying as! [String: Any]
-            return list.keys.count
-        } else {
-            var count = 0
-            for category in food {
-                let list = category.value
-                count += list.keys.count
-            }
-            
-            return count
-        }
-    }
     
-    // number of food items in this tab
-    func numberOfSections(in tableView: UITableView) -> Int {
-        if (sectionNum == 0 || sectionNum == 2) {
-            return 1
-        } else {
-            return food.keys.count
-        }
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return displaying.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "foodCell", for: indexPath)
         
-        if (indexPath.row == 0) {
-            return UITableViewCell()
-        } else {
-            print(food)
-            let sections = food.keys.count
-            print(sections)
-            print(indexPath.row)
-            let currentSection = indexPath.row / sections
-            print(currentSection)
-            let indexInSection = indexPath.row % sections
-            let sectionHeader = Array(food.keys)[currentSection]
-            print(sectionHeader)
-            print(indexInSection)
-            cell.textLabel?.text = Array(food[sectionHeader]!.keys)[indexInSection]
-        }
+        cell.textLabel?.text = displaying[indexPath.row]
         
         return cell
     }
@@ -160,10 +127,13 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
             let data = snapshot.value as! [String: Any]
             
             print(data)
+            var alcoholList = data["Alcohol"]
+            alcoholList = 
             
-            self.alcohol = data["Alcohol"] as! [String: Any]
-            self.mixers = data["Mixers"] as! [String: Any]
-            self.food = data["Food"] as! [String: [String: Any]]
+            
+            self.alcohol = (data["Alcohol"] as! [String: Any]).keys
+            self.mixers = (data["Mixers"] as! [String: Any]).keys
+            self.food = (data["Food"] as! [String: Any]).keys
             
             self.displaying = self.food
             self.tableView.reloadData()
