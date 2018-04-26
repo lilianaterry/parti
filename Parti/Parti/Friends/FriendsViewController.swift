@@ -9,9 +9,8 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
-import SwipeCellKit
 
-class FriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SwipeTableViewCellDelegate {
+class FriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -32,7 +31,6 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableViewCell
-        cell.delegate = self
         
         var profileModel = ProfileModel()
         
@@ -44,27 +42,6 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.profileModel = profileModel
         
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        guard orientation == .right else { return nil }
-        
-        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-            // handle action by updating model with deletion
-            print("delete friend at: ")
-            print(indexPath.row)
-            
-            let cell = tableView.cellForRow(at: indexPath) as! FriendsTableViewCell
-            let user = cell.profileModel
-        
-            self.promptForRemoveFriend(friendUid: user.userID)
-        }
-        
-        // customize the action appearance
-        deleteAction.image = #imageLiteral(resourceName: "Trash")
-        deleteAction.backgroundColor = .red
-        
-        return [deleteAction]
     }
     
     override func viewDidLoad() {
@@ -145,7 +122,7 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //
-//        promptForRemoveFriend(friendUid: user.userID)
+        promptForRemoveFriend(friendUid: users[indexPath.row].userID)
         // Segue to OtherProfile
         //friendProfileSegue
         performSegue(withIdentifier: "friendProfileSegue", sender: self)

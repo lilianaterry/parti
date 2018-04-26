@@ -28,8 +28,6 @@ target 'Parti' do
   pod 'Fabric', '~> 1.7.6'
   pod 'Crashlytics'
 
-  pod 'SwipeCellKit'
-
   target 'PartiTests' do
     inherit! :search_paths
     # Pods for testing

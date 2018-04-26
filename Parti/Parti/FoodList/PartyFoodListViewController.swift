@@ -27,11 +27,11 @@ class PartyFoodListViewController: UIViewController, UITableViewDelegate, UITabl
     
     // go back to the main party page
     @IBAction func backButton(_ sender: Any) {
-//        if (hostView) {
-//            self.performSegue(withIdentifier: "hostPartyPage", sender: self)
-//        } else {
-//            self.performSegue(withIdentifier: "guestPartyPage", sender: self)
-//        }
+        if (hostView) {
+            self.performSegue(withIdentifier: "hostPartyPage", sender: self)
+        } else {
+            self.performSegue(withIdentifier: "guestPartyPage", sender: self)
+        }
         dismiss(animated: false, completion: nil)
     }
     
@@ -141,7 +141,7 @@ class PartyFoodListViewController: UIViewController, UITableViewDelegate, UITabl
             
             // otherwise add them to this food item
         } else {
-            data[currentTab][key]?.userData.append(currentUser)
+            data[currentTab][key]?.userData.append(currentUserName)
             data[currentTab][key]?.added = true
             data[currentTab][key]?.opened = true
             

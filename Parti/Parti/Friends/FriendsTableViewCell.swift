@@ -9,9 +9,8 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
-import SwipeCellKit
 
-class FriendsTableViewCell: SwipeTableViewCell {
+class FriendsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
