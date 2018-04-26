@@ -30,7 +30,13 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
     var storageHandle: StorageHandle?
     
     // list of possible food/drink
-    var foodList = [String]()
+    var alcohol = [String: Any]()
+    var food = [String: [String: Any]]()
+    var mixers = [String: Any]()
+    var displaying: Any!
+    var numSections = 5
+    var sectionNum = 1
+    
     let allergyList = ["Nuts", "Gluten", "Vegetarian", "Dairy", "Vegan"]
     
     // our user's information
@@ -38,13 +44,49 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return foodList.count
+        if (numSections == 1) {
+            let list = displaying as! [String: Any]
+            return list.keys.count
+        } else {
+            var count = 0
+            for category in food {
+                let list = category.value
+                count += list.keys.count
+            }
+            
+            return count
+        }
+    }
+    
+    // number of food items in this tab
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if (sectionNum == 0 || sectionNum == 2) {
+            return 1
+        } else {
+            return food.keys.count
+        }
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "foodCell", for: indexPath)
-        cell.textLabel?.text = foodList[indexPath.row]
+        
+        if (indexPath.row == 0) {
+            return UITableViewCell()
+        } else {
+            print(food)
+            let sections = food.keys.count
+            print(sections)
+            print(indexPath.row)
+            let currentSection = indexPath.row / sections
+            print(currentSection)
+            let indexInSection = indexPath.row % sections
+            let sectionHeader = Array(food.keys)[currentSection]
+            print(sectionHeader)
+            print(indexInSection)
+            cell.textLabel?.text = Array(food[sectionHeader]!.keys)[indexInSection]
+        }
+        
         return cell
     }
     
@@ -66,14 +108,14 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
     
     // add item to user's food list so it can be uploaded to firebase later
     func addItem(index: Int) {
-        let item = foodList[index]
-        profileObject.foodList[item] = 1
+//        let item = foodList[index]
+//        profileObject.foodList[item] = 1
     }
     
     // remove item from user's food list so it won't be uploaded to firebase
     func removeItem(index: Int) {
-        let item = foodList[index]
-        profileObject.foodList.removeValue(forKey: item)
+//        let item = foodList[index]
+//        profileObject.foodList.removeValue(forKey: item)
     }
     
     override func viewDidLoad() {
@@ -111,16 +153,19 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
     
     /* Retrieves all foodlist items from Firebase */
     func populateFoodList() {
-        let foodRef = databaseRef.child("foodlist");
+        let foodRef = databaseRef.child("foodList");
         
         // get all foodlist items and populate table view
         foodRef.queryOrderedByKey().observeSingleEvent(of: .value, with: { (snapshot) in
-            for child in snapshot.children {
-                let snap = child as! DataSnapshot
-                let key = snap.key
-                self.foodList.append(key)
-            }
+            let data = snapshot.value as! [String: Any]
             
+            print(data)
+            
+            self.alcohol = data["Alcohol"] as! [String: Any]
+            self.mixers = data["Mixers"] as! [String: Any]
+            self.food = data["Food"] as! [String: [String: Any]]
+            
+            self.displaying = self.food
             self.tableView.reloadData()
         })
     }
