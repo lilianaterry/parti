@@ -88,8 +88,6 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
     func isFriendOfUser(friendUid: String) {
         databaseRef.child("users/\(userID)/friendsList").observeSingleEvent(of: .value) { (snapshot) in
             if (snapshot.hasChild(friendUid)) {
-                print("they r a friend")
-                //print(profileModel.userID)
                 self.uidToFriendStatus[friendUid] = 1
             }
             
@@ -101,9 +99,14 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
         let cell = tableView.cellForRow(at: indexPath) as! AddFriendTableViewCell
         
         let user = cell.profileModel
-        print("Adding friend: " + user.userID)
+        if (cell.accessoryType == UITableViewCellAccessoryType.checkmark) {
+            cell.accessoryType = UITableViewCellAccessoryType.none
+            removeFriend(friendUid: user.userID)
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryType.checkmark
+            addFriend(friendUid: user.userID)
+        }
         
-        addFriend(friendUid: user.userID)
     }
     
     func addFriend(friendUid: String) {
@@ -112,6 +115,11 @@ class AddFriendsViewController: UIViewController, UITableViewDataSource, UISearc
         
         self.databaseRef.child("users/\(friendUid)/friendsList").updateChildValues(userDict)
         self.databaseRef.child("users/\(userID)/friendsList").updateChildValues(friendDict)
+    }
+    
+    func removeFriend(friendUid: String) {
+        self.databaseRef.child("users/\(friendUid)/friendsList/\(userID)").removeValue()
+        self.databaseRef.child("users/\(userID)/friendsList/\(friendUid)").removeValue()
     }
     
     // This method updates filteredData based on the text in the Search Box
