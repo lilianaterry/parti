@@ -21,6 +21,8 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var lactoseButton: UIButton!
     @IBOutlet weak var veganButton: UIButton!
     
+    var userID = Auth.auth().currentUser?.uid as! String
+    
     // Firebase connection
     var databaseRef: DatabaseReference!
     var databaseHandle: DatabaseHandle?
@@ -30,30 +32,21 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
     var storageHandle: StorageHandle?
     
     // list of possible food/drink
-    var alcohol = [String]()
-    var food = [String]()
-    var mixers = [String]()
-    var displaying = [String]()
-    var sectionNum = 0
-    
-    var sections = ["food", "alcohol", "mixers"]
+    var foodList = [String]()
     
     let allergyList = ["Nuts", "Gluten", "Vegetarian", "Dairy", "Vegan"]
     
     // our user's information
     var profileObject = ProfileModel()
     
-    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return displaying.count
+        return foodList.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "foodCell", for: indexPath)
-        
-        cell.textLabel?.text = displaying[indexPath.row]
-        
+        cell.textLabel?.text = foodList[indexPath.row]
         return cell
     }
     
@@ -75,14 +68,14 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
     
     // add item to user's food list so it can be uploaded to firebase later
     func addItem(index: Int) {
-//        let item = foodList[index]
-//        profileObject.foodList[item] = 1
+        let item = foodList[index]
+        profileObject.foodList[item] = 1
     }
     
     // remove item from user's food list so it won't be uploaded to firebase
     func removeItem(index: Int) {
-//        let item = foodList[index]
-//        profileObject.foodList.removeValue(forKey: item)
+        let item = foodList[index]
+        profileObject.foodList.removeValue(forKey: item)
     }
     
     override func viewDidLoad() {
@@ -95,7 +88,7 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
         storageRef = Storage.storage().reference()
         
         // setup visuals for data
-        populateFoodList()
+        populateList()
         setupAllergyIcons()
     }
     
@@ -119,23 +112,17 @@ class CreateFoodListViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     /* Retrieves all foodlist items from Firebase */
-    func populateFoodList() {
-        let foodRef = databaseRef.child("foodList");
+    func populateList() {
+        let foodRef = databaseRef.child("foodlist");
         
         // get all foodlist items and populate table view
         foodRef.queryOrderedByKey().observeSingleEvent(of: .value, with: { (snapshot) in
-            let data = snapshot.value as! [String: Any]
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                let key = snap.key
+                self.foodList.append(key)
+            }
             
-            print(data)
-            var alcoholList = data["Alcohol"]
-            alcoholList = 
-            
-            
-            self.alcohol = (data["Alcohol"] as! [String: Any]).keys
-            self.mixers = (data["Mixers"] as! [String: Any]).keys
-            self.food = (data["Food"] as! [String: Any]).keys
-            
-            self.displaying = self.food
             self.tableView.reloadData()
         })
     }

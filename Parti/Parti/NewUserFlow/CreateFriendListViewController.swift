@@ -97,13 +97,15 @@ class CreateFriendListViewController: UIViewController, UITableViewDataSource, U
     // get all users
     func populateAllFriendsList() {
         databaseHandle = databaseRef?.child("users").queryOrdered(byChild: "name").observe(.childAdded) { snapshot in
-            var data = snapshot.value as! [String: Any]
-            var user = ProfileModel()
-            user.name = data["name"] as! String
-            self.nameToModel[user.name] = user
-            user.userID = snapshot.key
-            
-            self.getPicture(userID: user.userID, user: user)
+            if (snapshot.exists()) {
+                var data = snapshot.value as! [String: Any]
+                var user = ProfileModel()
+                user.name = data["name"] as! String
+                self.nameToModel[user.name] = user
+                user.userID = snapshot.key
+                
+                self.getPicture(userID: user.userID, user: user)
+            }
         }
     }
     
